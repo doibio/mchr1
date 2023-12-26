@@ -1,0 +1,482 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter - Automatic and Semi-Automatic Analysis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\startchapter{Automatic and Semi-Automatic Analysis}
+\label{chap:analysis}
+
+There are two main parts of doing supervised machine learning,
+extracting the features and training and predicting on labeled
+features.  The choice of appropriate feature extraction algorithms is
+extremely important in the success of a machine learning algorithm
+\cite{duda2012pattern}.  In the first section of this chapter, I will
+examine some well known audio feature extraction algorithms and the
+way they work.  In the second section, a small amount of background
+information will be presented about the machine learning algorithms
+used in this thesis.
+
+\section{Audio Feature Extraction}
+
+
+A very simple feature that derives directly from the waveform of the
+signal is the Root Mean Square (RMS) energy of a signal.  The RMS is
+one measure of the amount of energy present in a waveform.  The RMS is
+calculated using the following formula:
+
+\begin{equation} 
+RMS =  \sqrt{ 1/N \sum_{n=0}^N x[n]^2 }  
+\end{equation}
+
+\noindent Where $N$ is the number of samples in the window and $x[i]$ is the
+value of the signal at time point $i$. 
+
+The power spectrum of a signal can be obtained by using a Fast Fourier
+Transform.  This Fourier analysis of a signal decomposes a time
+sequence of a waveform into separate frequencies.  This frequency
+representation of a signal can be represented pictorally as a
+spectrogram and is a widely used method for researchers to visually
+identify different bioacoustic sounds.  Statistical properties of this
+spectrum can also be obtained, and these properties have been used
+previously in the Music Information Retrieval literature to classify
+audio signals.
+
+In this thesis, I use five of these statistical measures of a signal,
+these are the Centroid, Rolloff, Flux, Kurtosis, Skewness of the
+spectrum \cite{tzanetakis2008marsyas} \cite{klapuri2006book}.  
+
+The Spectral Centroid of a signal is defined as the normalized first
+moment or center of gravity of a signal \cite{li2006intelligent} and is
+represented by the following equation:
+
+\begin{equation} 
+C_t = \frac{\sum_{n=1}^N M_t[n] * n}{\sum_{n=1}^N M_t[n]} 
+\end{equation}
+
+\noindent Where $C_t$ is the centroid at time $t$, $n$ is the number of bins in
+the power spectrum and $M_t[n]$ is the value of the $n^{th}$ bin in
+the power spectrum.
+
+The Spectral Rolloff is the frequency below which 90\% of the magnitude in
+frequency bins is concentrated and is defined by the following
+equation:
+
+\begin{equation} 
+\sum_{n=1}^{R_t} M_t[n] = 0.90 * \sum_{n=1}^N M_t[n] 
+\end{equation}
+
+\noindent Where $R_t$ is the rolloff frequency I am attempting to calculate,
+$n$ is the number of bins in the power spectrum and $M_t[n]$ is the
+value of the $n^{th}$ bin in the power spectrum.
+
+The Spectral Flux is the norm of two successive power
+spectra and is shown in the following equation:
+
+\begin{equation} 
+F_t = \sum_{n=1}^M (M_t[n] - M_{t-1}[n])^2 
+\end{equation}
+
+\noindent Where $F_t$ is the spectral flux I am attempting to calculate,
+and $M_t[n]$ is the value of the $n^{th}$ power spectrum bin.
+
+The Spectral Kurtosis of a signal \cite{dubnov1996testing} is a
+measure of the peakedness of a signal and a definition was given by
+J{\"o}reskog \cite{joreskog1999formulas}.  If we let X be
+a real valued random variable, and let $\mu = E(X)$ and further
+define:
+
+\begin{equation} 
+\mu_i = E(X - \mu)^i 
+\end{equation}
+
+\noindent For values of i including 2, 3 and 4.  In this case $E(X)$ is the
+expected value for $X$, $\mu$ would be the mean, $\mu_2$ would be the
+variance and $\sqrt{\mu_2}$ would be the standard deviation.  Using
+this notation, the Kurtosis is defined as:
+
+\begin{equation} 
+Kurtosis = \gamma_1 = \frac{\mu_3}{\mu_2^{3/2}} = \frac{\mu_3}{\mu_2 \sqrt{\mu_2}} 
+\end{equation}
+
+\noindent A measure closely related to the kurtosis is the Spectral Skewness of
+a signal and is defined by the following equation:
+
+\begin{equation} 
+Skewness = \gamma_2 = \frac{\mu_4}{\mu_2^2} - 3 
+\end{equation}
+
+\noindent These statistical properties of a signal can be used separately,
+however, when used in combination often give a better description of
+the spectrum.
+
+Another feature often used in MIR is Chroma features.  In this
+representation, the entire spectrum is projected onto 12 bins, each of
+which corresponds to one of the semitones of the equal tempered
+musical octave.  Although this measure is of more use when analyzing
+Western Music, it could be useful if the vocalizations that are being
+studied have specific absolute pitches.
+
+MFCCs are a feature that has shown great utility in the classification
+of human speech and of music signals.  It is a cepstral representation
+of audio, which can be thought of as a spectrum of a spectrum, with
+the frequency bands spaced at the mel scale, a scale that approximates
+human hearing.  Variable numbers of coefficients can be calculated
+with the MFCC, typically 13 are used, but more have also been used in
+a variety of studies.  The \textit{Marsyas} audio framework provides an MFCC
+subsystem, and all the results here use \textit{Marsyas} to calculate the MFCC
+coefficients.
+
+MFCCs \cite{logan2000mfcc} have been widely used for this purpose.
+MFCCs have also been used in bioacoustics, and have been used to
+classify insect sounds \cite{leqing2011insect}, birds
+\cite{changhsing2007automatic} and orca calls \cite{ness2008chants}.
+
+The Spectral Flatness Measure (SFM) \cite{hosseinzadeh2007mfcc} is a
+measure of the flatness of a spectrum.  Based on this measure, white noise
+has a flat spectrum.  This measure has been shown to be useful for
+discriminating voiced and un-voiced components in human speech.  It is
+defined by the following equation:
+
+\begin{equation} 
+SFM_{i,b} =  \frac{[\prod_{f=l_b}^{u_b} {|M_i [f]|}^2]^\frac{1}{u_b - l_b + 1}}
+	{\frac{1}{u_b - l_b + 1}\sum_{f=l_b}{u_b} {|M_i[f]|^2}} 
+\end{equation}
+
+\noindent Where $s_i[n]$ for $n \in [0,N]$ represents the $i^{th}$ frame of
+audio and $M_i[f]$ represents the spectrum of audio of that frame.
+With this, we can divide $M_i[f]$ into $P$ subbands, where the lower
+each of each subband is defined to be $l_b$ and the upper is $u_b$.
+
+The Spectral Crest Factor (SCF) provides a quantified measure for the
+tonality of a signal, and indicates the relative peak of a subband
+which has been shown to be useful \cite{hosseinzadeh2007mfcc} for
+discriminating wideband and narrowband signals.  Each peak in the
+output of this formula gives the dominant pitch frequency in each
+subband.  It is defined by the following equation:
+
+\begin{equation} 
+SCF_{i,b} = \frac{max(|M_i[f]|^2)}
+	                {\frac{1}{u_b - l_b + 1}\sum_{f=l_b}^{u_b} |M_i [f]|^2} 
+\end{equation}
+
+A complementary approach to spectral methods for analyzing a signal
+are autocorrelation based methods, which are often used to calculate
+an estimate of the fundamental frequency (F0) or pitch.  One such well
+known algorithm for this is the Yin algorithm \cite{cheveigne2002yin}
+and another newer algorithm that shows considerable promise is the
+SWIPEP algorithm \cite{camachophd}.  This algorithm is primarily an
+autocorrelation-based approach, which means that it takes the audio
+signal and convolves it with itself in the time domain.  The peaks in
+this convolution then correspond to harmonics in the signal, and with
+noise free data with harmonics that strictly decrease, the lowest peak
+is the fundamental frequency.  With audio that does not fit this
+strict definition, there are many cases where the lowest peak is not
+the fundamental frequency; one example is if odd harmonics are
+systematically lower than even harmonics and another is if there is
+substantial noise in the data.  The Yin algorithm makes several
+modifications to simple autocorrelation to overcome these issues.
+
+The discrete calls of killer whales are pulsed signals in which a tone
+(of a certain tonal frequency) is not emitted continuously but in
+pulses given by the pulse-repetition rate. Unlike the tonal signals of
+many birds and other delphinids, the highest energy is not always
+contained in the first or second harmonic
+\cite{deecke1999quantifying}.  This causes problems for
+autocorrelation based methods such as Yin, and often integer multiples
+of the fundamental frequency are found rather than the true
+fundamental.  These errors are commonly called octave errors.  Visual
+inspection of the output of the Yin algorithm in the Orchive Version
+2.0 website shows that these octave errors are common in some
+recordings, but in some recordings these errors are seen less.
+
+In addition, the presence of noise can prevent this algorithm from
+finding the fundamental frequency of the orca call.  In addition, if
+the noise has harmonic structure the YIN algorithm can find the pitch
+of the boat noise.  This is visible in a number of the Orchive
+recordings.
+
+\section{Machine Learning}
+
+Support Vector Machines (SVM) \cite{cortes1995svm} are an advanced
+type of machine learning technique that finds optimal hyperplanes in
+high dimensional datasets, which we then use to classify audio.  This
+classification can be as simple as either ``orca'', ``voiceover'' or
+``background'' or can be as complex as classifying different call
+types or even different pods through their call repertoires.
+
+The simplest type of SVM uses a linear kernel, and if the feature
+vectors are linearly separable by class and attribute, it is an
+efficient way to do classification.  If the data points have a more
+complex shape, a more complex kernel can be used.
+
+One popular package that implements a linear kernel is LIBLINEAR
+\cite{rongen2008liblinear}.  It can run two different binary linear
+classifiers, Logistic Regression (LR) and a linear Support Vector
+Machine (SVM).  If one has a set of instances with labels:
+
+\begin{equation} 
+(x_i, y_i), i=1,...,l x_i \in R^n, y_i \in {-1,+1} 
+\end{equation}
+
+Both methods solve the following optimization problem:
+
+\begin{equation} 
+min_w  1/2 w^T w + C \sum_{i=1}^l{\xi(w;x_i,y_i)} 
+\end{equation}
+
+\noindent where $C$ is a penalty parameter.  The SVM can employ two different loss
+functions, a L1 loss function $max(1-y_i w^T x_i, 0)$ and an L2 loss
+function $max(1-y_i w^T x_i, 0)^2$.  In the case of linear regression,
+the loss function is $log(1+ e^{-y_i w^T x_i})$.
+
+LIBLINEAR has 8 different solvers that can be used in multi-class
+classification.  These different solvers solve different forms of the
+function and either solve the primal problem or the dual problem.  For
+every primal form of a function there exists a dual form which gives
+the maximum upper bound of the problem, and is sometimes quicker to
+solve than the primal form of the problem, especially in the case of
+linear SVM.  In addition, the solver can be L1 regularized or L2
+regularized.  Finally, the loss term can be either an L1 loss or an L2
+loss.
+
+It has been shown \cite{rongen2008liblinear} that these different solvers
+can yield small differences in classification accuracies and can show
+large changes in the amount of time that each takes to solve a given
+classification task.
+
+Another important parameter to vary for LIBLINEAR is the penalty, or
+cost, parameter C.  However, a theoretical proof has been presented
+\cite{keerthi2003asymptotic} that for the solvers in LIBLINEAR, once C
+has reached a certain threshold, the obtained models will have a
+similar performance.  In Table \ref{table:liblinearSolvers}, all the
+solvers of LIBLINEAR are shown along with their ID, by which they are
+referred to in tables in this thesis to save space.
+
+\begin{table}
+\begin{tabular}{|l|l|}
+\hline
+0 & L2-regularized logistic regression (primal) \\
+1 & L2-regularized L2-loss support vector classification (dual) \\
+2 & L2-regularized L2-loss support vector classification (primal) \\
+3 & L2-regularized L1-loss support vector classification (dual) \\
+4 & support vector classification by Crammer and Singer \\
+5 & L1-regularized L2-loss support vector classification \\
+6 & L1-regularized logistic regression \\
+7 & L2-regularized logistic regression (dual) \\
+\hline
+\end{tabular}
+\caption{Table of LIBLINEAR parameters}
+\label{table:liblinearSolvers}
+\end{table}
+
+Like LIBLINEAR, the LibSVM \cite{chang2001libsvm} package allows
+researchers to train a Support Vector Machine and was written by the
+same team that wrote LIBLINEAR.  However, LIBLINEAR only allows for
+the use of a linear kernel, where LibSVM allows for the use of
+different kernels, including linear, polynomial, sigmoid and Radial
+Basis Function (RBF) kernels.  For problems that have data points that
+are linearly separable, a linear kernel works well, but for problems
+where the data points have more complex structure, like in optical
+character recognition, the choice of an appropriate kernel can project
+these points into a higher dimensional space, where these points can
+be separated by linear hyperplanes.  The earliest developments of SVM
+by Vapnik \cite{cortes1995svm} demonstrated the importance of
+non-linear kernels in certain problem domains.
+
+However, because LibSVM allows for the use of non-linear kernels, it
+does not contain the same optimizations that LIBLINEAR does for linear
+kernels and can exhibit much slower training and predicting speed than
+LIBLINEAR.  When predicting, the time to predict new points using
+LibSVM the time complexity is $O(kn)$ where $k$ is the number of
+support vectors and $n$ is the number of points to predict, but for
+LIBLINEAR, the time complexity is $O(n)$.  The reason for this is that
+in LibSVM to determine the class of a new vector this vector must
+first be multiplied by each support vector.  This is required in the
+case of a general non-linear kernel because the dimensionality of the
+separating hyperplanes can be infinite, as is the case for the RBF
+kernel.  This means that that it would be impractical to calculate the
+distance from all the hyperplanes.  However, by multiplying the
+feature vectors by the support vectors, the distance to the
+hyperplanes in the RBF kernel can be easily computed, which is the
+approach taken in LibSVM.  For this reason, when using linear kernels,
+it is preferable to use LIBLINEAR, but for other kernels, LibSVM must
+be used.
+
+The polynomial kernel is one kernel LibSVM supports and has the form:
+
+\begin{equation} 
+ (\gamma*u'*v + {coef0})^{degree}  
+\end{equation}
+
+In this equation, there are three different parameters that can be
+varied, the $degree$ of the kernel, $\gamma$ and ${coef0}$.  To find the
+optimal performance of this kernel, a parameter search of all these
+parameters must be carried out.  
+
+The sigmoid kernel is of interest because it is of a similar form to
+the linear perceptron used in neural networks, a classifier that we
+will also investigate.  The form of the sigmoid kernel is
+
+\begin{equation} 
+tanh(\gamma*u'*v + {coef0}) 
+\end{equation}
+
+The parameters for the sigmoid kernel are $coef0$ and $\gamma$. 
+
+One of the most widely used kernels in the SVM literature
+\cite{scholkopf97rbf} is the Radial Basis Function (RBF) kernel.  The
+functional form of this kernel is:
+
+\begin{equation} 
+exp(-\gamma*|\mu-\nu|^2) 
+\end{equation}
+
+This kernel, while appearing simple, allows for the creation of
+hyperplanes of infinite dimension and works well for many different
+arrangements of points in space, including the classic example where a
+sphere of points of one class is completely surrounded by points of
+another class.
+
+There are many other techniques that have shown their usefulness in
+the field of machine learning besides Support Vector Machines.  The
+field of machine learning is under active development, and new
+techniques are being developed at a rapid rate.  In the next chapter,
+a number of different machine learning systems will be evaluated on
+the orca/background/voice dataset.
+
+For this, I will use the Weka \cite{witten2005weka} framework.  This
+framework implements a large number of machine learning algorithms.
+From the ones implemented in Weka, a search of recent literature was
+conducted and five of the most promising algorithms were chosen,
+including the Logistic Regression, Decision Trees, Naive Bayes, Random
+Forest and Multilayer Perceptron algorithms.  In Chapter
+\ref{chap:evaluation} the classification accuracy and time performance
+of algorithms will be examined.
+
+Logistic Regression \cite{lecessie1992logisitic} is a type of linear
+regression analysis where new instances are classified based on a
+logistic function.  One of the reasons that this algorithm is useful
+to consider is there exist implementations to distribute it on a large
+cluster of machines using a map-reduce paradigm \cite{khuc2012towards}
+using the Mahout machine learning framework under Hadoop.  This can
+give it the ability to use very large training datasets efficiently.
+
+Naive Bayes classifiers \cite{john1995estimating} use Bayes theorem
+for classification.  The functional form of Bayes theorem is:
+
+\begin{equation} 
+P(X|Y) = \frac{P(X)P(Y|X)}{P(Y)} 
+\end{equation}
+
+However, the Naive Bayes algorithm assumes that all attributes are
+independent.  This is not the case in many classification problems,
+but this simple model often works well in practice.  In the case of
+the datasets used in this chapter, the features are in some cases
+closely interrelated.  One advantage of Naive Bayes is that it can be
+trained efficiently on large datasets.
+
+Decision tree based methods construct a tree in which every node
+separates the a set of data into two or more subsets based on the
+values of different attributes of feature vectors. One such decision
+tree algorithm is the C4.5 algorithm, which was developed in 1993 by
+Quinlan \cite{quinlan1993c45}.  It is similar to the ID3 (Iterative
+Dichotomiser 3) algorithm \cite{quinlan1986induction} and constructs a tree that makes
+the optimal decision based on information entropy at each node of the
+decision tree.
+
+The C4.5 algorithm starts with all the original data points in one
+set.  At each step, it iterates over each node of the tree and looks
+at the set of instances at that node.  It goes through all the
+attributes of that set and finds the attribute that can give the
+highest information gain (or lowest information entropy) if I was to
+split the node based on that attribute.  It then splits that node by
+making a new decision at that node splitting the set S into two or
+more sets using that attribute.  This process is iterated over all the
+leaves until either each element in that node has the same label,
+there are no more attributes to be selected, or there are no more
+examples in the subset at this node.  One advantage of a decision tree
+based approach is that it is very quick to predict values given a
+trained classifier.
+
+The Random Forest model of classification also uses decision trees as
+described above with the C4.5 classifier but constructs many
+different trees using a subset of the features and uses the output of
+each tree as a vote in the final classification, choosing the label
+with the most votes.  It was originally developed by Breiman and
+Cutler \cite{breiman2001random} and uses ideas from bagging, or
+bootstrap aggregating, where multiple sets of new training sets are
+generated from an original training set by sampling uniformly from the
+original training set with replacement.  The algorithm has the
+advantage that not all the features have to be used in the
+construction of each new tree like in the C4.5 algorithm, which can
+give speed benefits, which is somewhat offset by the need to train
+multiple trees.
+
+A Multilayer Perceptron (MLP) \cite{ruck1990multilayer} is a neural
+network classifier that uses backpropogation to train the algorithm.
+All nodes use a sigmoid activation function.  It is closely related to
+Deep Belief Networks (DBN) \cite{rumelhart2002learning}, which are one
+of the most promising set of machine learning when exploring large,
+high dimensional datasets such as handwriting recognition. The
+advantage of a DBN over a MLP is that because of the use of a
+pre-training step using Restricted Boltzman Machines (RBM)
+\cite{hinton2006fast}, they can be trained faster than MLPs.  However,
+it must be noted that because of the non-convex shape of the energy
+landscape of DBNs, they are typically much slower to train and less
+reliably trainable than Support Vector Machines, which optimize a
+convex function.
+
+\section{Cross-validation}
+\label{section:analysis:crossvalidation}
+
+Supervised machine learning algorithms take a training set of data to
+train their model, and then use this model to predict new data.  If
+this data is unlabelled, this task is called prediction, and if it is
+labelled, it is used to test the performance of the classifier.  The
+construction of training and testing sets is a subject that has been a
+subject of considerable discussion \cite{efron1983leisurely}.  One
+method that has good properties is k-fold crossvalidation
+\cite{kohavi1995study}.
+
+In $k$-fold crossvalidation, one breaks a dataset into $k$ parts.  For
+the first fold, take the 1st subset for testing, and the other 9 for
+training the classifier.  For the second fold, take the 2nd subset for
+testing, and the others for training.  These $k$ folds are then
+independently trained and tested, and the results are averaged.  This
+form of validating the performance of a classifier has the advantage
+of reducing overfitting of the model to the data.
+
+In the case of audio however, there exist considerable correlations
+between clips, and when using naive cross-validation, these correlated
+feature vectors get mixed between training and testing folds.
+Depending on the model used, this can make it appear that the model
+has better performance than it does, due to overfitting.  
+
+Because of this, for all results tables in Chapter
+\ref{chap:evaluation} are done using a custom cross-validation fold
+making program that separates clips into folds before doing feature
+extraction on them.
+
+\section{Summary}
+
+Good audio features are of central importance to the success of a
+supervised machine learning algorithm, and several robust features
+from MIR, including waveform parameters, Spectral Statististics,
+MFCCs, SFM, SCF, Chroma and Pitch Estimation have been described.
+These features can then be input to a machine learning system that
+takes labelled audio data and trains a model that can be used to
+predict labels for new, unknown data in the future.
+
+The performance of these algorithms on two large collections of orca
+vocalizations obtained using the Orchive web interface is shown in the
+Chapter \ref{chap:evaluation}.  In this chapter, the ORCAOBV1 dataset,
+a 1GB 100 minute dataset containing the three labels
+``orca/background/voice'' is used to test combinations of these
+different audio features, machine learning algorithms and machine
+learning parameters, and results of this will be presented.  Following
+this, results showing the use of these algorithms on a set of
+\totalClipsInORCACALL call types in the ORCACALL1 dataset of
+\totalCallsInORCACALL different orca call types will be explored.
+
+

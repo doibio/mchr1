@@ -1,0 +1,150 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter - Conclusions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\startchapter{Conclusions}
+\label{chap:conclusions}
+
+The goal of this thesis was to produce a system that could allow
+researchers to annotate and classify all of the audio in a large
+bioacoustic collection.
+
+In terms of making a system that allows researchers to listen to, view
+and annotate a large collection of audio, two systems were built in
+this thesis.  The first was orchive v1.0, and using this system, a
+group of \totalExperts experts in orca vocalizations were able to
+create over \totalAnnotations high quality annotations using this
+system, which is a proof of the ability of this system to enable
+scientists to use the system for annotations.  This website has been
+accessed by over 3,900 people from 89 countries from around the world
+and in the last month saw 43 unique visitors.  It is under active use
+by a number of orca researchers and in the last year has seen a
+dramatic increase in the number of people annotating recordings.  A
+version of this system was used by a member of the research staff of
+the VENUS program and allowed him to find the first examples of marine
+mammal vocalizations in the audio data from the VENUS project.  These
+results provide a demonstration of the success of this part of the
+system.
+
+When building this system, several issues in terms of architecture,
+platform and user interface were identified and were addressed in the
+creation of orchive v2.0, a completely rewritten framework that
+contains several thousand lines of code that has been made available
+as open source code on the Github
+website \footnote{\url{http://github.com/openmir}}.  This code
+consists of a central Python or Node.js core that builds webpages with
+embedded Javascript apps and plugins which can be used separately from
+the main Orchive website.  The new web interface allows for the easy
+creation of annotations, the building of training and testing
+datasets, viewing of audio features, training of machine learning
+classifiers and viewing the results of these classification results.
+These new features also allow for the easy deployment of the Orchive
+website on new datasets, and indeed, the new Orchive interface
+includes data from bird song recordings and partially annotated chant
+traditions.  This new system was used to take the untrimmed
+annotations from experts in orca vocalizations and to create a set of
+trimmed annotations that were used in this thesis as the ORCAOBV1
+dataset.  The ability of the system to support activities such as this
+trimming, to see the results of classification experiments and to view
+audio features is a demonstration of the success of this new system.
+
+In this thesis, a set of experiments using different sets of audio
+features and machine learning systems were conducted on a large set of
+training data, containing over 6000 seconds of audio in 11,041 clips
+containing the three labels orca/background/voice.  The purpose of
+these experiments was to see if high classification accuracy could be
+obtained and if a trained classifier could be used to find all the
+orca vocalizations in the Orchive.  The highest classification
+performance achieved was 92\%, which is quite high, especially with
+the low Signal to Noise Ratio (SNR) in many of these clips.  This high
+classification accuracy shows the success of this set of experiments.
+
+Using a smaller subset of the data, a hybrid audio feature extraction
+and machine learning system that can run on a large cluster was
+developed.  This system was used to segment all the audio in the
+Orchive and took a total of approximately 2 days on 10 computers.
+This shows the success of the system in the task of classifying all
+the audio in the Orchive, which was a primary goal of this thesis.
+
+In addition, experiments were undertaken to classify a set of 2985
+orca vocalizations annotated into 12 call classes by a set of experts
+in orca vocalizations.  A variety of combinations of audio features
+and machine learning algorithms were used to classify this audio and a
+maximum classification accuracy of \classificationAccuracyOBV was
+obtained.  This is considerably higher than the 8\% classification
+accuracy that would be attained if performance was random.  The high
+classification accuracy in this task shows the success of this part of
+the thesis and could be used in a system classify the entire set of
+clips from the segmented audio obtained by the hybrid
+bextract/sfplugin system.  It was interesting to note that the best
+results obtained were from the trimmed loud dataset, which is
+understandable because these clips were selected to have a large
+amount of orca call signal in them.  This large amount of signal was
+then picked up by the audio feature extraction algorithms, which
+resulted in feature vectors that were different enough from the signal
+vectors of noise to allow the machine learning algorithms to correctly
+classify them at a higher accuracy than for untrimmed and the full set
+of trimmed clips.  In addition, it was very interesting to note that
+for some audio features, such as RMS, the performance of the trimmed
+and trimmed loud datasets were considerably lower than for untrimmed
+clips, and is likely due to the fact that in these cases, the machine
+learning algorithms were actually learning more of the characteristics
+of noise rather than of signal.  This shows the importance of the
+careful collection of datasets to have high quality information in
+them that can be exploited by a combination of appropriate audio
+feature extraction and machine learning algorithms.
+
+With a call classification accuracy of around 76\%, about 24\% of the
+call types classified by the systems described above would be incorrectly
+labelled.  To help correctly classify these call types, a system was
+developed to allow citizen scientists to help label the call types in the
+Orchive.  This system has been integrated tightly into the Orchive
+Version 2.0 code and allows researchers to have these citizen
+scientists help to correctly annotate these call types.  The system that
+was developed took the form of a simple casual game using the common
+matching metaphor.  An experiment was carried out to test this system,
+and over the course of 5 months, over 750 members of the public used
+this system and contributed 4899 annotations.  4203 of these
+annotations were done in a one month study period.  This can be
+compared to the 5 years it took 10 experts to create 17,000
+annotations, and shows the potential of large numbers of members of
+the public to quickly annotate large numbers of clips.  Different
+populations of recruits had different classification accuracies, and
+for a set of student volunteers with no training in orca call
+recognition, a classification accuracy of 60.8\%; people recruited
+from Facebook had an average classification accuracy of 77.3\%; and
+experts in orca calls had a classification of 86.4\%.  Given the
+difficult nature of the classification tasks in this hand-constructed
+dataset, where participants were sometimes asked to classify call types
+based on matrilines, these results show the ability of the human
+perceptual system and of this citizen science interface to generate
+high-quality call annotations.  This result shows the success of this
+part of the system.
+
+One conclusion that was reached in the development of the Orchive was
+a clarification of the population who would receive the benefits from
+the Orchive and who would do the work.  At the start of the project,
+it was assumed that the population who would do the work and would
+receive the benefits would be the biologists who were experts in orca
+vocalizations.  However, by the end of the project, it was found that
+the main population to gain rewards from this system would be
+researchers in bioacoustic algorithms.  It is hoped that in time, with
+improvements to the interface and with more data, that the community
+of biologists with expertise in orca vocalizations will be able to use
+this system and derive benefits from it.
+
+Certainly, a considerable amount of software development work was done
+to create the Orchive; however, a considerable amount of work was done
+to label and annotate the recordings and \totalExperts different
+volunteers spent many hundreds of hours and created a total of
+\totalAnnotations annotations.  Collaborations with other research
+groups in the field of bioacoustics have shown that there is interest
+in a fully annotated version of the Orchive, and that any annotated
+data is useful.
+
+These results show that the objectives that were set out for this
+thesis have been achieved.

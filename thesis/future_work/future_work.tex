@@ -1,0 +1,230 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapter - Future Work
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\startchapter{Future Work}
+\label{chap:future}
+
+There remains considerable work to be done in regards to the Orchive
+as a whole.  The first is to find more examples of clear, nearby,
+isolated orca vocalizations and background noise.  There are
+\totalAnnotations annotations, about half of which are orca
+vocalizations.  A rough estimate would be that about 1 in 20 of these
+would be a loud, isolated vocalization, so one task I am working on
+is developing tools to quickly let us go through the existing
+annotations and to make training sets for machine learning algorithms.
+In combination with this is the task to better trim the ends of orca
+calls to eliminate the silences that confound our machine learning
+algorithms.  I am developing HTML5 based tools to help us to
+manually do this and are also refining existing and developing new
+algorithms to automatically do this.
+
+The most exciting directly applicable future work to the current work
+involves doing large scale clustering and vector quantization (VQ) on
+the loud, isolated, orca vocalizations found in this study.  The VQ
+algorithm will give us as output an alphabet with an arbitrary sized
+dictionary of atoms.  With this one dimensional quantized and
+clustered representation of the audio, I plan to use tools and
+techniques from Bioinformatics \cite{sarkar2002discovering} and
+Symbolic Aggregate Approximation \cite{lin07sax} to extract
+information from this archive at a large scale.  Although this project
+concentrated on classification, it is the clustering capabilities of
+Mahout that would be useful for this task and would be even more
+appropriate for doing large scale clustering than for doing
+classification.
+
+Investigate social behaviour in communities of whales
+\cite{weiss2007intra} with a larger dataset that has been previously
+used \cite{janik2000social} but with the same population of NRKW.
+This would depend on having accurately labeled clips, probably down to
+at least the matriline if not individual level, and while challenging,
+might be very worthwhile.
+
+I have done extensive experiments with Dynamic Time Warping for
+classifying audio of partially annotated chants \cite{ness2008chants}
+but have not yet applied it to orca calls.  Brown
+\cite{brown2006classifying} presents an interesting approach to using
+DTW to classify the vocalizations of orcas and in future work I would
+like to add DTW to the Orchive interface, and have started work down
+this path.
+
+The Hilbert-Huang Transform \cite{adam2006hilbert} is an interesting
+different transform from the Fourier Transform and I would like to
+investigate it more thoroughly with the Orchive dataset.
+
+If there was time and money, a detailed ethnographic study of
+different communities involved in the Orchive and OrcaLab would be
+fascinating and would provide insights into a wide variety of
+communities, from scientists to political activists and the Department
+of Fisheries and Oceans.  It is a complex area to investigate and
+would require significant resources but might be fruitful.
+
+In order to expedite the collection of trimmed clips from the raw
+clips from Orchive V1.0, a decision was made to write the server side
+in Django, as the author already had experience with this framework.
+However, as time goes on and more of the code is written in Javascript
+and is on the client side, it would be advantageous to use Javascript
+on both the server and client.  Considerable effort went into
+developing a Node.js version of the server component, and several
+functions had to be backported from Node.js to Python.  While too raw
+for getting production data for this thesis, I feel that it would be
+optimal to eventually move all Django functionality to Node.js and
+write all the code in Javascript and C++.
+
+Once the vocalizations have all been labeled, there are a multitude of
+different tasks that they can be used for.  The different levels of
+labeling would determine the scientific question that could be asked,
+but in general, one could use data mining techniques to look at the
+patterns of vocalizations and pull out interesting associations.
+
+In the near term I will be releasing new versions of the two datasets
+used in this thesis, they will be called ORCAOBV2 and ORCACALL2.  The
+goal is to expand datasets so they have approximately equal numbers of
+each class.  However, some classes are inherently less common, and
+this should not stop one from collecting as many high quality calls as
+possible.  The goal is to have a regular half year release cycle where
+all the new annotations are gone through and added to a dataset.
+These datasets should be in multiple formats, they should be the most
+common formats in machine learning and audio feature extraction
+community.  For example, they will be delivered in MNIST format, both
+in the original format, and a Python .pkl package ready to be used in
+Theano.  In addition, small code samples should accompany these
+datasets with data in a standard format (.csv if possible) and the
+code samples should use something like mlpy to run machine learning
+algorithms on the data.
+
+Another important thing to try would be to add more MIR audio features
+to see if they help.  \textit{Marsyas} has many different audio features, and
+although I have used about half the ones that seemed relevant, more
+should be used.  In addition, other audio frameworks like Aubio, AIMC,
+Tarsos and jMIR, should be integrated into the Orchive system.
+
+Machine Hearing is a field related to MIR that makes models of the
+human peripheral auditory system, including the cochlea and neuronal
+clusters close to the ear.  There are many different models of the
+cochlea, and they are improving quickly over time.  These models of
+the cochlea can be fed into an algorithm that mimics neurons in the
+peripheral auditory complex that take strobe points of sound and make
+images of the sound called Stabilized Auditory Images.  Several
+experiments have shown the utility of these audio features, especially
+as a complement to MFCC and spectral-based features.  Work was carried
+out to include results from these models, however, the implementation
+of Stabilized Auditory Images currently in \textit{Marsyas} is not optimized
+and feature extraction runs were taking excessive amounts of time.
+Work should be undertaken to optimize this code in \textit{Marsyas}.
+
+The Orchive V2.0 website is a work in progress and currently does not
+include several features from Orchive V1.0, including the multiple
+forms of observation like photos, videos, maps, incidence reports and
+lab books.  These should all be included in the new version, and
+should be significantly enhanced.
+
+iPad and iPhone, along with Android versions of many of the
+applications in this thesis should be made.  PhoneGap will be
+instrumental in allowing this code to be ported.  Care should be taken
+when writing the app to think of the situation where the client does
+not have internet access as a given.
+
+Another long term goal would be to recruit a population of the
+developers of bioacoustic algorithms for an ethnographic study or
+perhaps a laboratory study to measure how the code in the Orchive
+system helps them to build their own large bioacoustic archive.  In
+this ethnographic study, one would sit with the researchers and
+observe them as they worked.  This type of study can help to show what
+are the work-flow practices of the users and how they use the software
+tools to accomplish their goals.  The results of this study could then
+be used to improve the Orchive software system.
+
+The observation that the Orchive was being built for developers of
+bioacoustics algorithms has been a very recent finding, the original
+hypothesis was that the primary user of this site would be biologists,
+which turned out to not be the case.  Because of this, a user study of
+this new population of users has not yet been undertaken.  In future
+work it would be interesting to recruit and study a population of the
+developers of bioacoustic algorithms in their use of the Orchive.
+
+An important area of future research would be to extend the work done
+with audio feature extraction in this thesis and to use models of the
+peripheral auditory system as was done for sound effects and music in
+a recent book chapter \cite{ness2010sparse}.  These algorithms hold
+great promise in delivering higher classification accuracy for sounds
+produced in a pulse resonant manner, which is an accurate model of how
+orcas produce pulsed calls.  Work done in this area for sound ranking
+\cite{rehn2009sparse} and for the separation of sounds
+\cite{duda1990correlograms} has shown great promise.
+
+Another area that would be important for future work is to fully
+integrate large scale computational resources into the Orchive
+framework.  For this thesis, some work has been done in this area, and
+a series of scripts that allow researchers to run large numbers of
+jobs by hand has been developed, and the current system allows for the
+viewing of these results directly in the web interface.  However, the
+ability to run and monitor these jobs from within the web interface
+would be very useful.  
+
+Another interesting area of research would be to bring the tools
+developed in this thesis back into the area of Music Information
+Retrieval.  Many of the algorithms in this thesis were orginally used
+in MIR, but the current web interface has been developed to work with
+bioacoustic recordings.  However, much of the current functionality
+already in the system could be useful to researchers in MIR, and more
+functionality could be developed to support this goal.  There is
+considerable work in MIR in developing tools for human computer
+interaction with machine learning systems in a semi-supervised machine
+learning system.  
+
+In addition, the tools developed in this thesis for creating training
+and testing sets of data could be useful to researchers in MIR, and
+could allow them to more easily create robust sets of training and
+testing data on which to test audio feature extraction and machine
+learning algorithms.
+
+This system could also be used by researchers in MIR to study songs
+from different traditions, such as the Gyil tradition, and this
+interface could allow researchers to view not just the spectrograms,
+but the musical notation of the performance, the video of a master
+musician performing, and sensor data, such as from a capacitive
+sensing system such as the radiodrum and kinect data.
+
+The system described in this thesis could also be useful to
+researchers developing multi-modal interfaces.  This system could form
+the core part of the user interaction system, and could recieve input
+from a variety of different kinds of sensors, and could produce output
+not only on a computer screen, but also through auditory and
+kinesthetic displays.
+
+Another area of future research would be to extend this thesis to the
+study of different kinds of non-acoustic data, such as the seismometer
+and pressure sensor data from the VENUS and NEPTUNE projects.  The
+current system allows for the display of many kinds of data, and this
+data would just have to be stored on a filesystem in a simple text
+format and could be navigated with the advanced javascript dataviewers
+described in this thesis.  The merging of different kinds of sensor
+data is also interesting for the study of marine mammals, as it has
+been found that the low frequency calls of blue whales can be detected
+on seismographs.  With the system described in this thesis, many kinds
+of data could be invesigated at the same time by diverse communities
+of researchers.
+
+Another interesting area of research would be to fully integrate the
+systems I have previously developed to study partially annotated
+chants into the Orchive interface.  These systems often separate
+sounds into separate clips, for example in investigations of Torah
+tropes, these clips would correspond to different cantillation marks.
+The current system was designed to handle these kind of clips, and
+early work to develop interfaces for this type of research have worked
+well.  Future work to fully translate the Flash interfaces for
+cantillation work to Javascript would be very useful and hopefully
+would be fairly straightforward given the modular design of the
+current system.
+
+The display of the results of crossvalidation in Weka is currently
+done by hand in the current system, and it would be very useful to
+have the output classification results directly inside the web
+interface.  Currently the system is built to support people well
+versed in machine learning, and to make it more accessible to
+researchers in other fields, it would be very useful to have these
+results presented in a more interactive system.
