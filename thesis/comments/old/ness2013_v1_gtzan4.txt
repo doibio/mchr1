@@ -1,0 +1,384 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: sness@sness.net
+Received: by 10.66.135.180 with SMTP id pt20csp169071pab;
+        Thu, 3 Oct 2013 01:54:41 -0700 (PDT)
+X-Received: by 10.66.145.4 with SMTP id sq4mr720756pab.178.1380790481523;
+        Thu, 03 Oct 2013 01:54:41 -0700 (PDT)
+Return-Path: <gtzan@cs.uvic.ca>
+Received: from topaz.cs.uvic.ca (topaz.cs.UVic.CA. [142.104.70.155])
+        by mx.google.com with ESMTPS id ei3si4672869pbc.200.1969.12.31.16.00.00
+        (version=TLSv1 cipher=RC4-SHA bits=128/128);
+        Thu, 03 Oct 2013 01:54:41 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of gtzan@cs.uvic.ca designates 142.104.70.155 as permitted sender) client-ip=142.104.70.155;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: best guess record for domain of gtzan@cs.uvic.ca designates 142.104.70.155 as permitted sender) smtp.mail=gtzan@cs.uvic.ca
+Received: from Georges-MacBook-Pro.local (95-210-236-182.ip.skylogicnet.com [95.210.236.182])
+	(authenticated bits=0)
+	by topaz.cs.uvic.ca (8.13.1/8.13.1) with ESMTP id r938s8Nk030212
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-SHA bits=256 verify=NO)
+	for <sness@sness.net>; Thu, 3 Oct 2013 01:54:18 -0700
+Message-ID: <524D30B2.1040709@cs.uvic.ca>
+Date: Thu, 03 Oct 2013 10:54:10 +0200
+From: George Tzanetakis <gtzan@cs.uvic.ca>
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:17.0) Gecko/20130801 Thunderbird/17.0.8
+MIME-Version: 1.0
+To: Steven Ness <sness@sness.net>
+Subject: Comments on Chapter 5
+Content-Type: text/plain; charset=windows-1252; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Harvest-Check: emma V1.0
+X-CS-MailScanner-Information: Please contact the ISP for more information
+X-CS-MailScanner: Found to be clean
+X-CS-MailScanner-SpamCheck: not spam, SpamAssassin (not cached, score=-1.44,
+	required 5, autolearn=disabled, ALL_TRUSTED -1.44)
+X-CS-MailScanner-From: gtzan@cs.uvic.ca
+X-Spam-CS-Status: No
+
+
+
+
+General comment: This chapter should only have results and
+definitions of evaluation metrics like classification accuracy.
+The other stuff should go to previous chapters.
+For example the definition of the classification problems should
+be provided earlier. It is also tedious to read with all
+the tables and descriptions. Breaking it into subsections
+and having summary sections for each task will make it
+much easier to read.
+
+
+nd more specifically are the stereotyped pulsed calls. -> more specifically
+the stereotyped pulsed calls
+
+n the course of work done for this thesis, this author added new audio 
+feature extraction subsystems to Marsyas, including the porting of the 
+Yin pitch detector from Aubio to Marsyas -> I would move
+that to Chapter 3 and have a subsection about Marsyas and how
+it works together with the Orchive.
+
+Aubio -> readers don't know what this is
+
+[LQ11] -> capitalize mfcc an pnn
+
+diagram showing the definition of window size, hop size, memory 5.1. -> bad
+sentence
+
+I like Figure 5.1 - it would be good to move closer to the text that refers
+to it if possible.
+
+a voice note made -> voice notes made
+
+
+on if they contained orca calls -> on whether they contained
+
+Move the description of MFCC to chapter on automatic and semi-automatic
+analysis
+
+
+to our symbolic approximation algorithm. -> what is the symbolic 
+approximation
+algorithm ? Reader does not know anything about it at this point
+
+
+from a power spectrum of the features -> from the power spectrum of the 
+audio signal
+
+
+
+Comments on Table 5.1
+
+You should explain extract, train and predict time (for table 5.1)
+In Table 5.1 make the best entry in each column bold.
+
+I would suggest adding a vertical line for each "group" combination
+of ws and hp (the first 8 entries, the next 8, ....).
+For the Extract, Train and Predict time you can make a line spanning three
+columns and put Time and then under it have Extract, Train, Predict
+Change percent correct to Accuracy(%)
+
+Make similar changes (horizontal grouping lines, bold for best values,
+Time and Accuracy changes) to Table 2
+
+
+Move the liblinear description to the automatic and semi-automatic analysis
+chapter.
+
+
+where C is a penalty parameter -> \noindent where $C$ is a penalty 
+parameter
+
+Try to make Table 5.4 more digestible similarly to the previous two
+by adding horizontal lines, bold for best entries and the changes
+to the times and accuracy labels
+
+
+I did not realize that the particular liblinear formulation can have such
+a dramatic effect on training time. This is good to know.
+
+
+Move the feature description to the automatic and semi-automatic analysis
+chapter.
+
+
+I would suggest putting the investigation of different features in a 
+separate
+subsection.
+
+
+[DT96] missing venue
+
+
+In the descriptions of the features you use inconsistent notation for
+the power spectrum vector (M for centroid, N for flux, Y) - you should
+make the notation consistent - just pick one and stick to it.
+
+You need to explain the symbols in the SFM measure equation
+
+[HK07] -> expand MMSP -> Proceedings of the IEEE Multimedia Signal 
+Processing Workshop
+
+
+
+which are often used is an estimate of the fundamental frequency (F0) or 
+pitch. ->
+which are often used to calculate an estimate
+
+with harmonics that strictly decrease the lowest peak -> with harmonics
+that strictly decrease, the lowest peak
+
+Table 5.5, Table 5.6 modify as suggested for the previous tables
+Similarly for 5.7, 5.8, (horizontal lines, bold for best entries, etc)
+
+
+
+I would make the downsampling a separate subsection
+Table 5.11 add horizontal lines
+
+
+For this reason, all subsequent tables do not use downsampling, and to 
+accommodate the long training and prediction times, a large cluster was 
+used, and each job was given the maximum allowable three day run time to 
+complete. ->
+I am not sure if you do expand on this later but you should have a 
+subsection
+talking about how you impemented the cluster based feature extraction 
+and machine learning
+
+
+does for linear kernels, can exhibit -> does for linear kernal, and can 
+exhibit
+
+The usual visual improvements for Table 5.12, 5.13
+
+
+I would breat the results to different subsections (non-linear kernels, 
+other machine learning
+algorithms etc) for easier reading. Currently it is a little bit 
+exhausting to read
+all the tables and experiments as one giant section.
+
+The usual for 5.14, 5.15
+
+
+
+and constructs a tree that makes the optimal decision based on 
+information entropy at each leaf
+-> and constructs a tree that makes the optimal decision based on 
+information entropy at each leaf.
+
+
+the more efficiently trainable Deep Belief Networks on this dataset. -> 
+DBN are not more efficiently
+trainable - they are actually really costly to train but have better 
+classification performance.
+
+
+!!!! You need a summar subsection for the OBV task that summarizes the 
+conclusions from all
+the experiments you did. Currently they are burried in the barrage of 
+data tables and descriptions.
+
+
+
+Section 5.2 Comments
+
+
+We call the call catalog -> We name the call catalog (call the call 
+sounds funny)
+
+In order to classify the clips in the ORCACALL dataset, a different 
+experimental procedure to that used in the ORCAOBV results above. -> In 
+order to classify the clips in the ORCACALL dataset, we use a different 
+experimental procedure to that used in the ORCAOBV results presented in 
+the previous section.
+
+
+These clip level decisions were made using a voting metaphor was used -> 
+using a voting metaphor,
+
+experimetntal -> experimental
+
+the usual cosmetics to Table 5.20
+
+
+Because of the longer size of window that results from using
+a bigger window, a window size of 2048 and 100 MFCCs will be used in 
+subsequent tables. ->
+clunky sentence, rewrite and break in two
+
+
+Cosmetic changes to all the Tables
+
+You should mention something about what the ZeroR baseline would be for 
+the calls
+and that the 5x% results are very encouraging considering that there are 
+many
+more classes. You also need to be more explicit (maybe a table) about what
+are the classes. I think it would be really nice to have a table
+with a spectrogram of a characteristic call of each class but that's 
+optional.
+
+Similarly to the previous section, a subsection summarizing the conclusions
+should be provided.
+
+
+Theano requires considerable time and expertise to setup in its most 
+efficient GPU configuration, and using the available hardware and was 
+unfortunately unable to be used. -> clunky, break in two and rewrite
+
+to run these results using Theano -> to run these experiments using Theano
+
+
+The purpose of these experiments is to find the combination of audio 
+features and machine learning algorithm that gives the highest 
+performance, and to then use this combination to predict classes for all 
+recordings in the Orchive. In order to investigate the performance of 
+the classification of recordings into Orca, Background and Voice, we 
+trained a SVM with a section of 30 and 240 seconds of hand trimmed data 
+using the bextract program in Marsyas. We then used the sfplugin program 
+in Marsyas to classify all the recordings in the Orchive on the 
+Hermes/Nestor cluster, part of the Westgrid computational resource. For 
+this we divided the data into sets of 1%, 5%, 10% and 100% of the 
+Orchive. The timing results of these datasets run on 10 computers are 
+shown in Table 5.36. From this we can see that the classifier that had 
+more data took longer to classify, and that the speedup from taking 
+samples of the data was almost linear. -> This should go in a separate 
+subsection called scaling
+and moved the the ORCAOBV section.
+
+The reader has no idea what bextract and sfplugin are. You should maybe 
+briefly explain.
+
+Section 5.3
+
+You need to add 2-3 sentences explaining what you are trying to do and 
+why it is useful (i.e
+comparing pitch contours). Then you also need 1-2 sentences explaining why
+it would be interesting to apply bioinformatics algorithms (efficient, 
+well developed but
+work on character strings). As a general comment you are good at 
+explaining what you did
+but the "why" you did it needs to be more emphasized.
+
+
+Make Figures 5.2 and 5.3 bigger
+
+This approach is certainly valid if slope changes within a given window 
+characterize
+the signal well and the signal is fairly free of noise. ->
+This approach is certainly valid if the slope changes within a given 
+window characterize
+the signal well, and the signal is fairly free of noise.
+
+or a possible avenue -> as a possible avenue
+
+We determined, however, that considering windowed slope fragments of 
+Orca vocalizations does produce sequences that are of lower quality than 
+those produced by our transcription technique which we refer to as FTSQ 
+(Fundamental Frequency Time Series Quantization). -> This is slightly 
+confusing. I think you should be more explicitly. Initialy we tried SAX but
+we did not get the results we expected. This lead us to develop a 
+different technique which we term FTSQ.
+
+of an audio signal is am approach -> is an approach
+
+
+Figure 5.4 should also have N09 in time domain
+
+Figure 5.6 looks like it is a single call but you mention that it is two 
+calls.
+
+
+our OpenMIR platform -> the reader has no idea what the OpenMIR platform 
+is.
+
+There should be a summary section for 5.3 that should also mention that 
+this
+was a preliminary investigation and complete results with 
+recall/classification
+need to still be performed.
+
+(You should also mark all the parts where you mention future work so that
+you can mention them in the Future Work section again)
+
+Figures 5.11 and 5.12 should be move closer to the text that refers to it.
+
+
+Section 5.4
+
+The Figures should be moved to be closer to the text that refers to them.
+
+Last year, we had written a much more involved interface that had many 
+more features, such as multiple turns per level where the user was first 
+presented with only the sounds and was asked to guess the clip, then if 
+they got it wrong they were allowed to see the spectrogram for a brief 
+period of time and guess again, and finally were allowed to see the 
+spectrogram. This interface also had a running score counter, where the 
+user would get points for correct answers, and if they answered 
+correctly with fewer hints in a level, they were rewarded with a higher 
+score. This interface also had “achievements” which were an in game 
+reward given for correctly identifying 10 calls of a specific type, for 
+example the “N01” call. Another form of reward given was that after a 
+series of levels were completed, the user was given a screen showing 
+them some information about orcas along with pictures of orcas. We hope 
+to add these additional features back into the game at some point, but 
+were interested in the current work if the simplest possible game 
+mechanic was
+engaging for users. -> a little bit confusing and apologetic. The reader 
+is left
+wondering why was this not used ? Why is it mentioned ?
+
+I am thinking that maybe there should be a separate chapter on 
+Interfaces that
+would describe the Orchive GUI stuff + have the game stuff. For now just 
+keep
+it there but give it a thought. You also need to talk more about the 
+interface
+for creating Orca Games. Currently it is barely mentioned.
+
+
+Section 5.5
+
+This section seems a little bit weak and not very specific. I think you 
+can probably
+expand on it a little bit more. For example what were the questions you 
+were
+trying to answer through your observation. It is good that you 
+acknowledge your bias
+but you can also be more specific about what you hoped for, how what you 
+observed
+was different etc. I think having testimonials is good and you should get
+some more.
+
+
+
+
+
+
+
+
+-- 
+This message has been scanned for viruses and
+dangerous content by MailScanner, and is
+believed to be clean.
+
