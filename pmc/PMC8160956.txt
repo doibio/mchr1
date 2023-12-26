@@ -1,0 +1,281 @@
+
+==== Front
+Genes (Basel)
+Genes (Basel)
+genes
+Genes
+2073-4425
+MDPI
+
+10.3390/genes12050787
+genes-12-00787
+Article
+Network Protein Interaction in the Link between Stroke and Periodontitis Interplay: A Pilot Bioinformatic Analysis
+https://orcid.org/0000-0001-5027-7276
+Leira Yago 123
+https://orcid.org/0000-0002-6584-1199
+Mascarenhas Paulo 45
+https://orcid.org/0000-0002-1019-8263
+Blanco Juan 1
+https://orcid.org/0000-0002-9760-8690
+Sobrino Tomás 2
+https://orcid.org/0000-0003-0167-4077
+Mendes José João 5
+https://orcid.org/0000-0003-2503-260X
+Machado Vanessa 56
+Botelho João 56*
+Limborska Svetlana A. Academic Editor
+Filippenkov Ivan B. Academic Editor
+Centonze Diego Academic Editor
+1 Periodontology Unit, Faculty of Odontology and Medicine, Medical-Surgical Research Group, Health Research Institute of Santiago de Compostela, University of Santiago de Compostela, 15706 Santiago de Compostela, Spain; yagoleira@gmail.com (Y.L.); jblanco@blancoramos.net (J.B.)
+2 Clinical Neurosciences Research Laboratory, Health Research Institute of Santiago de Compostela, University Clinical Hospital, 15706 Santiago de Compostela, Spain; Tomas.Sobrino.Moreiras@sergas.es
+3 Periodontology Unit, UCL Eastman Dental Institute & NIHR UCLH Biomedical Research Centre, University College London, London WC1E 6BT, UK
+4 Center for Medical Genetics and Pediatric Nutrition Egas Moniz, Instituto Universitário Egas Moniz (IUEM), 2829-511 Caparica, Portugal; pmascarenhas@egasmoniz.edu.pt
+5 Evidence-Based Hub, Clinical Research Unit (CRU), Centro de Investigação Interdisciplinar Egas Moniz (CiiEM), Egas Moniz—Cooperativa de Ensino Superior, CRL, 2829-511 Caparica, Portugal; jmendes@egasmoniz.edu.pt (J.J.M.); vmachado@egasmoniz.edu.pt (V.M.)
+6 Periodontology Department, Clinical Research Unit (CRU), Centro de Investigação Interdisciplinar Egas Moniz (CiiEM), Egas Moniz—Cooperata de Ensino Superior, CRL, 2829-511 Caparica, Portugal
+* Correspondence: jbotelho@rgasmoniz.edu.pt
+20 5 2021
+5 2021
+12 5 78706 4 2021
+19 5 2021
+© 2021 by the authors.
+2021
+https://creativecommons.org/licenses/by/4.0/ Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).
+The clinical interaction between stroke and periodontitis has been consistently studied and confirmed. Hence, exploring potentially new protein interactions in this association using bioinformatic strategies presents potential interest. In this exploratory study, we conducted a protein–protein network interaction (PPI) search with documented encoded proteins for both stroke and periodontitis. Genes of interest were collected via GWAS database. The STRING database was used to predict the PPI networks, first in a sensitivity purpose (confidence cut-off of 0.7), and then with a highest confidence cut-off (0.9). Genes over-representation was inspected in the final network. As a result, we foresee a prospective protein network of interaction between stroke and periodontitis. Inflammation, pro-coagulant/pro-thrombotic state and, ultimately, atheroma plaque rupture is the main biological mechanism derived from the network. These pilot results may pave the way to future molecular and therapeutic studies to further comprehend the mechanisms between these two conditions.
+
+stroke
+periodontitis
+periodontal disease
+protein–protein network interaction
+bioinformatics
+==== Body
+1. Introduction
+
+Stroke is a highly prevalent neurological disease affecting one in four adults worldwide [1,2]. It is the second leading cause of death (accounting for almost 6 million deaths/year) and the third leading cause of disability in the world [1,2]. Most stroke cases are ischemic due to reduced blood flow caused by arterial occlusion. The remaining stroke presentations are haemorrhagic, resulting from rupture of cerebral arteries [3]. A recent economic analysis in Europe reported that stroke cost EUR 60 billion, with health care accounting for EUR 27 billion (45%), representing 1.7% of health expenditure [4].
+
+Periodontitis, a chronic oral inflammatory and infectious disease that is characterized by destruction of soft and hard gingival tissues, affects more than half of adults [5]. It has been estimated that the most advanced forms of this disease affect around 11% of the adult population worldwide [6]. More importantly, periodontitis not only affects the gingival tissues but also contributes to the body’s overall inflammatory burden, which makes this disease a potential risk factor for atherosclerotic inflammatory vascular diseases such as stroke [7].
+
+A link between periodontitis and stroke, mainly ischemic stroke, has been established over the last few decades [8]. Moreover, stroke survivors with periodontitis are more prone to have worse prognosis and more likely to suffer recurrent vascular events than those without periodontitis [9,10]. Potential mechanisms proposed behind the association between periodontitis and ischemic stroke might include activation of innate immune system, systemic inflammation leading to vascular endothelial dysfunction, increased cholesterol biosynthesis, and prothrombotic state. All of them may exacerbate atherosclerotic lesions and increase the risk of atherosclerosis, thus promoting cerebrovascular events including large and small vessel cerebral infarcts [11]. However, a recent Mendelian randomization study failed to demonstrate a causal genetic association between both diseases where only five single nucleotide polymorphisms were used from a number of genome-wide association studies [12].
+
+To better understand the contribution of genetics to this relationship, genetic risk factors should be analysed and integrated in terms of biological pathways and functions [13]. For this purpose, protein interaction data, derived from a wide range of cellular and biochemical model systems, can be used for building protein–protein interaction (PPI) networks from genes associated with both periodontitis and stroke. PPI network analysis could be, therefore, a powerful time- and cost-effective approach to identify potential biological pathways, key players, or candidate genes involved in the periodontitis-stroke link.
+
+Hence, the aim of this study was to identify the key proteins and the biological regulatory pathways involved in both periodontitis and stroke physiopathology.
+
+2. Materials and Methods
+
+2.1. Data Source
+
+The National Human Genome Research Institute-European Bioinformatics Institute Catalog of Human Genome-Wide Association Studies (NHGRI-GWAS) was used to search potential GWAS datasets [14]. The NHGRI-GWAS is an all-inclusive catalogue with publicly available summary statistics, facilitating access and replicability. Periodontitis GWAS studies were used accounting for up to 100,903 individuals of European, Asian, American and other ancestries [15,16,17,18,19,20,21,22,23,24,25,26,27] (Supplementary S1), as in [28]. In this, we included the link where genes were reported in the GWAS search [29].
+
+For stroke, we used summary GWAS statistics performed in over 2,000,000 individuals of European, Asian, American, Sub-Saharan African, Caribbean and other ancestries [30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62] (Supplementary S2). In this, we included the link where genes were reported in the GWAS search [63]. Both GWAS data for stroke and periodontitis were resulting from different populations as none of the included studies had data combining both conditions.
+
+2.2. Protein–Protein Interaction Networks Functional Enrichment Analysis
+
+To forecast potential PPI networks, we used the STRING (Search Tool for the Retrieval of Interacting Genes/Proteins) database, through heuristic methods of association and analysis. This platform renders possible protein networks of interaction via high-throughput experimental data, literature, and predictions grounded on genomic context analysis [64,65]. Five main sources contribute to this bioinformatic output: Genomic Context Predictions, High-throughput Lab Experiments, (Conserved) Co-Expression, Automated Textmining and Previous Knowledge in Databases. The Universal Protein Resource provided the characteristics of all proteins [66]. Then, the STRING tool provides a node–node interaction score calculated as detailed in [67].
+
+2.3. Data Management, Test Methods and Analysis
+
+After download the GWAS datasets of periodontitis and stroke, data was handled through Microsoft Office Excel. Then, we used the ‘Multiple protein’ to render PPI networks at STRING version 10.5. We carried a first analysis with a confidence cut-off of 0.7 to serve as sensitivity analysis aiming to infer the dependency on the choice of the confidence cut-off. Then, we defined a cut-off of 0.9, the highest confidence in the final interaction examination. In the resultant PPI network, proteins are presented as nodes related through lines, and nodes thickness increase reveals higher confidence level. Furthermore, ‘ggplot’ for R was used to assemble a gene interaction heatmap.
+
+2.4. Gene Enrichment Analysis
+
+Then, to investigate whether there were genes over-represented in the final network and its possible effect, we run the list of proteins in The Geneontology Resource (http://geneontology.org/ accessed on February 2021). A ‘Reactome pathways’ was executed, and false discovery rates were computed using Fisher’s Exact. Functional enrichment analysis was further confirmed using the WebGestalt tool (http://www.webgestalt.org/ accessed on April 2021).
+
+3. Results
+
+3.1. Protein–Protein Interaction Analysis
+
+According to the STRING results, a sensitivity analysis with a confidence cut-off of 0.7 (Supplementary S3) exposed dependency on the confidence cut-off, as a more concise network emerged with a confidence cut-off of 0.9 (Figure 1). Overall, 148 nodes with 41 PPI relationships (from 32 expected edges) were found (Figure 1). The PPI enrichment significance was 0.0795, indicating the current set of proteins is small and the result of these proteins have not been studied very much. The average node degree was 0.554, and the average local average local clustering coefficient was of 0.194.
+
+The casted network display possible PPIs between known associated genes stroke and periodontitis (Figure 1, Table 1). Furthermore, the physiological characteristics and localization of each encoded protein is presented in Table 2. The gene interaction was further confirmed via heatmap plot (Figure 2) and Genemania network corroborated a PPI similar network obtained in STRING database (Supplementary S4).
+
+3.2. Gene Enrichment Assessment and Gene Ontology
+
+The over-representation analysis with “Reactome pathways” revealed some over-representation in terms of: fibrin clot formation; CREB phosphorylation through the activation of CaMKII; Ras activation upon Ca2+ influx through NMDA receptor; unblocking of NMDA receptors, glutamate binding and activation; defective B3GALTL causes Peters-plus syndrome (PpS); O-glycosylation of TSR domain-containing proteins; Platelet degranulation; Platelet activation, signalling and aggregation; haemostasis (Supplementary S5). The WebGestalt tool confirmed the gene enrichment assessment performed.
+
+Furthermore, upon the genet ontology of these significant genes, the most significant molecular functions were: titin binding (strength = 2.22; false discovery rate [FDR] = 0.0057); nuclear receptor transcription coactivator activity (strength = 1.65; FDR = 0.0192); ion channel binding (strength = 1.46; FDR = 0.0070); cell adhesion molecule binding (strength = 1.24; FDR = 0.0153); peptidase activity (strength = 0.86; FDR = 0.0313); protein homodimerization activity (strength = 0.84; FDR = 0.0153); signaling receptor binding (strength = 0.78; FDR = 0.0023); identical protein binding (strength = 0.66; FDR = 0.0138); protein binding (strength = 0.32; FDR = 0.0323).
+
+Concerning cellular components, the most significant components were: pseudopodium (strength = 2.13; FDR = 0.0012); platelet α granule lumen (strength = 2.01; FDR = 4.0 × 10−9); endoplasmic reticulum-Golgi intermediate (strength = 1.54; FDR = 0.0122); COPII-coated to Golgi transport vesicle (strength = 1.49; FDR = 0.0148); secretory granule lumen (strength = 1.4; FDR = 2.86 × 10−7).
+
+4. Discussion
+
+In this exploratory bioinformatic analysis, a likely PPI network between stroke and periodontitis was foreseen using open-access catalogues of GWAS studies in humans. This forecasted PPI network needs careful interpretation and warrants preclinical and clinical validations, nevertheless shows new evidence that will empower new studies on the association between stroke and periodontitis. Below we present different hypothetical biological scenarios based on our PPI network through which periodontitis can increased the risk of stroke.
+
+The largest node found with the PPI network is related to the atherosclerotic process. In the early stages of atherogenesis, two α actinins associated with periodontitis, namely ACTN-1 and -2, can bind to intracellular adhesion molecule 1 (ICAM-1) providing a “firm foothold” for leukocytes undergoing migration between endothelial cells into the intima layer of the artery and the underlying inflammatory lesion [65]. In this phase, endothelial dysfunction can be seen as the endothelial lining partially has lost its integrity. In this sense, ACTN-1 and -2 interact with SERPINA1, which encodes α 1-antitrypsin (A1AT), a protease inhibitor that protects surrounding tissues at sites with inflammation and has been found in human atherosclerotic lesions [66]. On the other hand, after pro-inflammatory cytokines and matrix metalloproteinases (MMPs) and its tissue inhibitor (e.g., TIMP-1) upregulation takes place due to lipid streaks and calcification, the atheroma plaque starts the maturation process. This process together with development of a compensatory blood supply within the atherosclerotic lesion, will lead to additional activation and proliferation of pro-inflammatory cells and production of thrombin (interaction TIMP-1 with F5). In this stage, the endothelial lining is all lost and fibrinogen is enzymatically generated from fibrin. This clotting cascade (interaction F2 and F5 with FGG) will result in formation of thrombus (i.e., thrombosis) and atherosclerotic cerebrovascular disease will develop latter on. MMPs overexpression leads to degradation of collagen, weakening of the vessel’s strength and fissures in the atheroma (interaction between TIMP-1 with SERPINA1). In some cases, where atheroma keeps progressing, a large necrotic core is exposed to the vasculature with the lesion which results in contact with platelets, coagulation is initiated and ultimately plaque rupture (i.e., vulnerable lesions) (interaction between FGG and SERPINA1).
+
+In the interrelation of pro-coagulant state and formation of thrombus, another interesting node was observed in the PPI network mainly consisted of metallopeptidase with thrombospondin type 1 motif 2 and 12 (ADAMTS2 and 12) and Thrombospondin type 1 domain containing 4 (TSH4). In addition, they are produced by vascular smooth muscle cells and platelets, ADAMTS have also a key role in maintaining cardiovascular haemostasis and down-regulating coagulation by inhibition of thrombin [67]. For example, an increase in ADAMTS12 activity would hypothetically lead to less inhibition of thrombin and an elevated risk for ischemic stroke. On the other hand, genetic variations of the ADAMTS family such as ADAMTS2 and 12 have shown to reduce the integrity of the endothelial lining, which together with inflammatory processes and defective vascular remodelling might play a key role in cerebral aneurysms pathogenesis [68]. Thrombospondin 1 is elevated in gingival tissues with periodontitis and this overexpression is induced by lipopolysaccharide from Porphyromonas gingivalis (a keystone pathogen) via innate immunity system activation and inflammatory responses [69]. Therefore, biologically, it would be plausible that periodontitis through the interaction of TSH4 and ADAMTS2 and 12 is associated with stroke and cerebral aneurysms.
+
+Calcium/calmodulin dependent protein kinase II (CAMK2) has been related to ischemic neuronal death due to glutamate-mediated excitotoxicity [70]. In the present PPI network ACTN2 (a protein which main role is to anchor actin with several intracellular molecules) was associated with CAMK2D, which is involved in the regulation of Ca2+ homeostasis and excitation-contraction. Concentrations of some amino acids such as arginine and glutamate were altered in gingival crevicular fluid of periodontal patients [71]. Therefore, the pathway ACTN2-CAMK2 deserved further investigation, as it could be an interesting and relevant biological mechanism behind the relationship between periodontal destruction and cerebral ischemia.
+
+Other associations derived from the present PPI network includes complement system activation (C5AR1) and increased pro-coagulant/thrombotic (F2) state via melanin. Increased local activation of complement products such as C5 in the periodontal tissues increases the intensity of the local inflammatory response, resulting in enhanced vascular permeability and vasodilatation and recruitment of inflammatory cells, which, in turn, will lead to excessive release of reactive oxygen species and interleukins which promotes accumulation of immune cells [72]. Hence, a potential link between activation of immune systemic via C5 activation and overproduction of for instance fibrinogen, a molecule related to systemic inflammation and intimately involved in the development of atherosclerosis could be feasible. Research needs to be done investigating the mechanism underlying this finding as well as to study the exact role of melanin in this link.
+
+The last node to be highlighted is the one which relates ubiquitination, autophagy and coagulation. For instance, in our PPI network we found that Smad ubiquitination regulatory factor-2 (SMURF2), an ubiquitin E3 ligase responsible for proteasome-mediated degradation of enhancer of zeste homolog 2 EZH2 which is a process required for neuron differentiation [73] is present in periodontitis. This ubiquitin was associated with the process of autophagy in stroke and ultimately with promotion of coagulation. Again, a potential biological pathway has been described for the perio–stroke relationship.
+
+Importantly, we highlight that all these proposed interactions are hypothetical and demand further validation. Furthermore, the inflammatory machinery is inherent in the vast majority of diseases and is still far from being fully understood and, therefore, is very difficult to be established as a definitive criterion of interaction between these two conditions. Thus, the reader must bear in mind that the aforementioned lines of interaction are, at this stage, contingent on further evidence.
+
+Overall, this exploratory report foresees a comprehensive analysis using free and large outputs. However, a number of shortcomings are relevant to discuss. First, this sort of analysis is dependent on the number of genes included in GWAS, and future studies with a higher number of genes disclosed will result in new paths of interaction. Second, network protein interaction approaches have limited clinical predictive value [68], but unveil hypothetical new paths of interaction. On the other hand, the quantity of SNPs of interest in these datasets has combined a diversity of ethnical background allowing the generalization of our results. Beyond these limitations, our sample size (over 2 million people) makes the results persuasive. Furthermore, we have also provided a protein-enrichment analysis, to overlook the over-representation level e in the observed PPI.
+
+5. Conclusions
+
+This exploratory bioinformatic analysis shows a potential network of interaction between proteins related to stroke and periodontitis, respectively. The main biological pathway identified relies on inflammatory response, pro-coagulant/pro-thrombotic state and subsequent mechanisms of atheroma plaque rupture. These results may shed light on future molecular and therapeutic studies to further grasp the association between these two conditions.
+
+Acknowledgments
+
+Yago Leira holds a research contract with Fundación Instituto de Investigación Sanitaria de Santiago de Compostela and a Senior Clinical Research Fellowship supported by the UCL Biomedical Research Centre who receives funding from the National Institute for Health Research (NIHR-INF-0387). Furthermore, Tomás Sobrino (CPII17/00027) is a recipient of a research contract from Miguel Servet Program of Institute of Health Carlos III.
+
+Supplementary Materials
+
+The following are available online at https://www.mdpi.com/article/10.3390/genes12050787/s1, Supplementary S1: Genes and their corresponding proteins for Periodontitis, Supplementary S2: Genes and their corresponding proteins for stroke, Supplementary S3: PPI Network with confidence cut-off of 0.7, Supplementary S4: PPI Network using Genemania tool, Supplementary S5: Enrichment analysis.
+
+Click here for additional data file.
+
+Author Contributions
+
+Conceptualization, Y.L., J.B. (João Botelho); methodology, J.B. (João Botelho); validation, P.M.; formal analysis, Y.L., J.B. (João Botelho), V.M.; investigation, Y.L., J.B. (João Botelho), V.M.; data curation, Y.L., J.B. (João Botelho), V.M.; writing—original draft preparation Y.L., J.B. (João Botelho), V.M.; writing—review and editing, Y.L., P.M., J.B. (Juan Blanco), T.S., J.J.M., V.M., J.B. (João Botelho). All authors have read and agreed to the published version of the manuscript.
+
+Funding
+
+This research received no external funding.
+
+Institutional Review Board Statement
+
+Not applicable.
+
+Informed Consent Statement
+
+Not applicable.
+
+Data Availability Statement
+
+Data will be provided upon reasonable request from the corresponding author.
+
+Conflicts of Interest
+
+The authors declare no conflict of interest.
+
+Figure 1 PPI network between stroke and periodontitis relevant proteins at the highest confidence cut-off of 0.9 in this network. Mapped genes for stroke and periodontitis are coloured in orange and red, respectively.
+
+Figure 2 Heatmap towards the confirmation of gene interaction. Both axis represent the list of genes of interest. ACTN1—Actinin α 1; ACTN2—Actinin α 2; ADAMTS12—ADAM metallopeptidase with thrombospondin type 1 motif 12; ADAMTS2—ADAM metallopeptidase with thrombospondin type 1 motif 2; ATG7—Autophagy related 7; C5AR1—Complement C5a receptor 1; CAMK2D—Calcium/calmodulin dependent protein kinase II delta; F2—Coagulation factor II, thrombin; F5—Coagulation factor V; FGG—Fibrinogen γ chain; MCHR1—Melanin concentrating hormone receptor 1; SEMA5B—Semaphorin 5B; SERPINA1—Serpin family A member 1; SMURF2—E3 ubiquitin–protein ligase SMURF2; SPSB4—SplA/ryanodine receptor domain and SOCS box containing 4; THSD4—Thrombospondin type 1 domain containing 4; TIMP1—TIMP metallopeptidase inhibitor 1.
+
+genes-12-00787-t001_Table 1 Table 1 Interaction weight between stroke and periodontitis genes identified in the network.
+
+Genes for Stroke (Regulation)	Genes for Periodontitis (Regulation)	Score	
+CAMK2D	ACTN2	0.939	
+ADAMTS12	THSD4	0.918	
+ADAMTS2	THSD4	0.916	
+SERPINA1	ACTN1	0.907	
+F5	ACTN1	0.906	
+ATG7	SMURF2	0.904	
+SERPINA1	ACTN2	0.904	
+F5	ACTN2	0.903	
+SPSB4	SMURF2	0.902	
+MCHR1	C5AR1	0.900	
+SEMA5B	THSD4	0.900	
+
+genes-12-00787-t002_Table 2 Table 2 Details of the identified genes in the interaction between stroke and periodontitis.
+
+Gene Symbol	Name	Description	Localization	
+Stroke	
+F2	Coagulation factor
+II, thrombin	Cleaves bonds after Arg and Lys, converts fibrinogen to fibrin and activates factors V, VII, VIII, XIII, and, in complex with thrombomodulin, protein C. Functions in blood homeostasis, inflammation and wound healing	Plasma and Liver	
+F5	Coagulation factor V	Regulator of hemostasis. Is a critical cofactor for the prothrombinase activity of factor Xa that results in the activation of prothrombin to thrombin	Golgi apparatus	
+SERPINA1	Serpin family A member 1	Inhibitor of serine proteases	Vesicles	
+CAMK2D	Calcium/calmodulin dependent protein kinase II delta	Involved in the regulation of Ca2+ homeostasis and excitation-contraction	Plasma membrane, cytosol, cell junctions	
+ADAMTS2	ADAM metallopeptidase with thrombospondin type 1 motif 2	Cleaves the propeptides of type I and II collagen prior to fibril assembly (By similarity)	Plasma membrane, vesicles	
+ADAMTS12	ADAM metallopeptidase with thrombospondin type 1 motif 12	Metalloprotease that may play a role in the degradation of COMP. Cleaves also α-2 macroglobulin and aggregan. Has anti-tumorigenic properties	Nucleoli and mitochondria	
+ATG7	Autophagy related 7	Involved in the 2 ubiquitin-like systems required for cytoplasm to vacuole transport (Cvt) and autophagy	Cytosol, Plasma membrane, Nucleoplasm	
+SPSB4	SplA/ryanodine receptor domain and
+SOCS box containing 4	Mediates the ubiquitination and subsequent proteasomal degradation of target proteins	Nucleoplasm and Golgi apparatus	
+MCHR1	Melanin concentrating hormone receptor 1	Receptor for melanin-concentrating hormone	Not available	
+FGG	Fibrinogen γ chain	With fibrinogen α
+(FGA) and fibrinogen β
+(FGB), polymerizes to form an insoluble fibrin matrix. Has a major function in haemostasis as one of the primary components of blood clots	Endoplasmic Reticulum	
+SEMA5B	Semaphorin 5B	Acts as positive axonal guidance cues	Cytosol	
+Periodontitis	
+TIMP1	TIMP metallopeptidase inhibitor 1	Growth factor, Metalloenzyme inhibitor, Metalloprotease inhibitor, Protease inhibitor	Golgi apparatus	
+ACTN1	Actinin α 1	F-actin cross-linking protein which is thought to anchor actin to a variety of intracellular structures	Actin filaments	
+ACTN2	Actinin α 2	F-actin cross-linking protein which is thought to anchor actin to a variety of intracellular structures	Actin filaments	
+THSD4	Thrombospondin type 1 domain containing 4	Promotes FBN1 matrix assembly	Extracellular matrix	
+SMURF2	E3 ubiquitin–protein ligase SMURF2	Involved in the transfer of the ubiquitin to targeted substrates. Interacts with SMAD1 and
+SMAD7 triggering ubiquitination and degradation.	Plasma Membrane, Nucleus
+Cytoplasm, Membrane Raft	
+C5AR1	Complement C5a receptor 1	Receptor for the chemotactic and inflammatory peptide anaphylatoxin C5a	Golgi apparatus and vesicles	
+
+Publisher’s Note: MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+==== Refs
+References
+
+1. Feigin V.L. Nichols E. Alam T. Bannick M.S. Beghi E. Blake N. Culpepper W.J. Dorsey E.R. Elbaz A. Ellenbogen R.G. Global, Regional, and National Burden of Neurological Disorders, 1990–2016: A Systematic Analysis for the Global Burden of Disease Study 2016 Lancet Neurol. 2019 18 459 480 10.1016/S1474-4422(18)30499-X 30879893
+2. GBD 2016 Lifetime Risk of Stroke Collaborators Global, Regional, and Country-Specific Lifetime Risks of Stroke, 1990 and 2016 N. Engl. J. Med. 2018 379 2429 2437 10.1056/NEJMoa1804492 30575491
+3. Campbell B.C.V. Khatri P. Stroke Lancet 2020 396 129 142 10.1016/S0140-6736(20)31179-X 32653056
+4. Luengo-Fernandez R. Violato M. Candio P. Leal J. Economic Burden of Stroke across Europe: A Population-Based Cost Analysis Eur. Stroke J. 2020 5 17 25 10.1177/2396987319883160 32232166
+5. Kinane D.F. Stathopoulou P.G. Papapanou P.N. Periodontal Diseases Nat. Rev. Dis. Primer 2017 3 17038 10.1038/nrdp.2017.38
+6. Kassebaum N.J. Bernabé E. Dahiya M. Bhandari B. Murray C.J.L. Marcenes W. Global Burden of Severe Periodontitis in 1990–2010 J. Dent. Res. 2014 93 1045 1053 10.1177/0022034514552491 25261053
+7. Schenkein H.A. Loos B.G. Inflammatory Mechanisms Linking Periodontal Diseases to Cardiovascular Diseases J. Clin. Periodontol. 2013 40 10.1111/jcpe.12060
+8. Leira Y. Seoane J. Blanco M. Rodríguez-Yáñez M. Takkouche B. Blanco J. Castillo J. Association between Periodontitis and Ischemic Stroke: A Systematic Review and Meta-Analysis Eur. J. Epidemiol. 2017 32 43 53 10.1007/s10654-016-0170-6 27300352
+9. Leira Y. Rodríguez-Yáñez M. Arias S. López-Dequidt I. Campos F. Sobrino T. D’Aiuto F. Castillo J. Blanco J. Periodontitis as a Risk Indicator and Predictor of Poor Outcome for Lacunar Infarct J. Clin. Periodontol. 2019 46 20 30 10.1111/jcpe.13032 30362631
+10. Sen S. Sumner R. Hardin J. Barros S. Moss K. Beck J. Offenbacher S. Periodontal Disease and Recurrent Vascular Events in Stroke/Transient Ischemic Attack Patients J. Stroke Cerebrovasc. Dis. 2013 22 1420 1427 10.1016/j.jstrokecerebrovasdis.2013.06.024 23910516
+11. Leira Feijóo Y. Blanco González M. Blanco Carrión J. Castillo Sánchez J. Asociación Entre La Enfermedad Periodontal y La Enfermedad Cerebrovascular. Revisión de La Bibliografía Rev. Neurol. 2015 61 29 38 10.33588/rn.6101.2015076 26108906
+12. Bell S. Gibson J.T. Harshfield E.L. Markus H.S. Is Periodontitis a Risk Factor for Ischaemic Stroke, Coronary Artery Disease and Subclinical Atherosclerosis? A Mendelian Randomization Study Atherosclerosis 2020 313 111 117 10.1016/j.atherosclerosis.2020.09.029 33038664
+13. Park Y.-K. Bang O. Cha M.-H. Kim J. Cole J.W. Lee D. Kim Y. SigCS Base: An Integrated Genetic Information Resource for Human Cerebral Stroke BMC Syst. Biol. 2011 5 S10 10.1186/1752-0509-5-S2-S10 22784567
+14. NHGRI-GWAS The National Human Genome Research Institute-European Bioinformatics Institute Catalog of Human Genome-Wide Association Studies Available online: https://www.ebi.ac.uk/gwas (accessed on 15 January 2021)
+15. Schaefer A.S. Richter G.M. Nothnagel M. Manke T. Dommisch H. Jacobs G. Arlt A. Rosenstiel P. Noack B. Groessner-Schreiber B. A Genome-Wide Association Study Identifies GLT6D1 as a Susceptibility Locus for Periodontitis Hum. Mol. Genet. 2009 19 553 562 10.1093/hmg/ddp508 19897590
+16. Divaris K. Monda K.L. North K.E. Olshan A.F. Lange E.M. Moss K. Barros S.P. Beck J.D. Offenbacher S. Genome-Wide Association Study of Periodontal Pathogen Colonization J. Dent. Res. 2012 91 S21 S28 10.1177/0022034512447951 22699663
+17. Divaris K. Monda K.L. North K.E. Olshan A.F. Reynolds L.M. Hsueh W.C. Lange E.M. Moss K. Barros S.P. Weyant R.J. Exploring the Genetic Basis of Chronic Periodontitis: A Genome-Wide Association Study Hum. Mol. Genet. 2013 22 2312 2324 10.1093/hmg/ddt065 23459936
+18. Teumer A. Holtfreter B. Völker U. Petersmann A. Nauck M. Biffar R. Völzke H. Kroemer H.K. Meisel P. Homuth G. Genome-Wide Association Study of Chronic Periodontitis in a General German Population J. Clin. Periodontol. 2013 40 977 985 10.1111/jcpe.12154 24024966
+19. Feng P. Wang X. Casado P.L. Küchler E.C. Deeley K. Noel J. Kimm H. Kim J.H. Haas A.N. Quinelato V. Genome Wide Association Scan for Chronic Periodontitis Implicates Novel Locus BMC Oral Health 2014 14 1 8 10.1186/1472-6831-14-84 24383547
+20. Freitag-Wolf S. Dommisch H. Graetz C. Jockel-Schneider Y. Harks I. Staufenbiel I. Meyle J. Eickholz P. Noack B. Bruckmann C. Genome-Wide Exploration Identifies Sex-Specific Genetic Effects of Alleles Upstream NPY to Increase the Risk of Severe Periodontitis in Men J. Clin. Periodontol. 2014 41 1115 1121 10.1111/jcpe.12317 25256105
+21. Freitag-Wolf S. Munz M. Wiehe R. Junge O. Graetz C. Jockel-Schneider Y. Staufenbiel I. Bruckmann C. Lieb W. Franke A. Smoking Modifies the Genetic Risk for Early-Onset Periodontitis J. Dent. Res. 2019 98 1332 1339 10.1177/0022034519875443 31537151
+22. Shaffer J.R. Polk D.E. Wang X. Feingold E. Weeks D.E. Lee M.K. Cuenco K.T. Weyant R.J. Crout R.J. McNeil D.W. Genome-Wide Association Study of Periodontal Health Measured by Probing Depth in Adults Ages 18–49 Years G3 Genes Genomes Genet. 2014 4 307 314 10.1534/g3.113.008755 24347629
+23. Shungin D. Haworth S. Divaris K. Agler C.S. Kamatani Y. Keun Lee M. Grinde K. Hindy G. Alaraudanjoki V. Pesonen P. Genome-Wide Analysis of Dental Caries and Periodontitis Combining Clinical and Self-Reported Data Nat. Commun. 2019 10 2773 10.1038/s41467-019-10630-1 31235808
+24. Shimizu S. Momozawa Y. Takahashi A. Nagasawa T. Ashikawa K. Terada Y. Izumi Y. Kobayashi H. Tsuji M. Kubo M. A Genome-Wide Association Study of Periodontitis in a Japanese Population J. Dent. Res. 2015 94 555 561 10.1177/0022034515570315 25672891
+25. Munz M. Willenborg C. Richter G.M. Jockel-Schneider Y. Graetz C. Staufenbiel I. Wellmann J. Berger K. Krone B. Hoffmann P. A Genome-Wide Association Study Identifies Nucleotide Variants at SIGLEC5 and DEFA1A3 as Risk Loci for Periodontitis Hum. Mol. Genet. 2017 26 2577 2588 10.1093/hmg/ddx151 28449029
+26. Bevilacqua L. Navarra C.O. Pirastu N. Lenarda R.D. Gasparini P. Robino A. A Genome-Wide Association Study Identifies an Association between Variants in EFCAB4B Gene and Periodontal Disease in an Italian Isolated Population J. Periodontal Res. 2018 53 992 998 10.1111/jre.12598 30284742
+27. Munz M. Richter G.M. Loos B.G. Jepsen S. Divaris K. Offenbacher S. Teumer A. Holtfreter B. Kocher T. Bruckmann C. Meta-Analysis of Genome-Wide Association Studies of Aggressive and Chronic Periodontitis Identifies Two Novel Risk Loci Eur. J. Hum. Genet. 2019 27 102 113 10.1038/s41431-018-0265-5 30218097
+28. Botelho J. Mascarenhas P. Mendes J.J. Machado V. Network Protein Interaction in Parkinson’s Disease and Periodontitis Interplay: A Preliminary Bioinformatic Analysis Genes 2020 11 1385 10.3390/genes11111385
+29. NHGRI-GWAS GWAS Periodontitis Results Available online: https://www.ebi.ac.uk/gwas/efotraits/EFO_0000649 (accessed on 2 January 2021)
+30. Von Berg J. van der Laan S.W. McArdle P.F. Malik R. Kittner S.J. Mitchell B.D. Worrall B.B. de Ridder J. Pulit S.L. Alternate Approach to Stroke Phenotyping Identifies a Genetic Risk Locus for Small Vessel Stroke Eur. J. Hum. Genet. 2020 28 963 972 10.1038/s41431-020-0580-5 32047268
+31. Trochet H. Pirinen M. Band G. Jostins L. McVean G. Spencer C.C.A. Bayesian Meta-Analysis across Genome-Wide Association Studies of Diverse Phenotypes Genet. Epidemiol. 2019 43 532 547 10.1002/gepi.22202 30920090
+32. Lee T.-H. Ko T.-M. Chen C.-H. Chang Y.-J. Lu L.-S. Chang C.-H. Huang K.-L. Chang T.-Y. Lee J.-D. Chang K.-C. A Genome-Wide Association Study Links Small-Vessel Ischemic Stroke to Autophagy Sci. Rep. 2017 7 15229 10.1038/s41598-017-14355-3 29123153
+33. Söderholm M. Pedersen A. Lorentzen E. Stanne T.M. Bevan S. Olsson M. Cole J.W. Fernandez-Cadenas I. Hankey G.J. Jimenez-Conde J. Genome-Wide Association Meta-Analysis of Functional Outcome after Ischemic Stroke Neurology 2019 92 e1271 e1283 10.1212/WNL.0000000000007138 30796134
+34. Malik R. Dau T. Gonik M. Sivakumar A. Deredge D.J. Edeleva E.V. Götzfried J. van der Laan S.W. Pasterkamp G. Beaufort N. Common Coding Variant in SERPINA1 Increases the Risk for Large Artery Stroke Proc. Natl. Acad. Sci. USA 2017 114 3613 3618 10.1073/pnas.1616301114 28265093
+35. Traylor M. Malik R. Nalls M.A. Cotlarciuc I. Radmanesh F. Thorleifsson G. Hanscombe K.B. Langefeld C. Saleheen D. Rost N.S. Genetic Variation at 16q24.2 Is Associated with Small Vessel Stroke Ann. Neurol. 2017 81 383 394 10.1002/ana.24840 27997041
+36. Meschia J.F. Singleton A. Nalls M.A. Rich S.S. Sharma P. Ferrucci L. Matarin M. Hernandez D.G. Pearce K. Brott T.G. Genomic Risk Profiling of Ischemic Stroke: Results of an International Genome-Wide Association Meta-Analysis PLoS ONE 2011 6 e23161 10.1371/journal.pone.0023161 21957438
+37. Meschia J.F. Nalls M. Matarin M. Brott T.G. Brown R.D. Hardy J. Kissela B. Rich S.S. Singleton A. Hernandez D. Siblings With Ischemic Stroke Study Stroke 2011 42 2726 2732 10.1161/STROKEAHA.111.620484 21940970
+38. Cheong M.-Y. Bang O.-S. Cha M.-H. Park Y.-K. Kim S.-H. Kim Y.J. Association of the Adiponectin Gene Variations with Risk of Ischemic Stroke in a Korean Population Yonsei Med. J. 2011 52 20 10.3349/ymj.2011.52.1.20 21155030
+39. Yamada Y. Fuku N. Tanaka M. Aoyagi Y. Sawabe M. Metoki N. Yoshida H. Satoh K. Kato K. Watanabe S. Identification of CELSR1 as a Susceptibility Gene for Ischemic Stroke in Japanese Individuals by a Genome-Wide Association Study Atherosclerosis 2009 207 144 149 10.1016/j.atherosclerosis.2009.03.038 19403135
+40. Arning A. Hiersche M. Witten A. Kurlemann G. Kurnik K. Manner D. Stoll M. Nowak-Göttl U. A Genome-Wide Association Study Identifies a Gene Network of ADAMTS Genes in the Predisposition to Pediatric Stroke Blood 2012 120 5231 5236 10.1182/blood-2012-07-442038 22990015
+41. Kulminski A.M. Huang J. Loika Y. Arbeev K.G. Bagley O. Yashkin A. Duan M. Culminskaya I. Strong Impact of Natural-Selection–Free Heterogeneity in Genetics of Age-Related Phenotypes Aging 2018 10 492 514 10.18632/aging.101407 29615537
+42. Cheng Y.-C. O’Connell J.R. Cole J.W. Stine O.C. Dueker N. McArdle P.F. Sparks M.J. Shen J. Laurie C.C. Nelson S. Genome-Wide Association Analysis of Ischemic Stroke in Young Adults G3 Genes Genomes Genet. 2011 1 505 514 10.1534/g3.111.001164 22384361
+43. Gretarsdottir S. Thorleifsson G. Manolescu A. Styrkarsdottir U. Helgadottir A. Gschwendtner A. Kostulas K. Kuhlenbäumer G. Bevan S. Jonsdottir T. Risk Variants for Atrial Fibrillation on Chromosome 4q25 Associate with Ischemic Stroke Ann. Neurol. 2008 64 402 409 10.1002/ana.21480 18991354
+44. Matarín M. Brown W.M. Scholz S. Simón-Sánchez J. Fung H.-C. Hernandez D. Gibbs J.R. De Vrieze F.W. Crews C. Britton A. A Genome-Wide Genotyping Study in Patients with Ischaemic Stroke: Initial Analysis and Data Release Lancet Neurol. 2007 6 414 420 10.1016/S1474-4422(07)70081-9 17434096
+45. Wang L. Xu F. Brickell A. Sun N. Mao X. Zhang Q. Wang G. Zhou Q. Yang B. Li F. Additional Common Loci Associated with Stroke and Obesity Identified Using Pleiotropic Analytical Approach Mol. Genet. Genom. 2020 295 439 451 10.1007/s00438-019-01630-3 31813042
+46. Keene K.L. Chen W.-M. Chen F. Williams S.R. Elkhatib S.D. Hsu F.-C. Mychaleckyj J.C. Doheny K.F. Pugh E.W. Ling H. Genetic Associations with Plasma B12, B6, and Folate Levels in an Ischemic Stroke Population from the Vitamin Intervention for Stroke Prevention (VISP) Trial Front. Public Health 2014 2 10.3389/fpubh.2014.00112 25147783
+47. Malik R. Rannikmäe K. Traylor M. Georgakis M.K. Sargurupremraj M. Markus H.S. Hopewell J.C. Debette S. Sudlow C.L.M. Dichgans M. Genome-wide Meta-analysis Identifies 3 Novel Loci Associated with Stroke Ann. Neurol. 2018 84 934 939 10.1002/ana.25369 30383316
+48. Verma S.S. Bergmeijer T.O. Gong L. Reny J. Lewis J.P. Mitchell B.D. Alexopoulos D. Aradi D. Altman R.B. Bliden K. Genomewide Association Study of Platelet Reactivity and Cardiovascular Response in Patients Treated With Clopidogrel: A Study by the International Clopidogrel Pharmacogenomics Consortium Clin. Pharmacol. Ther. 2020 108 1067 1077 10.1002/cpt.1911 32472697
+49. Holliday E.G. Maguire J.M. Evans T.-J. Koblar S.A. Jannes J. Sturm J.W. Hankey G.J. Baker R. Golledge J. Parsons M.W. Common Variants at 6p21.1 Are Associated with Large Artery Atherosclerotic Stroke Nat. Genet. 2012 44 1147 1151 10.1038/ng.2397 22941190
+50. Ikram M.A. Seshadri S. Bis J.C. Fornage M. DeStefano A.L. Aulchenko Y.S. Debette S. Lumley T. Folsom A.R. van den Herik E.G. Genomewide Association Studies of Stroke N. Engl. J. Med. 2009 360 1718 1728 10.1056/NEJMoa0900094 19369658
+51. Carty C.L. Keene K.L. Cheng Y.-C. Meschia J.F. Chen W.-M. Nalls M. Bis J.C. Kittner S.J. Rich S.S. Tajuddin S. Meta-Analysis of Genome-Wide Association Studies Identifies Genetic Risk Factors for Stroke in African Americans Stroke 2015 46 2063 2068 10.1161/STROKEAHA.115.009044 26089329
+52. Zhu Z. Wang X. Li X. Lin Y. Shen S. Liu C.-L. Hobbs B.D. Hasegawa K. Liang L. Boezen H.M. Genetic Overlap of Chronic Obstructive Pulmonary Disease and Cardiovascular Disease-Related Traits: A Large-Scale Genome-Wide Cross-Trait Analysis Respir. Res. 2019 20 64 10.1186/s12931-019-1036-8 30940143
+53. Bellenguez C. Bevan S. Gschwendtner A. Spencer C.C.A. Burgess A.I. Pirinen M. Jackson C.A. Traylor M. Strange A. Su Z. Genome-Wide Association Study Identifies a Variant in HDAC9 Associated with Large Vessel Ischemic Stroke Nat. Genet. 2012 44 328 333 10.1038/ng.1081 22306652
+54. Traylor M. Farrall M. Holliday E.G. Sudlow C. Hopewell J.C. Cheng Y.-C. Fornage M. Ikram M.A. Malik R. Bevan S. Genetic Risk Factors for Ischaemic Stroke and Its Subtypes (the METASTROKE Collaboration): A Meta-Analysis of Genome-Wide Association Studies Lancet Neurol. 2012 11 951 962 10.1016/S1474-4422(12)70234-X 23041239
+55. He L. Kernogitski Y. Kulminskaya I. Loika Y. Arbeev K.G. Loiko E. Bagley O. Duan M. Yashkin A. Ukraintseva S.V. Pleiotropic Meta-Analyses of Longitudinal Studies Discover Novel Genetic Variants Associated with Age-Related Diseases Front. Genet. 2016 7 10.3389/fgene.2016.00179 27790247
+56. Chauhan G. Arnold C.R. Chu A.Y. Fornage M. Reyahi A. Bis J.C. Havulinna A.S. Sargurupremraj M. Smith A.V. Adams H.H.H. Identification of Additional Risk Loci for Stroke and Small Vessel Disease: A Meta-Analysis of Genome-Wide Association Studies Lancet Neurol. 2016 15 695 707 10.1016/S1474-4422(16)00102-2 27068588
+57. Pulit S.L. McArdle P.F. Wong Q. Malik R. Gwinn K. Achterberg S. Algra A. Amouyel P. Anderson C.D. Arnett D.K. Loci Associated with Ischaemic Stroke and Its Subtypes (SiGN): A Genome-Wide Association Study Lancet Neurol. 2016 15 174 184 10.1016/S1474-4422(15)00338-5 26708676
+58. Traylor M. Adib-Samii P. Harold D. Dichgans M. Williams J. Lewis C.M. Markus H.S. Fornage M. Holliday E.G. Sharma P. Shared Genetic Contribution to Ischemic Stroke and Alzheimer’s Disease Ann. Neurol. 2016 79 739 747 10.1002/ana.24621 26913989
+59. Dichgans M. Malik R. König I.R. Rosand J. Clarke R. Gretarsdottir S. Thorleifsson G. Mitchell B.D. Assimes T.L. Levi C. Shared Genetic Susceptibility to Ischemic Stroke and Coronary Artery Disease Stroke 2014 45 24 36 10.1161/STROKEAHA.113.002707 24262325
+60. Cheng Y.-C. Stanne T.M. Giese A.-K. Ho W.K. Traylor M. Amouyel P. Holliday E.G. Malik R. Xu H. Kittner S.J. Genome-Wide Association Analysis of Young-Onset Stroke Identifies a Locus on Chromosome 10q25 Near HABP2 Stroke 2016 47 307 316 10.1161/STROKEAHA.115.011328 26732560
+61. Hinds D.A. Buil A. Ziemek D. Martinez-Perez A. Malik R. Folkersen L. Germain M. Mälarstig A. Brown A. Soria J.M. Genome-Wide Association Analysis of Self-Reported Events in 6135 Individuals and 252 827 Controls Identifies 8 Loci Associated with Thrombosis Hum. Mol. Genet. 2016 25 1867 1874 10.1093/hmg/ddw037 26908601
+62. Malik R. Chauhan G. Traylor M. Sargurupremraj M. Okada Y. Mishra A. Rutten-Jacobs L. Giese A.-K. van der Laan S.W. Gretarsdottir S. Multiancestry Genome-Wide Association Study of 520,000 Subjects Identifies 32 Loci Associated with Stroke and Stroke Subtypes Nat. Genet. 2018 50 524 537 10.1038/s41588-018-0058-3 29531354
+63. NHGRI-GWAS GWAS Stroke Results Available online: https://www.ebi.ac.uk/gwas/efotraits/EFO_0000712 (accessed on 2 January 2021)
+64. Szklarczyk D. Franceschini A. Kuhn M. Simonovic M. Roth A. Minguez P. Doerks T. Stark M. Muller J. Bork P. The STRING Database in 2011: Functional Interaction Networks of Proteins, Globally Integrated and Scored Nucleic Acids Res. 2011 39 561 568 10.1093/nar/gkq973 21045058
+65. STRING Protein-Protein Interactions Network Available online: https://string-db.org/ (accessed on 10 June 2020)
+66. Universal Protein Resource UniProt Available online: https://www.uniprot.org/ (accessed on 16 June 2020)
+67. STRING Score Computation Available online: http://version10.string-db.org/help/faq/ (accessed on 22 April 2021)
+68. Tam V. Patel N. Turcotte M. Bossé Y. Paré G. Meyre D. Benefits and Limitations of Genome-Wide Association Studies Nat. Rev. Genet. 2019 20 467 484 10.1038/s41576-019-0127-1 31068683
+69. Gokyu M. Kobayashi H. Nanbara H. Sudo T. Ikeda Y. Suda T. Izumi Y. Thrombospondin-1 production is enhanced by Porphyromonas gingivalis lipopolysaccharide in THP-1 cells PLoS ONE 2014 9 e0115107 Erratum in: PLoS ONE2015, 10, e0139759 10.1371/journal.pone.0115107 25501558
+70. Simats A. García-Berrocoso T. Ramiro L. Giralt D. Gill N. Penalba A. Bustamante A. Rosell A. Montaner J. Characterization of the rat cerebrospinal fluid proteome following acute cerebral ischemia using an aptamer-based proteomic technology Sci. Rep. 2018 8 7899 10.1038/s41598-018-26237-3 29784938
+71. Téllez N. Aguilera N. Quiñónez B. Silva E. González L.E. Hernández L. Arginine and glutamate levels in the gingival crevicular fluid from patients with chronic periodontitis Braz. Dent. J. 2008 19 318 322 10.1590/S0103-64402008000400006 19180321
+72. Hajishengallis G. Hajishengallis E. Kajikawa T. Wang B. Yancopoulou D. Ricklin D. Lambris J.D. Complement inhibition in pre-clinical models of periodontitis and prospects for clinical application Semin. Immunol. 2016 28 285 291 10.1016/j.smim.2016.03.006 27021500
+73. Yu Y.L. Chou R.H. Shyu W.C. Hsieh S.C. Wu C.S. Chiang S.Y. Chang W.J. Chen J.N. Tseng Y.J. Lin Y.H. Smurf2-mediated degradation of EZH2 enhances neuron differentiation and improves functional recovery after ischaemic stroke EMBO Mol. Med. 2013 5 531 547 10.1002/emmm.201201783 23526793
+

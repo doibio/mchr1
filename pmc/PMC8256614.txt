@@ -1,0 +1,858 @@
+
+==== Front
+BMC Cardiovasc Disord
+BMC Cardiovasc Disord
+BMC Cardiovascular Disorders
+1471-2261
+BioMed Central London
+
+2146
+10.1186/s12872-021-02146-8
+Research
+Identification of candidate biomarkers and therapeutic agents for heart failure by bioinformatics analysis
+http://orcid.org/0000-0001-6284-6253
+Kolur Vijayakrishna 1
+http://orcid.org/0000-0003-2202-7637
+Vastrad Basavaraj 2
+http://orcid.org/0000-0003-3615-4450
+Vastrad Chanabasayya channu.vastrad@gmail.com
+
+3
+http://orcid.org/0000-0003-0504-1197
+Kotturshetti Shivakumar 3
+http://orcid.org/0000-0001-8076-928X
+Tengli Anandkumar 4
+1 Vihaan Heart Care & Super Specialty Centre, Vivekananda General Hospital, Deshpande Nagar, Hubli, Karnataka 580029 India
+2 Department of Biochemistry, Basaveshwar College of Pharmacy, Gadag, Karnataka 582103 India
+3 Biostatistics and Bioinformatics, Chanabasava Nilaya, Bharthinagar, Dharwad, 580001 Karnataka India
+4 grid.411962.9 0000 0004 1761 157X Department of Pharmaceutical Chemistry, JSS College of Pharmacy, Mysuru and JSS Academy of Higher Education & Research, Mysuru, Karnataka 570015 India
+4 7 2021
+4 7 2021
+2021
+21 32924 3 2021
+14 6 2021
+© The Author(s) 2021
+https://creativecommons.org/licenses/by/4.0/ Open AccessThis article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.
+Introduction
+
+Heart failure (HF) is a heterogeneous clinical syndrome and affects millions of people all over the world. HF occurs when the cardiac overload and injury, which is a worldwide complaint. The aim of this study was to screen and verify hub genes involved in developmental HF as well as to explore active drug molecules.
+
+Methods
+
+The expression profiling by high throughput sequencing of GSE141910 dataset was downloaded from the Gene Expression Omnibus (GEO) database, which contained 366 samples, including 200 heart failure samples and 166 non heart failure samples. The raw data was integrated to find differentially expressed genes (DEGs) and were further analyzed with bioinformatics analysis. Gene ontology (GO) and REACTOME enrichment analyses were performed via ToppGene; protein–protein interaction (PPI) networks of the DEGs was constructed based on data from the HiPPIE interactome database; modules analysis was performed; target gene—miRNA regulatory network and target gene—TF regulatory network were constructed and analyzed; hub genes were validated; molecular docking studies was performed.
+
+Results
+
+A total of 881 DEGs, including 442 up regulated genes and 439 down regulated genes were observed. Most of the DEGs were significantly enriched in biological adhesion, extracellular matrix, signaling receptor binding, secretion, intrinsic component of plasma membrane, signaling receptor activity, extracellular matrix organization and neutrophil degranulation. The top hub genes ESR1, PYHIN1, PPP2R2B, LCK, TP63, PCLAF, CFTR, TK1, ECT2 and FKBP5 were identified from the PPI network. Module analysis revealed that HF was associated with adaptive immune system and neutrophil degranulation. The target genes, miRNAs and TFs were identified from the target gene—miRNA regulatory network and target gene—TF regulatory network. Furthermore, receiver operating characteristic (ROC) curve analysis and RT-PCR analysis revealed that ESR1, PYHIN1, PPP2R2B, LCK, TP63, PCLAF, CFTR, TK1, ECT2 and FKBP5 might serve as prognostic, diagnostic biomarkers and therapeutic target for HF. The predicted targets of these active molecules were then confirmed.
+
+Conclusion
+
+The current investigation identified a series of key genes and pathways that might be involved in the progression of HF, providing a new understanding of the underlying molecular mechanisms of HF.
+
+Supplementary Information
+
+The online version contains supplementary material available at 10.1186/s12872-021-02146-8.
+
+Keywords
+
+Heart failure
+Differentially expressed genes
+Molecular docking
+Enrichment analysis
+Prognosis
+issue-copyright-statement© The Author(s) 2021
+==== Body
+Introduction
+
+Heart failure (HF) is a cardiovascular disease characterized by tachycardia, tachypnoea, pulmonary rales, pleural effusion, raised jugular venous pressure, peripheral oedema and hepatomegaly [1]. Morbidity and mortality linked with HF is a prevalent worldwide health problem holding a universal position as the leading cause of death [2]. The numbers of cases of HF are rising globally and it has become a key health issue. According to a survey, the prevalence HF is expected to exceed 50% of the global population [3]. Research suggests that modification in multiple genes and signaling pathways are associated in controlling the advancement of HF. However, a lack of investigation on the precise molecular mechanisms of HF development limits the treatment efficacy of the disease at present.
+
+Previous study showed that HF was related to the expression of MECP2 [4] RBM20 [5], CaMKII [6], troponin I [7] and SERCA2a [8]. Toll-Like receptor signaling pathway [9], activin type II receptor signaling pathway [10], CaMKII signaling pathways [11], Drp1 signaling pathways [12] and JAK-STAT signaling pathway [13] were liable for progression of HF. More investigations are required to focus on treatments that enhance the outcome of patients with HF, to strictly make the diagnosis of the disease based on screening of biomarkers. These investigations can upgrade prognosis of patients by lowering the risk of advancement of HF and related complications. So it is essential to recognize the mechanism and find biomarkers with a good specificity and sensitivity.
+
+The recent high-throughput RNA sequencing data has been widely employed to screen the differentially expressed genes (DEGs) between normal samples and HF samples in human beings, which makes it accessible for us to further explore the entire molecular alterations in HF at multiple levels involving DNA, RNA, proteins, epigenetic alterations, and metabolism [14]. However, there still exist obstacles to put these RNA seq data in application in clinic for the reason that the number of DEGs found by expression profiling by high throughput sequencing were massive and the statistical analyses were also too sophisticated [15–19]
+
+In this study, first, we had chosen dataset GSE141910 from Gene Expression Omnibus (GEO) (http:// www.ncbi.nlm.nih.gov/geo/) [20]. Second, we applied for limma tool in R software to obtain the differentially expressed genes (DEGs) in this dataset. Third, the ToppGene was used to analyze these DEGs including biological process (BP), cellular component (CC) and molecular function (MF) REACTOME pathways. Fourth, we established protein–protein interaction (PPI) network and then applied Cytotype PEWCC1 for module analysis of the DEGs which would identify some hub genes. Fifth, we established target gene—miRNA regulatory network and target gene—TF regulatory network. In addition, we further validated the hub genes by receiver operating characteristic (ROC) curve analysis and RT-PCR analysis. Finally, we performed molecular docking studies for over expressed hub genes. Results from the present investigation might provide new vision into potential prognostic and therapeutic targets for HF.
+
+Materials and methods
+
+Data resource
+
+Expression profiling by high throughput sequencing with series number GSE141910 based on platform GPL16791 was downloaded from the GEO database. The dataset of GSE141910 contained 200 heart failure samples and 166 non heart failure samples. It was downloaded from the GEO database in NCBI based on the platform of GPL16791 Illumina HiSeq 2500 (Homo sapiens).
+
+Identification of DEGs in HF
+
+DEGs of dataset GSE141910 between HF groups and non heart failure groups were respectively analyzed using the limma package in R [21]. Fold changes (FCs) in the expression of individual genes were calculated and DEGs with P < 0.05, |log FC|> 1.158 for up regulated genes and |log FC|< − 0.83 for down regulated genes were considered to be significant. Hierarchical clustering and visualization were used by Heat-map package of R.
+
+Functional enrichment analysis
+
+Gene Ontology (GO) analysis and REACTOME pathway analysis were performed to determine the functions of DEGs using the ToppGene (ToppFun) (https://toppgene.cchmc.org/enrichment.jsp) [22] GO terms (http://geneontology.org/) [23] included biological processes (BP), cellular components (CC) and molecular functions (MF) of genomic products. REACTOME (https://reactome.org/) [24] analyzes pathways of important gene products. ToppGene is a bioinformatics database for analyzing the functional interpretation of lists of proteins and genes. The cutoff value was set to P < 0.05.
+
+Protein–protein interaction network construction and module screening
+
+PPI networks are used to establish all protein coding genes into a massive biological network that serves an advance compassionate of the functional system of the proteome [25]. The HiPPIE interactome (https://cbdm.uni-mainz.de/hippie/) [26] database furnish information regarding predicted and experimental interactions of proteins. In the current investigation, the DEGs were mapped into the HiPPIE interactome database to find significant protein pairs with a combined score of > 0.4. The PPI network was subsequently constructed using Cytoscape software, version 3.8.2 (www.cytoscape.org) [27]. The nodes with a higher node degree [28], higher betweenness centrality [29], higher stress centrality [30] and higher closeness centrality [31] were considered as hub genes. Additionally, cluster analysis for identifying significant function modules with a degree cutoff > 2 in the PPI network was performed using the PEWCC1 (http://apps.cytoscape.org/apps/PEWCC1) [32] in Cytoscape.
+
+Target gene—miRNA regulatory network construction
+
+The miRNet database (https://www.mirnet.ca/) [33] contains information on miRNA and the regulated genes. Using information collected from the miRNet database, hub genes were matched with their associated miRNA. The target gene—miRNA regulatory network then was constructed using Cytoscape software. MiRNAs and target are selected based on highest node degree.
+
+Target gene—TF regulatory network construction
+
+The NetworkAnalyst database (https://www.networkanalyst.ca/) [34] contains information on TF and the regulated genes. Using information collected from the NetworkAnalyst database, hub genes were matched with their associated TF. The target gene—TF regulatory network then was constructed using Cytoscape software. TFs and target genes are selected based on highest node degree.
+
+Receiver operating characteristic (ROC) curve analysis
+
+Then ROC curve analysis was implementing to classify the sensitivity and specificity of the hub genes for HF diagnosis and we investigated how large the area under the curve (AUC) was by using the statistical package pROC in R software [35].
+
+RT-PCR analysis
+
+H9C2 cells (ATCC) were cultured in Dulbecco’s minimal essential medium (DMEM) (Sigma-Aldrich) supplemented with 10% fetal calf serum (Sigma-Aldrich) and 1% streptomycin (Sigma-Aldrich) at 37 °C in 5% CO2. HL-1 cells (ATCC) was culture in Claycomb medium (Sigma-Aldrich) supplemented with 10% fetal bovine serum (Sigma-Aldrich), 1% streptomycin (Sigma-Aldrich), 1% glutamax (Sigma-Aldrich) and 0.1 mM norepinephrine (Sigma-Aldrich) at 37 °C in 5% CO2. Total RNA was isolated from cell culture of H9C2 for HF and HL-1 for normal control using the TRI Reagent (Sigma, USA). cDNA was synthesized using 2.0 μg of total RNA with the Reverse transcription cDNA kit (Thermo Fisher Scientific, Waltham, MA, USA). The 7 Flex real-time PCR system (Thermo Fisher Scientific, Waltham, MA, USA) was employed to detect the relative mRNA expression. The relative expression levels were determined by the 2-ΔΔCt method and normalized to internal control beta-actin [36]. All RT-PCR reactions were performed in triplicate. The primers used to explore mRNA expression of ten hub genes were listed in Table 1.Table 1 The sequences of primers for quantitative RT-PCR
+
+Genes	Forward primers	Reverse primers	
+ESR1	CCTCTGGCTACCATTATGGG	AGTCATTGTGTCCTTGAATGC	
+PYHIN1	GCAAGATCAGTACGACAGAG	AGATAACTGAGCAACCTGTG	
+PPP2R2B	ACCAGAGACTATCTGACCG	GTAGTCATGAACCTGGTATGTC	
+LCK	CTAGTCCGGCTTTATGCAG	AAATCTACTAGGCTCCCGT	
+TP63	ATTCAATGAGGGACAGATTGC	GGGTCTTCTACATACTGGGC	
+PCLAF	GACCAATATAAACTGTGGCGGG	CCAGGGTAAACAAGGAGACGTT	
+CFTR	CTGTGGCCTTGGTTTACTG	CTCTGATCTCTGTACTTCACCA	
+TK1	AGATTCAGGTGATTCTCGGG	ACTTGTACTGGGCGATCTG	
+ECT2	GCTGTATTGTACGAGTATGCT	GTCACCAATTTGACAAGCTC	
+FKBP5	CCTAAGTTTGGCATTGACCC	CCAAGATTCTTTGGCCTTCTC	
+
+Identification of candidate small molecules
+
+SYBYL-X 2.0 perpetual drug design software has been used for surflex-docking studies of the designed novel molecules and the standard on over expressed genes of PDB protein. Using ChemDraw Software, all designed molecules and standards were sketched, imported and saved using open babel free software in sdf. template. The protein of over expressed genes of ESR1, LCK, PPP2R2B, TP63 and their co-crystallised protein of PDB code 4PXM, 1KSW, 2HV7, 3VD8 and 6RU6 were extracted from Protein Data Bank [37–40]. Optimizations of the designed molecules were performed by standard process by applying Gasteiger Huckel (GH) charges together with the TRIPOS force field. In addition, energy minimization was achieved using MMFF94s and MMFF94 algorithm methods. The preparation of the protein was done after protein incorporation. The co-crystallized ligand and all water molecules have been eliminated from the crystal structure; more hydrogen’s were added and the side chain was set, TRIPOS force field was used for the minimization of structure. The interaction efficiency of the compounds with the receptor was expressed in kcal/mol units by the Surflex-Dock score. The best location was integrated into the molecular region by the interaction between the protein and the ligand. Using Discovery Studio Visualizer, the visualisation of ligand interaction with receptor is performed.
+
+Results
+
+Identification of DEGs in HF
+
+We identified 881 DEGs in the GSE141910 dataset using the limma package in R. Based on the limma analysis, using the adj P val < 0.05, |log FC|> 1.158 for up regulated genes and |log FC|< − 0.83 for down regulated genes, a total of 881 DEGs were identified, consisting of 442 genes were up regulated and 439 genes were down regulated. The DEGs are listed in Additional file 1: Table S1. The volcano plot for DEGs is illustrated in Fig. 1. Figure 2 is the hierarchical clustering heat-map.Fig. 1 Volcano plot of differentially expressed genes. Genes with a significant change of more than two-fold were selected. Green dot represented up regulated significant genes and red dot represented down regulated significant genes
+
+Fig. 2 Heat map of differentially expressed genes. Legend on the top left indicate log fold change of genes. (A1 – A200 = heart failure samples; B1 – B166 = non heart failure samples)
+
+Functional enrichment analysis
+
+Results of GO analysis showed that the up regulated genes were significantly enriched in BP, CC, and MF, including biological adhesion, regulation of immune system process, extracellular matrix, cell surface, signaling receptor binding and molecular function regulator (Table 2); the down regulated genes were significantly enriched in BP, CC, and MF, including secretion, defense response, intrinsic component of plasma membrane, whole membrane, signaling receptor activity and molecular transducer activity (Table 2). Pathway analysis showed that the up regulated genes were significantly enriched in extracellular matrix organization and immunoregulatory interactions between a lymphoid and a non-lymphoid cell (Table 3); the down regulated genes were significantly enriched in neutrophil degranulation and SLC-mediated transmembrane transport (Table 3).Table 2 The enriched GO terms of the up and down regulated differentially expressed genes
+
+GO ID	CATEGORY	GO Name	P Value	FDR B&H	FDR B&Y	Bonferroni	Gene Count	Gene	
+Up regulated genes	
+GO:0022610	BP	biological adhesion	1.32E−13	3.37E−10	3.08E−09	6.75E−10	72	HLA-DQA1, DACT2, CD83, MDK, UBASH3A, ITGBL1, FAP, MFAP4, SERPINE2, NRXN2, COL14A1, CCR7, ALOX15, COL1A1, LAMB4, COL8A2, STAB2, COL16A1, COMP, TBX21, FERMT1, XG, CCDC80, APOA1, PODXL2, ZAP70, HAPLN1, TENM4, SKAP1, CNTNAP2, PDE5A, CARD11, CTNNA2, SLAMF7, ATP1B2, CX3CR1, LRRC15, IDO1, MYOC, SIGLEC8, ISLR, SMOC2, ITGAL, ITGB7, FREM1, PTN, KIRREL3, NTM, GLI2, FBLN7, DPT, NT5E, ECM2, LCK, OMG, OPCML, TGFB2, RASGRP1, CD2, CD3E, THBS4, CD5, CD6, THY1, TIGIT, CD27, CD40LG, ROBO2, GREM1, LY9, HBB, LEF1	
+GO:0002682	BP	regulation of immune system process	2.20E−10	2.25E−07	2.05E−06	1.12E−06	72	IL34, HLA-DQA1, ESR1, TLR7, CD83, IL17D, MDK, UBASH3A, TNFRSF4, PYHIN1, ZBP1, FCER1A, MS4A2, FCER2, FCN1, CCR7, SMPD3, CCL24, SCARA3, ALOX15, COL1A1, IL31RA, TBX21, XG, CXCL14, APOA1, ZAP70, SH2D1B, SKAP1, PDE5A, CARD11, SLAMF7, CTSG, CX3CR1, IDO1, CXCL10, ITGAL, ACE, SIT1, ITGB7, PTN, TBC1D10C, FCRL3, BPI, GLI2, KLRB1, NPPA, CAMK4, LCK, TGFB2, RASGRP1, CD1C, CD1E, CD2, CD3D, CD3E, THBS4, CD3G, CD247, CD5, CD6, THY1, TIGIT, MS4A1, CD27, GPR68, CD40LG, CD48, GREM1, SH2D1A, LEF1, LRRC17	
+GO:0031012	CC	extracellular matrix	1.09E−20	2.77E−18	1.89E−17	5.54E−18	52	MATN2, COL22A1, MDK, COLQ, MFAP4, SERPINE2, HMCN2, AEBP1, FCN1, CMA1, CTHRC1, COL14A1, SCARA3, COL1A1, LAMB4, COL8A2, COL9A1, COL9A2, COL10A1, MXRA5, FMOD, COL16A1, COMP, CCDC80, APOA1, HAPLN1, CTSG, ADAMTSL2, LRRC15, ASPN, MYOC, NDP, SMOC2, FREM1, PTN, SSC5D, SULF1, DPT, NPPA, ADAMTSL1, ECM2, OGN, ITIH5, TGFB2, LEFTY2, EYS, THBS4, P3H2, LTBP2, GREM1, LUM, LRRC17	
+GO:0009986	CC	cell surface	5.07E−17	8.61E−15	5.86E−14	2.58E−14	63	HYAL4, NRG1, HLA-DQA1, CD83, TNFRSF4, ITGBL1, FAP, SERPINE2, FCER1A, MS4A2, FCER2, FCN1, CXCL9, CCR7, IL31RA, SFRP4, STAB2, DUOX2, APOA1, ACKR4, FCRL6, SCUBE2, CNTNAP2, SLAMF7, CTSG, IL2RB, CX3CR1, LRRC15, CXCL10, NDP, ITGAL, ACE, ITGB7, GFRA3, PTN, PROM1, SSC5D, FCRL3, SULF1, MRC2, NTM, CLEC9A, NT5E, TGFB2, LHCGR, CD1C, HHIP, CD1E, CD2, CD3D, CD3E, CD3G, CD5, CD6, THY1, TIGIT, MS4A1, CD27, CD40LG, CD48, ROBO2, GREM1, LY9	
+GO:0005102	MF	signaling receptor binding	1.36E−09	5.99E−07	4.41E−06	1.20E−06	73	IL34, NRG1, HLA-DQA1, ESR1, GDF6, PENK, TAC4, KDM5D, IL17D, MDK, ITGBL1, FAP, SERPINE2, FCER2, NRXN2, FCN1, CLEC11A, UCHL1, AGTR2, CXCL9, NGEF, CTHRC1, C1QTNF2, CCL22, CCL24, CXCL11, COL16A1, COMP, WNT10B, WNT9A, CXCL14, APOA1, FCRL6, GNA14, OASL, RASL11B, LRRC15, CXCL10, ADAM18, MYOC, SYTL2, NDP, ACE, GDNF, ITGB7, GFRA3, PTN, LYPD1, SCG2, NPPA, NPPB, MCHR1, ECM2, CMTM2, ESM1, LCK, OGN, TGFB2, LEFTY2, CD2, CD3E, THBS4, CD3G, THY1, TIGIT, MS4A1, C1QTNF9, CD40LG, LTB, GREM1, SYTL1, LEF1, LGI1	
+GO:0098772	MF	molecular function regulator	3.79E−04	1.59E−02	1.17E−01	3.34E−01	58	IL34, NRG1, ESR1, GDF6, PENK, TAC4, IL17D, MDK, KCNIP1, SERPINE2, MYOZ1, NRXN2, CLEC11A, SCN2B, AGTR2, CXCL9, NGEF, CCL22, CCL24, CXCL11, HTR2B, PI16, SCG5, WNT10B, WNT9A, CXCL14, APOA1, LRRC55, PPP2R2B, ATP1B2, CXCL10, NDP, BIRC7, GDNF, PTN, TBC1D10C, LYPD1, SCG2, NPPA, NPPB, AZIN2, CMTM2, OGN, RGS4, ITIH5, TGFB2, LEFTY2, RASGRP1, THBS4, THY1, CD27, C1QTNF9, CD40LG, RGS17, LTB, GREM1, LEF1, INKA1	
+Down regulated genes	
+GO:0046903	BP	secretion	1.07E−11	5.64E−08	5.16E−07	5.64E−08	78	SERPINA3, HK3, SYN3, ACP3, TRPC4, CFTR, CD109, HMOX2, CHI3L1, F5, F8, F13A1, S100A8, S100A9, SAA1, FCER1G, MGST1, PIK3C2A, HP, AGTR1, PLA2G2A, CCR1, FGF10, C1QTNF1, PLA2G4F, FGR, MERTK, SERPINF2, ALOX5, SYT13, IL17RB, CNR1, ALOX15B, FLT3, ANPEP, P2RY12, ANXA3, FPR1, CR1, SLC1A1, SLC2A1, ARG1, ARNTL, SLC11A1, SLC22A16, LGI3, NSG1, ATP2A2, IL10, SIGLEC9, GPR84, NHLRC2, SSTR5, HPSE, KCNB1, IL1R2, PTX3, GLUL, SYN2, BANK1, WNK3, KNG1, CRISPLD2, CACNA1E, CD177, SIGLEC14, EDN1, EDN2, EDNRB, THBS1, RNASE2, CD38, TLR2, SERPINE1, ELANE, STEAP3, IL1RL1, MCEMP1	
+GO:0006952	BP	defense response	1.04E−06	1.63E−04	1.49E−03	5.50E−03	65	SERPINA3, EREG, VSIG4, TMIGD3, CLEC7A, RAET1E, CHI3L1, F8, CD163, S100A8, S100A9, SAA1, FCER1G, HP, HPR, AGTR1, PLA2G2A, CCR1, FGR, SERPINF2, ALOX5, ALOX5AP, IL17RB, CNR1, SELE, ADAMTS4, ANXA3, FPR1, APOB, SAMHD1, CR1, FCN3, AQP4, ARG1, SLC11A1, MARCO, IL10, BCL6, IL18R1, GGT5, IL1R2, PTX3, SIGLEC10, KNG1, CACNA1E, CD177, SOCS3, SIGLEC14, ADAMTS5, LBP, S1PR3, EDN1, EDNRB, FOSL1, THBS1, RNASE2, NAMPT, TLR2, SERPINE1, ELANE, IRAK3, ELF3, IL1RL1, CALCRL, OSMR	
+GO:0031226	CC	intrinsic component of plasma membrane	1.74E−10	4.55E−08	3.11E−07	9.10E−08	74	TPO, EREG, OPN4, TRPC4, CFTR, TMIGD3, KCNIP2, CD163, FCER1G, SCN3A, AGTR1, CCR1, C1QTNF1, MERTK, SYT13, IL17RB, CNR1, TRHDE, SELE, LRRC8E, FLT3, SLC4A7, P2RY12, SLC31A2, CR1, LGR5, AQP3, AQP4, SLC1A1, SLC2A1, SLC5A1, MSR1, SLC11A1, SIGLEC7, ART3, SLCO2A1, ATP2A2, MARCO, GABRR2, SIGLEC9, SLCO4A1, GPR84, SSTR2, SSTR5, IL18R1, LAPTM5, GGT5, SLC52A3, LYVE1, KCNA7, KCNB1, KCND3, NECTIN1, KCNK1, KCNK3, KCNS2, ADGRD1, CACNA1E, GPR4, GPR12, SLC38A4, GPR183, GPRC5A, RGR, S1PR3, RHAG, EDNRB, TGFBR3, TLR2, LGR6, CALCRL, OSMR, HAS2, CDH16	
+GO:0098805	CC	whole membrane	1.91E−03	4.99E−02	3.41E−01	9.97E−01	51	EREG, SYN3, ACP3, TRPC4, CFTR, CD109, HMOX2, CD163, FCER1G, MGST1, PLA2G4F, GPAT2, MOG, CNR1, SELE, ANPEP, P2RY12, ANXA3, FPR1, APOB, SCGN, CR1, AQP4, SLC1A1, SLC2A1, ARG1, MSR1, SLC11A1, NSG1, RAB39A, MARCO, SIGLEC9, GPR84, HPSE, LAPTM5, KCND3, SYN2, SLC9A7, WASF1, CD177, SIGLEC14, GRB14, STEAP4, EDNRB, GRIP1, CD38, TLR2, STEAP3, HAS2, SERPINA5, MCEMP1	
+GO:0038023	MF	signaling receptor activity	2.36E−04	1.97E−02	1.49E−01	2.53E−01	55	EREG, OPN4, CLEC7A, FCER1G, FCGR3A, AGTR1, CCR1, ADGRF5, ADGRF4, MERTK, IL17RB, CNR1, SELE, FLT3, MYOT, ANPEP, P2RY12, ANXA3, FPR1, CR1, LGR5, SIGLEC7, MARCO, PALLD, IL10, GABRR2, IL15RA, GPR82, DNER, PAQR5, GPR84, IL20RA, SSTR2, SSTR5, IL18R1, LYVE1, IL1R2, NECTIN1, ADGRD1, GPR4, GPR12, NPTX2, GPR183, GPRC5A, PKHD1L1, RGR, S1PR3, EDNRB, TGFBR3, TLR2, SERPINE1, IL1RL1, LGR6, CALCRL, OSMR	
+GO:0060089	MF	molecular transducer activity	4.71E−04	2.10E−02	1.59E−01	5.04E−01	58	EREG, OPN4, CLEC7A, FCER1G, FCGR3A, AGTR1, CCR1, ADGRF5, ADGRF4, MERTK, IL17RB, CNR1, SELE, FLT3, MYOT, ANPEP, P2RY12, ANXA3, FPR1, CR1, LGR5, SIGLEC7, MARCO, PALLD, IL10, GABRR2, IL15RA, GPR82, DNER, PAQR5, GPR84, IL20RA, STOX1, SSTR2, SSTR5, IL18R1, BLM, CDKL5, LYVE1, IL1R2, NECTIN1, ADGRD1, GPR4, GPR12, NPTX2, GPR183, GPRC5A, PKHD1L1, RGR, S1PR3, EDNRB, TGFBR3, TLR2, SERPINE1, IL1RL1, LGR6, CALCRL, OSMR	
+Biological Process(BP), Cellular Component(CC) and Molecular Functions (MF)
+
+Table 3 The enriched pathway terms of the up and down regulated differentially expressed genes
+
+Pathway ID	Pathway name	P-value	FDR B&H	FDR B&Y	Bonferroni	Gene count	Gene	
+Up regulated genes	
+1270244	Extracellular matrix organization	3.33E−08	1.80E−05	1.23E−04	1.80E−05	24	COL22A1, MFAP4, CMA1, COL14A1, COL1A1, COL8A2, COL9A1, COL9A2, COL10A1, FMOD, COL16A1, COMP, HAPLN1, ADAMTS14, CTSG, ASPN, ITGAL, ITGB7, CAPN6, TGFB2, P3H2, TLL2, LTBP2, LUM	
+1269201	Immunoregulatory interactions between a Lymphoid and a non-Lymphoid cell	8.13E−06	7.31E−04	5.03E−03	4.39E−03	13	SH2D1B, SLAMF7, SIGLEC8, ITGAL, ITGB7, KLRB1, CD1C, CD3D, CD3E, CD3G, CD247, CD40LG, SH2D1A	
+1269544	GPCR ligand binding	3.92E−04	1.51E−02	1.04E−01	2.12E−01	22	GNG8, PENK, F2RL2, AGTR2, APLNR, CXCL9, CCR7, CXCL11, OXER1, HTR2A, HTR2B, WNT10B, WNT9A, ACKR4, CRHBP, S1PR5, FZD2, CX3CR1, CXCL10, MCHR1, LHCGR, GPR68	
+1268749	Metabolism of Angiotensinogen to Angiotensins	5.26E−04	1.85E−02	1.27E−01	2.84E−01	4	CMA1, CTSG, ACE, GZMH	
+1269868	Muscle contraction	3.44E−02	4.03E−01	1.00E+00	1.00E+00	9	KCNIP1, RYR3, SCN2B, ATP1A4, ATP1B2, MYL1, KCNK17, NPPA, TNNI1	
+1269340	Hemostasis	6.57E−02	5.21E−01	1.00E+00	1.00E+00	20	GNG8, CEACAM3, F2RL2, SERPINE2, APOA1, GNA14, PDE5A, ATP1B2, IL2RB, CTSW, ISLR, ITGAL, LCK, TGFB2, LEFTY2, RASGRP1, CD2, P2RX6, CD48, HBB	
+1269171	Adaptive Immune System	1.32E−01	6.87E−01	1.00E+00	1.00E+00	23	NRG1, HLA-DQA1, ZAP70, SH2D1B, CARD11, SLAMF7, SIGLEC8, ITGAL, ITGB7, ASB18, IER3, MRC2, KLRB1, LCK, RASGRP1, CD1C, CD3D, CD3E, CD3G, CD247, FBXL16, CD40LG, SH2D1A	
+Down regulated genes	
+1457780	Neutrophil degranulation	4.82E−06	3.14E−03	2.22E−02	3.14E−03	28	SERPINA3, HK3, ACP3, HMOX2, CHI3L1, S100A8, S100A9, FCER1G, MGST1, HP, FGR, ALOX5, ANPEP, FPR1, CR1, ARG1, SLC11A1, SIGLEC9, GPR84, HPSE, PTX3, CRISPLD2, CD177, SIGLEC14, RNASE2, TLR2, ELANE, MCEMP1	
+1269907	SLC-mediated transmembrane transport	6.91E−04	4.74E−02	3.35E−01	4.51E−01	16	HK3, SLC7A11, SLC4A7, SLC1A1, SLC2A1, SLC5A1, SLC11A1, SLC22A16, SLCO2A1, SLCO4A1, GCKR, LCN15, SLC9A7, SLC25A18, SLC38A4, RHAG	
+1269545	Class A/1 (Rhodopsin-like receptors)	8.72E−04	4.74E−02	3.35E−01	5.69E−01	17	OPN4, SAA1, AGTR1, CCR1, CNR1, P2RY12, FPR1, SSTR2, SSTR5, KNG1, GPR4, GPR183, RGR, S1PR3, EDN1, EDN2, EDNRB	
+1269340	Hemostasis	2.18E−03	7.11E−02	5.02E−01	1.00E+00	26	SERPINA3, CD109, SLC7A11, F5, F8, F13A1, SERPINB8, FCER1G, FGR, MERTK, SERPINF2, SELE, P2RY12, APOB, KIF18B, ATP2A2, NHLRC2, KNG1, PDE11A, CD177, DOCK9, GRB7, GRB14, THBS1, SERPINE1, SERPINA5	
+1269903	Transmembranetransport of small molecules	4.89E−03	1.28E−01	9.01E−01	1.00E+00	26	HK3, TRPC4, CFTR, HMOX2, SLC7A11, ABCB1, SLC4A7, AQP3, AQP4, SLC1A1, SLC2A1, SLC5A1, SLC11A1, SLC22A16, SLCO2A1, ATP2A2, GABRR2, SLCO4A1, GCKR, LCN15, SLC9A7, WNK3, SLC25A18, SLC38A4, RHAG, STEAP3	
+1269203	Innate Immune System	9.62E−03	1.96E−01	1.00E+00	1.00E+00	42	SERPINA3, EREG, HK3, MARK3, ACP3, CLEC7A, HMOX2, CHI3L1, S100A8, S100A9, SAA1, FCER1G, MGST1, FCGR3A, HP, GRAP2, PLA2G2A, FGF5, FGF10, FGR, ALOX5, ANPEP, FPR1, APOB, CR1, FCN3, ARG1, SLC11A1, SIGLEC9, GPR84, HPSE, PTX3, WASF1, CRISPLD2, CD177, SIGLEC14, LBP, RNASE2, TLR2, ELANE, IRAK3, MCEMP1	
+1269310	Cytokine Signaling in Immune system	8.42E−02	4.76E−01	1.00E+00	1.00E+00	23	EREG, MARK3, F13A1, SAA1, FGF5, CCR1, FGF10, ALOX5, IL17RB, FLT3, FPR1, SAMHD1, IL10, IL15RA, IL20RA, BCL6, IL18R1, IL1R2, SOCS3, LBP, IRAK3, IL1RL1, OSMR	
+
+Protein–protein interaction (PPI) network and module analysis
+
+Based on the HiPPIE interactome database, the PPI network for the DEGs (including 6541 nodes and 13,909 edges) was constructed (Fig. 3A). Up regulated gene with higher node degree, higher betweenness centrality, higher stress centrality and higher closeness centrality were as follows: ESR1, PYHIN1, PPP2R2B, LCK, TP63 and so on. Down regulated genes had higher node degree, higher betweenness centrality, higher stress centrality and higher closeness centrality were as follows PCLAF, CFTR, TK1, ECT2, FKBP5 and so on. The node degree, betweenness centrality, stress centrality and closeness centrality are listed in Table 4.Fig. 3 PPI network and the most significant modules of DEGs. A The PPI network of DEGs was constructed using Cytoscape. B The most significant module was obtained from PPI network with 4 nodes and 6 edges for up regulated genes. C The most significant module was obtained from PPI network with 6 nodes and 10 edges for down regulated genes. Up regulated genes are marked in green; down regulated genes are marked in red
+
+Table 4 Topology table for up and down regulated genes
+
+Regulation	Node	Degree	Betweenness	Stress	Closeness	
+Up	ESR1	1094	0.250896	7.4E+08	0.392769	
+Up	PYHIN1	342	0.054258	1.1E+08	0.339882	
+Up	PPP2R2B	199	0.023115	35,268,762	0.346839	
+Up	LCK	162	0.033618	18,589,354	0.353915	
+Up	TP63	142	0.018577	39,426,608	0.319664	
+Up	CD247	129	0.013832	18,625,274	0.317784	
+Up	PTN	105	0.016638	36,892,166	0.300662	
+Up	APLNR	103	0.016611	40,715,208	0.288093	
+Up	APOA1	100	0.018834	13,935,332	0.315866	
+Up	CENPA	98	0.009846	31,131,318	0.301786	
+Up	SKAP1	97	0.01599	10,109,482	0.313338	
+Up	FSCN1	88	0.010226	9,387,016	0.335367	
+Up	SCN2B	86	0.01089	24,233,242	0.284756	
+Up	TMEM30B	79	0.016411	10,490,230	0.270807	
+Up	FOXS1	79	0.009408	26,398,078	0.293247	
+Up	COL1A1	76	0.010472	9,315,670	0.308098	
+Up	ZAP70	75	0.007096	5,315,196	0.317614	
+Up	UCHL1	74	0.009753	9,381,024	0.331525	
+Up	HBB	72	0.009984	14,209,592	0.304767	
+Up	NRG1	70	0.01151	13,449,066	0.29526	
+Up	LEF1	61	0.007998	18,260,094	0.290744	
+Up	NT5E	60	0.009599	11,470,634	0.301563	
+Up	MDK	59	0.006889	7,533,352	0.305822	
+Up	ISLR	58	0.010139	9,992,806	0.294012	
+Up	FATE1	57	0.011609	9,248,788	0.281581	
+Up	LRRC15	56	0.010069	4,772,792	0.299094	
+Up	MATN2	54	0.004491	9,580,600	0.286792	
+Up	LIPH	54	0.008197	6,873,658	0.282347	
+Up	MYOC	49	0.005138	12,313,276	0.291029	
+Up	SCARA3	49	0.006492	11,494,220	0.290151	
+Up	NPPA	46	0.009502	4,868,574	0.307143	
+Up	CD83	43	0.005149	5,484,906	0.272841	
+Up	COL14A1	41	0.006129	5,699,128	0.292893	
+Up	CTSG	40	0.003821	1,913,996	0.296155	
+Up	SFRP4	40	0.004006	7,876,966	0.282518	
+Up	TRAF3IP3	38	0.006447	4,263,002	0.290602	
+Up	CLEC11A	38	0.005085	3,520,012	0.283596	
+Up	ATP1B4	38	0.005722	2,476,482	0.245939	
+Up	CD3E	37	0.003892	1,537,326	0.297624	
+Up	SH2D1A	37	0.003969	2,117,220	0.308113	
+Up	DDX3Y	37	0.003754	1,632,916	0.32095	
+Up	PRPH	37	0.001871	1,994,266	0.301494	
+Up	BIRC7	35	0.004835	2,567,254	0.28549	
+Up	CARD11	35	0.002249	2,510,852	0.292173	
+Up	RXRG	35	0.002394	7,134,478	0.26225	
+Up	CCL22	34	0.005706	3,916,024	0.281423	
+Up	CD27	33	0.003915	2,076,446	0.294263	
+Up	GZMB	32	0.003277	6,141,522	0.285602	
+Up	THY1	32	0.003561	1,793,684	0.291509	
+Up	CHRNA3	32	0.004247	3,415,720	0.236631	
+Up	LSP1	32	0.003371	5,734,010	0.281836	
+Up	IL2RB	31	0.002351	1,938,172	0.305808	
+Up	HTR2B	30	0.004018	2,165,998	0.27434	
+Up	DLGAP1	29	0.003816	6,072,882	0.277754	
+Up	TRIM17	29	0.002943	5,543,810	0.275137	
+Up	CTNNA2	29	0.003554	3,511,510	0.30254	
+Up	SERPINE2	28	0.002577	3,031,536	0.27426	
+Up	CD1E	28	0.003282	3,419,392	0.255229	
+Up	MRC2	28	0.003395	2,950,548	0.296276	
+Up	C1QTNF2	28	0.003203	2,505,388	0.270147	
+Up	SH2D1B	27	0.001864	1,043,570	0.29028	
+Up	BRINP1	27	0.001516	4,402,948	0.27726	
+Up	PDIA2	27	0.001967	2,895,182	0.286453	
+Up	CHD5	27	0.001918	5,223,636	0.286503	
+Up	FAP	27	0.003531	5,820,086	0.268583	
+Up	IL31RA	26	0.002073	1,606,954	0.263603	
+Up	GAP43	25	0.002745	2,793,268	0.279858	
+Up	CD5	25	0.001695	655,904	0.295861	
+Up	UBASH3A	25	0.001652	1,347,264	0.290951	
+Up	ROBO2	25	0.002959	3,726,616	0.267048	
+Up	ITGB7	24	0.002686	3,351,660	0.276124	
+Up	HTR2A	24	0.002571	2,472,010	0.275833	
+Up	MOXD1	24	0.002391	2,492,756	0.259926	
+Up	ASB18	24	9.77E−04	3,202,162	0.273001	
+Up	CD2	23	0.002221	926,408	0.287954	
+Up	BCL11B	23	8.18E−04	1,888,298	0.28836	
+Up	STAT4	23	0.001786	2,435,506	0.277166	
+Up	NGEF	23	0.001809	1,548,206	0.277636	
+Up	SMPD3	23	0.002518	2,175,774	0.281	
+Up	FZD2	22	0.003673	3,239,390	0.250335	
+Up	DUSP15	22	0.001253	2,474,532	0.284472	
+Up	CD3D	21	0.001725	1,111,132	0.288589	
+Up	SYT17	21	0.002549	2,482,574	0.285802	
+Up	FCGR3B	21	0.002748	1,492,022	0.282286	
+Up	EGR2	21	0.002934	3,438,856	0.266406	
+Up	ZBP1	21	0.001876	2,664,938	0.26006	
+Up	CAMK4	21	0.001773	3,472,134	0.272716	
+Up	DMC1	20	0.002511	4,659,098	0.254277	
+Up	GDNF	20	0.002515	3,274,958	0.244751	
+Up	FCN1	20	0.002571	1,243,380	0.236742	
+Up	LUM	20	0.002276	1,515,870	0.283903	
+Up	GZMA	20	0.001051	3,258,230	0.276498	
+Up	TGFB2	20	0.002259	1,632,566	0.277119	
+Up	SLAMF7	20	0.00211	1,035,482	0.271708	
+Up	MS4A1	20	0.002857	1,169,078	0.288398	
+Up	ETV4	20	0.001747	1,674,080	0.301883	
+Up	GLI2	20	0.001398	2,977,194	0.285902	
+Up	PHLDA1	19	4.37E−04	818,256	0.298194	
+Up	COL8A2	19	0.00147	1,089,762	0.273835	
+Up	GABRD	19	0.002826	2,629,544	0.25748	
+Up	LMF1	19	0.004342	2,024,228	0.265132	
+Up	F2RL2	19	0.001554	790,338	0.282933	
+Up	LYPD1	19	0.003123	3,995,458	0.266276	
+Up	CAPN6	19	0.001415	3,046,736	0.267802	
+Up	SOX8	19	0.003361	2,763,024	0.251306	
+Up	IER3	18	0.001921	3,613,164	0.282982	
+Up	BEX1	18	0.001034	1,286,206	0.273606	
+Up	COLQ	18	0.001173	1,414,826	0.261234	
+Up	NTM	18	0.00284	2,486,684	0.275102	
+Up	RPS4Y1	18	0.001013	1,200,768	0.287713	
+Up	FERMT1	18	0.001713	4,279,868	0.270315	
+Up	RGS17	18	0.002928	3,868,106	0.249895	
+Up	TNNI1	17	0.001349	1,550,004	0.266765	
+Up	MYOZ1	17	0.00128	2,111,156	0.283203	
+Up	KLHDC8A	17	0.001147	7,007,508	0.251036	
+Up	MYL1	17	7.90E−04	1,213,666	0.289945	
+Up	DIO2	16	0.001161	1,959,228	0.279416	
+Up	ITGAL	16	0.001182	1,521,116	0.271527	
+Up	CRABP2	16	4.13E−04	675,182	0.272171	
+Up	HSH2D	16	0.001425	889,856	0.26034	
+Up	CD48	3	0	0	0.265422	
+Up	CD3G	2	0	0	0.23833	
+Up	LY9	2	0	0	0.240141	
+Up	SIT1	2	0	0	0.264221	
+Up	ATP1A4	2	1.16E−04	79,140	0.235049	
+Up	FMOD	2	3.96E−05	20,526	0.240707	
+Up	CCDC80	2	3.58E−05	499,704	0.288908	
+Up	CCR7	2	0	0	0.244312	
+Up	KCNIP1	1	0	0	0.219995	
+Up	CD6	1	0	0	0.22832	
+Up	FCRL3	1	0	0	0.241062	
+Up	SERTAD4	1	0	0	0.257531	
+Up	PRF1	1	0	0	0.222162	
+Up	C1QTNF9	1	0	0	0.226548	
+Up	OPCML	1	0	0	0.215756	
+Up	ESM1	1	0	0	0.213551	
+Up	CD40LG	1	0	0	0.240053	
+Up	S1PR5	1	0	0	0.24224	
+Up	AGTR2	1	0	0	0.259256	
+Up	NPPB	1	0	0	0.211726	
+Up	SCG5	1	0	0	0.238721	
+Up	PDE5A	1	0	0	0.243548	
+Up	RYR3	1	0	0	0.274755	
+Up	RASEF	1	0	0	0.274755	
+Up	PODXL2	1	0	0	0.213106	
+Up	OGN	1	0	0	0.226548	
+Up	PLCH2	1	0	0	0.238721	
+Up	SCG2	1	0	0	0.267704	
+Up	P3H2	1	0	0	0.207132	
+Up	C12orf75	1	0	0	0.217608	
+Up	ACE	1	0	0	0.241159	
+Up	GNA14	1	0	0	0.217608	
+Up	HDC	1	0	0	0.216614	
+Up	CMA1	1	0	0	0.226713	
+Up	CEACAM3	1	0	0	0.265519	
+Down	PCLAF	817	0.135529	4.95E+08	0.365547	
+Down	CFTR	800	0.168404	4.5E+08	0.378823	
+Down	TK1	188	0.034997	43,663,230	0.331089	
+Down	ECT2	164	0.020509	39,431,940	0.325989	
+Down	FKBP5	157	0.028064	15,963,868	0.346288	
+Down	ANLN	153	0.021564	38,168,832	0.325066	
+Down	ATP2A2	148	0.027131	19,656,040	0.363859	
+Down	BCL6	142	0.022279	29,419,916	0.314181	
+Down	TOP2A	132	0.018571	16,838,266	0.361426	
+Down	ZBTB16	132	0.025165	14,500,206	0.349976	
+Down	S100A9	124	0.01355	11,186,464	0.352219	
+Down	CEP55	123	0.019583	21,505,878	0.316891	
+Down	BLM	108	0.014259	18,458,556	0.321945	
+Down	AGTR1	100	0.019518	14,083,216	0.313564	
+Down	SAMHD1	94	0.011463	12,340,270	0.337357	
+Down	S100A8	88	0.011637	8,662,548	0.361486	
+Down	GRAP2	86	0.011721	16,819,438	0.305936	
+Down	CBS	83	0.011248	20,466,334	0.301591	
+Down	SOCS3	83	0.011071	9,067,820	0.324888	
+Down	GFI1B	80	0.011791	21,469,034	0.299012	
+Down	APOB	78	0.014102	9,290,092	0.319133	
+Down	PCK1	77	0.004102	12,732,476	0.305408	
+Down	MARK3	76	0.008497	19,265,788	0.304512	
+Down	HMOX2	75	0.011098	15,258,770	0.312053	
+Down	PCNT	74	0.011297	9,190,430	0.312261	
+Down	PIK3C2A	69	0.005568	8,768,122	0.313053	
+Down	KIF14	69	0.01035	12,506,564	0.304668	
+Down	WASF1	67	0.009478	18,219,554	0.29633	
+Down	ARNTL	65	0.00974	19,494,854	0.295526	
+Down	ALOX5	65	0.010921	7,343,824	0.306424	
+Down	MCM10	64	0.006773	8,807,396	0.306438	
+Down	THBS1	64	0.008915	6,203,038	0.312694	
+Down	VSIG4	64	0.010353	10,534,518	0.302037	
+Down	WWC1	64	0.007241	14,604,594	0.301647	
+Down	MELK	63	0.008554	18,629,232	0.283953	
+Down	P2RY12	63	0.008962	9,063,088	0.286641	
+Down	PPL	62	0.007851	16,137,388	0.297313	
+Down	MYBL2	59	0.006189	16,766,208	0.291964	
+Down	FAM107A	59	0.006172	12,510,302	0.289688	
+Down	GRIP1	58	0.008069	3,384,760	0.320055	
+Down	ELF3	56	0.004945	7,205,142	0.309118	
+Down	PALLD	55	0.00509	15,467,012	0.293274	
+Down	CTH	54	0.007754	5,179,060	0.296908	
+Down	EIF4EBP1	53	0.005367	9,748,852	0.303946	
+Down	KNG1	53	0.007017	4,204,766	0.304243	
+Down	GLUL	51	0.00728	10,616,752	0.30116	
+Down	SLC2A1	51	0.004557	8,307,646	0.303974	
+Down	HP	51	0.006741	3,398,298	0.314741	
+Down	RPGR	50	0.004441	10,097,488	0.29384	
+Down	TLR2	50	0.00754	8,322,330	0.294595	
+Down	GRB7	49	0.004147	4,832,846	0.308113	
+Down	PPEF1	49	0.001983	3,327,232	0.298276	
+Down	TXNRD1	49	0.00627	2,860,122	0.328561	
+Down	NAMPT	48	0.005035	10,420,710	0.290538	
+Down	BMP7	47	0.007622	4,442,306	0.286981	
+Down	CA14	47	0.005218	4,884,858	0.279189	
+Down	CCR1	46	0.008305	11,217,842	0.27812	
+Down	CDC45	45	0.004479	3,231,162	0.30618	
+Down	ARG1	45	0.004931	2,347,856	0.32381	
+Down	SPC24	43	0.005356	6,589,710	0.294834	
+Down	FGR	43	0.003434	3,020,950	0.303452	
+Down	KIF5C	42	0.004876	2,365,086	0.319586	
+Down	IL1R2	42	0.006825	9,489,620	0.289265	
+Down	SERPINA3	42	0.005518	4,047,110	0.293168	
+Down	DEPDC1B	42	0.002978	9,632,346	0.260838	
+Down	SLC4A7	41	0.006314	2,752,106	0.316232	
+Down	SERPINA5	41	0.003604	13,750,404	0.273206	
+Down	MPP3	40	0.008262	9,328,402	0.297003	
+Down	NCEH1	40	0.009405	3,554,728	0.304214	
+Down	SLC1A1	38	0.008678	2,278,154	0.320573	
+Down	CLSPN	38	0.003668	3,801,300	0.294343	
+Down	BCAT1	38	0.0052	9,066,238	0.269657	
+Down	MYH6	38	0.005049	1,731,786	0.308578	
+Down	IL20RA	37	0.005252	8,769,348	0.267901	
+Down	HOOK1	37	0.005558	7,195,380	0.279177	
+Down	FLT3	37	0.002948	1,938,440	0.292408	
+Down	ADAMTS4	37	0.005524	2,338,476	0.307519	
+Down	CAMSAP3	36	0.003339	4,795,892	0.29578	
+Down	PLA2G2A	35	0.003637	1,686,594	0.300565	
+Down	FOSL1	34	0.004151	10,955,318	0.269402	
+Down	NQO1	34	0.001945	5,351,260	0.289201	
+Down	ELANE	34	0.005024	2,289,646	0.302834	
+Down	KCND3	34	0.002555	9,153,178	0.28203	
+Down	EPN3	34	0.005073	7,423,282	0.280302	
+Down	GPR183	34	0.003642	4,243,792	0.256783	
+Down	CD109	34	0.006381	3,655,940	0.303565	
+Down	TUBA3E	34	0.003459	6,711,886	0.289048	
+Down	TGFBR3	33	0.005143	1,983,082	0.267386	
+Down	NID1	33	0.004536	1,702,236	0.311503	
+Down	STEAP3	33	0.004665	2,788,716	0.285365	
+Down	AMD1	32	0.005714	3,154,782	0.29099	
+Down	EDNRB	31	0.003092	7,273,156	0.265368	
+Down	IL17RB	31	0.004227	6,381,040	0.261527	
+Down	SLC19A2	30	0.004653	2,505,974	0.281302	
+Down	SLC22A16	30	0.004545	3,831,872	0.240618	
+Down	PHACTR3	29	0.002193	6,417,862	0.280976	
+Down	LAPTM5	29	0.003298	2,735,158	0.274317	
+Down	ANGPTL4	29	0.003467	1,447,446	0.325163	
+Down	PPM1E	29	0.002894	5,733,032	0.270427	
+Down	E2F2	28	0.002816	5,508,320	0.28041	
+Down	SERPINE1	28	0.001474	2,497,574	0.271302	
+Down	ACPP	28	0.003084	2,749,550	0.291223	
+Down	KRT7	28	0.002861	1,288,592	0.315774	
+Down	SERPINB8	28	0.002944	3,167,812	0.28186	
+Down	FREM2	28	0.003954	3,395,758	0.276661	
+Down	RNF157	28	0.002172	6,196,626	0.265551	
+Down	PPIP5K2	28	0.003886	8,572,108	0.270014	
+Down	F8	27	0.002839	4,879,016	0.274836	
+Down	TUBAL3	27	0.002055	1,052,840	0.318915	
+Down	ELL2	26	0.003971	6,281,508	0.255859	
+Down	GRB14	25	0.002326	3,092,024	0.28378	
+Down	IRAK3	25	0.00257	6,900,170	0.265897	
+Down	MANEA	25	0.004508	5,075,608	0.263869	
+Down	CLEC7A	25	0.004246	4,293,212	0.277095	
+Down	KLF10	24	0.001607	3,013,994	0.281339	
+Down	GNMT	24	0.00165	3,015,768	0.269136	
+Down	ART3	24	0.002904	2,401,360	0.255748	
+Down	LRRC8E	24	0.003739	4,188,308	0.288665	
+Down	SLA	23	0.001714	1,003,510	0.289329	
+Down	CLEC4G	23	0.002667	2,376,260	0.277495	
+Down	TUBB4A	5	1.28E−04	181,440	0.250652	
+Down	CD38	4	0	0	0.268176	
+Down	FCGR3A	4	1.01E−04	73,756	0.268385	
+Down	F5	3	8.10E−07	708	0.248641	
+Down	EHF	2	7.11E−06	4180	0.254842	
+Down	KIAA1549	2	4.16E−04	193,604	0.261391	
+Down	S100A3	2	1.84E−05	45,822	0.254376	
+Down	ADH1B	2	3.40E−05	28,184	0.233546	
+Down	PAPSS2	2	1.05E−05	8726	0.251868	
+Down	PTX3	1	0	0	0.19143	
+Down	IL15RA	1	0	0	0.234199	
+Down	EDN1	1	0	0	0.209723	
+Down	SERPINF2	1	0	0	0.232451	
+Down	ZNF366	1	0	0	0.282018	
+Down	ACR	1	0	0	0.214588	
+Down	MATN3	1	0	0	0.222881	
+Down	CNR1	1	0	0	0.216205	
+Down	LBP	1	0	0	0.240053	
+Down	ALOX5AP	1	0	0	0.23456	
+Down	SCGN	1	0	0	0.23353	
+Down	MAMDC2	1	0	0	0.248745	
+Down	CDKL5	1	0	0	0.219891	
+Down	CENPM	1	0	0	0.231833	
+Down	KCNIP2	1	0	0	0.219995	
+Down	CPM	1	0	0	0.24533	
+Down	GPSM2	1	0	0	0.245855	
+Down	LSAMP	1	0	0	0.215756	
+Down	KCNK3	1	0	0	0.219353	
+Down	ALOX15B	1	0	0	0.234981	
+Down	ST6GALNAC3	1	0	0	0.233263	
+Down	GPRC5A	1	0	0	0.274755	
+Down	SLC31A2	1	0	0	0.215287	
+Down	MARVELD2	1	0	0	0.218671	
+Down	SNTG2	1	0	0	0.229	
+Down	TRHDE	1	0	0	0.208786	
+Down	SIGLEC7	1	0	0	0.245229	
+Down	SMTNL2	1	0	0	0.265519	
+Down	ANXA3	1	0	0	0.274755	
+Down	F13A1	1	0	0	0.248745	
+Down	ANKRD7	1	0	0	0.233438	
+Down	KCNS2	1	0	0	0.219721	
+Down	SIGLEC9	1	0	0	0.227565	
+Down	SIGLEC10	1	0	0	0.282018	
+Down	C20orf197	1	0	0	0.282018	
+Down	SCGB1D2	1	0	0	0.226548	
+Down	IL1RL1	1	0	0	0.21698	
+Down	PLIN2	1	0	0	0.241935	
+Down	CD163	1	0	0	0.239403	
+Down	HPR	1	0	0	0.240053	
+
+Additionally, two significant modules, including module 1 (10 nodes and 24 edges) and module 2 (5 nodes and 10 edges) (Fig. 3B) and module 3 (55 nodes and 115 edges), were acquired by PEWCC1 plug-in (Fig. 3C). Furthermore, GO terms and REACTOME pathways were significantly enriched by module 1, including adaptive immune system, immunoregulatory interactions between a lymphoid and a non-lymphoid cell, hemostasis, biological adhesion and regulation of immune system process. Meanwhile, the nodes in module 2 were significantly enriched in GO terms and REACTOME pathways, including neutrophil degranulation and secretion.
+
+Target gene—miRNA regulatory network construction
+
+Associations between 2063 miRNAs and their 319 target genes were collected from the target gene—miRNA regulatory network (Fig. 4). MiRNAs of hsa-mir-4533, hsa-mir-548ac, hsa-mir-548i, hsa-mir-5585-3p, hsa-mir-6750-3p, hsa-mir-200c-3p, hsa-mir-1273 g-3p, hsa-mir-1244, hsa-mir-4789-3p and hsa-mir-766-3p, which exhibited a high degree of interaction, were selected from this network. Furthermore, the results also showed that FSCN1 was the target of hsa-mir-4533, ESR1 was the target of hsa-mir-548ac, TMEM30B was the target of hsa-mir-548i, SCN2B was the target of hsa-mir-5585-3p, CENPA was the target of hsa-mir-6750-3p, FKBP5 was the target of hsa-mir-200c-3p, PCLAF was the target of hsa-mir-1273g-3p, CEP55 was the target of hsa-mir-1244, ATP2A2 was the target of hsa-mir-4789-3p and TK1 was the target of hsa-mir-766-3p, and are listed in Table 5.Fig. 4 Target gene—miRNA regulatory network between target genes. The light orange color diamond nodes represent the key miRNAs; up regulated genes are marked in green; down regulated genes are marked in red
+
+Table 5 miRNA—target gene and TF—target gene interaction
+
+Regulation	Target Genes	Degree	MicroRNA	Regulation	Target Genes	Degree	TF	
+Up	FSCN1	99	hsa-mir-4533	Up	FSCN1	62	ESRRA	
+Up	ESR1	72	hsa-mir-548ac	Up	APOA1	48	RERE	
+Up	TMEM30B	64	hsa-mir-548i	Up	COL1A1	21	HMG20B	
+Up	SCN2B	46	hsa-mir-5585-3p	Up	HBB	16	THRAP3	
+Up	CENPA	35	hsa-mir-6750-3p	Up	LCK	15	ATF1	
+Up	APOA1	22	hsa-mir-6722-5p	Up	FOXS1	14	YBX1	
+Up	PPP2R2B	14	hsa-mir-149-3p	Up	CENPA	10	SAP30	
+Up	TP63	12	hsa-mir-1178-3p	Up	SCN2B	5	RCOR2	
+Up	PYHIN1	5	hsa-mir-205-3p	Up	TMEM30B	5	ZNF24	
+Up	APLNR	2	hsa-mir-10b-5p	Up	APLNR	4	FOXJ2	
+Up	PTN	1	hsa-mir-155-5p	Up	NRG1	2	SUZ12	
+Up	LCK	1	hsa-mir-335-5p	Up	PTN	2	L3MBTL2	
+Up	CD247	1	hsa-mir-346	Up	UCHL1	2	MAZ	
+Down	FKBP5	88	hsa-mir-200c-3p	Up	ESR1	1	EZH2	
+Down	PCLAF	62	hsa-mir-1273g-3p	Up	ZAP70	1	ZFX	
+Down	CEP55	57	hsa-mir-1244	Down	SOCS3	48	MXD3	
+Down	ATP2A2	55	hsa-mir-4789-3p	Down	BCL6	44	ARID4B	
+Down	TK1	45	hsa-mir-766-3p	Down	FKBP5	43	CBFB	
+Down	ZBTB16	43	hsa-mir-1976	Down	ANLN	38	TAF7	
+Down	SAMHD1	26	hsa-mir-3124-3p	Down	ATP2A2	35	CREM	
+Down	TOP2A	17	hsa-mir-186-5p	Down	CBS	31	IKZF1	
+Down	BCL6	13	hsa-mir-339-5p	Down	BLM	19	ZNF501	
+Down	ECT2	13	hsa-mir-132-3p	Down	ECT2	15	KLF16	
+Down	CFTR	9	hsa-mir-145-5p	Down	CEP55	10	FOSL2	
+Down	S100A9	7	hsa-mir-4679	Down	GRAP2	10	CEBPD	
+Down	AGTR1	5	hsa-mir-410-3p	Down	ZBTB16	4	TRIM28	
+Down	ANLN	5	hsa-mir-503-5p	Down	S100A8	3	STAT3	
+Down	BLM	3	hsa-mir-193b-3p	Down	S100A9	2	CEBPG	
+				Down	AGTR1	1	EZH2	
+
+Target gene—TF regulatory network construction
+
+Associations between 330 TFs and their 247 target genes were collected from the target gene—TF regulatory network (Fig. 5). TFs of ESRRA, RERE, HMG20B, THRAP3, ATF1, MXD3, ARID4B, CBFB, TAF7 and CREM, which exhibited a high degree of interaction, were selected from this network. Furthermore, the results also showed that FSCN1 was the target of ESRRA, APOA1 was the target of RERE, COL1A1 was the target of HMG20B, HBB was the target of THRAP3, LCK was the target of ATF1, SOCS3 was the target of MXD3, BCL6 was the target of ARID4B, FKBP5 was the target of CBFB, ANLN was the target of TAF7 and ATP2A2 was the target of CREM, and are listed in Table 5.Fig. 5 Target gene—TF regulatory network between target genes. The sky blue color triangle nodes represent the key TFs; up regulated genes are marked in green; down regulated genes are marked in red
+
+Receiver operating characteristic (ROC) curve analysis
+
+First of all, we performed the ROC curve analysis among 10 hub genes based on the GSE141910. The results showed that ESR1, PYHIN1, PPP2R2B, LCK, TP63, PCLAF, CFTR, TK1, ECT2 and FKBP5 achieved an AUC value of > 0.7, demonstrating that these ten genes have high sensitivity and specificity for HF, suggesting they can be served as biomarkers for the diagnosis of HF (Fig. 6).Fig. 6 ROC curve analyses of hub genes. A ESR1, B PYHIN1, C PPP2R2B, D LCK, E TP63, F PCLAF, G CFTR, H TK1, I ECT2, J FKBP5
+
+RT-PCR analysis
+
+RT-PCR was used to validate the hub genes between normal and HF cell lines. The results suggested that the mRNA expression level of ESR1, PYHIN1, PPP2R2B, LCK and TP63 were significantly increased in HF compared with that in normal, while PCLAF, CFTR, TK1, ECT2 and FKBP5 were significantly decreased in HF compared with that in normal and are shown in Fig. 7.Fig. 7 RT-PCR analyses of hub genes. A ESR1, B PYHIN1, C PPP2R2B, D LCK, E TP63, F PCLAF, G) CFTR H TK1, I ECT2, J FKBP5
+
+Identification of candidate small molecules
+
+In the present study docking simulations are performed to spot the active site and foremost interactions accountable for complex stability with the receptor binding sites. In heart failure recognized over expressed genes and their proteins of x-ray crystallographic structure are chosen from PDB for docking studies. Most generally, medications containing benzothiadiazine ring hydrochlorothiazide are used in heart failure either alone or in conjunction with other drugs, based on this the molecules containing heterocyclic ring of benzothiadiazine are designed and hydrochlorothiazide is uses as a reference standard. Docking experiments using Sybyl-X 2.1.1. drug design perpetual software were used on the designed molecules. Docking studies were performed in order to understand the biding interaction of standard hydrochlorothiazide and designed molecules on over expressed protein. The X- RAY crystallographic structure of one proteins from each over expressed genes of ESR1, LCK, PPP2R2B, PYHIN1, TP63 and their co-crystallised protein of PDB code 4PXM, 1KSW, 2HV7, 3VD8 and 6RU6 respectively were selected for the docking studies to identify and predict the potential molecule based on the binding score with the protein and successful in heart failure. For the docking tests, a total of 34 molecules were built and the molecule with binding score greater than 5 is believed to be good. The designed molecules obtained docking score of 5 to 7 were HIM10, HTZ5, HIM6, HTZ31, HIM3, HIM14, HIM1, HIM7 and HIM11, HIM16, HTZ9, HIM17, HIM12, HTZ12, HIM6, HTZ7, HIM10, HTZ3 and HIM8, HTZ9, HIM6, HIM4, HIM13, HTZ16, HIM9, HIM7, HTZ5, HIM16, HTZ7, HIM10, HIM5, HIM12, HIM15, HTZ12, HIM3, HIM14 and HIM14, HIM6, HIM17, HTZ7, HIM10, HIM1, HTZ9, HIM3, HIM16, HIM15, HIM8, HIM9, HIM7, HTZ10, HTZ3, HTZ5, HTZ1, HIM13, HTZ4, HIM11, HTZ12, HTZ14, HIM2 and HIM7, HTZ13, HTZ5, HIM15, HIM12, HIM6, HTZ11, HIM14, HTZ9, HIM11, HIM13, HIM9, HIM8, HIM10, HIM1, HIM5, HIM4, HTZ12, HIM2, HIM17, HIM3, HTZ1, HTZ8, HIM3, HTZ14, HTZ3 with proteins 4PXM and, 1KSW and 2HV7 and 3VD8 and 6RUR respectively (Fig. 8). The molecules obtained binding score of less than 5 were HTZ13, HTZ12, HTZ10, HIM3, HIM15, HIM16, HIM13, HIM8, HTZ16, HIM2, HIM4, HIM17, HTZ17, HIM11, HTZ5, HTZ3, HIM9, HTZ15, HTZ5, HTZ9, HTZ11, HIM5, HTZ8 and HTZ14, HIM14, HTZ13, HIM13, HTZ16, HIM2, HIM3, HTZ10, HIM7, HIM1, HTZ1, HTZ4, HIM8, HIM5, HTZ2, HIM9, HTZ5, HTZ15, HTZ3, HIM4, HIM15, HTZ17, HTZ8, HTZ11 and HTZ14, HIM2, HIM1, HTZ11, HIM17, HTZ13, HTZ4, HTZ2, HIM3, HTZ15, HTZ8, HTZ17, HTZ1, HTZ3 and HTZ8, HIM4, HTZ16, HTZ15, HIM5, HTZ11, HTZ13, HIM3, HTZ17, HTZ2 and HTZ7, HTZ4, HTZ2, HTZ17, HTZ15 with proteins 4PXM and, 1KSW and 2HV7 and 3VD8 and 6RUR respectively. The molecules obtained very less binding score are HTZ1, HIM12, HTZ2, HTZ4 with protein 4PXM and the standard hydrochlorothiazide (HTZ) obtained less binding score with all proteins, the values are depicted in Table 6.Fig. 8 Structures of designed molecules
+
+Table 6 Docking results of Designed Molecules on Over Expressed Proteins
+
+Sl. No/
+Code	Over expressed gene: ESR1	Over expressed gene: LCK	Over expressed gene: PPP2R2B	Over expressed gene: PYHIN 1	Over expressed gene: TP63	
+PDB: 4PXM	PDB:1KSW	PDB: 2HV7	PDB: 3VD8	PDB: 6RU6	
+Total Score	Crash
+(-Ve)	Polar	Total Score	Crash
+(-Ve)	Polar	Total Score	Crash
+(−Ve)	Polar	Total Score	Crash
+(−Ve)	Polar	Total Score	Crash
+(−Ve)	Polar	
+HIM1	5.097	− 4.375	0.114	4.258	− 1.555	1.784	4.904	− 0.870	0.004	5.794	− 0.514	3.828	5.770	− 1.440	2.231	
+HIM2	4.057	− 6.172	0.039	4.624	− 0.997	1.959	4.906	− 0.468	1.517	5.052	− 0.780	3.415	5.414	− 1.529	2.444	
+HIM3	5.353	− 5.309	0.161	4.578	− 1.492	1.790	5.042	− 1.845	1.073	5.680	− 0.804	3.956	5.350	− 1.170	2.316	
+HIM4	3.976	− 5.132	0.167	3.839	− 1.635	1.196	6.328	− 1.172	1.128	4.966	− 0.666	1.818	5.627	− 1.416	2.320	
+HIM5	2.707	− 7.759	0.179	4.067	− 0.997	1.987	5.254	− 0.674	1.618	4.563	− 1.068	2.935	5.698	− 1.240	2.485	
+HIM6	5.948	− 3.902	1.796	5.229	− 0.707	3.656	6.766	− 1.424	1.858	6.670	− 0.941	5.519	6.218	− 1.468	2.578	
+HIM7	5.019	− 7.055	0.203	4.382	− 2.443	3.329	6.028	− 0.629	1.660	5.374	− 1.876	0.670	6.627	− 1.484	2.579	
+HIM8	4.429	− 3.983	0.344	4.150	− 4.382	4.210	6.794	− 1.279	1.129	5.468	− 0.769	3.444	5.842	− 2.088	2.272	
+HIM9	3.722	− 5.956	0.197	4.051	− 2.006	0.002	6.116	− 0.597	1.717	5.407	− 0.565	1.370	5.877	− 2.054	0.792	
+HIM10	6.771	− 3.977	1.836	5.176	− 3.512	4.023	5.332	− 1.378	3.349	6.071	− 0.923	3.854	5.825	− 0.966	3.672	
+HIM11	3.775	− 6.079	0.898	6.998	− 2.086	3.842	8.678	− 1.065	2.876	5.087	− 0.881	1.854	5.948	− 1.015	1.202	
+HIM12	0.190	− 8.149	0.022	5.302	− 2.305	3.475	5.227	− 1.636	0.710	7.322	− 1.128	4.099	6.237	− 2.562	2.171	
+HIM13	4.523	− 4.537	0.014	4.840	− 0.664	3.305	6.181	− 2.966	3.523	5.281	− 0.503	3.981	5.905	− 1.136	2.218	
+HIM14	5.247	− 3.183	0.000	4.888	− 1.296	2.563	5.037	− 0.377	1.647	7.057	− 0.799	4.256	6.116	− 1.366	2.438	
+HIM15	4.633	− 4.173	0.180	3.756	− 0.710	2.072	5.188	− 1.559	1.143	5.570	− 1.125	3.718	6.238	− 1.708	2.443	
+HIM16	4.588	− 2.883	0.000	6.027	− 1.099	3.903	5.606	− 0.987	4.197	5.661	− 0.926	2.751	7.263	− 1.533	4.212	
+HIM17	3.944	− 4.806	0.236	5.329	− 0.590	2.798	4.830	− 1.682	1.617	6.234	− 0.830	3.912	5.366	− 1.257	3.022	
+HTZ1	0.593	− 7.518	0	4.221	− 0.692	1.975	3.993	− 0.539	0.003	5.284	− 0.566	1.432	5.227	− 1.045	0.903	
+HTZ2	− 1.770	− 8.477	0.000	4.055	− 1.438	2.877	4.388	− 1.665	1.170	4.100	− 0.546	3.017	4.563	− 0.976	1.266	
+HTZ3	4.649	− 5.870	0.148	5.104	− 0.861	3.922	4.243	− 1.539	1.933	5.304	− 1.370	1.398	5.138	− 1.217	1.930	
+HTZ4	− 3.169	− 12.002	0.482	4.173	− 1.898	1.864	4.654	− 1.627	1.128	5.163	− 0.745	1.304	5.084	− 1.143	1.018	
+HTZ5	4.021	− 12.325	0.246	3.215	− 1.481	4.232	3.256	− 6.374	2.317	2.382	− 5.263	1.238	4.623	− 0.951	1.280	
+HTZ6	6.605	− 3.866	1.6487	4.004	− 1.104	2.851	5.834	− 1.310	3.111	5.286	− 1.530	1.436	6.336	− 2.326	3.781	
+HTZ7	4.977	− 5.434	0.655	5.197	− 2.040	3.250	5.352	− 1.371	1.172	6.138	− 1.734	1.627	4.908	− 1.057	1.335	
+HTZ8	1.025	− 8.223	0.000	3.549	− 1.310	2.403	4.024	− 3.825	2.440	4.980	− 0.593	1.474	5.164	− 1.291	0.999	
+HTZ9	3.386	− 7.041	0.194	5.567	− 1.622	3.057	6.792	− 2.581	1.088	5.794	− 0.683	1.774	6.053	− 1.408	1.037	
+HTZ10	4.744	− 5.463	0.837	4.520	− 2.469	3	7.758	− 1.518	3.765	5.345	− 1.133	3.661	7.507	− 2.080	4.086	
+HTZ11	2.991	− 6.177	0	3.453	− 0.721	1.266	4.841	− 1.738	0.045	4.368	− 0.805	1.074	6.176	− 1.380	1.511	
+HTZ12	4.810	− 6.157	0.275	5.296	− 2.814	3.605	5.138	− 1.840	2.189	5.083	− 0.870	1.536	5.592	− 1.321	1.525	
+HTZ13	4.868	− 3.837	0	4.863	− 0.535	2.405	4.656	− 0.681	3.152	4.246	− 2.335	0.529	6.404	− 0.975	2.954	
+HTZ14	5.646	− 3.473	0	4.948	− 0.801	2.324	4.953	− 1.672	1.066	5.058	− 1.174	1.121	5.114	− 1.299	1.296	
+HTZ15	3.428	− 4.957	0.348	3.949	− 0.614	1.873	4.049	− 0.787	1.224	4.796	− 1.066	1.489	3.510	− 0.607	0.461	
+HTZ16	4.227	− 4.787	0.298	4.654	− 1.534	2.096	6.143	− 1.204	2.879	4.854	− 0.994	1.564	7.102	− 0.917	3.001	
+HTZ17	3.784	− 5.018	0.380	3.661	− 0.897	1.676	4.016	− 1.179	1.384	4.039	− 0.569	2.706	4.256	− 1.040	1.236	
+HTZ
+
+STD
+
+	4.722	− 1.084	1.063	3.319	− 0.890	3.033	3.564	− 0.272	2.367	3.394	− 0.882	1.169	4.237	− 0.801	1.855	
+
+Discussion
+
+HF is the most prevalent form of cardiovascular disease among the elderly. A complete studies of HF, comprising pathogenic factors, pathological processes, clinical manifestations, early clinical diagnosis, clinical prevention, and drug therapy targets urgency to be consistently analyzed. In the present investigation, bioinformatics analysis was engaged to explore HF biomarkers and the pathological processes in myocardial tissues, acquired from HF groups and non heart failure groups. We analyzed GSE141910 expression profiling by high throughput sequencing obtained 881 different genes between HF groups and non heart failure groups, 442 up regulated and 439 down regulated genes. HBA2 and HBA1 have a key role in hypertension [41], but these genes might be linked with development HF. SFRP4 was linked with progression of myocardial ischemia [42]. Emmens et al. [43] and Broch et al. [44] found that PENK (proenkephalin) and IL1RL1 were up regulated in HF. ALOX15B has lipid accumulation and inflammation activity and is highly expressed in atherosclerosis [45]. Studies have shown that expression of MYH6 was associated with hypertrophic cardiomyopathy [46].
+
+In functional enrichment analysis, some genes involved with regulation of cardiovascular system processes were enriched in HF. Liu et al. [47], Kosugi et al. [48], McMacken et al. [49], Pan and Zhang [50], Li et al. [51] and Jiang et al. [52] presented that expression of HLA-DQA1, KDM5D, UCHL1, SAA1, ARG1 and LYVE1 were associated with progression of cardiomyopathy. Hou et al. [53] and Olesen et al. [54] demonstrated that DACT2 and KCND3 were found to be substantially related to atrial fibrillation. Ge and Concannon [55], Ferjeni et al. [56], Anquetil et al. [57], Glawe et al. [58], Kawabata et al. [59], Li et al. [60], Buraczynska et al. [61], Amini et al. [62], Yang et al. [63], Du Toit et al. [64], Hirose et al. [65], Zhang et al. [66], Griffin et al. [67], Zouidi et al. [68], Trombetta et al. [69], Alharbi et al. [70], Ikarashi et al. [71], Dharmadhikari et al. [72], Sutton et al. [73] and Deng et al. [74] reported that UBASH3A, ZAP70, IDO1, ITGAL (integrin subunit alpha L). ITGB7, RASGRP1, CNR1, SLC2A1, SLC11A1, GPR84, SSTR5, KCNB1, GLUL (glutamate-ammonia ligase), BANK1, CACNA1E, LGR5, AQP3, SIGLEC7, SSTR2 and DNER (delta/notch like EGF repeat containing) could be an index for diabetes, but these genes might be responsible for progression of HF. Experiments show that expression of FAP (fibroblast activation protein alpha) [75], THBS4 [76], CD27 [77], LEF1 [78], CTHRC1 [79], ESR1 [80], CXCL9 [81], SERPINA3 [82], TRPC4 [83], F13A1 [84], PIK3C2A [85], KCNIP2 [86] and GPR4 [87] contributed to myocardial infarction. MFAP4 [88], ALOX15 [89], COL1A1 [90], APOA1 [91], PDE5A [92], CX3CR1 [93], THY1 [94], GREM1 [95], FMOD (fibromodulin) [96], NPPA (natriuretic peptide A) [97], LTBP2 [98], LUM (lumican) [99], IL34 [100], NRG1 [101], CXCL14 [102], CXCL10 [103], ACE (angiotensin I converting enzyme) [104], CFTR (ystic fibrosis transmembrane conductance regulator) [105], S100A8 [106], S100A9 [106], HP (haptoglobin) [107], AGTR1 [108], ATP2A2 [109], IL10 [110], EDN1 [111], TLR2 [112], MCEMP1 [113], TPO (thyroid peroxidase) [114], CD163 [115], IL18R1 [116], KCNA7 [117] and CALCRL (calcitonin receptor like receptor) [118] have an important role in HF. Li et al. [119], Deckx et al. [120], Ichihara et al. [121] and Paik et al. [122] showed that the SERPINE2, OGN (osteoglycin), AGTR2 and WNT10B promoted cardiac interstitial fibrosis. Cai et al. [123], Mo et al. [124], Sun et al. [125], Martinelli et al. [126], Zhao et al. [127], Assimes et al. [128] and Piechota et al. [129] showed that CCR7, FCN1, ESM1, F8 (coagulation factor VIII), C1QTNF1, ALOX5 and MSR1 were an important target gene for coronary artery disease. STAB2 have been suggested to be associated with venous thromboembolic disease [130]. Genes such as COMP (cartilage oligomeric matrix protein) [131], CHI3L1 [132], PLA2G2A [133], P2RY12 [134], CR1 [135], HPSE (heparanase) [136], PTX3 [137] and SERPINE1 [138] were related to atherosclerosis. CCDC80 [139], CMA1 [140], MDK (midkine) [141], GNA14 [142], SCG2 [143], NPPB (natriuretic peptide B) [144], FGF10 [145], ARNTL (aryl hydrocarbon receptor nuclear translocator like) [146], WNK3 [147], EDNRB (endothelin receptor type B) [148], THBS1 [149], SELE (selectin E) [150], SLC4A7 [151], AQP4 [152] and KCNK3 [153] are thought to be responsible for progression of hypertension, but these genes might to be associated with progression of HF. CNTNAP2 [154], GLI2 [155], DPT (dermatopontin) [156], AEBP1 [157], ITIH5 [158], CXCL11 [159], GDNF (glial cell derived neurotrophic factor) [160], MCHR1 [161], FLT3 [162], ELANE (elastase, neutrophil expressed) [163], OSMR (oncostatin M receptor) [164] and IL15RA [165] are involved in development of obesity, but these genes might be key for progression of HF. CTSG (cathepsin G) is a protein coding gene plays important roles in aortic aneurysms [166]. Evidence from Safa et al. [167], Chen et al. [168], Zhou et al. [169], Hu et al. [170], Lou et al. [171], Zhang et al. [172] and Chen et al. [173] study indicated that the expression of CCL22, CCR1, FPR1, KNG1, CRISPLD2, CD38 and GPRC5A were linked with progression of ischemic heart disease. Li et al. [174] showed that STEAP3 expression can be associated with cardiac hypertrophy progression.
+
+The HiPPIE interactome database was used to construct the PPI network, and modules analysis was performed. We finally screened out up regulated hub genes and down regulated hub genes, including ESR1, PYHIN1, PPP2R2B, LCK, TP63, PCLAF, CD247, CD2, CD5, CD48, CFTR, TK1, ECT2, FKBP5, S100A9 and S100A8 from the PPI network and its modules. TP63 might serve as a potential prognostic factor in cardiomyopathy [175]. The expression of FKBP5 is related to the progression of coronary artery disease [176]. CD247 plays a central role in hypertension [177], but this gene might be involved in the HF. PYHIN1, PPP2R2B, LCK (LCK proto-oncogene, Src family tyrosine kinase), PCLAF (PCNA clamp associated factor), TK1, ECT2, CD2, CD5 and CD48 might be the novel biomarker for HF.
+
+The miRNet database and NetworkAnalyst database were used to construct the target gene—miRNA regulatory network and target gene—TF regulatory network. We finally screened out target genes, miRNA, TFs, including FSCN1, ESR1, TMEM30B, SCN2B, CENPA, FKBP5, PCLAF, CEP55, ATP2A2, TK1, APOA1, COL1A1, HBB, LCK, SOCS3, BCL6, ANLN, hsa-mir-4533, hsa-mir-548ac, hsa-mir-548i, hsa-mir-5585-3p, hsa-mir-6750-3p, hsa-mir-200c-3p, hsa-mir-1273 g-3p, hsa-mir-1244, hsa-mir-4789-3p, hsa-mir-766-3p, ESRRA, RERE, HMG20B, THRAP3, ATF1, MXD3, ARID4B, CBFB, TAF7 and CREM from the target gene—miRNA regulatory network and target gene—TF regulatory network. SCN2B [178] and SOCS3 [179] are considered as a markers for HF and might be a new therapeutic target. BCL6 levels are correlated with disease severity in patients with atherosclerosis [180]. A previous study showed that hsa-mir-1273 g-3p [181], hsa-mir-4789-3p [182] and ATF1 [183] could involved in hypertension, but these markers might be responsible for progression of HF. hsa-miR-518f, was demonstrated to be associated with cardiomyopathy [184]. An evidence demonstrating a role for ESRRA (estrogen related receptor alpha) [185] and THRAP3 [186] in diabetes, but these genes might be liable for development of HF. FSCN1, TMEM30B, CENPA (centromere protein A), CEP55, HBB (hemoglobin subunit beta), ANLN (anillin actin binding protein), hsa-mir-4533, hsa-mir-548ac, hsa-mir-548i, hsa-mir-5585-3p, hsa-mir-6750-3p, hsa-mir-200c-3p, hsa-mir-1244, RERE(arginine-glutamic acid dipeptide repeats), HMG20B, MXD3, ARID4B, CBFB (core-binding factor subunit beta), TAF7 and CREM (cAMP response element modulator) might be the novel biomarker for HF.
+
+The molecules HIM6, HIM10 obtained good binding score of more 5 to 6.999 with all proteins and the molecules HIM11, HIM12, HIM14, HTZ9, HTZ10 and HTZ12 obtained binding score above 5 and less than 9 with PDB protein code of 2HV7, 3VD8 and 6RUR respectively. The molecule HIM11 obtained highest binding score of 8.678 with 2HV7 and its interaction with amino acids are molecule HIM11 (Fig. 9) has obtained with a high binding score with PDB protein 2HV7, the interactions of molecule is the C6 side chin acyl carbonyl C=O formed hydrogen bond interaction with amino acid GLN-207 with bond length 1.92 A° and 3’ N–H group of imidazole ring formed hydrogen bond interaction with VAL-305 with bond length 2.36 A° respectively. It also formed other interactions of carbon hydrogen bond of –CH3 group of carboxylate at C6 with PRO-304 and amide-pi stacked and pi–pi stacked interaction of electrons of aromatic ring A with ALA-204 and ring C with HIS-155 and HIS-308. Molecule formed pi-alkyl interaction of ring B with PRO-304 and all interactions with amino acids and bond length are depicted by 3D and 2D figures (Fig. 10 and Fig. 11).Fig. 9 Structure of active designed molecule of HIM11
+
+Fig.10 3D binding of molecule HIM11 with 2HV7
+
+Fig.11 2D binding of molecule HIM11 with 2HV7
+
+Conclusions
+
+The present investigation aimed at characterizing the expression profiling by high throughput sequencing of the HF patients. Our bioinformatics analyses revealed key gene signatures as candidate biomarkers in HF. Hub genes (ESR1, PYHIN1, PPP2R2B, LCK, TP63, PCLAF, CFTR, TK1, ECT2 and FKBP5) were diagnosed as an essential genetic factors in HF. In general, DEGs linked with HF genes, including already known markers of HF and other HF related diseases, and novel biomarkers, were diagnosed. Potential implicated miRNAs and TFs were also diagnosed. The diagnosed hub genes might represent candidate diagnostic and prognostic biomarkers, and therapeutic targets. The current investigation reported novel genes and signaling pathways in HF, and further investigation is required.
+
+Supplementary Information
+
+Additional file 1: Table S1. The statistical metrics for key differentially expressed genes (DEGs).
+
+Acknowledgements
+
+I thank Michael Patrick Morley, Perelman School of Medicine at the University of Pennsylvania, Penn Cardiovascular Institute, Philadelphia, USA, very much, the author who deposited their profiling by high throughput sequencing dataset GSE141910, into the public GEO database.
+
+Authors' contributions
+
+VK—Methodology and validation. BV—Writing original draft, and review and editing. CV—Software and investigation. SK—Supervision and resources. AT—Formal analysis and validation. All authors read and approved the final manuscript.
+
+Availability of data and materials
+
+The datasets supporting the conclusions of this article are available in the GEO (Gene Expression Omnibus) (https://www.ncbi.nlm.nih.gov/geo/) repository. [(GSE141910) (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE141910].
+
+Declarations
+
+Ethical approval
+
+This article does not contain any studies with human participants or animals performed by any of the authors.
+
+Informed consent
+
+No informed consent because this study does not contain human or animals participants.
+
+Consent for publication
+
+Not applicable.
+
+Competing interests
+
+The authors declare that they have no competing interests.
+
+Publisher's Note
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+==== Refs
+References
+
+1. Xanthopoulos A Triposkiadis F Starling RC Heart failure with preserved ejection fraction: classification based upon phenotype is essential for diagnosis and treatment Trends Cardiovasc Med 2018 28 6 392 400 10.1016/j.tcm.2018.01.001 29471985
+2. Mosterd A Hoes AW Clinical epidemiology of heart failure Heart 2007 93 9 1137 1146 10.1136/hrt.2003.025270 17699180
+3. Roger VL Weston SA Redfield MM Hellermann-Homan JP Killian J Yawn BP Jacobsen SJ Trends in heart failure incidence and survival in a community-based population JAMA 2004 292 3 344 350 10.1001/jama.292.3.344 15265849
+4. Wang C Wang F Cao Q Li Z Huang L Chen S The effect of Mecp2 on heart failure Cell Physiol Biochem 2018 47 6 2380 2387 10.1159/000491610 29991054
+5. Ma J Lu L Guo W Ren J Yang J Emerging role for RBM20 and its splicing substrates in cardiac function and heart failure Curr Pharm Des 2016 22 31 4744 4751 10.2174/1381612822666160701145322 27396593
+6. Zhang T Brown JH Role of Ca2+/calmodulin-dependent protein kinase II in cardiac hypertrophy and heart failure Cardiovasc Res 2004 63 3 476 486 10.1016/j.cardiores.2004.04.026 15276473
+7. Missov E Calzolari C Pau B Circulating cardiac troponin I in severe congestive heart failure Circulation 1997 96 9 2953 2958 10.1161/01.cir.96.9.2953 9386162
+8. Kho C Lee A Jeong D Oh JG Chaanine AH Kizana E Park WJ Hajjar RJ SUMO1-dependent modulation of SERCA2a in heart failure Nature 2011 477 7366 601 605 10.1038/nature10407 21900893
+9. Roh JD Hobson R Chaudhari V Quintero P Yeri A Benson M Xiao C Zlotoff D Bezzerides V Houstis N Activin type II receptor signaling in cardiac aging and heart failure Sci Transl Med 2019 11 482 eaau8680 10.1126/scitranslmed.aau8680 30842316
+10. Yu L Feng Z The role of toll-like receptor signaling in the progression of heart failure Mediators Inflamm 2018 2018 9874109 10.1155/2018/9874109 29576748
+11. Zhang Y Zhang L Zhang Y Fan X Yang W Yu B Kou J Li F YiQiFuMai powder injection attenuates coronary artery ligation-induced heart failure through improving mitochondrial function via regulating ROS generation and CaMKII signaling pathways Front Pharmacol 2019 10 381 10.3389/fphar.2019.00381 31031629
+12. Yang Y Tian Y Hu S Bi S Li S Hu Y Kou J Qi J Yu B Extract of Sheng–Mai–San ameliorates myocardial ischemia-induced heart failure by modulating Ca2+-calcineurin-mediated Drp1 signaling pathways Int J Mol Sci 2017 18 9 1825 10.3390/ijms18091825
+13. Booz GW Day JN Baker KM Interplay between the cardiac renin angiotensin system and JAK-STAT signaling: role in cardiac hypertrophy, ischemia/reperfusion dysfunction, and heart failure J Mol Cell Cardiol 2002 34 11 1443 1453 10.1006/jmcc.2002.2076 12431443
+14. Li X Li B Jiang H Identification of time-series differentially expressed genes and pathways associated with heart failure post-myocardial infarction using integrated bioinformatics analysis Mol Med Rep 2019 19 6 5281 5290 10.3892/mmr.2019.10190 31059043
+15. Liu Y Morley M Brandimarto J Hannenhalli S Hu Y Ashley EA Tang WH Moravec CS Margulies KB Cappola TP RNA-Seq identifies novel myocardial gene expression signatures of heart failure Genomics 2015 105 2 83 89 10.1016/j.ygeno.2014.12.002 25528681
+16. Schiano C Costa V Aprile M Grimaldi V Maiello C Esposito R Soricelli A Colantuoni V Donatelli F Ciccodicola A Heart failure: Pilot transcriptomic analysis of cardiac tissue by RNA-sequencing Cardiol J 2017 24 5 539 553 10.5603/CJ.a2017.0052 28497843
+17. Rahman MR Islam T Zaman T Shahjaman M Karim MR Huq F Quinn JMW Holsinger RMD Gov E Moni MA Identification of molecular signatures and pathways to identify novel therapeutic targets in Alzheimer's disease: Insights from a systems biomedicine perspective Genomics 2020 112 2 1290 1299 10.1016/j.ygeno.2019.07.018 31377428
+18. Rahman MR Islam T Turanli B Zaman T Faruquee HM Rahman MM Mollah MNH Nanda RK Arga KY Gov E Network-based approach to identify molecular signatures and therapeutic agents in Alzheimer's disease Comput Biol Chem 2019 78 431 439 10.1016/j.compbiolchem.2018.12.011 30606694
+19. Rahman MR Petralia MC Ciurleo R Bramanti A Fagone P Shahjaman M Wu L Sun Y Turanli B Arga KY Comprehensive analysis of RNA-Seq gene expression profiling of brain transcriptomes reveals novel genes, regulators, and pathways in autism spectrum disorder Brain Sci 2020 10 10 747 10.3390/brainsci10100747
+20. Clough E Barrett T The gene expression omnibus database Methods Mol Biol 2016 1418 93 110 10.1007/978-1-4939-3578-9_5 27008011
+21. Ritchie ME Phipson B Wu D Hu Y Law CW Shi W Smyth GK limma powers differential expression analyses for RNA-sequencing and microarray studies Nucleic Acids Res 2015 43 7 e47 10.1093/nar/gkv007 25605792
+22. Thomas PD The gene ontology and the meaning of biological function Methods Mol Biol 2017 1446 15 24 10.1007/978-1-4939-3743-1_2 27812932
+23. Chen J Bardes EE Aronow BJ Jegga AG ToppGene Suite for gene list enrichment analysis and candidate gene prioritization Nucleic Acids Res 2009 37 Web Server issue W305 W311 10.1093/nar/gkp427 19465376
+24. Fabregat A Jupe S Matthews L Sidiropoulos K Gillespie M Garapati P Haw R Jassal B Korninger F May B The reactome pathway knowledgebase Nucleic Acids Res 2018 46 D1 D649 D655 10.1093/nar/gkx1132 29145629
+25. Kong J Li L Zhimin L Yan J Ji D Chen Y Yuanyuan W Chen X Shao H Wang J Potential protein biomarkers for systemic lupus erythematosus determined by bioinformatics analysis Comput Biol Chem 2019 83 107135 10.1016/j.compbiolchem.2019.107135 31751880
+26. Alanis-Lobato G Andrade-Navarro MA Schaefer MH HIPPIE v2.0: enhancing meaningfulness and reliability of protein-protein interaction networks Nucleic Acids Res 2017 45 D1 D408 D414 10.1093/nar/gkw985 27794551
+27. Shannon P Markiel A Ozier O Baliga NS Wang JT Ramage D Amin N Schwikowski B Ideker T Cytoscape: a software environment for integrated models of biomolecular interaction networks Genome Res 2003 13 11 2498 2504 10.1101/gr.1239303 14597658
+28. Przulj N Wigle DA Jurisica I Functional topology in a network of protein interactions Bioinformatics 2004 20 3 340 348 10.1093/bioinformatics/btg415 14960460
+29. Nguyen TP Liu WC Jordán F Inferring pleiotropy by network analysis: linked diseases in the human PPI network BMC Syst Biol 2011 5 179 10.1186/1752-0509-5-179 22034985
+30. Shi Z Zhang B Fast network centrality analysis using GPUs BMC Bioinformatics 2011 12 149 10.1186/1471-2105-12-149 21569426
+31. Fadhal E Gamieldien J Mwambene EC Protein interaction networks as metric spaces: a novel perspective on distribution of hubs BMC Syst Biol 2014 8 6 10.1186/1752-0509-8-6 24438364
+32. Zaki N Efimov D Berengueres J Protein complex detection using interaction reliability assessment and weighted clustering coefficient BMC Bioinformatics 2013 14 163 10.1186/1471-2105-14 23688127
+33. Fan Y Xia J miRNet-functional analysis and visual exploration of miRNA-target interactions in a network context Methods Mol Biol 2018 1819 215 233 10.1007/978-1-4939-8618-7_10 30421406
+34. Zhou G Soufan O Ewald J Hancock REW Basu N Xia J NetworkAnalyst 3.0: a visual analytics platform for comprehensive gene expression profiling and meta-analysis Nucleic Acids Res 2019 47 W234 W241 10.1093/nar/gkz240 30931480
+35. Robin X Turck N Hainard A Tiberti N Lisacek F Sanchez JC Müller M pROC: an open-source package for R and S+ to analyze and compare ROC curves BMC Bioinformatics 2011 12 77 10.1186/1471-2105-12-77 21414208
+36. Livak KJ Schmittgen TD Analysis of relative gene expression data using real-time quantitative PCR and the 2(-Delta Delta C(T)) Method Methods 2001 25 4 402 408 10.1006/meth.2001.1262 11846609
+37. Liao C Sitzmann M Pugliese A Nicklaus MC Software and resources for computational medicinal chemistry Future Med Chem 2011 3 8 1057 1085 10.4155/fmc.11.63 21707404
+38. O'Boyle NM Banck M James CA Morley C Vandermeersch T Hutchison GR Open Babel: an open chemical toolbox J Cheminform 2011 3 33 10.1186/1758-2946-3-33 21982300
+39. Okawa T Aramaki Y Yamamoto M Kobayashi T Fukumoto S Toyoda Y Henta T Hata A Ikeda S Kaneko M Design, synthesis, and evaluation of the highly selective and potent g-protein-coupled receptor Kinase 2 (GRK2) inhibitor for the potential treatment of heart failure J Med Chem 2017 60 16 6942 6990 10.1021/acs.jmedchem.7b00443 28699740
+40. Liu J Liu Y Yu H Zhang Y Hsu AC Zhang M Gou Y Sun W Wang F Li P Design, synthesis and biological evaluation of novel pyxinol derivatives with anti-heart failure activity Biomed Pharmacother 2021 133 111050 10.1016/j.biopha.2020.111050 33378957
+41. Hill QA Farrar L Lordan J Gallienne A Henderson S A combination of two novel alpha globin variants Hb Bridlington (HBA1) and Hb Taybe (HBA2) resulting in severe hemolysis, pulmonary hypertension, and death Hematology 2015 20 1 50 52 10.1179/1607845414Y.0000000164 24716903
+42. Zeng W Cao Y Jiang W Kang G Huang J Xie S Knockdown of Sfrp4 attenuates apoptosis to protect against myocardial ischemia/reperfusion injury J Pharmacol Sci 2019 140 1 14 19 10.1016/j.jphs.2019.04.003 31113729
+43. Emmens JE Ter Maaten JM Damman K van Veldhuisen DJ de Boer RA Struck J Bergmann A Sama IE Streng KW Anker SD Proenkephalin, an opioid system surrogate, as a novel comprehensive renal marker in heart failure Circ Heart Fail 2019 12 5 e005544 10.1161/CIRCHEARTFAILURE.118.005544 31091993
+44. Broch K Ueland T Yndestad A Aukrust P Gullestad L Heart failure biomarkers: focus on interleukin-1 receptor-like 1-based blood tests Drugs Today (Barc) 2012 48 7 479 491 10.1358/dot.2012.48.7.1811719 22844659
+45. Magnusson LU Lundqvist A Karlsson MN Skålén K Levin M Wiklund O Borén J Hultén LM Arachidonate 15-lipoxygenase type B knockdown leads to reduced lipid accumulation and inflammation in atherosclerosis PLoS ONE 2012 7 8 e43142 10.1371/journal.pone.0043142 22912809
+46. Castellana S Mastroianno S Palumbo P Palumbo O Biagini T Leone MP De Luca G Potenza DR Amico CM Mazza T Sudden death in mild hypertrophic cardiomyopathy with compound DSG2/DSC2/MYH6 mutations: Revisiting phenotype after genetic assessment in a master runner athlete J Electrocardiol 2019 53 95 99 10.1016/j.jelectrocard.2019.01.002 30716529
+47. Liu W Li WM Sun NL Relationship between HLA-DQA1 polymorphism and genetic susceptibility to idiopathic dilated cardiomyopathy Chin Med J (Engl) 2004 117 10 1449 1452 15498363
+48. Kosugi M Otani M Kikkawa Y Itakura Y Sakai K Ito T Toyoda M Sekita Y Kimura T Mutations of histone demethylase genes encoded by X and Y chromosomes, Kdm5c and Kdm5d, lead to noncompaction cardiomyopathy in mice Biochem Biophys Res Commun 2020 10.1016/j.bbrc.2020.02.043 33162025
+49. McMacken G Lochmüller H Bansagi B Pyle A Lochmüller A Chinnery PF Behr syndrome and hypertrophic cardiomyopathy in a family with a novel UCHL1 deletion J Neurol 2020 267 12 3643 3649 10.1007/s00415-020-10059-3 32656641
+50. Pan XY Zhang ZW MFGE8, ALB, APOB, APOE, SAA1, A2M, and C3 as novel biomarkers for stress cardiomyopathy Cardiovasc Ther 2020 2020 1615826 10.1155/2020/1615826 32695227
+51. Li C Wang L Li Y Feng Z Wang Q Luo W Common variants in the ARG1 gene contribute to the risk of dilated cardiomyopathy in the Han Chinese population Genet Test Mol Biomarkers 2020 24 9 584 591 10.1089/gtmb.2020.0080 32721242
+52. Jiang X Cui J Yang C Song Y Yuan J Liu S Hu F Yang W Qiao S Elevated lymphatic vessel density measured by Lyve-1 expression in areas of replacement fibrosis in the ventricular septum of patients with hypertrophic obstructive cardiomyopathy (HOCM) Heart Vessels 2020 35 1 78 85 10.1007/s00380-019-01463-5 31250132
+53. Hou J Huang S Long Y Huang J Yang S Yao J Chen G Yue Y Liang M Mei B DACT2 regulates structural and electrical atrial remodeling in atrial fibrillation J Thorac Dis 2020 12 5 2039 2048 10.21037/jtd-19-4206 32642106
+54. Olesen MS Refsgaard L Holst AG Larsen AP Grubb S Haunsø S Svendsen JH Olesen SP Schmitt N Calloe K A novel KCND3 gain-of-function mutation associated with early-onset of persistent lone atrial fibrillation Cardiovasc Res 2013 98 3 488 495 10.1093/cvr/cvt028 23400760
+55. Ge Y Concannon P Molecular-genetic characterization of common, noncoding UBASH3A variants associated with type 1 diabetes Eur J Hum Genet 2018 26 7 1060 1064 10.1038/s41431-018-0123-5 29491471
+56. Ferjeni Z Bouzid D Fourati H Stayoussef M Abida O Kammoun T Hachicha M Penha-Gonçalves C Masmoudi H Association of TCR/CD3, PTPN22, CD28 and ZAP70 gene polymorphisms with type 1 diabetes risk in Tunisian population: family based association study Immunol Lett 2015 163 1 1 7 10.1016/j.imlet.2014.11.005 25448703
+57. Anquetil F Mondanelli G Gonzalez N Rodriguez Calvo T Zapardiel Gonzalo J Krogvold L Dahl-Jørgensen K Van den Eynde B Orabona C Grohmann U Loss of IDO1 expression from human pancreatic β-cells precedes their destruction during the development of type 1 diabetes Diabetes 2018 67 9 1858 1866 10.2337/db17-1281 29945890
+58. Glawe JD Patrick DR Huang M Sharp CD Barlow SC Kevil CG Genetic deficiency of Itgb2 or ItgaL prevents autoimmune diabetes through distinctly different mechanisms in NOD/LtJ mice Diabetes 2009 58 6 1292 1301 10.2337/db08-0804 19223596
+59. Kawabata Y Nishida N Awata T Kawasaki E Imagawa A Shimada A Osawa H Tanaka S Takahashi K Nagata M Genome-wide association study confirming a strong effect of HLA and identifying variants in CSAD/lnc-ITGB7-1 on chromosome 12q13.13 associated with susceptibility to fulminant type 1 diabetes Diabetes 2019 68 3 665 675 10.2337/db18-0314 30552108
+60. Li JY Tao F Wu XX Tan YZ He L Lu H Common RASGRP1 gene variants that confer risk of type 2 diabetes Genet Test Mol Biomarkers 2015 19 8 439 443 10.1089/gtmb.2015.0005 26076219
+61. Buraczynska M Wacinski P Zukowski P Dragan M Ksiazek A Common polymorphism in the cannabinoid type 1 receptor gene (CNR1) is associated with microvascular complications in type 2 diabetes J Diabetes Complications 2014 28 1 35 39 10.1016/j.jdiacomp.2013.08.005 24075694
+62. Amini S Javanmardi M Mokarizadeh A Maroofi F Jalali C Azadi NA Mohammadi H Abdi M Association of HaeIII single nucleotide polymorphisms in the SLC2A1 gene with risk of diabetic nephropathy; evidence from Kurdish patients with type 2 diabetes mellitus QJM 2016 109 6 399 404 10.1093/qjmed/hcv149 26337659
+63. Yang JH Downes K Howson JM Nutland S Stevens HE Walker NM Todd JA Evidence of association with type 1 diabetes in the SLC11A1 gene region BMC Med Genet 2011 12 59 10.1186/1471-2350-12-59 21524304
+64. Du Toit E Browne L Irving-Rodgers H Massa HM Fozzard N Jennings MP Peak IR Effect of GPR84 deletion on obesity and diabetes development in mice fed long chain or medium chain fatty acid rich diets Eur J Nutr 2018 57 5 1737 1746 10.1007/s00394-017-1456-5 28429080
+65. Hirose H Yamasaki T Ogino M Mizojiri R Tamura-Okano Y Yashiro H Muraki Y Nakano Y Sugama J Hata A Discovery of novel 5-oxa-2,6-diazaspiro[3.4]oct-6-ene derivatives as potent, selective, and orally available somatostatin receptor subtype 5 (SSTR5) antagonists for treatment of type 2 diabetes mellitus Bioorg Med Chem 2017 25 15 4175 4193 10.1016/j.bmc.2017.06.007 28642028
+66. Zhang YX Liu Y Dong J Wang YX Wang J Zhuang GQ Han SJ Guo QQ Luo YX Zhang J An exploratory study of the association between KCNB1 rs1051295 and type 2 diabetes and its related traits in Chinese Han population PLoS ONE 2013 8 2 e56365 10.1371/journal.pone.0056365 23431371
+67. Griffin JWD Liu Y Bradshaw PC Wang K In silico preliminary association of ammonia metabolism genes GLS, CPS1, and GLUL with risk of Alzheimer's Disease, Major Depressive Disorder, and Type 2 Diabetes J Mol Neurosci 2018 64 3 385 396 10.1007/s12031-018-1035-0 29441491
+68. Zouidi F Stayoussef M Bouzid D Fourati H Abida O João C Ayed MB Fakhfakh R Thouraya K Monjia H Association of BANK1 and cytokine gene polymorphisms with type 1 diabetes in Tunisia Gene 2014 536 2 296 301 10.1016/j.gene.2013.12.008 24342660
+69. Trombetta M Bonetti S Boselli M Turrini F Malerba G Trabetti E Pignatti P Bonora E Bonadonna RC CACNA1E variants affect beta cell function in patients with newly diagnosed type 2 diabetes the Verona newly diagnosed type 2 diabetes study (VNDS) 3 PLoS ONE 2012 7 3 e32755 10.1371/journal.pone.0032755 22427875
+70. Alharbi KK Ali Khan I Syed R Alharbi FK Mohammed AK Vinodson B Al-Daghri NM Association of JAZF1 and TSPAN8/LGR5 variants in relation to type 2 diabetes mellitus in a Saudi population Diabetol Metab Syndr 2015 7 92 10.1186/s13098-015-0091-7 26500707
+71. Ikarashi N Mizukami N Kon R Kaneko M Uchino R Fujisawa I Fukuda N Sakai H Kamei J Study of the mechanism underlying the onset of diabetic xeroderma focusing on an aquaporin-3 in a streptozotocin-induced diabetic mouse model Int J Mol Sci 2019 20 15 3782 10.3390/ijms20153782
+72. Dharmadhikari G Stolz K Hauke M Morgan NG Varki A de Koning E Kelm S Maedler K Siglec-7 restores β-cell function and survival and reduces inflammation in pancreatic islets from patients with diabetes Sci Rep 2017 7 45319 10.1038/srep45319 28378743
+73. Sutton BS Palmer ND Langefeld CD Xue B Proctor A Ziegler JT Haffner SM Norris JM Bowden DW Association of SSTR2 polymorphisms and glucose homeostasis phenotypes: the Insulin Resistance Atherosclerosis Family Study Diabetes 2009 58 6 1457 1462 10.2337/db08-0189 19324939
+74. Deng Z Shen J Ye J Shu Q Zhao J Fang M Zhang T Association between single nucleotide polymorphisms of delta/notch-like epidermal growth factor (EGF)-related receptor (DNER) and Delta-like 1 Ligand (DLL 1) with the risk of type 2 diabetes mellitus in a Chinese Han population Cell Biochem Biophys 2015 71 1 331 335 10.1007/s12013-014-0202-3 25300688
+75. Tillmanns J Hoffmann D Habbaba Y Schmitto JD Sedding D Fraccarollo D Galuppo P Bauersachs J Fibroblast activation protein alpha expression identifies activated fibroblasts after myocardial infarction J Mol Cell Cardiol 2015 87 194 203 10.1016/j.yjmcc.2015.08.016 26319660
+76. Cui J Randell E Renouf J Sun G Green R Han FY Xie YG Thrombospondin-4 1186G>C (A387P) is a sex-dependent risk factor for myocardial infarction: a large replication study with increased sample size from the same population Am Heart J 2006 152 3 543.e1 543.e5435 10.1016/j.ahj.2006.06.002 16923428
+77. Li W Zhang F Ju C Lv S Huang K The role of CD27-CD70 signaling in myocardial infarction and cardiac remodeling Int J Cardiol 2019 278 210 216 10.1016/j.ijcard.2018.11.132 30527529
+78. Cho HM Lee KH Shen YM Shin TJ Ryu PD Choi MC Kang KS Cho JY Transplantation of hMSCs genome edited with LEF1 improves cardio-protective effects in myocardial infarction Mol Ther Nucleic Acids 2020 19 1186 1197 10.1016/j.omtn.2020.01.007 32069701
+79. Ruiz-Villalba A Romero JP Hernández SC Vilas-Zornoza A Fortelny N Castro-Labrador L San Martin-Uriz P Lorenzo-Vivas E García-Olloqui P Palacio M Single-Cell RNA sequencing analysis reveals a crucial role for CTHRC1 (collagen triple helix repeat containing 1) cardiac fibroblasts after myocardial infarction Circulation 2020 142 19 1831 1847 10.1161/CIRCULATIONAHA.119.044557 32972203
+80. Puzianowska-Kuźnicka M ESR1 in myocardial infarction Clin Chim Acta 2012 413 1–2 81 87 10.1016/j.cca.2011.10.028 22061094
+81. Lin CF Su CJ Liu JH Chen ST Huang HL Pan SL Potential effects of CXCL9 and CCL20 on cardiac fibrosis in patients with myocardial infarction and isoproterenol-treated rats J Clin Med 2019 8 5 659 10.3390/jcm8050659
+82. Zhao L Chen M Yang X Serpina3 in myocardial infarction Int J Cardiol 2020 306 8 10.1016/j.ijcard.2020.02.045 32089323
+83. Jung C Gené GG Tomás M Plata C Selent J Pastor M Fandos C Senti M Lucas G Elosua R A gain-of-function SNP in TRPC4 cation channel protects against myocardial infarction Cardiovasc Res 2011 91 3 465 471 10.1093/cvr/cvr083 21427121
+84. Ansani L Marchesini J Pestelli G Luisi GA Scillitani G Longo G Milani D Serino ML Tisato V Gemmati D F13A1 gene variant (V34L) and residual circulating FXIIIA levels predict short- and long-term mortality in acute myocardial infarction after coronary angioplasty Int J Mol Sci 2018 19 9 2766 10.3390/ijms19092766
+85. Tan B Liu M Yang Y Liu L Meng F Low expression of PIK3C2A gene: a potential biomarker to predict the risk of acute myocardial infarction Medicine (Baltimore) 2019 98 14 e15061 10.1097/MD.0000000000015061 30946353
+86. Zhang X Liao C Sun K Liu L Xu D A soluble epoxide hydrolase inhibitor upregulated KCNJ12 and KCNIP2 by downregulating MicroRNA-29 in a mouse model of myocardial infarction Heart Surg Forum 2020 23 5 E579 E585 10.1532/hsf.2999 32990585
+87. Fukuda H Ito S Watari K Mogi C Arisawa M Okajima F Kurose H Shuto S Identification of a potent and selective GPR4 antagonist as a drug lead for the treatment of myocardial infarction ACS Med Chem Lett 2016 7 5 493 497 10.1021/acsmedchemlett.6b00014 27190599
+88. Wang HB Yang J Shuai W Yang J Liu LB Xu M Tang QZ Deletion of microfibrillar-associated protein 4 attenuates left ventricular remodeling and dysfunction in heart failure J Am Heart Assoc 2020 9 17 e015307 10.1161/JAHA.119.015307 32856514
+89. Kayama Y Minamino T Toko H Sakamoto M Shimizu I Takahashi H Okada S Tateno K Moriya J Yokoyama M Cardiac 12/15 lipoxygenase-induced inflammation is involved in heart failure J Exp Med 2009 206 7 1565 1574 10.1084/jem.20082596 19546247
+90. Hua X Wang YY Jia P Xiong Q Hu Y Chang Y Lai S Xu Y Zhao Z Song J Multi-level transcriptome sequencing identifies COL1A1 as a candidate marker in human heart failure progression BMC Med 2020 18 1 2 10.1186/s12916-019-1469-4 31902369
+91. Gombos T Förhécz Z Pozsonyi Z Jánoskuti L Prohászka Z Karádi I Long-term survival and apolipoprotein A1 level in chronic heart failure: interaction with tumor necrosis factor α -308 G/A polymorphism J Card Fail 2017 23 2 113 120 10.1016/j.cardfail.2016.06.004 27317841
+92. Westermann D Becher PM Lindner D Savvatis K Xia Y Fröhlich M Hoffmann S Schultheiss HP Tschöpe C Selective PDE5A inhibition with sildenafil rescues left ventricular dysfunction, inflammatory immune response and cardiac remodeling in angiotensin II-induced heart failure in vivo Basic Res Cardiol 2012 107 6 308 10.1007/s00395-012-0308-y 23117837
+93. Koller L Blum S Korpak M Richter B Goliasch G Zorn G Brekalo M Maurer G Wojta J Pacher R Predictive power of the fractalkine receptor CX3CR1 on CD4 T cells in patients with chronic heart failure Int J Cardiol 2014 171 1 96 97 10.1016/j.ijcard.2013.11.082 24342397
+94. Li Y Song D Mao L Abraham DM Bursac N Lack of Thy1 defines a pathogenic fraction of cardiac fibroblasts in heart failure Biomaterials 2020 236 119824 10.1016/j.biomaterials.2020.119824 32028169
+95. Mueller KA Tavlaki E Schneider M Jorbenadze R Geisler T Kandolf R Gawaz M Mueller II Zuern CS Gremlin-1 identifies fibrosis and predicts adverse outcome in patients with heart failure undergoing endomyocardial biopsy J Card Fail 2013 19 10 678 684 10.1016/j.cardfail.2013.09.001 24125106
+96. Andenæs K Lunde IG Mohammadzadeh N Dahl CP Aronsen JM Strand ME Palmero S Sjaastad I Christensen G Engebretsen KVT The extracellular matrix proteoglycan fibromodulin is upregulated in clinical and experimental heart failure and affects cardiac remodeling PLoS ONE 2018 13 7 e0201422 10.1371/journal.pone.0201422 30052659
+97. Abuzaanona A Lanfear D Pharmacogenomics of the natriuretic peptide system in heart failure Curr Heart Fail Rep 2017 14 6 536 542 10.1007/s11897-017-0365-5 29075957
+98. Bai Y Zhang P Zhang X Huang J Hu S Wei Y LTBP-2 acts as a novel marker in human heart failure—a preliminary study Biomarkers 2012 17 5 407 415 10.3109/1354750X.2012.677860 22515403
+99. Engebretsen KV Lunde IG Strand ME Waehre A Sjaastad I Marstein HS Skrbic B Dahl CP Askevold ET Christensen G Lumican is increased in experimental and clinical heart failure, and its production by cardiac fibroblasts is induced by mechanical and proinflammatory stimuli FEBS J 2013 280 10 2382 2398 10.1111/febs.12235 23480731
+100. Tao R Fan Q Zhang H Xie H Lu L Gu G Wang F Xi R Hu J Chen Q Prognostic significance of interleukin-34 (IL-34) in patients with chronic heart failure with or without renal insufficiency J Am Heart Assoc 2017 6 4 e004911 10.1161/JAHA.116.004911 28365566
+101. De Keulenaer GW Feyen E Dugaucquier L Shakeri H Shchendrygina A Belenkov YN Brink M Vermeulen Z Segers VFM Mechanisms of the multitasking endothelial protein NRG-1 as a compensatory factor during chronic heart failure Circ Heart Fail 2019 12 10 e006288 10.1161/CIRCHEARTFAILURE.119.006288 31607147
+102. Zeng L Gu N Chen J Jin G Zheng Y IRX1 hypermethylation promotes heart failure by inhibiting CXCL14 expression Cell Cycle 2019 18 23 3251 3262 10.1080/15384101.2019.1673099 31640472
+103. Altara R Manca M Hessel MH Gu Y van Vark LC Akkerhuis KM Staessen JA Struijker-Boudier HA Booz GW Blankesteijn WM CXCL10 is a circulating inflammatory marker in patients with advanced heart failure: a pilot study J Cardiovasc Transl Res 2016 9 4 302 314 10.1007/s12265-016-9703-3 27271043
+104. Petrie MC Padmanabhan N McDonald JE Hillier C Connell JM McMurray JJ Angiotensin converting enzyme (ACE) and non-ACE dependent angiotensin II generation in resistance arteries from patients with heart failure and coronary heart disease J Am Coll Cardiol 2001 37 4 1056 1061 10.1016/s0735-1097(01)01111-1 11263608
+105. Meissner A Yang J Kroetsch JT Sauvé M Dax H Momen A Noyan-Ashraf MH Heximer S Husain M Tumor necrosis factor-α-mediated downregulation of the cystic fibrosis transmembrane conductance regulator drives pathological sphingosine-1-phosphate signaling in a mouse model of heart failure Circulation 2012 125 22 2739 2750 10.1161/CIRCULATIONAHA.111.047316 22534621
+106. Wei X Wu B Zhao J Zeng Z Xuan W Cao S Huang X Asakura M Xu D Bin J Myocardial hypertrophic preconditioning attenuates cardiomyocyte hypertrophy and slows progression to heart failure through upregulation of S100A8/A9 Circulation 2015 131 17 1506 1517 10.1161/CIRCULATIONAHA.114.013789 25820336
+107. Holme I Aastveit AH Hammar N Jungner I Walldius G Haptoglobin and risk of myocardial infarction, stroke, and congestive heart failure in 342,125 men and women in the Apolipoprotein MOrtality RISk study (AMORIS) Ann Med 2009 41 7 522 532 10.1080/07853890903089453 19657769
+108. de Denus S Dubé MP Fouodjio R Huynh T LeBlanc MH Lepage S Sheppard R Giannetti N Lavoie J Mansour A A prospective study of the impact of AGTR1 A1166C on the effects of candesartan in patients with heart failure Pharmacogenomics 2018 19 7 599 612 10.2217/pgs-2018-0004 29701105
+109. Angrisano T Schiattarella GG Keller S Pironti G Florio E Magliulo F Bottino R Pero R Lembo F Avvedimento EV Epigenetic switch at atp2a2 and myh7 gene promoters in pressure overload-induced heart failure PLoS ONE 2014 9 9 e106024 10.1371/journal.pone.0106024 25181347
+110. Amir O Rogowski O David M Lahat N Wolff R Lewis BS Circulating interleukin-10: association with higher mortality in systolic heart failure patients with elevated tumor necrosis factor-alpha Isr Med Assoc J 2010 12 3 158 162 20684180
+111. Taylor MR Slavov D Humphrey K Zhao L Cockroft J Zhu X Lavori P Bristow MR Mestroni L Lazzeroni LC Pharmacogenetic effect of an endothelin-1 haplotype on response to bucindolol therapy in chronic heart failure Pharmacogenet Genomics 2009 19 1 35 43 10.1097/FPC.0b013e328317cc57 18953265
+112. Liang S Xinyong C Hongmin Z Jing W Lang H Ping Z TLR2 and TLR3 expression as a biomarker for the risk of doxorubicin-induced heart failure Toxicol Lett 2018 295 205 211 10.1016/j.toxlet.2018.06.1219 29959987
+113. Raman K O'Donnell MJ Czlonkowska A Duarte YC Lopez-Jaramillo P Peñaherrera E Sharma M Shoamanesh A Skowronska M Yusuf S Peripheral blood MCEMP1 gene expression as a biomarker for stroke prognosis Stroke 2016 47 3 652 658 10.1161/STROKEAHA.115.011854 26846866
+114. Wells BJ Hueston WJ Are thyroid peroxidase antibodies associated with cardiovascular disease risk in patients with subclinical hypothyroidism? Clin Endocrinol (Oxf) 2005 62 5 580 584 10.1111/j.1365-2265.2005.02262.x 15853828
+115. Ptaszynska-Kopczynska K Marcinkiewicz-Siemion M Lisowska A Waszkiewicz E Witkowski M Jasiewicz M Miklasz P Jakim P Galar B Musial WJ Alterations of soluble TWEAK and CD163 concentrations in patients with chronic heart failure Cytokine 2016 80 7 12 10.1016/j.cyto.2016.02.005 26916171
+116. Grisoni ML Proust C Alanne M Desuremain M Salomaa V Kuulasmaa K Cambien F Nicaud V Wiklund PG Virtamo J Lack of association between polymorphisms of the IL18R1 and IL18RAP genes and cardiovascular risk: the MORGAM Project BMC Med Genet 2009 10 44 10.1186/1471-2350-10-44 19473509
+117. Bardien-Kruger S Wulff H Arieff Z Brink P Chandy KG Corfield V Characterisation of the human voltage-gated potassium channel gene, KCNA7, a candidate gene for inherited cardiac disorders, and its exclusion as cause of progressive familial heart block I (PFHBI) Eur J Hum Genet 2002 10 1 36 43 10.1038/sj.ejhg.5200739 11896454
+118. Totsune K Takahashi K Mackenzie HS Murakami O Arihara Z Sone M Mouri T Brenner BM Ito S Increased gene expression of adrenomedullin and adrenomedullin-receptor complexes, receptor-activity modifying protein (RAMP)2 and calcitonin-receptor-like receptor (CRLR) in the hearts of rats with congestive heart failure Clin Sci (Lond) 2000 99 6 541 546 10.1042/CS20000108 11099398
+119. Li X, Wang G, QiLi M, Liang H, Li T, E X, Feng Y, Zhang Y, Liu X, Qian M, et al. Aspirin Reduces Cardiac Interstitial Fibrosis by Inhibiting Erk1/2-Serpine2 and P-Akt Signalling Pathways. Cell Physiol Biochem. 2018;45(5):1955–1965. 10.1159/000487972
+120. Deckx S Heggermont W Carai P Rienks M Dresselaers T Himmelreich U van Leeuwen R Lommen W van der Velden J Gonzalez A Osteoglycin prevents the development of age-related diastolic dysfunction during pressure overload by reducing cardiac fibrosis and inflammation Matrix Biol 2018 66 110 124 10.1016/j.matbio.2017.09.002 28958774
+121. Ichihara S Senbonmatsu T Price E Jr Ichiki T Gaffney FA Inagami T Angiotensin II type 2 receptor is essential for left ventricular hypertrophy and cardiac fibrosis in chronic angiotensin II-induced hypertension Circulation 2001 104 3 346 351 10.1161/01.cir.104.3.346 11457756
+122. Paik DT Rai M Ryzhov S Sanders LN Aisagbonhi O Funke MJ Feoktistov I Hatzopoulos AK Wnt10b gain-of-function improves cardiac repair by arteriole formation and attenuation of fibrosis Circ Res 2015 117 9 804 816 10.1161/CIRCRESAHA.115.306886 26338900
+123. Cai W Tao J Zhang X Tian X Liu T Feng X Bai J Yan C Han Y Contribution of homeostatic chemokines CCL19 and CCL21 and their receptor CCR7 to coronary artery disease Arterioscler Thromb Vasc Biol 2014 34 9 1933 1941 10.1161/ATVBAHA.113.303081 24990231
+124. Mo XG Liu W Yang Y Imani S Lu S Dan G Nie X Yan J Zhan R Li X NCF2, MYO1F, S1PR4, and FCN1 as potential noninvasive diagnostic biomarkers in patients with obstructive coronary artery: a weighted gene co-expression network analysis J Cell Biochem 2019 120 10 18219 18235 10.1002/jcb.29128 31245869
+125. Sun H Fang F Li K Zhang H Zhang M Zhang L Li J Qin Y Wei Y Circulating ESM-1 levels are correlated with the presence of coronary artery disease in patients with obstructive sleep apnea Respir Res 2019 20 1 188 10.1186/s12931-019-1143-6 31429753
+126. Martinelli N Girelli D Lunghi B Pinotti M Marchetti G Malerba G Pignatti PF Corrocher R Olivieri O Bernardi F Polymorphisms at LDLR locus may be associated with coronary artery disease through modulation of coagulation factor VIII activity and independently from lipid profile Blood 2010 116 25 5688 5697 10.1182/blood-2010-03-277079 20810930
+127. Zhao X Li Y Yan Y Ma X Guo C Methylation of CpG sites in C1QTNF1 (C1q and tumor necrosis factor related protein 1) differs by gender in acute coronary syndrome in Han population: a case-control study Genes Genomics 2020 42 6 681 689 10.1007/s13258-020-00936-6 32383048
+128. Assimes TL Knowles JW Priest JR Basu A Volcik KA Southwick A Tabor HK Hartiala J Allayee H Grove ML Common polymorphisms of ALOX5 and ALOX5AP and risk of coronary artery disease Hum Genet 2008 123 4 399 408 10.1007/s00439-008-0489-5 18369664
+129. Piechota M Banaszewska A Dudziak J Slomczynski M Plewa R Highly upregulated expression of CD36 and MSR1 in circulating monocytes of patients with acute coronary syndromes Protein J 2012 31 6 511 518 10.1007/s10930-012-9431-8 22763563
+130. Desch KC Ozel AB Halvorsen M Jacobi PM Golden K Underwood M Germain M Tregouet DA Reitsma PH Kearon C Whole-exome sequencing identifies rare variants in STAB2 associated with venous thromboembolic disease Blood 2020 136 5 533 541 10.1182/blood.2019004161 32457982
+131. Fu Y Gao C Liang Y Wang M Huang Y Ma W Li T Jia Y Yu F Zhu W Shift of macrophage phenotype due to cartilage oligomeric matrix protein deficiency drives atherosclerotic calcification Circ Res 2016 119 2 261 276 10.1161/CIRCRESAHA.115.308021 27151399
+132. Wu S Hsu LA Cheng ST Teng MS Yeh CH Sun YC Huang HL Ko YL Circulating YKL-40 level, but not CHI3L1 gene variants, is associated with atherosclerosis-related quantitative traits and the risk of peripheral artery disease Int J Mol Sci 2014 15 12 22421 22437 10.3390/ijms151222421 25486056
+133. Monroy-Muñoz IE Angeles-Martinez J Posadas-Sánchez R Villarreal-Molina T Alvarez-León E Flores-Dominguez C Cardoso-Saldaña G Medina-Urrutia A Juárez-Rojas JG Posadas-Romero C PLA2G2A polymorphisms are associated with metabolic syndrome and type 2 diabetes mellitus. Results from the genetics of atherosclerotic disease Mexican study Immunobiology 2017 222 10 967 972 10.1016/j.imbio.2016.08.014 27608594
+134. Pi S Mao L Chen J Shi H Liu Y Guo X Li Y Zhou L He H Yu C The P2RY12 receptor promotes VSMC-derived foam cell formation by inhibiting autophagy in advanced atherosclerosis Autophagy 2020 10.1080/15548627.2020.1741202 32160082
+135. de Vries MA Trompet S Mooijaart SP Smit RA Böhringer S Castro Cabezas M Jukema JW Complement receptor 1 gene polymorphisms are associated with cardiovascular risk Atherosclerosis 2017 257 16 21 10.1016/j.atherosclerosis.2016.12.017 28033544
+136. Osterholm C Folkersen L Lengquist M Pontén F Renné T Li J Hedin U Increased expression of heparanase in symptomatic carotid atherosclerosis Atherosclerosis 2013 226 1 67 73 10.1016/j.atherosclerosis.2012.09.030 23137827
+137. Norata GD Garlanda C Catapano AL The long pentraxin PTX3: a modulator of the immunoinflammatory response in atherosclerosis and cardiovascular diseases Trends Cardiovasc Med 2010 20 2 35 40 10.1016/j.tcm.2010.03.005 20656213
+138. Koch W Schrempf M Erl A Mueller JC Hoppmann P Schömig A Kastrati A 4G/5G polymorphism and haplotypes of SERPINE1 in atherosclerotic diseases of coronary arteries Thromb Haemost 2010 103 6 1170 1180 10.1160/TH09-10-0702 20352162
+139. Sasagawa S Nishimura Y Sawada H Zhang E Okabe S Murakami S Ashikawa Y Yuge M Kawaguchi K Kawase R Comparative transcriptome analysis identifies CCDC80 as a novel gene associated with pulmonary arterial hypertension Front Pharmacol 2016 7 142 10.3389/fphar.2016.00142 27375481
+140. Wu Y Li Q Yang K Xiao C Association of CMA1 gene tag single nucleotide polymorphisms with essential hypertension in Yi population from Yunnan Chinese 2014 31 4 449 454 10.3760/cma.j.issn.1003-9406.2014.04.008
+141. Sato W Sato Y Midkine in nephrogenesis, hypertension and kidney diseases Br J Pharmacol 2014 171 4 879 887 10.1111/bph.12418 24106831
+142. Kohara K Tabara Y Nakura J Imai Y Ohkubo T Hata A Soma M Nakayama T Umemura S Hirawa N Identification of hypertension-susceptibility genes and pathways by a systemic multiple candidate gene approach: the millennium genome project for hypertension Hypertens Res 2008 31 2 203 212 10.1291/hypres.31.203 18360038
+143. Wen G Wessel J Zhou W Ehret GB Rao F Stridsberg M Mahata SK Gent PM Das M Cooper RS An ancestral variant of Secretogranin II confers regulation by PHOX2 transcription factors and association with hypertension Hum Mol Genet 2007 16 14 1752 1764 10.1093/hmg/ddm123 17584765
+144. Seidelmann SB Vardeny O Claggett B Yu B Shah AM Ballantyne CM Selvin E MacRae CA Boerwinkle E Solomon SD An NPPB promoter polymorphism associated with elevated N-terminal pro-B-type natriuretic peptide and lower blood pressure, hypertension, and mortality J Am Heart Assoc 2017 6 4 e005257 10.1161/JAHA.116.005257 28341776
+145. Shi L Tian C Sun L Cao F Meng Z The lncRNA TUG1/miR-145-5p/FGF10 regulates proliferation and migration in VSMCs of hypertension Biochem Biophys Res Commun 2018 501 3 688 695 10.1016/j.bbrc.2018.05.049 29758198
+146. Woon PY Kaisaki PJ Bragança J Bihoreau MT Levy JC Farrall M Gauguier D Aryl hydrocarbon receptor nuclear translocator-like (BMAL1) is associated with susceptibility to hypertension and type 2 diabetes Proc Natl Acad Sci U S A 2007 104 36 14412 14417 10.1073/pnas.0703247104 17728404
+147. Leng Q Kahle KT Rinehart J MacGregor GG Wilson FH Canessa CM Lifton RP Hebert SC WNK3, a kinase related to genes mutated in hereditary hypertension with hyperkalaemia, regulates the K+ channel ROMK1 (Kir1.1) J Physiol 2006 571 Pt 2 275 286 10.1113/jphysiol.2005.102202 16357011
+148. Zicha J Dobešová Z Zídek V Silhavý J Simáková M Mlejnek P Vaněčková I Kuneš J Pravenec M Pharmacogenetic analysis of captopril effects on blood pressure: possible role of the Ednrb (endothelin receptor type B) candidate gene Physiol Res 2014 63 2 263 265 10.33549/physiolres.932732 24779608
+149. Maloney JP Stearman RS Bull TM Calabrese DW Tripp-Addison ML Wick MJ Broeckel U Robbins IM Wheeler LA Cogan JD Loss-of-function thrombospondin-1 mutations in familial pulmonary hypertension Am J Physiol Lung Cell Mol Physiol 2012 302 6 L541 L554 10.1152/ajplung.00282.2011 22198906
+150. Ouyang Y Wu H Tan A Yang H Gao Y Li H Lu S Hu Y Tang X Zhang H E-selectin gene polymorphism (A561C) and essential hypertension. Meta-analysis in the Chinese population Herz 2015 40 Suppl 2 197 202 10.1007/s00059-014-4122-1 25171839
+151. Wang L Li H Yang B Guo L Han X Li L Li M Huang J Gu D The hypertension risk variant Rs820430 functions as an enhancer of SLC4A7 Am J Hypertens 2017 30 2 202 208 10.1093/ajh/hpw127 27784683
+152. Kerty E Heuser K Indahl UG Berg PR Nakken S Lien S Omholt SW Ottersen OP Nagelhus EA Is the brain water channel aquaporin-4 a pathogenetic factor in idiopathic intracranial hypertension? Results from a combined clinical and genetic study in a Norwegian cohort Acta Ophthalmol 2013 91 1 88 91 10.1111/j.1755-3768.2011.02231.x 21914143
+153. Lambert M Capuano V Boet A Tesson L Bertero T Nakhleh MK Remy S Anegon I Pechoux C Hautefort A Characterization of Kcnk3-mutated rat, a novel model of pulmonary hypertension Circ Res 2019 125 7 678 695 10.1161/CIRCRESAHA.119.314793 31347976
+154. Buchner DA Geisinger JM Glazebrook PA Morgan MG Spiezio SH Kaiyala KJ Schwartz MW Sakurai T Furley AJ Kunze DL The juxtaparanodal proteins CNTNAP2 and TAG1 regulate diet-induced obesity Mamm Genome 2012 23 7–8 431 442 10.1007/s00335-012-9400-8 22752552
+155. Shi Y Long F Hedgehog signaling via Gli2 prevents obesity induced by high-fat diet in adult mice Elife 2017 6 e31649 10.7554/eLife.31649 29205155
+156. Unamuno X Gómez-Ambrosi J Ramírez B Rodríguez A Becerril S Valentí V Moncada R Silva C Salvador J Dermatopontin, a novel adipokine promoting adipose tissue extracellular matrix remodelling and inflammation in obesity J Clin Med 2020 9 4 1069 10.3390/jcm9041069
+157. Zhang L Reidy SP Nicholson TE Lee HJ Majdalawieh A Webber C Stewart BR Dolphin P Ro HS The role of AEBP1 in sex-specific diet-induced obesity Mol Med 2005 11 1–12 39 47 10.2119/2005-00021.Ro 16307171
+158. Anveden Å Sjöholm K Jacobson P Palsdottir V Walley AJ Froguel P Al-Daghri N McTernan PG Mejhert N Arner P ITIH-5 expression in human adipose tissue is increased in obesity Obesity (Silver Spring) 2012 20 4 708 714 10.1038/oby.2011.268 21852814
+159. Kochumon S Madhoun AA Al-Rashed F Azim R Al-Ozairi E Al-Mulla F Ahmad R Adipose tissue gene expression of CXCL10 and CXCL11 modulates inflammatory markers in obesity: implications for metabolic inflammation and insulin resistance Ther Adv Endocrinol Metab 2020 10.1177/2042018820930902 32655851
+160. Mwangi SM Nezami BG Obukwelu B Anitha M Marri S Fu P Epperson MF Le NA Shanmugam M Sitaraman SV Glial cell line-derived neurotrophic factor protects against high-fat diet-induced obesity Am J Physiol Gastrointest Liver Physiol 2014 306 6 G515 G525 10.1152/ajpgi.00364.2013 24458024
+161. Högberg T Frimurer TM Sasmal PK Melanin concentrating hormone receptor 1 (MCHR1) antagonists-Still a viable approach for obesity treatment? Bioorg Med Chem Lett 2012 22 19 6039 6047 10.1016/j.bmcl.2012.08.025 22954736
+162. Mazzarella L Botteri E Matthews A Gatti E Di Salvatore D Bagnardi V Breccia M Montesinos P Bernal T Gil C Obesity is a risk factor for acute promyelocytic leukemia: evidence from population and cross-sectional studies and correlation with FLT3 mutations and polyunsaturated fatty acid metabolism Haematologica 2020 105 6 1559 1566 10.3324/haematol.2019.223925 31515354
+163. Mirea AM Stienstra R Kanneganti TD Tack CJ Chavakis T Toonen EJM Joosten LAB Mice deficient in the IL-1β activation genes Prtn3, Elane, and Casp1 are protected against the development of obesity-induced NAFLD Inflammation 2020 43 3 1054 1064 10.1007/s10753-020-01190-4 32002713
+164. Piquer-Garcia I Campderros L Taxerås SD Gavaldà-Navarro A Pardo R Vila M Pellitero S Martínez E Tarascó J Moreno P A role for oncostatin M in the impairment of glucose homeostasis in obesity J Clin Endocrinol Metab 2020 105 3 e337 e348 10.1210/clinem/dgz090
+165. Quinn LS Anderson BG Interleukin-15, IL-15 receptor-alpha, and obesity: concordance of laboratory animal and human genetic studies J Obes 2011 2011 456347 10.1155/2011/456347 21603270
+166. Wang J Sukhova GK Liu J Ozaki K Lesner A Libby P Kovanen PT Shi GP Cathepsin G deficiency reduces periaortic calcium chloride injury-induced abdominal aortic aneurysms in mice J Vasc Surg 2015 62 6 1615 1624 10.1016/j.jvs.2014.06.004 25037606
+167. Safa A Rashidinejad HR Khalili M Dabiri S Nemati M Mohammadi MM Jafarzadeh A Higher circulating levels of chemokines CXCL10, CCL20 and CCL22 in patients with ischemic heart disease Cytokine 2016 83 147 157 10.1016/j.cyto.2016.04.006 27152707
+168. Chen C Peng H Zeng Y Dong G CD14, CD163, and CCR1 are involved in heart and blood communication in ischemic cardiac diseases J Int Med Res 2020 48 9 300060520951649 10.1177/0300060520951649 32967511
+169. Zhou QL Teng F Zhang YS Sun Q Cao YX Meng GW FPR1 gene silencing suppresses cardiomyocyte apoptosis and ventricular remodeling in rats with ischemia/reperfusion injury through the inhibition of MAPK signaling pathway Exp Cell Res 2018 370 2 506 518 10.1016/j.yexcr.2018.07.016 30031130
+170. Hu Z Liu J Song Z Hou Q Fan X Hou D Variants in the Atherogenic ALOX5AP, THBD, and KNG1 genes potentiate the risk of ischemic stroke via a genetic main effect and epistatic interactions in a Chinese Population J Stroke Cerebrovasc Dis 2015 24 9 2060 2068 10.1016/j.jstrokecerebrovasdis.2015.04.036 26159646
+171. Lou Y Wang S Qu J Zheng J Jiang W Lin Z Zhang S miR-424 promotes cardiac ischemia/reperfusion injury by direct targeting of CRISPLD2 and regulating cardiomyocyte pyroptosis Int J Clin Exp Pathol 2018 11 7 3222 3235 31949697
+172. Zhang X Li L Zhang Q Wei Q Lin J Jia J Zhang J Yan T Lv Y Jiang X CD38 causes autophagic flux inhibition and cardiac dysfunction through a transcriptional inhibition pathway under hypoxia/ischemia conditions Front Cell Dev Biol 2020 8 191 10.3389/fcell.2020.00191 32363189
+173. Chen W Li S Liu Q Yang Y Wei L Lu Y MicroRNA-342-5p protects against myocardial ischemia-reperfusion injury by targeting the GPRC5A pathway Pharmazie 2020 75 6 271 274 10.1691/ph.2020.0383 32539924
+174. Li PL Liu H Chen GP Li L Shi HJ Nie HY Liu Z Hu YF Yang J Zhang P STEAP3 (six-transmembrane epithelial antigen of prostate 3) inhibits pathological cardiac hypertrophy Hypertension 2020 76 4 1219 1230 10.1161/HYPERTENSIONAHA.120.14752 32862709
+175. Poloni G Calore M Rigato I Marras E Minervini G Mazzotti E Lorenzon A Li Mura IEA Telatin A Zara I A targeted next-generation gene panel reveals a novel heterozygous nonsense variant in the TP63 gene in patients with arrhythmogenic cardiomyopathy Heart Rhythm 2019 16 5 773 780 10.1016/j.hrthm.2018.11.015 30453078
+176. Brandt J Warnke K Jörgens S Arolt V Beer K Domschke K Haverkamp W Kuhlmann SL Müller-Nordhorn J Rieckmann N Association of FKBP5 genotype with depressive symptoms in patients with coronary heart disease: a prospective study J Neural Transm (Vienna) 2020 127 12 1651 1662 10.1007/s00702-020-02243-6 32860562
+177. Rudemiller N, Lund H, Jacob HJ, Geurts AM, Mattson DL; PhysGen Knockout Program. CD247 modulates blood pressure by altering T-lymphocyte infiltration in the kidney. Hypertension. 2014;63(3):559–564. 10.1161/HYPERTENSIONAHA.113.02191
+178. Mishra S Undrovinas NA Maltsev VA Reznikov V Sabbah HN Undrovinas A Post-transcriptional silencing of SCN1B and SCN2B genes modulates late sodium current in cardiac myocytes from normal dogs and dogs with chronic heart failure Am J Physiol Heart Circ Physiol 2011 301 4 H1596 H1605 10.1152/ajpheart.00948.2009 21705762
+179. Gao J Guo Y Chen Y Zhou J Liu Y Su P Adeno-associated virus 9-mediated RNA interference targeting SOCS3 alleviates diastolic heart failure in rats Gene 2019 697 11 18 10.1016/j.gene.2019.01.044 30763670
+180. Wei Y Zhu M Corbalán-Campos J Heyll K Weber C Schober A Regulation of Csf1r and Bcl6 in macrophages mediates the stage-specific effects of microRNA-155 on atherosclerosis Arterioscler Thromb Vasc Biol 2015 35 4 796 803 10.1161/ATVBAHA.114.304723 25810298
+181. Wu N Jin L Cai J Profiling and bioinformatics analyses reveal differential circular RNA expression in hypertensive patients Clin Exp Hypertens 2017 39 5 454 459 10.1080/10641963.2016.1273944 28534714
+182. Li Z Chyr J Jia Z Wang L Hu X Wu X Song C Identification of hub genes associated with hypertension and their interaction with miRNA based on weighted gene coexpression network analysis (WGCNA) analysis Med Sci Monit 2020 26 e923514 10.12659/MSM.923514 32888289
+183. Yang S Gao Y Liu G Li J Shi K Du B Si D Yang P The human ATF1 rs11169571 polymorphism increases essential hypertension risk through modifying miRNA binding FEBS Lett 2015 589 16 2087 2093 10.1016/j.febslet.2015.06.029 26149214
+184. Sun D Li C Liu J Wang Z Liu Y Luo C Chen Y Wen S Expression profile of microRNAs in hypertrophic cardiomyopathy and effects of microRNA-20 in inducing cardiomyocyte hypertrophy through regulating gene MFN2 DNA Cell Biol 2019 38 8 796 807 10.1089/dna.2019.4731 31295012
+185. Larsen LH Rose CS Sparsø T Overgaard J Torekov SS Grarup N Jensen DP Albrechtsen A Andersen G Ek J Genetic analysis of the estrogen-related receptor alpha and studies of association with obesity and type 2 diabetes Int J Obes (Lond) 2007 31 2 365 370 10.1038/sj.ijo.0803408 16755280
+186. Choi JH Choi SS Kim ES Jedrychowski MP Yang YR Jang HJ Suh PG Banks AS Gygi SP Spiegelman BM Thrap3 docks on phosphoserine 273 of PPARγ and controls diabetic gene programming Genes Dev 2014 28 21 2361 2369 10.1101/gad.249367.114 25316675
+

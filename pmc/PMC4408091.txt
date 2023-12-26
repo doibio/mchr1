@@ -1,0 +1,1034 @@
+
+==== Front
+PLoS OnePLoS ONEplosplosonePLoS ONE1932-6203Public Library of Science San Francisco, CA USA 2590563010.1371/journal.pone.0124597PONE-D-14-29675Research ArticleZNF804A Transcriptional Networks in Differentiating Neurons Derived from Induced Pluripotent Stem Cells of Human Origin ZNF804A Transcriptional Networks in Human Neurons Derived from iPSCsChen Jian 
+1
+Lin Mingyan 
+2
+Hrabovsky Anastasia 
+1
+Pedrosa Erika 
+1
+Dean Jason 
+1
+Jain Swati 
+1
+Zheng Deyou 
+2
+
+3
+
+4
+*Lachman Herbert M. 
+1
+
+2
+
+3
+
+5
+*
+1 
+Department of Psychiatry and Behavioral Sciences, Albert Einstein College of Medicine, Bronx, New York, United States of America
+
+2 
+Department of Genetics, Albert Einstein College of Medicine, Bronx, New York, United States of America
+
+3 
+Dominick Purpura Department of Neuroscience, Albert Einstein College of Medicine, Bronx, New York, United States of America
+
+4 
+Department of Neurology, Albert Einstein College of Medicine, Bronx, New York, United States of America
+
+5 
+Department of Medicine, Albert Einstein College of Medicine, Bronx, New York, United States of America
+Hu Valerie W Academic Editor
+The George Washington University, UNITED STATES
+Competing Interests: The authors have declared that no competing interests exist.
+
+Conceived and designed the experiments: HML DZ. Performed the experiments: JC AH EP JD SJ. Analyzed the data: ML DZ HML. Contributed reagents/materials/analysis tools: ML DZ. Wrote the paper: HML DZ ML.
+
+* E-mail: Deyou.Zheng@einstein.yu.edu (DZ); Herb.Lachman@einstein.yu.edu (HML)23 4 2015 2015 10 4 e01245977 7 2014 16 3 2015 © 2015 Chen et al2015Chen et alThis is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.
+ZNF804A (Zinc Finger Protein 804A) has been identified as a candidate gene for schizophrenia (SZ), autism spectrum disorders (ASD), and bipolar disorder (BD) in replicated genome wide association studies (GWAS) and by copy number variation (CNV) analysis. Although its function has not been well-characterized, ZNF804A contains a C2H2-type zinc-finger domain, suggesting that it has DNA binding properties, and consequently, a role in regulating gene expression. To further explore the role of ZNF804A on gene expression and its downstream targets, we used a gene knockdown (KD) approach to reduce its expression in neural progenitor cells (NPCs) derived from induced pluripotent stem cells (iPSCs). KD was accomplished by RNA interference (RNAi) using lentiviral particles containing shRNAs that target ZNF804A mRNA. Stable transduced NPC lines were generated after puromycin selection. A control cell line expressing a random (scrambled) shRNA was also generated. Neuronal differentiation was induced, RNA was harvested after 14 days and transcriptome analysis was carried out using RNA-seq. 1815 genes were found to be differentially expressed at a nominally significant level (p<0.05); 809 decreased in expression in the KD samples, while 1106 increased. Of these, 370 achieved genome wide significance (FDR<0.05); 125 were lower in the KD samples, 245 were higher. Pathway analysis showed that genes involved in interferon-signaling were enriched among those that were down-regulated in the KD samples. Correspondingly, ZNF804A KD was found to affect interferon-alpha 2 (IFNA2)-mediated gene expression. The findings suggest that ZNF804A may affect a differentiating neuron’s response to inflammatory cytokines, which is consistent with models of SZ and ASD that support a role for infectious disease, and/or autoimmunity in a subgroup of patients.
+
+This work was supported by the National Institute of Mental Health (MH073164, MH097893, MH099427, and MH087840). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript. Data AvailabilityData generated for this paper are all contained within the paper and/or Supporting Information files. In addition, RNA sequencing data are available in the Gene Expression Omnibus (GEO) repository (accession number GSE54112), which can be found at: http://www.ncbi.nlm.nih.gov/geo/.Data Availability
+Data generated for this paper are all contained within the paper and/or Supporting Information files. In addition, RNA sequencing data are available in the Gene Expression Omnibus (GEO) repository (accession number GSE54112), which can be found at: http://www.ncbi.nlm.nih.gov/geo/.
+==== Body
+Introduction
+
+ZNF804A has been implicated in SZ and BD in replicated genetic and molecular studies [1–2]. In addition, rare copy gain and copy loss CNVs, and an inversion affecting the gene have been found in patients with ASD, psychosis, developmental disabilities, and anxiety disorder [3–6]. ZNF804A codes for a protein containing a C2H2-type zinc-finger domain, suggesting that it has DNA binding properties and can act as a transcription factor. This is supported by Girgenti et al. who showed that the protein localized to the nucleus, and more specifically to the promoters of several SZ candidate genes in E13 rat embryo cortical neural progenitors [7]. In addition, Hill et al. knocked down ZNF804A expression in NPCs derived from human cortical neuroepithelium using siRNAs and identified 152 differentially expressed genes by microarray analysis, including genes involved in cell adhesion, neural migration, neurite outgrowth and synaptogenesis [8].
+
+
+ZNF804A is one of many genes coding for transcription factors, splicing regulators and chromatin remodeling proteins that have been implicated in SZ, BD, and ASD, including POU3F2, A2BP1, MYT1L, JARID2, TCF4, ARNT2, CHD8, SMARCA2, and β-catenin (which is regulated by the lithium and DISC1 target GSK3β) [9–24]. Analyzing the effect of these genes on downstream targets is a reasonable strategy for identifying gene networks—both unique and shared—involved in neuropsychiatric disorders.
+
+To further enhance our understanding of the role of ZNF804A on downstream targets, and to expand on the findings reported by Hill et al., we have knocked down the gene in NPCs derived from iPSCs with shRNA vectors. Using iPSCs as a source of human neural progenitor cells (NPCs) for genetic manipulation has some advantages over others, such as nasal neuroepithelium and cortical neuroepithelium, one of which is the capacity to generate patient-specific neurons [25–27]. In addition, since iPSCs are self-renewing, permanent, genetically manipulated cell lines can be generated. In this study, we report on a transcriptome analysis carried out on early differentiating human neurons derived from iPSC-generated NPCs in which ZNF804A has been knocked down using shRNAs.
+
+Methods and Materials
+Development of iPSC lines
+The study was approved by the Albert Einstein College of Medicine Committee Institutional Review Board (IRB). All participants signed an informed consent that was approved by the Einstein IRB. For this study, ZNF804A knockdown (KD) was carried out on a line from a healthy male control. IPSCs were generated using non-integrating plasmids containing OCT4, SOX2, KLF4, L-MYC, LIN28, and a p53 shRNA vector, introduced by nucleofection [28–31]. The iPSCline used in this experiment has a normal karyotype, expresses pluripotency markers, and is capable of differentiating into all 3 germ layers. S1 Fig and S1 Text).
+
+Generating NPCs and inducing neuronal differentiation
+The protocol for generating NPCs and inducing neuronal differentiation has been previously described [32–34]. Details can be found in the S1 Text
+.
+
+
+Lentiviral particle transduction
+NPCs were transduced with a mix of three shRNAs targeting ZNF804A (Santa Cruz Biotechnology sc-94548-V). In addition, a scrambled shRNA vector was used as a control (Santa Cruz Biotechnology, sc-108080). NPCs were grown in NBF medium (DMEM/F12, 0.5 x N2, 0.5 x B27 and1% P/S) containing FGF2 (20ng/ml) in 6-well plates coated with poly-L-ornithine hydrobromide and laminin. Cells at ~50% confluence were fed with fresh medium and 5ug/ml Polybrene (Santa Cruz Biotechnology, sc-134220) and transduced with shRNA lentiviral particles. Cells were incubated for 24 hours, after which medium with virus was removed and replaced with complete NBF medium without Polybrene. After 24–48 hours, 5 ug/ml puromycin was added to select for transduced cells. Medium with puromycin was changed every other day for 5–7 days. Transduced cells were expanded and induced to differentiate into neurons once ~50% confluence was reached, which occurred approximately 5–10 days after expansion). Cells were harvested for RNA after 14 days of differentiation. Two separate NPC preps from the same KD experiment were induced to differentiate into neurons (scrambled 1, 2; KD 1, 2). In addition, a separate KD was carried out using different shRNA vectors (scrambled 3, KD 3) supplied by the Albert Einstein College of Medicine shRNA Core Facility (S1 Text). The shRNAs contained the following ZNF804A target sense sequences: Albert Einstein College of Medicine shRNA core facility (AGAAGCUUAGUUCUUCAAA); Santa Cruz, sc-94548-VA (CAAGGAUGUAUCUACAGAA), sc-94548-VB (GAAGCAGAGAAUAGUUACA), sc-94548-VC (CAACCACCAUUACCAUUCA).
+
+RNA-seq
+Paired-end RNA-seq was carried out on an Illumina HiSeq 2000. We obtained 101-bp mate-paired reads from DNA fragments with an average size of 250-bp (standard deviation for the distribution of inner distances between mate pairs is approximately 100 bp). RNA-seq reads were aligned to the human genome (GRCh37/hg19) using the software TopHat (version 2.0.8) [35]. The category of transcripts used for our expression analysis is described at http://vega.sanger.ac.uk/info/about/gene_and_transcript_types.html. We counted the number of RNA-seq fragments mapped to each gene annotated in the GENCODE database (version 18) [36]. The count was divided by effective gene length (derived from regions covered by reads) to obtain expression level in Transcripts Per Million (TPM), which is calculated by multiplying the estimated fraction of transcripts made up by a given gene by 106 [37]. The measure is independent of the mean expressed transcript length and is thus more comparable across samples; thus it is favored over another popular transcript measure, FPKM, based on previous studies [38]. We used DESeq (an R package developed by Anders and Huber) to determine differential expression from the count data [39]. Afterwards, only genes with average TPMs greater than 1 across samples (n = 15,330) were considered for differential expression. A multiple comparison correction was applied to adjust the p-values for false discovery rate (FDR) [40]. Sequencing data have been deposited in the Gene Expression Omnibus (GEO) repository (accession number GSE54112).
+
+Quantitative real-time PCR (qPCR)
+qPCR was carried out on reverse transcribed PCR using the 2-ΔΔCt method as previously described [30,34]. A detailed description and the primers used for this analysis can be found in S1 Text.
+
+Proliferation assay
+Cell proliferation was assayed using the Vybrant MTT cell proliferation assay kit (invitrogen) according to the protocol manual. Briefly, similar amounts of NPCs (50,000 cells in triplicate) were seeded on 96 well plates coated with poly-L-ornithine hydrobromide and laminin. Cells were assayed daily for 5 days. At the time of the assay, 100ul of medium was removed from the well and replaced with an equal volume of fresh medium without FGF2, along with 10ul of the 12mM MTT (3-[4,5-dimethylthiazol-2-yl]-2,5-diphenyltetrazolium bromide) stock solution. The cells were incubated at 37°C for 4 hours. 85 ul of medium was removed and 50 ul of DMSO was added, followed by a 10 minute incubation at 37°C. The samples were mixed well, transferred to a microplate, and the absorbance at 540 nm was determined.
+
+Interferon inducible gene expression
+NPC cultures were prepared from the parent iPSC line (untreated control), a ZNF804A KD and a scrambled shRNA control (KD2 and scrambled 2). The NPCs were previously frozen in aliquots of 106 cells. After thawing, the cells were cultured for several days until 50% confluence was reached, after which they were treated with interferon-alpha 2 (IFNA2; 1mg/ml) or vehicle for 4 hours. IFNA2 was chosen because IPA analysis showed that this was the most significant upstream regulator among the down-regulated genes. RNA was harvested and analyzed by qPCR. Duplicate cultures were treated and analyzed in triplicate for qPCR. We analyzed several IFN-inducible genes, including IFITM2, IFITM3, IFI6, STAT1 and STAT3. However, neither IFITM2 nor IFITM3 were significantly affected by IFNA2 treatment under our experimental conditions (not shown). Consequently, the analysis of IFN-inducible genes was restricted to IFI6, STAT1 and STAT3. Relative expression values were normalized to β2M expression. The relative expression means were then normalized to a control, vehicle-treated sample, which was arbitrarily set at 1.0. Fold differences were calculated and statistical significance was determined using a Student’s t-test.
+
+Results
+RNA-seq
+A total of 1,815 genes were found to be differentially expressed at a nominally statistically significant level (p<0.05); 809 decreased in expression in the KD samples, while 1,106 increased (S1 Table for complete dataset). Of these, 370 reached genome wide significance after correction for multiple testing (FDR<0.05); 125 were lower in the KD samples, 245 were higher. This included 10 long non-coding RNAs that decreased in expression and seven that increased. Reduced expression of ZNF804 in the KD was confirmed by the RNA-seq findings, which showed a 69% decrease (p = 9.4e-08; FDR = 6.7e-05), as well as by qPCR (S1 Table, Fig 1). The most significantly down-regulated genes based on FDR were TIMP1, LINC00645, IFITM3, IFITM2, KAL1, RTL1, and PCDH7 (Table 1). TIMP1 is metallopeptidase inhibitor that has an effect on cellular proliferation, especially in response to cytokines, and acts as an inflammatory mediator in the brain [41]; a connection to immune activation is a recurrent theme in this study, as described below. LINC00645 is expressed throughout the brain and maps to a large, coding gene poor region on chromosome 14. The closest is NOVA1, which is ~1Mb upstream and codes for a splicing co-factor that mediates the response to cellular and behavioral stress, and inflammatory cytokines [42,43]. KAL1 is expressed throughout the brain and involved in neural migration [44]. RTL1 is a retrotransposon-derived, paternally expressed gene that maps to a well-established imprinted locus on 14q32; it is expressed in the brain and has been found to be up-regulated by Neurogenin 2 during dorsal telencephalon development [45,46]. PCDH7 is a non-clustered protocadherin expressed in the brain that was also found to be differentially expressed by Hill et al., one of 17 genes that overlapped between our respective studies, the others being CRYAB, CCL2, SEZ6, STAC, MCM3, CDCA4, ARHGAP19, NCAPG2, CDKN1A, MUTYH, EIF4A2, ANTXR1, ATP1B1, ACTG2, EIF4G1, and PPP4R1 [8]. The overlap of the differentially expressed genes is statistically significant (p = 4.6e-9, hypergeometric test).
+
+10.1371/journal.pone.0124597.g001Fig 1 Validation of selected genes by qPCR. qPCR was carried out as described in methods.
+Each assay was carried out in triplicate, and the mean fold change was calculated. This was repeated 3–6 times for each sample. Asterisk indicates significance at p<0.05 calculated using a Student’s t-test. Actual p-values are: ZNF804A (0.003); IFITM2 (0.040); IFITM3 (0.001); EZH2 (0.016); APOE (0.018); CRYAB (0.015); SLC6A1 (0.0004); GRIA2 (0.011); TCF4 (0.710); IGF2 (0.0004); BEGAIN (0.010); CDK1 (0.015).
+
+10.1371/journal.pone.0124597.t001Table 1 Top 30 differentially expressed genes.
+Gene	TPM (SC)	TPM (KD)	log2 FC	p-value	FDR	
+
+TIMP1
+	99.60	33.45	-1.57	1.61E-15	2.30E-11	
+
+LINC00645
+	9.39	2.12	-2.15	4.55E-14	3.25E-10	
+
+IFITM3
+	642.29	183.68	-1.81	3.02E-13	1.08E-09	
+
+IFITM2
+	316.95	101.49	-1.64	4.12E-13	1.17E-09	
+
+KAL1
+	25.13	10.69	-1.23	2.92E-11	6.93E-08	
+
+RTL1
+	22.79	5.36	-2.09	5.35E-10	9.53E-07	
+
+PCDH7
+	16.42	6.52	-1.33	8.76E-09	1.17E-05	
+
+SPOCK1
+	25.78	11.62	-1.15	2.43E-08	2.17E-05	
+
+ZNF804A
+	4.48	1.42	-1.66	9.43E-08	6.72E-05	
+
+KCNF1
+	13.92	4.21	-1.73	1.26E-07	8.18E-05	
+
+THBS4
+	17.42	8.41	-1.05	1.53E-07	8.51E-05	
+
+CPNE4
+	35.30	14.95	-1.24	2.03E-07	2.03E-07	
+
+CRYAB
+	7.79	0.88	-3.15	2.68E-07	2.68E-07	
+
+LCNL1
+	6.72	0.83	-3.01	6.57E-07	6.57E-07	
+
+THBS2
+	18.26	5.87	-1.64	2.12E-06	2.12E-06	
+
+KIRREL2
+	19.06	85.95	2.17	1.25E-13	5.93E-10	
+
+ZIC3
+	12.43	78.65	2.66	3.02E-10	6.15E-07	
+
+MTFP1
+	4.18	12.06	1.53	1.13E-09	1.79E-06	
+
+PALM3
+	7.31	20.94	1.52	9.19E-09	1.17E-05	
+
+KIF4A
+	17.03	46.56	1.45	9.85E-09	1.17E-05	
+
+BAIAP2L1
+	0.86	2.86	1.74	1.43E-08	1.57E-05	
+
+CDON
+	13.49	40.95	1.60	1.74E-08	1.77E-05	
+
+KIAA0101
+	47.25	98.89	1.07	1.87E-08	1.78E-05	
+
+PLA2G4A
+	2.61	9.06	1.79	2.59E-08	2.17E-05	
+
+GINS3
+	7.80	17.48	1.16	5.12E-08	4.06E-05	
+
+OBSCN
+	6.48	10.67	0.72	9.08E-08	6.72E-05	
+
+COL9A1
+	2.20	7.33	1.73	1.43E-07	8.51E-05	
+
+CTSC
+	10.71	34.50	1.69	1.51E-07	8.51E-05	
+
+H1F0
+	9.99	36.31	1.86	1.55E-07	8.51E-05	
+
+NPTX1
+	5.85	13.88	1.25	2.12E-07	1.07E-04	
+Top genes that decrease (- log2) or increase (+ log2) in ZNF804A KD cells. TPM (transcripts per million are the means from the 3 RNA-seq samples; SC (scrambled control); KD (knockdown). The FC (fold change) value is expressed as the log2 of the mean of KDs over the scrambled controls. FDR is the false discovery rate.
+
+Among the four genes affected by ZNF804A in the Girgenti study, which was carried out in rat NPCs, one overlapped with our findings; the SZ and BD candidate PDE4B (increased in expression by overexpressing ZNF804A in rat NPCs, while it decreased following KD in our study—see S1 Table) [7].
+
+Finally, two of the more interesting down-regulated genes are IFITM2 and IFITM3, which decreased several fold (Table 1); they code for interferon-induced transmembrane proteins that play a role in interferon-signaling and the innate defense against influenza and other viruses [47–49]. This is particularly interesting from a SZ pathogenesis perspective, considering the clinical and epidemiological evidence pointing towards prenatal influenza as a risk factor in SZ, which will be described in more detail in the discussion [50–59].
+
+One concern about the dramatic decrease in IFITM2 and IFITM3 expression in the KD lines is that it’s an artifact of lentiviral transduction; that is, could the reduced expression in the ZNF804A KD lines compared with the scrambled controls be due to differences in the expression of lentiviral sequences? However, in an analysis of IFITM2 and IFITM3 expression in this experiment and in 17 other KD and scrambled lines we have generated in NPCs, no correlation was observed between viral gene expression (inferred from RNA-seq reads mapped to vectors) and IFITM2 and IFITM3 RNA levels (correlation coefficients, -0.014 and 0.280, respectively).
+
+In addition to these two interferon-related genes, a number of others that code for various proteins involved in cytokine signaling are significantly lower in the KD samples, including IFIT3, IL17RC, IL17D, CCL2, CXCL16, IFNAR1, IL1RAP, IL6ST, C1QTNF5, TNFAIP3, TNFRSF21, TNFAIP8, TNFAIP8L1, TNFAIP2, C1QTNF6 and TNFSF12 (S1 Table).
+
+The most significantly up-regulated genes in the KD samples were KIRREL2, ZIC3, MTFP1, PALM3, and KIF4A. KIRREL2 (Kin of IRRE-like 2), is a cell adhesion molecule that regulates activity-dependent axonal projections in the olfactory system of mice [60]. ZIC3 is a member of a family of zinc-finger transcription factors that plays a role in regulating the proliferation and differentiation of neuronal progenitors in the medial forebrain and the cerebellum, retinoic acid signaling in the hindbrain, and the generation of mouse iPSCs [61–63]. Two other members of the ZIC family, ZIC1 and ZIC4 are also significantly up-regulated in the KD cells (S1 Table). ZIC1 was also found to be differentially expressed in the Hill et al ZNF804A KD study, as noted above. MTFP1 (mitochondrial fission process 1) is a nuclear gene that is a downstream target of the phosphatidylinositol 3-kinase signaling pathway, PALM3 is a member of a multigene family involved in membrane dynamics, and is expressed in axons and dendritic spines; it is also up-regulated by LPS and may be involved in IL-1 signaling [64,65].
+
+We validated the changes in gene expression for 12 genes including ZNF804A; all but one (TCF4) was confirmed (Fig 1). We chose to validate genes of interest in neuropsychiatric disorders, as well as several that overlapped with a study we carried out on neuronal aggregates derived from iPSCs exposed to heat shock [66]. TCF4 expression decreased, as expected, but statistical significance was not achieved because of a large standard deviation.
+
+Pathway Analysis
+Based on the function of the top differentially expressed genes, ZNF804A appears to have an effect on genes involved in immune responses. In order to evaluate this possibility more systematically, we assessed the 1815 differentially expressed genes that were nominally significant (p < 0.05) using Ingenuity Pathway Analysis (IPA). For genes that decreased in the ZNF804A KDs, the top disease pathways and biological functions were neuromuscular disease, dyskinesia, movement disorders and Huntington's Disease. Genes implicated in SZ and BD were the 5th and 9th most significant (Table 2; S2 Table for complete IPA analysis).
+
+10.1371/journal.pone.0124597.t002Table 2 Diseases and biological functions for ZNF804A down-regulated genes.
+Diseases/Functions	p-value	Molecules	
+neuromuscular disease	1.56E-08	ADRA2A,AEBP1,AK5,ALDH6A1,APOE,ATP2B2,BRINP1,CCL2,CDS1,CHRM3,CNR1,CPNE5,CRYAB,CRYM,DGKB,ESRRG,FAS,FLRT2,GABRA2,GRIK2,HAP1,HCG22,IFNAR1,ITPKB,KCNA5,KCNAB1,KCND2,KCNIP1,MX1,NR4A2,PCDH7,PDE4B,PPARA,PPP3CA,PRNP,PSMB8,RXRG,SCARB2,SCN2A,SCN4B,SEZ6,SH3GL2,SLC1A1,SLC24A3,SPOCK3,ST8SIA4,TM2D1,TOMM20,TPD52	
+dyskinesia	1.31E-07	ADRA2A,AEBP1,ALDH6A1,APOE,ATP2B2,CDS1,CHRM3,CNR1,CPNE5,CRYAB,CRYM,DGKB,ESRRG,FLRT2,GABRA2,GRIK2,HAP1,ITPKB,KCNA5,KCNAB1,KCNIP1,PCDH7,PPARA,PPP3CA,PSMB8,RGS2,RXRG,SCARB2,SCN2A,SCN4B,SEZ6,SLC1A1,SPOCK3,TM2D1,TOMM20,TPD52	
+Movement Disorders	2.46E-07	ADRA2A,AEBP1,ALDH6A1,APOE,ATP2B2,BEAN1,CA5B,CDS1,CHRM3,CNR1,CPNE5,CRYAB,CRYM,DGKB,ESRRG,FAS,FLRT2,GABRA2,GRIK1,GRIK2,HAP1,ITPKB,KCNA5,KCNAB1,KCNC3,KCNIP1,KLHL1,NR4A2,PCDH7,PDE4B,PPARA,PPP3CA,PSMB8,RGS2,RXRG,SCARB2,SCN2A,SCN4B,SEZ6,SH3GL2,SLC1A1,SPOCK3,ST8SIA4,TM2D1,TOMM20,TPD52	
+Huntington's Disease	3.01E-07	AEBP1,ALDH6A1,APOE,ATP2B2,CDS1,CHRM3,CNR1,CPNE5,CRYAB,CRYM,DGKB,ESRRG,FLRT2,GABRA2,GRIK2,HAP1,ITPKB,KCNA5,KCNAB1,KCNIP1,PCDH7,PPARA,PPP3CA,PSMB8,RXRG,SCARB2,SCN2A,SCN4B,SEZ6,SLC1A1,SPOCK3,TM2D1,TOMM20,TPD52	
+Schizophrenia	5.13E-07	ADRA2A,ALDH3B1,ALDH5A1,APOE,ATP2B2,CALY,CCK,CHRM3,CNR1,CRYM,CXCL12,DAB1,EBF1,ELAVL4,GABRA2,GRIA4,GRID1,GRIK1,GRIK2,GRIK4,GRM5,HIST1H2BN,MCHR1,NELL1,PLA2G4C,PPARA,RXRG,SLC12A2,SLC12A5,SLC1A1,SLC6A1,SLIT3,SNRK,TF	
+disorder of basal ganglia	8.33E-07	ADRA2A,AEBP1,ALDH6A1,APOE,ATP2B2,CDS1,CHRM3,CNR1,CPNE5,CRYAB,CRYM,DGKB,ESRRG,FLRT2,GABRA2,GRIK2,HAP1,ITPKB,KCNA5,KCNAB1,KCNIP1,NR4A2,PCDH7,PDE4B,PDE8B,PPARA,PPP3CA,PSMB8,RGS2,RXRG,SCARB2,SCN2A,SCN4B,SEZ6,SH3GL2,SLC1A1,SPOCK3,ST8SIA4,TM2D1,TOMM20,TPD52	
+progressive motor neuropathy	3.73E-06	ADRA2A,AK5,ALDH5A1,APOE,BRINP1,CCL2,CDKN1A,CHRM3,CNR1,CRYAB,DAB1,FAS,GABRA2,HCG22,HRK,IFNAR1,KCND2,MX1,NR4A2,PDE4B,PLA2G4C,PRNP,SCN2A,SCN4B,SH3GL2,SLC1A1,SLC24A3,SPARC,ST8SIA4,SUSD1,TIMP1	
+epilepsy	1.12E-05	ALDH5A1,ARRDC3,ASAH1,CA5B,CDKN1A,CRYM,ERRFI1,GABRA2,GRIK1,KAL1,LINC00152,NR4A3,PRICKLE1,PRNP,RGS2,SCARB2,SCN2A,SCN4B,SLC6A1,TRIM9	
+bipolar disorder	3.32E-05	ADRA2A,ALDH5A1,APOE,CA5B,CCL2,CHRM3,GABRA2,GRIA2,GRID1,GRIK1,GRIK2,GRIK4,GRM5,MCHR1,PPP2R2C,PPP3CA,RABGAP1L,SCN2A,SCN4B,SLC1A1,TCF4	
+inflammatory demyelinating disease	6.41E-05	ADRA2A,AK5,BRINP1,CCL2,CHRM3,CNR1,CRYAB,FAS,HCG22,IFNAR1,KCND2,MX1,SLC24A3,TIMP1	
+This included several kainate ionotrophic receptors, AMPA and metabotropic glutamate receptor subtypes, and the GABA-A receptor subtype, GABRA2 [67]. In addition, a decrease in cholecystokinin expression was detected in the KD neurons. CCK codes for a neuropeptide that’s expressed in a subset of GABAergic neurons; it has a role in mediating anxiety traits and panic disorder, and is differentially expressed in the entorhinal cortex in SZ [68–72].
+
+Inspection of the list of down-regulated genes showed several others that are of interest in neuropsychiatric disorders, but were not called by IPA, including TIMELESS, DISC1, PTEN, RANBP1, TCF4, NPAS3, PCDH9, NLGN4X, and CDH7 [73–84].
+
+Consistent with the marked decrease we detected in IFITM2 and IFITM3, IPA showed a significant enrichment for genes involved in inflammation and response to cytokines among the KD down-regulated genes. In the IPA “upstream regulators” analysis, in which IPA assesses the observed gene expression changes for transcriptional activators, the top 2, and 4 of the top 10 upstream regulators were members of the interferon family: IFNA2 (interferon alpha 2), IFNL1 (interferon lambda1), ISG15 (interferon stimulated gene 15), a ubiquitin-like modifier that is induced by type I interferons, and IFNG (interferon gamma) (Table 3). Similar results were obtained when the data were analyzed by Gene Ontology (GO): among the top GO terms were 3 out of 11 involved in interferon signaling (Table 4; S3 Table).
+
+10.1371/journal.pone.0124597.t003Table 3 Upstream Regulators for ZNF804A KD down-regulated genes.
+Upstream Regulator	p-value	Target molecules in dataset	
+IFNA2	1.11E-08	C19orf66,FAS,HERC6,IFI35,IFI44L,IFI6,IFIT3,IFITM3,IRF9,ISG20,LGALS3BP,MX1,PARP12	
+IFNL1	2.44E-08	C19orf66,HERC6,IFI35,IFI44L,IFI6,IFIT3,IFITM3,IRF9,ISG20,LGALS3BP,MX1	
+MAPK1	4.07E-06	CDKN1A,DEPTOR,IFI16,IFI35,IFI6,IFIT3,IFITM3,IRF9,ISG20,LGALS3BP,MVP,PARP12,PSMB8,SPOCK1	
+USP18	1.02E-05	IFI6,IFITM3,IRF9,MX1	
+ISG15	3.09E-05	IFI6,IFITM3,MX1	
+EIF2AK2	8.26E-05	IFI35,IFI6,IFITM2,ISG20,LGALS3BP,PARP12,PARP9	
+IFNG	3.16E-04	CCL2,CDKN1A,CXCL16,FAS,HERC6,HRK,IFI44L,IFI6,IFIT3,IGFBP4,IRF9,ISG20,MCHR1,MX1,PSMB8,TNFSF12	
+PKC(s)	3.39E-04	CCL2,IGF2,NR4A3,PPARA,RGS2	
+Smad1/5/8	3.96E-04	CDKN1A,CDKN2A	
+LIN9	3.96E-04	CDKN1A,CDKN2A	
+10.1371/journal.pone.0124597.t004Table 4 Gene Ontology (GO) for genes down-regulated following ZNF804A KD.
+GO term	Biological process	# DEGs	p-value	FDR	
+GO:0003008	system process	72	1.43E-09	5.03E-06	
+GO:0044707	single-multicellular organism process	169	7.41E-09	1.31E-05	
+GO:0007268	synaptic transmission	41	1.53E-08	1.80E-05	
+GO:0032501	multicellular organismal process	171	2.40E-08	2.12E-05	
+GO:0050877	neurological system process	56	4.61E-08	3.25E-05	
+GO:0035637	multicellular organismal signaling	44	6.50E-08	3.82E-05	
+GO:0019226	transmission of nerve impulse	43	8.32E-08	4.20E-05	
+GO:0048731	system development	119	3.70E-07	1.63E-04	
+GO:0071357	cellular response to type I interferon	10	4.87E-07	1.72E-04	
+GO:0060337	type I interferon signaling pathway	10	4.87E-07	1.72E-04	
+GO:0034340	response to type I interferon	10	6.13E-07	1.97E-04	
+GO:0007267	cell-cell signaling	48	6.94E-07	2.04E-04	
+GO:0023052	signaling	150	9.25E-07	2.33E-04	
+GO:0044700	single organism signaling	150	9.25E-07	2.33E-04	
+GO:0007154	cell communication	152	1.46E-06	3.43E-04	
+GO:0051239	regulation of multicellular organismal process	69	7.57E-06	0.0017	
+GO:0007610	behavior	29	9.39E-06	0.002	
+The IPA findings suggest that interferon signaling will be affected by ZNF804A. This is supported by an analysis of IFNA2-mediated gene expression carried out in NPCs from an untreated control, a scrambled control, and a ZNF804A KD, as described in the methods section. Following treatment with IFNA2, IFI6 and STAT1 gene expression significantly increased, while STAT3 decreased significantly (~2–10 fold changes in expression compared with controls; all p-values <0.05, not shown). As seen in Fig 2, there was a statistically significant increase in the fold induction of IFI6 in the KD samples compared with both the untreated control NPC line used for the shRNA experiment, and the scrambled control KD (~2-fold more robust induction with INFA2; p = 0.01 and 0.03, respectively, two-tailed Student’s t-test). By contrast, no significant differences were found when the untreated control and the scrambled control were compared. Significant differences were also found in the ZNF804A KD for STAT1 and STAT3 in comparison with the scrambled control (p = 0.004; 0.05, respectively). However, for these two genes, the induction (STAT1) or decrease (STAT3) that occurs following INFA2 treatment was attenuated compared with the scrambled control. These findings support that idea that INFA2 signaling is affected by ZNF804A.
+
+10.1371/journal.pone.0124597.g002Fig 2 Induction of interferon-responsive genes.
+NPCs were treated with IFNA2 (1mg/ml) for 4 hours, after which RNA was isolated and analyzed by qPCR. IFI6 and STAT1 increased with treatment, while STAT3 decreased. Fold changes were calculated as described in the methods section. Significant differences in the fold change were found in the comparison between the scrambled control and the ZNF804A KD line for all three genes using a Student’s t-test (all results two-tailed): IFI6, p = 0.03; STAT1, p = 0.004; STAT3, p = 0.05. No other significant differences were found for the other comparison, except for untreated control vs ZNF804A KD (p = 0.01). The bar graph represents the mean of 6 determinations (biological duplicates analyzed in triplicate) +/- standard error.
+
+For the up-regulated genes, the top disease pathways and biological functions were all related to the mitotic cell cycle, cellular assembly, DNA replication, and cancer with very low p-values ranging from E-19 to E-31 (S4 Table). Similar results were obtained when the enriched GO terms were determined (Table 5 and S5 Table for complete list). The findings suggest that knocking down ZNF804A affects proliferation. To test this idea, a proliferation assay was carried out in NPCs. After a three day lag period, the ZNF804A KD line showed a 30–37% increase in proliferative capacity compared with a scrambled control on days 4 and 5. However, differences were not statistically significant (Fig 3). The ZNF801A KD line also showed an increase in proliferation compared with the untreated control (wild type line; parent line, but not transduced with an shRNA vector), which almost reached statistical significance (Student’s t-test, two tailed, p = 0.052 and 0.056 for days 4 and 5, respectively).
+
+10.1371/journal.pone.0124597.g003Fig 3 Proliferation assay.
+NPCs were plated at 50,000 cells/well and analyzed using a Vybrant MTT cell proliferation assay kit, as described in the methods section. The samples analyzed included a ZNF804A KD line, a scrambled control line, and an un-processed control (no virus transduction or puromycin selection) generated from an iPSC clone derived from the same subject used for the ZNF804A KD. Samples were analyzed in triplicate and the data are presented as means, +/- standard error. Differences were not statistically significant, although a trend towards significance was found in the comparison between the KD and un-processed control on days 4 and 5 (Student’s t-test, two tailed, p = 0.052 and 0.056, respectively).
+
+10.1371/journal.pone.0124597.t005Table 5 Gene Ontology (GO) for ZNF804A KD up-regulated genes.
+GO_term	Biological process	# of DEGs	p-value	FDR	
+GO:0000278	mitotic cell cycle	162	5.07E-65	2.05E-61	
+GO:0007049	cell cycle	203	2.29E-59	4.63E-56	
+GO:0022402	cell cycle process	176	3.14E-58	4.24E-55	
+GO:0000280	nuclear division	96	2.19E-50	1.78E-47	
+GO:0007067	mitosis	96	2.19E-50	1.78E-47	
+GO:0048285	organelle fission	98	5.92E-49	4.00E-46	
+GO:0051301	cell division	115	1.88E-46	1.09E-43	
+GO:1902589	single-organism organelle organization	175	1.17E-37	5.92E-35	
+GO:0006259	DNA metabolic process	121	1.15E-34	5.19E-32	
+GO:0007059	chromosome segregation	51	3.12E-32	1.26E-29	
+The marginal, albeit statistical insignificant increase in proliferation could suggest that some of the changes in the expression of genes implicated in neuropsychiatric disorders and in cytokine-signaling found in day 14 neurons are secondary to an effect on proliferation and maturation from NPCs into neurons. However, there was no consistent difference in expression of NPC markers; SOX2, VIM (vimentin) and PAX6 expression levels did not differ between the KD and scrambled control, although NES (nestin) expression increased by ~40% (S1 Table). It should be noted, however, that IFITM2 and IFITM3, are not differentially expressed during the transition from NPCs to neurons [30]. A decrease in IFITM2 and IFITM3 expression independent of differentiation status was confirmed by qPCR carried out on KD and scrambled control NPCs (p = 0.04 and 0.001, respectively; not shown). Thus, the differentially expressed genes we detected in the KD experiment in day 14 neurons do not appear to be an artifact of differential proliferation or differentiation status.
+
+Discussion
+SZ, ASD and BD, and other neuropsychiatric disorders are genetically heterogeneous complex genetic traits that will make it difficult to translate genetic findings into novel therapeutics. One way to address heterogeneity is to find common pathways onto which different candidate genes converge. This is particularly feasible for genes that code for transcription factors or chromatin remodeling proteins that could potentially have an impact on shared target genes or pathways. A convergence of target genes is suggested by our finding that the expression of a number of SZ and BD candidates was affected by ZNF804A KD, as noted above.
+
+The utility of identifying common molecular and genetic targets could also be applied when considering the role of environmental factors in the development of SZ and ASD. Although these disorders are highly heritable, environmental factors play a role as well; maternal immune activation (MIA) caused by infectious diseases or autoimmune phenomena, maternal nutritional deprivation, obstetrical complications, oxidative stress, anoxic stress, paternal age and environmental toxins have all been implicated [85–95].
+
+Although these environmental factors could have effects on neurogenesis and brain development that are independent of known genetic risk factors, there is experimental support for their convergence in some circumstances. We have recently found, for example, that hyperthermia (heat shock) markedly alters the expression of several SZ, BD and ASD candidate genes, including ZNF804A, ARNT2 and SMARCA2, in a model of the human fetal telencephalon derived from iPSCs [66,96]. In addition, in mouse models, gene x environment interactions involving the SZ, BD, and ASD candidate genes DISC1, NRG1, RGS4, and AKT1 have been described [97–102].
+
+One major finding in this study—altered expression of genes involved in cytokine signaling following ZNF804A KD—is consistent with these observations, and suggests that allelic variants in the gene interact with cytokine signaling pathways in some manner leading to an increased risk of disease. One of the more interesting cytokine-related findings, a decrease in IFITM2 and IFITM3 gene expression, suggests another possibility; an impact on viral pathogens that have cytopathic effects on neurons. IFITM2 and IFITM3 code for interferon-induced transmembrane proteins, which are viral restriction factors that play a role in protecting cells against the entry of influenza and other viruses, as well as other aspects of interferon-signaling [47–49]. This is of interest because of previous studies suggesting that maternal exposure to influenza and other viruses increases SZ risk in offspring [50–56]. Thus, a decrease in IFITM2 and IFITM3 expression, for example due to reduced ZNF804A expression or function, could increase the cytopathogenic effects of some viruses. Investigators have reported an alteration in IFITM2 and IFITM3 gene expression in various brain regions in SZ and ASD autopsy samples; however, expression is increased [57,103–108]. The opposite effects on expression in our ZNF804A KD neurons and the autopsy studies could be due to differences related to neuronal maturation or stage of brain development, as well the obvious differences in the choice of tissue: live cells vs autopsy samples. In addition, IFITM2 and IFITM3 are many fold more highly expressed in non-neuronal cells in the brain, such as endothelium and microglia, so differential expression in the brain vs pure neuronal cultures in could be due opposite effects of these genes in neurons compared with other cell types [109].
+
+In addition to IFITM2 and IFITM3
+, a number of other genes involved in interferon signaling were differentially expressed, as described in the results section. This too is consistent with a number of findings in humans and animal models. For example, an increase in INF-γ levels was found in the CSF of patients with SZ and in the plasma of patients with first episode psychosis [110–111]. And, an alteration in the ratio of IFN-γ to various interleukins was found to be significantly decreased in SZ, consistent with a Th2 shift [112]. Finally, an increase in serum IFN-γ was found in patients with 22q11.2 del who experienced ASD-like behaviors [113].
+
+As for other cytokines, several genes involved in interleukin and TNF signaling were also found to be differentially expressed in the ZNF804A KD samples, as noted above. These could be meaningful considering that fact that IL-1β, IL-6 and TNF-α mediate the effects of MIA on brain development and behavior in animal models, and altered expression has been found in the brain and peripheral blood of patients with SZ and ASD [114–117]. And interestingly, differences in IL-17 expression have been found in SZ and ASD compared with controls in first episode, medication naïve SZ patients, and animal models [118–124].
+
+Two other down-regulated genes related to immune function that we detected were CCL2 and CXCL16; CCL2 was also significantly reduced in the Hill et al. study, as noted in the results section [8]. CCL2 codes for a chemokine expressed in neurons, microglia, and astrocytes that is induced by viral infection, head trauma, and cytokines [40,125–130]. A number of studies show that plasma CCL2 levels differ in SZ, ASD, BD and major depression compared to controls [120,131–136]. Although chemokines are primarily known for their role in innate immunity, in particular chemotaxis, they are increasingly being recognized for their non-immune effects in the brain (neurogenesis, neuroprotection, dopamine transmission, migration of NPCs, and controlling blood–brain barrier permeability) [137–141].
+
+
+
+CXCL16 codes for a chemokine that is primarily expressed in lymphoid tissue, but also appears to have a protective effect on excitotoxic cell death in the brain and is induced in a mouse model of multiple sclerosis [142,143]. In addition, SNPs in the gene were found to be associated with SZ in a combined GWAS/pathway analysis [144].
+
+Another differentially expressed gene worth noting in the general context of inflammatory responses is CRYAB, which decreased in the KD cells, similar to the Hill et al. study [8]. CRYAB codes for heat shock inducible chaperone that suppresses apoptosis and neuroinflammation [145,146]. It was one of the top genes induced by heat shock in human fetal telencephalon-like structures we differentiated from iPSCs [66]. This suggests that reduced expression caused by a decrease in ZNF804A could make differentiating neurons more vulnerable to infectious disease, autoimmune attack or cellular stress.
+
+Overall, our results suggest that ZNF804A modulates the expression of genes that regulate cytokine and chemokine signaling pathways in differentiating neurons, perhaps affecting their response to immune activation and/or viral infection. This hypothesis is also supported by immunological studies and replicated GWAS findings, in which association signals in the MHC locus have been found, suggesting an infectious disease and/or autoimmune process in subgroups of SZ and ASD patients [147–158]. However, non-immune effects of MHC antigens on brain development and neuronal function is a possible explanation for the association [159–161].
+
+Finally, it should be noted that an effect of ZNF804A on cytokine signaling could also help explain the development of metabolic syndrome, which occurs as a polymorphic trait in many patients treated with psychotrophic medications (and some untreated patients as well); metabolic syndrome is mediated by immune cytokines [133,162–167]. It should also be noted that there are four binding sites for EGR (early growth response) transcription factors in the ZNF804A promoter region. EGR transcription factors play a role in synaptic plasticity and behavior, and are activated by pro-inflammatory cytokines, providing another potential connection between immune activation and ZNF804A expression, and suggesting the possibility of feedback interactions [168–172].
+
+These findings, while interesting, must be viewed cautiously, however. Although we did not detect a correlation between expression of lentiviral sequences and IFITM2 and IFITM3 expression, it is still possible that the changes we detected in cytokine signaling genes are an artifact of viral transduction that cannot be explained simply by analyzing vector transcripts. Consequently, validation using a gene knockout approach with CRISPR or zinc finger nucleases, rather than shRNA mediated gene KD will be extremely valuable to confirm our findings, as well as performing these analyses using additional iPSC lines to account for genetic background differences.
+
+Supporting Information
+S1 Fig Germ line markers are expressed in the iPSC line used in this experiment: AFP (alpha-fetoprotein; endoderm), TUJ1 (TUBB3; Neuron-specific class III beta-tubulin) (ectoderm), Desmin (mesoderm).
+In addition, the iPSC line expresses the pluripotency markers Tra 1–60 and Tra-81, and has a normal karyotype.
+
+(JPG)
+
+Click here for additional data file.
+
+ S1 Table Entire list of RNA-seq data from 3 scrambled controls and 3 ZNF804A KDs arranged by lowest FDR.
+All genes showing genome-wide significance (FDR; q-value <0.05) are highlighted in bold type.
+
+(XLSX)
+
+Click here for additional data file.
+
+ S2 Table Ingenuity Pathway Analysis (IPA) for ZNF804A down-regulated genes.
+(XLS)
+
+Click here for additional data file.
+
+ S3 Table Gene Ontology (GO) for ZNF804A down-regulated genes.
+(XLSX)
+
+Click here for additional data file.
+
+ S4 Table Ingenuity Pathway Analysis (IPA) for ZNF804A up-regulated genes.
+(XLS)
+
+Click here for additional data file.
+
+ S5 Table Gene Ontology (GO) for ZNF804A up-regulated genes.
+(XLSX)
+
+Click here for additional data file.
+
+ S1 Text Comprehensive description of methods, PCR primers and antibodies.
+(DOCX)
+
+Click here for additional data file.
+
+ This work was supported by the National Institute of Mental Health (MH073164, MH097893, MH099427, and MH087840).
+==== Refs
+References
+1 
+Riley B , Thiselton D , Maher BS , Bigdeli T , Wormley B , et al (2010 ) Replication of association between schizophrenia and ZNF804A in the irish case-control study of schizophrenia sample . Mol Psychiatry 
+15 : 29 –37 . 10.1038/mp.2009.109 
+19844207 
+2 
+O'Donovan MC , Craddock N , Norton N , Williams H , Peirce T , et al (2008 ) Identification of loci associated with schizophrenia by genome-wide association and follow-up . Nat Genet 
+40 : 1053 –1055 . 10.1038/ng.201 
+18677311 
+3 
+Griswold AJ , Ma D , Cukier HN , Nations LD , Schmidt MA , et al (2012 ) Evaluation of copy number variations reveals novel candidate genes in autism spectrum disorder-associated pathways . Hum Mol Genet 
+21 : 3513 –3523 . 10.1093/hmg/dds164 
+22543975 
+4 
+Talkowski ME , Rosenfeld JA , Blumenthal I , Pillalamarri V , Chiang C , et al (2012 ) Sequencing chromosomal abnormalities reveals neurodevelopmental loci that confer risk across diagnostic boundaries . Cell 
+149 : 525 –537 . 10.1016/j.cell.2012.03.028 
+22521361 
+5 
+Blake J , Riddell A , Theiss S , Gonzalez AP , Haase B , et al (2014 ) Sequencing of a patient with balanced chromosome abnormalities and neurodevelopmental disease identifies disruption of multiple high risk loci by structural variation . PLOS ONE 
+9 : e90894 
+10.1371/journal.pone.0090894 
+24625750 
+6 
+Steinberg S , Mors O , Borglum AD , Gustafsson O , Werge T , et al (2011 ) Expanding the range of ZNF804A variants conferring risk of psychosis . Mol Psychiatry 
+16 : 59 –66 . 10.1038/mp.2009.149 
+20048749 
+7 
+Girgenti MJ , LoTurco JJ , Maher BJ  (2012 ) ZNF804a regulates expression of the schizophrenia-associated genes PRSS16, COMT, PDE4B, and DRD2 . PLOS ONE 
+7 : e32404 
+10.1371/journal.pone.0032404 
+22384243 
+8 
+Hill MJ , Jeffries AR , Dobson RJ , Price J , Bray NJ  (2012 ) Knockdown of the psychosis susceptibility gene ZNF804A alters expression of genes involved in cell adhesion . Hum Mol Genet 
+21 : 1018 –1024 . 10.1093/hmg/ddr532 
+22080834 
+9 
+Loe-Mie Y , Lepagnol-Bestel AM , Maussion G , Doron-Faigenboim A , Imbeaud S , et al (2010 ) SMARCA2 and other genome-wide supported schizophrenia-associated genes: Regulation by REST/NRSF, network organization and primate-specific evolution . Hum Mol Genet 
+19 : 2841 –2857 . 10.1093/hmg/ddq184 
+20457675 
+10 
+Koga M , Ishiguro H , Yazaki S , Horiuchi Y , Arai M , et al (2009 ) Involvement of SMARCA2/BRM in the SWI/SNF chromatin-remodeling complex in schizophrenia . Hum Mol Genet 
+18 : 2483 –2494 . 10.1093/hmg/ddp166 
+19363039 
+11 Walsh T, McClellan JM, McCarthy SE, Addington AM, Pierce SB, et al. (2008) Rare structural variants disrupt multiple genes in neurodevelopmental pathways in schizophrenia. Science. 10.1126/science.1155174 
+
+12 
+Potkin SG , Turner JA , Guffanti G , Lakatos A , Fallon JH , et al (2009 ) A genome-wide association study of schizophrenia using brain activation as a quantitative phenotype . Schizophr Bull 
+35 : 96 –108 . 10.1093/schbul/sbn155 
+19023125 
+13 
+Davis LK , Maltman N , Mosconi MW , Macmillan C , Schmitt L , et al (2012 ) Rare inherited A2BP1 deletion in a proband with autism and developmental hemiparesis . Am J Med Genet A 
+158A : 1654 –1661 . 10.1002/ajmg.a.35396 
+22678932 
+14 
+Martin CL , Duvall JA , Ilkin Y , Simon JS , Arreaza MG , et al (2007 ) Cytogenetic and molecular characterization of A2BP1/FOX1 as a candidate gene for autism . Am J Med Genet B Neuropsychiatr Genet 
+144B : 869 –876 . 10.1002/ajmg.b.30530 
+17503474 
+15 
+Vrijenhoek T , Buizer-Voskamp JE , van der Stelt I , Strengman E , Sabatti C , et al (2008 ) Recurrent CNVs disrupt three candidate genes in schizophrenia patients . Am J Hum Genet 
+83 : 504 –510 . 10.1016/j.ajhg.2008.09.011 
+18940311 
+16 
+Lee Y , Mattai A , Long R , Rapoport JL , Gogtay N  (2012 ) Microduplications disrupting the MYT1L gene (2p25.3) are associated with schizophrenia . Psychiatr Genet 
+22 : 206 –209 . 10.1097/YPG.0b013e328353ae3d 
+22547139 
+17 
+Ramos PS , Sajuthi S , Langefeld CD , Walker SJ  (2012 ) Immune function genes CD99L2, JARID2 and TPO show association with autism spectrum disorder . Mol Autism 
+3 
+. 
+10.1186/2040-2392-3-4 
+23241247 
+18 
+Kwon E , Wang W , Tsai LH  (2013 ) Validation of schizophrenia-associated genes CSMD1, C10orf26, CACNA1C and TCF4 as miR-137 targets . Mol Psychiatry 
+18 : 11 –12 . 10.1038/mp.2011.170 
+22182936 
+19 
+Mao Y , Ge X , Frank CL , Madison JM , Koehler AN , et al (2009 ) Disrupted in schizophrenia 1 regulates neuronal progenitor proliferation via modulation of GSK3beta/beta-catenin signaling . Cell 
+136 : 1017 –1031 . 10.1016/j.cell.2008.12.044 
+19303846 
+20 Hovey D, Zettergren A, Jonsson L, Melke J, Anckarsater H, et al. (2014) Associations between oxytocin-related genes and autistic-like traits. Soc Neurosci. 10.1080/17470919.2014.897995 
+
+21 
+Stefansson H , Ophoff RA , Steinberg S , Andreassen OA , Cichon S , et al (2009 ) Common variants conferring risk of schizophrenia . Nature 
+460 : 744 –747 . 10.1038/nature08186 
+19571808 
+22 
+Walsh T , McClellan JM , McCarthy SE , Addington AM , Pierce SB , et al (2008 ) Rare structural variants disrupt multiple genes in neurodevelopmental pathways in schizophrenia . Science 
+320 : 539 –543 . 10.1126/science.1155174 
+18369103 
+23 
+Sugathan A , Biagioli M , Golzio C , Erdin S , Blumenthal I , et al (2014 ) CHD8 regulates neurodevelopmental pathways associated with autism spectrum disorder in neural progenitors . Proc Natl Acad Sci U S A 
+111 : E4468 –77 . 10.1073/pnas.1405266111 
+25294932 
+24 
+Krumm N , O'Roak BJ , Shendure J , Eichler EE  (2014 ) A de novo convergence of autism genetics and molecular neuroscience . Trends Neurosci 
+37 : 95 –105 . 10.1016/j.tins.2013.11.005 
+24387789 
+25 
+Vaccarino FM , Stevens HE , Kocabas A , Palejev D , Szekely A , et al (2011 ) Induced pluripotent stem cells: A new tool to confront the challenge of neuropsychiatric disorders . Neuropharmacology 
+60 : 1355 –1363 . 10.1016/j.neuropharm.2011.02.021 
+21371482 
+26 
+Marchetto MC , Brennand KJ , Boyer LF , Gage FH  (2011 ) Induced pluripotent stem cells (iPSCs) and neurological disease modeling: Progress and promises . Hum Mol Genet 
+20 : R109 –15 . 10.1093/hmg/ddr336 
+21828073 
+27 
+Kim DS , Ross PJ , Zaslavsky K , Ellis J  (2014 ) Optimizing neuronal differentiation from induced pluripotent stem cells to model ASD . Front Cell Neurosci 
+8 : 109 
+10.3389/fncel.2014.00109 
+24782713 
+28 
+Maherali N , Ahfeldt T , Rigamonti A , Utikal J , Cowan C  (2008 ) A high-efficiency system for the generation and study of human induced pluripotent stem cells . Cell Stem Cell 
+3 : 340 –345 . 10.1016/j.stem.2008.08.003 
+18786420 
+29 
+Takahashi K , Yamanaka S  (2006 ) Induction of pluripotent stem cells from mouse embryonic and adult fibroblast cultures by defined factors . Cell 
+126 : 663 –676 . 10.1016/j.cell.2006.07.024 
+16904174 
+30 
+Chen J , Lin M , Foxe JJ , Pedrosa E , Hrabovsky A , et al (2013 ) Transcriptome comparison of human neurons generated using induced pluripotent stem cells derived from dental pulp and skin fibroblasts . PLOS ONE 
+8 : e75682 
+10.1371/journal.pone.0075682 
+24098394 
+31 
+Okita K , Matsumura Y , Sato Y , Okada A , Morizane A , et al (2011 ) A more efficient method to generate integration-free human iPS cells . Nat Methods 
+8 : 409 –412 . 10.1038/nmeth.1591 
+21460823 
+32 
+Marchetto MC , Carromeu C , Acab A , Yu D , Yeo GW , et al (2010 ) A model for neural development and treatment of rett syndrome using human induced pluripotent stem cells . Cell 
+143 : 527 –539 . 10.1016/j.cell.2010.10.016 
+21074045 
+33 Pedrosa E, Sandler V, Shah A, Carroll R, Chang C, et al. (2011) Development of patient-specific neurons in schizophrenia using induced pluripotent stem cells. J Neurogenet. 10.3109/01677063.2011.597908 
+
+34 
+Lin M , Hrabovsky A , Pedrosa E , Wang T , Zheng D  (2012 ) Allele-biased expression in differentiating human neurons: Implications for neuropsychiatric disorders . PLOS ONE 
+7 : e44017 
+10.1371/journal.pone.0044017 
+22952857 
+35 
+Kim D , Pertea G , Trapnell C , Pimentel H , Kelley R  (2013 ) TopHat2: Accurate alignment of transcriptomes in the presence of insertions, deletions and gene fusions . Genome Biol 
+14 : R36 
+10.1186/gb-2013-14-4-r36 
+23618408 
+36 
+Harrow J , Frankish A , Gonzalez JM , Tapanari E , Diekhans M , et al (2012 ) GENCODE: The reference human genome annotation for the ENCODE project . Genome Res 
+22 : 1760 –1774 . 10.1101/gr.135350.111 
+22955987 
+37 
+Li B , Ruotti V , Stewart RM , Thomson JA , Dewey CN  (2010 ) RNA-seq gene expression estimation with read mapping uncertainty . Bioinformatics 
+26 : 493 –500 . 10.1093/bioinformatics/btp692 
+20022975 
+38 
+Trapnell C , Williams BA , Pertea G , Mortazavi A , Kwan G , et al (2010 ) Transcript assembly and quantification by RNA-seq reveals unannotated transcripts and isoform switching during cell differentiation . Nat Biotechnol 
+28 : 511 –515 . 10.1038/nbt.1621 
+20436464 
+39 
+Anders S , Huber W  (2010 ) Differential expression analysis for sequence count data . Genome Biol 
+11 : R106-2010-11-10-r106. 10.1186/gb-2010-11-10-r106 
+
+40 
+Hochberg Y , Benjamini Y  (1990 ) More powerful procedures for multiple significance testing . Stat Med 
+9 : 811 –818 .
+2218183 
+41 Almeida-Suhett CP, Li Z, Marini AM, Braga MF, Eiden LE (2013) Temporal course of changes in gene expression suggests a cytokine-related mechanism for long-term hippocampal alteration after controlled cortical impact. J Neurotrauma. 10.1089/neu.2013.3029 
+
+42 
+Kalman S , Garbett KA , Vereczkei A , Shelton RC , Korade Z  (2014 ) Metabolic stress-induced microRNA and mRNA expression profiles of human fibroblasts . Exp Cell Res 
+320 : 343 –353 . 10.1016/j.yexcr.2013.10.019 
+24246224 
+43 
+Eizirik DL , Sammeth M , Bouckenooghe T , Bottu G , Sisino G , et al (2012 ) The human pancreatic islet transcriptome: Expression of candidate genes for type 1 diabetes and the impact of pro-inflammatory cytokines . PLOS Genet 
+8 : e1002552 
+10.1371/journal.pgen.1002552 
+22412385 
+44 
+Di Schiavi E , Andrenacci D  (2013 ) Invertebrate models of kallmann syndrome: Molecular pathogenesis and new disease genes . Curr Genomics 
+14 : 2 –10 . 10.2174/138920213804999174 
+23997646 
+45 
+Seibt J , Armant O , Le Digarcher A , Castro D , Ramesh V , et al (2012 ) Expression at the imprinted dlk1-gtl2 locus is regulated by proneural genes in the developing telencephalon . PLOS ONE 
+7 : e48675 
+10.1371/journal.pone.0048675 
+23139813 
+46 
+Riordan JD , Keng VW , Tschida BR , Scheetz TE , Bell JB , et al (2013 ) Identification of rtl1, a retrotransposon-derived imprinted gene, as a novel driver of hepatocarcinogenesis . PLoS Genet 
+9 : e1003441 
+10.1371/journal.pgen.1003441 
+23593033 
+47 
+Wakim LM , Gupta N , Mintern JD , Villadangos JA  (2013 ) Enhanced survival of lung tissue-resident memory CD8(+) T cells during infection with influenza virus due to selective expression of IFITM3 . Nat Immunol 
+14 : 238 –245 . 10.1038/ni.2525 
+23354485 
+48 
+Zhang YH , Zhao Y , Li N , Peng YC , Giannoulatou E , et al (2013 ) Interferon-induced transmembrane protein-3 genetic variant rs12252-C is associated with severe influenza in Chinese individuals . Nat Commun 
+4 : 1418 
+10.1038/ncomms2433 
+23361009 
+49 
+Everitt AR , Clare S , Pertel T , John SP , Wash RS 
+et al (2012 ) IFITM3 restricts the morbidity and mortality associated with influenza . Nature 
+484 : 519 –523 . 10.1038/nature10921 
+22446628 
+50 
+Brown AS  (2012 ) Epidemiologic studies of exposure to prenatal infection and risk of schizophrenia and autism . Dev Neurobiol 
+72 : 1272 –1276 . 10.1002/dneu.22024 
+22488761 
+51 Zerbo O, Iosif AM, Walker C, Ozonoff S, Hansen RL (2012) Is maternal influenza or fever during pregnancy associated with autism or developmental delays? results from the CHARGE (CHildhood autism risks from genetics and environment) study. J Autism Dev Disord. 10.1007/s10803-012-1540-x 
+
+52 
+Brown AS , Derkits EJ  (2010 ) Prenatal infection and schizophrenia: A review of epidemiologic and translational studies . Am J Psychiatry 
+167 : 261 –280 . 10.1176/appi.ajp.2009.09030361 
+20123911 
+53 
+Patterson PH  (2009 ) Immune involvement in schizophrenia and autism: Etiology, pathology and animal models . Behav Brain Res 
+204 : 313 –321 . 10.1016/j.bbr.2008.12.016 
+19136031 
+54 
+Brown AS , Begg MD , Gravenstein S , Schaefer CA , Wyatt RJ , et al (2004 ) Serologic evidence of prenatal influenza in the etiology of schizophrenia . Arch Gen Psychiatry 
+61 : 774 –780 . 10.1001/archpsyc.61.8.774 
+15289276 
+55 
+Torrey EF , Miller J , Rawlings R , Yolken RH  (1997 ) Seasonality of births in schizophrenia and bipolar disorder: A review of the literature . Schizophr Res 
+28 : 1 –38 .
+9428062 
+56 
+Landreau F , Galeano P , Caltana LR , Masciotra L , Chertcoff A , et al (2012 ) Effects of two commonly found strains of influenza A virus on developing dopaminergic neurons, in relation to the pathophysiology of schizophrenia . PLOS ONE 
+7 : e51068 
+10.1371/journal.pone.0051068 
+23251423 
+57 
+Horvath S , Mirnics K  (2014 ) Immune system disturbances in schizophrenia . Biol Psychiatry 
+75 : 316 –323 . 10.1016/j.biopsych.2013.06.010 
+23890736 
+58 Carter CJ (2008) Schizophrenia susceptibility genes directly implicated in the life cycles of pathogens: Cytomegalovirus, influenza, herpes simplex, rubella, and toxoplasma gondii. Schizophr Bull. 10.1093/schbul/sbn054 
+
+59 
+Zerbo O , Iosif AM , Walker C , Ozonoff S , Hansen RL  (2013 ) Is maternal influenza or fever during pregnancy associated with autism or developmental delays? results from the CHARGE (CHildhood autism risks from genetics and environment) study . J Autism Dev Disord 
+43 : 25 –33 . 10.1007/s10803-012-1540-x 
+22562209 
+60 
+Hornberg M , Gussing F , Berghard A , Bohm S  (2009 ) Retinoic acid selectively inhibits death of basal vomeronasal neurons during late stage of neural circuit formation . J Neurochem 
+110 : 1263 –1275 . 10.1111/j.1471-4159.2009.06216.x 
+19519663 
+61 
+Drummond DL , Cheng CS , Selland LG , Hocking JC , Prichard LB  (2013 ) The role of zic transcription factors in regulating hindbrain retinoic acid signaling . BMC Dev Biol 
+13 : 31-213X-13-31. 10.1186/1471-213X-13-31 
+
+62 
+Inoue T , Ogawa M , Mikoshiba K , Aruga J  (2008 ) Zic deficiency in the cortical marginal zone and meninges results in cortical lamination defects resembling those in type II lissencephaly . J Neurosci 
+28 : 4712 –4725 . 10.1523/JNEUROSCI.5735-07.2008 
+18448648 
+63 
+Declercq J , Sheshadri P , Verfaillie CM , Kumar A  (2013 ) Zic3 enhances the generation of mouse induced pluripotent stem cells . Stem Cells Dev 
+22 : 2017 –2025 . 10.1089/scd.2012.0651 
+23421367 
+64 
+Chen X , Wu X , Zhao Y , Wang G , Feng J , et al (2011 ) A novel binding protein of single immunoglobulin IL-1 receptor-related molecule: Paralemmin-3 . Biochem Biophys Res Commun 
+404 : 1029 –1033 . 10.1016/j.bbrc.2010.12.104 
+21187075 
+65 
+Kutzleb C , Petrasch-Parwez E , Kilimann MW  (2007 ) Cellular and subcellular localization of paralemmin-1, a protein involved in cell shape control, in the rat brain, adrenal gland and kidney . Histochem Cell Biol 
+127 : 13 –30 . 10.1007/s00418-006-0209-y 
+16847661 
+66 
+Lin M , Zhao D , Hrabovsky A , Pedrosa E , Zheng D  (2014 ) Heat shock alters the expression of schizophrenia and autism candidate genes in an induced pluripotent stem cell model of the human telencephalon . PLOS ONE 
+9 : e94968 
+10.1371/journal.pone.0094968 
+24736721 
+67 
+Wang G , Gilbert J , Man HY  (2012 ) AMPA receptor trafficking in homeostatic synaptic plasticity: Functional molecules and signaling cascades . Neural Plast 
+2012 : 825364 
+10.1155/2012/825364 
+22655210 
+68 
+Lee SY , Soltesz I  (2011 ) Cholecystokinin: A multi-functional molecular switch of neuronal circuits . Dev Neurobiol 
+71 : 83 –91 . 10.1002/dneu.20815 
+21154912 
+69 
+Bachus SE , Hyde TM , Herman MM , Egan MF , Kleinman JE  (1997 ) Abnormal cholecystokinin mRNA levels in entorhinal cortex of schizophrenics . J Psychiatr Res 
+31 : 233 –256 .
+9278188 
+70 
+Pirnik Z , Maixnerova J , Matyskova R , Koutova D , Zelezna B , et al (2010) Effect of anorexinergic peptides, cholecystokinin (CCK) and cocaine and amphetamine regulated transcript (CART) peptide, on the activity of neurons in hypothalamic structures of C57Bl/6 mice involved in the food intake regulation . Peptides 
+31 : 139 –144 . 10.1016/j.peptides.2009.09.035 
+19818819 
+71 
+Del Boca C , Lutz PE , Le Merrer J , Koebel P , Kieffer BL  (2012 ) Cholecystokinin knock-down in the basolateral amygdala has anxiolytic and antidepressant-like effects in mice . Neuroscience 
+218 : 185 –195 . 10.1016/j.neuroscience.2012.05.022 
+22613736 
+72 
+Zwanzger P , Domschke K , Bradwejn J  (2012 ) Neuronal network of panic disorder: The role of the neuropeptide cholecystokinin . Depress Anxiety 
+29 : 762 –774 . 10.1002/da.21919 
+22553078 
+73 
+Soronen P , Ollila HM , Antila M , Silander K , Palo OM 
+et al (2010 ) Replication of GWAS of bipolar disorder: Association of SNPs near CDH7 with bipolar disorder and visual processing . Mol Psychiatry 
+15 : 4 –6 . 10.1038/mp.2009.86 
+20029406 
+74 
+Redies C , Hertel N , Hubner CA  (2012 ) Cadherins and neuropsychiatric disorders . Brain Res 
+1470 : 130 –144 . 10.1016/j.brainres.2012.06.020 
+22765916 
+75 
+Kato T  (2007 ) Molecular genetics of bipolar disorder and depression . Psychiatry Clin Neurosci 
+61 : 3 –19 . 10.1111/j.1440-1819.2007.01604.x 
+17239033 
+76 
+Millar JK , Wilson-Annan JC , Anderson S , Christie S , Taylor MS , et al (2000 ) Disruption of two novel genes by a translocation co-segregating with schizophrenia . Hum Mol Genet 
+9 : 1415 –1423 .
+10814723 
+77 Barry G, Briggs JA, Vanichkina DP, Poth EM, Beveridge NJ, et al. (2013) The long non-coding RNA gomafu is acutely regulated in response to neuronal activation and involved in schizophrenia-associated alternative splicing. Mol Psychiatry. 10.1038/mp.2013.45 
+
+78 
+Mao Y , Ge X , Frank CL , Madison JM , Koehler AN , et al (2009 ) Disrupted in schizophrenia 1 regulates neuronal progenitor proliferation via modulation of GSK3beta/beta-catenin signaling . Cell 
+136 : 1017 –1031 . 10.1016/j.cell.2008.12.044 
+19303846 
+79 
+Steinecke A , Gampe C , Nitzsche F , Bolz J  (2014 ) DISC1 knockdown impairs the tangential migration of cortical interneurons by affecting the actin cytoskeleton . Front Cell Neurosci 
+8 : 190 
+10.3389/fncel.2014.00190 
+25071449 
+80 
+Pickard BS , Christoforou A , Thomson PA , Fawkes A , Evans KL , et al (2009 ) Interacting haplotypes at the NPAS3 locus alter risk of schizophrenia and bipolar disorder . Mol Psychiatry 
+14 : 874 –884 . 10.1038/mp.2008.24 
+18317462 
+81 
+Kamnasaran D , Muir WJ , Ferguson-Smith MA , Cox DW  (2003 ) Disruption of the neuronal PAS3 gene in a family affected with schizophrenia . J Med Genet 
+40 : 325 –332 .
+12746393 
+82 
+Marshall CR , Noor A , Vincent JB , Lionel AC , Feuk L , et al (2008 ) Structural variation of chromosomes in autism spectrum disorder . Am J Hum Genet 
+82 : 477 –488 . 10.1016/j.ajhg.2007.12.009 
+18252227 
+83 
+Lawson-Yuen A , Saldivar JS , Sommer S , Picker J  (2008 ) Familial deletion within NLGN4 associated with autism and tourette syndrome . Eur J Hum Genet 
+16 : 614 –618 . 10.1038/sj.ejhg.5202006 
+18231125 
+84 
+Talebizadeh Z , Lam DY , Theodoro MF , Bittel DC , Lushington GH  (2006 ) Novel splice isoforms for NLGN3 and NLGN4 with possible implications in autism . J Med Genet 
+43 : e21 
+10.1136/jmg.2005.036897 
+16648374 
+85 Atladottir HO, Henriksen TB, Schendel DE, Parner ET (2012) Autism after infection, febrile episodes, and antibiotic use during pregnancy: An exploratory study. Pediatrics. 10.1542/peds.2012-1107 
+
+86 Zerbo O, Iosif AM, Walker C, Ozonoff S, Hansen RL (2012) Is maternal influenza or fever during pregnancy associated with autism or developmental delays? results from the CHARGE (CHildhood autism risks from genetics and environment) study. J Autism Dev Disord. 10.1007/s10803-012-1540-x 
+
+87 
+Parker-Athill EC , Tan J  (2010 ) Maternal immune activation and autism spectrum disorder: Interleukin-6 signaling as a key mechanistic pathway . Neurosignals 
+18 : 113 –128 . 10.1159/000319828 
+20924155 
+88 
+Hsiao EY , Patterson PH  (2011 ) Activation of the maternal immune system induces endocrine changes in the placenta via IL-6 . Brain Behav Immun 
+25 : 604 –615 . 10.1016/j.bbi.2010.12.017 
+21195166 
+89 
+Ghanizadeh A  (2011 ) Could fever and neuroinflammation play a role in the neurobiology of autism? A subject worthy of more research . Int J Hyperthermia 
+27 : 737 –738 . 10.3109/02656736.2011.604665 
+21967199 
+90 
+Canetta SE , Brown AS  (2012 ) Prenatal infection, maternal immune activation, and risk for schizophrenia . Transl Neurosci 
+3 : 320 –327 . 10.2478/s13380-012-0045-6 
+23956839 
+91 
+Fatjo-Vilas M , Pomarol-Clotet E , Salvador R , Monte GC , Gomar JJ , et al (2012 ) Effect of the interleukin-1beta gene on dorsolateral prefrontal cortex function in schizophrenia: A genetic neuroimaging study . Biol Psychiatry 
+72 : 758 –765 . 10.1016/j.biopsych.2012.04.035 
+22763186 
+92 
+Roumier A , Pascual O , Bechade C , Wakselman S , Poncer JC , et al (2008 ) Prenatal activation of microglia induces delayed impairment of glutamatergic synaptic function . PLOS ONE 
+3 : e2595 
+10.1371/journal.pone.0002595 
+18612411 
+93 
+Goshen I , Yirmiya R  (2009 ) Interleukin-1 (IL-1): A central regulator of stress responses . Front Neuroendocrinol 
+30 : 30 –45 . 10.1016/j.yfrne.2008.10.001 
+19017533 
+94 
+Koo JW , Duman RS  (2009 ) Interleukin-1 receptor null mutant mice show decreased anxiety-like behavior and enhanced fear memory . Neurosci Lett 
+456 : 39 –43 . 10.1016/j.neulet.2009.03.068 
+19429130 
+95 
+Nilsberth C , Elander L , Hamzic N , Norell M , Lonn J , et al (2009 ) The role of interleukin-6 in lipopolysaccharide-induced fever by mechanisms independent of prostaglandin E2 . Endocrinology 
+150 : 1850 –1860 . 10.1210/en.2008-0806 
+19022895 
+96 
+Mariani J , Simonini MV , Palejev D , Tomasini L , Coppola G , et al (2012 ) Modeling human cortical development in vitro using induced pluripotent stem cells . Proc Natl Acad Sci U S A 
+109 : 12770 –12775 . 10.1073/pnas.1202944109 
+22761314 
+97 
+Connor CM , Dincer A , Straubhaar J , Galler JR , Houston IB  (2012 ) Maternal immune activation alters behavior in adult offspring, with subtle changes in the cortical transcriptome and epigenome . Schizophr Res 
+140 : 175 –184 . 10.1016/j.schres.2012.06.037 
+22804924 
+98 
+O'Leary C , Desbonnet L , Clarke N , Petit E , Tighe O , et al (2014 ) Phenotypic effects of maternal immune activation and early postnatal milieu in mice mutant for the schizophrenia risk gene neuregulin-1 . Neuroscience 
+277 : 294 –305 . 10.1016/j.neuroscience.2014.06.028 
+24969132 
+99 
+Modinos G , Iyegbe C , Prata D , Rivera M , Kempton MJ , et al (2013 ) Molecular genetic gene-environment studies using candidate genes in schizophrenia: A systematic review . Schizophr Res 
+150 : 356 –365 . 10.1016/j.schres.2013.09.010 
+24094883 
+100 Abazyan B, Dziedzic J, Hua K, Abazyan S, Yang C, et al. (2013) Chronic exposure of mutant DISC1 mice to lead produces sex-dependent abnormalities consistent with schizophrenia and related mental disorders: A gene-environment interaction study. Schizophr Bull. 10.1093/schbul/sbt071 
+
+101 
+Desbonnet L , O'Tuathaigh C , Clarke G , O'Leary C , Petit E , et al (2012 ) Phenotypic effects of repeated psychosocial stress during adolescence in mice mutant for the schizophrenia risk gene neuregulin-1: A putative model of gene x environment interaction . Brain Behav Immun 
+26 : 660 –671 . 10.1016/j.bbi.2012.02.010 
+22426432 
+102 
+Olechnowicz SW , Fedele AO , Peet DJ  (2012 ) Hypoxic induction of the regulator of G-protein signalling 4 gene is mediated by the hypoxia-inducible factor pathway . PLOS ONE 
+7 : e44564 
+10.1371/journal.pone.0044564 
+22970249 
+103 
+Hwang Y , Kim J , Shin JY , Kim JI , Seo JS , et al (2013 ) Gene expression profiling by mRNA sequencing reveals increased expression of immune/inflammation-related genes in the hippocampus of individuals with schizophrenia . Transl Psychiatry 
+3 : e321 
+10.1038/tp.2013.94 
+24169640 
+104 Siegel BI, Sengupta EJ, Edelson JR, Lewis DA, Volk DW (2013) Elevated viral restriction factor levels in cortical blood vessels in schizophrenia. Biol Psychiatry. 10.1016/j.biopsych.2013.09.019 
+
+105 
+Garbett K , Ebert PJ , Mitchell A , Lintas C , Manzi B , et al (2008 ) Immune transcriptome alterations in the temporal cortex of subjects with autism . Neurobiol Dis 
+30 : 303 –311 . 10.1016/j.nbd.2008.01.012 
+18378158 
+106 
+Arion D , Unger T , Lewis DA , Levitt P , Mirnics K  (2007 ) Molecular evidence for increased expression of genes related to immune and chaperone function in the prefrontal cortex in schizophrenia . Biol Psychiatry 
+62 : 711 –721 . 10.1016/j.biopsych.2006.12.021 
+17568569 
+107 
+Hwang Y , Kim J , Shin JY , Kim JI , Seo JS , et al (2013 ) Gene expression profiling by mRNA sequencing reveals increased expression of immune/inflammation-related genes in the hippocampus of individuals with schizophrenia . Transl Psychiatry 
+3 : e321 
+10.1038/tp.2013.94 
+24169640 
+108 
+Saetre P , Emilsson L , Axelsson E , Kreuger J , Lindholm E , et al (2007 ) Inflammation-related genes up-regulated in schizophrenia brains . BMC Psychiatry 
+7 : 46  pii: 1471-244X-7-46
+17822540 
+109 
+Zhang Y , Chen K , Sloan SA , Bennett ML , Scholze AR , et al (2014 ) An RNA-sequencing transcriptome and splicing database of glia, neurons, and vascular cells of the cerebral cortex . J Neurosci 
+34 : 11929 –11947 . 10.1523/JNEUROSCI.1860-14.2014 
+25186741 
+110 
+Miller BJ , Buckley P , Seabolt W , Mellor A , Kirkpatrick B  (2011 ) Meta-analysis of cytokine alterations in schizophrenia: Clinical status and antipsychotic effects . Biol Psychiatry 
+70 : 663 –671 . 10.1016/j.biopsych.2011.04.013 
+21641581 
+111 
+Ding M , Song X , Zhao J , Gao J , Li X , et al (2014 ) Activation of Th17 cells in drug naive, first episode schizophrenia . Prog Neuropsychopharmacol Biol Psychiatry 
+51 : 78 –82 . 10.1016/j.pnpbp.2014.01.001 
+24447943 
+112 
+Chiang SS , Riedel M , Schwarz M , Mueller N  (2013 ) Is T-helper type 2 shift schizophrenia-specific? primary results from a comparison of related psychiatric disorders and healthy controls . Psychiatry Clin Neurosci 
+67 : 228 –236 . 10.1111/pcn.12040 
+23683153 
+113 
+Ross HE , Guo Y , Coleman K , Ousley O , Miller AH  (2013 ) Association of IL-12p70 and IL-6:IL-10 ratio with autism-related behaviors in 22q11.2 deletion syndrome: A preliminary report . Brain Behav Immun 
+31 : 76 –81 . 10.1016/j.bbi.2012.12.021 
+23353117 
+114 
+Wei H , Alberts I , Li X  (2013 ) Brain IL-6 and autism . Neuroscience 
+252 : 320 –325 . 10.1016/j.neuroscience.2013.08.025 
+23994594 
+115 
+Garbett KA , Hsiao EY , Kalman S , Patterson PH , Mirnics K  (2012 ) Effects of maternal immune activation on gene expression patterns in the fetal brain . Transl Psychiatry 
+2 : e98 
+doi: 10.1038/tp.2012.24; 10.1038/tp.2012.24 
+22832908 
+116 
+Wei H , Zou H , Sheikh AM , Malik M , Dobkin C , et al (2011 ) IL-6 is increased in the cerebellum of autistic brain and alters neural cell adhesion, migration and synaptic formation . J Neuroinflammation 
+8 : 52 
+10.1186/1742-2094-8-52 
+21595886 
+117 
+Rao JS , Kim HW , Harry GJ , Rapoport SI , Reese EA  (2013 ) Increased neuroinflammatory and arachidonic acid cascade markers, and reduced synaptic proteins, in the postmortem frontal cortex from schizophrenia patients . Schizophr Res 
+147 : 24 –31 . 10.1016/j.schres.2013.02.017 
+23566496 
+118 
+Dimitrov DH , Lee S , Yantis J , Valdez C , Paredes RM , et al (2013 ) Differential correlations between inflammatory cytokines and psychopathology in veterans with schizophrenia: Potential role for IL-17 pathway . Schizophr Res 
+151 : 29 –35 . 10.1016/j.schres.2013.10.019 
+24210870 
+119 
+Zhang Y , Gao D , Kluetzman K , Mendoza A , Bolivar VJ , et al (2013 ) The maternal autoimmune environment affects the social behavior of offspring . J Neuroimmunol 
+258 : 51 –60 . 10.1016/j.jneuroim.2013.02.019 
+23537887 
+120 
+Al-Ayadhi LY , Mostafa GA  (2012 ) Elevated serum levels of interleukin-17A in children with autism . J Neuroinflammation 
+9 : 158-2094-9-158. 10.1186/1742-2094-9-158 
+
+121 
+Borovcanin M , Jovanovic I , Radosavljevic G , Djukic Dejanovic S , Bankovic D , et al (2012 ) Elevated serum level of type-2 cytokine and low IL-17 in first episode psychosis and schizophrenia in relapse . J Psychiatr Res 
+46 : 1421 –1426 . 10.1016/j.jpsychires.2012.08.016 
+22974591 
+122 
+Hsiao EY , McBride SW , Chow J , Mazmanian SK , Patterson PH  (2012 ) Modeling an autism risk factor in mice leads to permanent immune dysregulation . Proc Natl Acad Sci U S A 
+109 : 12776 –12781 . 10.1073/pnas.1202556109 
+22802640 
+123 
+Suzuki K , Matsuzaki H , Iwata K , Kameno Y , Shimmura C , et al (2011 ) Plasma cytokine profiles in subjects with high-functioning autism spectrum disorders . PLOS ONE 
+6 : e20470 
+10.1371/journal.pone.0020470 
+21647375 
+124 Debnath M, Berk M (2014) Th17 pathway-mediated immunopathogenesis of schizophrenia: Mechanisms and implications. Schizophr Bull. pii: sbu049.
+125 
+Almeida-Suhett CP , Li Z , Marini AM , Braga MF , Eiden LE  (2014 ) Temporal course of changes in gene expression suggests a cytokine-related mechanism for long-term hippocampal alteration after controlled cortical impact . J Neurotrauma 
+31 : 683 –690 . 10.1089/neu.2013.3029 
+24344922 
+126 
+Hicks DJ , Nunez A , Banyard AC , Williams A , Ortiz-Pelaez A , et al (2013 ) Differential chemokine responses in the murine brain following lyssavirus infection . J Comp Pathol 
+149 : 446 –462 . 10.1016/j.jcpa.2013.04.001 
+23746482 
+127 
+Listwak SJ , Rathore P , Herkenham M  (2013 ) Minimal NF-kappaB activity in neurons . Neuroscience 
+250 : 282 –299 . 10.1016/j.neuroscience.2013.07.013 
+23872390 
+128 
+Khorooshi R , Babcock AA , Owens T  (2008 ) NF-kappaB-driven STAT2 and CCL2 expression in astrocytes in response to brain injury . J Immunol 
+181 : 7284 –7291 .
+18981150 
+129 
+Reaux-Le Goazigo A , Van Steenwinckel J , Rostene W , Melik Parsadaniantz S  (2013 ) Current status of chemokines in the adult CNS . Prog Neurobiol 
+104 : 67 –92 . 10.1016/j.pneurobio.2013.02.001 
+23454481 
+130 
+Stuart MJ , Baune BT  (2014 ) Chemokines and chemokine receptors in mood disorders, schizophrenia, and cognitive impairment: A systematic review of biomarker studies . Neurosci Biobehav Rev 
+42C : 93 –115 . 10.1016/j.neubiorev.2014.02.001 
+
+131 
+Abdallah MW , Larsen N , Grove J , Norgaard-Pedersen B , Thorsen P , et al (2012 ) Amniotic fluid chemokines and autism spectrum disorders: An exploratory study utilizing a danish historic birth cohort . Brain Behav Immun 
+26 : 170 –176 . 10.1016/j.bbi.2011.09.003 
+21933705 
+132 
+Arrode-Bruses G , Bruses JL  (2012 ) Maternal immune activation by poly I:C induces expression of cytokines IL-1beta and IL-13, chemokine MCP-1 and colony stimulating factor VEGF in fetal mouse brain . J Neuroinflammation 
+9 : 83 
+10.1186/1742-2094-9-83 
+22546005 
+133 
+Beumer W , Drexhage RC , De Wit H , Versnel MA , Drexhage HA  (2012 ) Increased level of serum cytokines, chemokines and adipokines in patients with schizophrenia is associated with disease and metabolic syndrome . Psychoneuroendocrinology 
+37 : 1901 –1911 . 10.1016/j.psyneuen.2012.04.001 
+22541717 
+134 
+Jyonouchi H , Geng L , Streck DL , Toruner GA  (2011 ) Children with autism spectrum disorders (ASD) who exhibit chronic gastrointestinal (GI) symptoms and marked fluctuation of behavioral symptoms exhibit distinct innate immune abnormalities and transcriptional profiles of peripheral blood (PB) monocytes . J Neuroimmunol 
+238 : 73 –80 . 10.1016/j.jneuroim.2011.07.001 
+21803429 
+135 
+Djurovic S , Gustafsson O , Mattingsdal M , Athanasiu L , Bjella T , et al (2010 ) A genome-wide association study of bipolar disorder in norwegian individuals, followed by replication in icelandic sample . J Affect Disord 
+126 : 312 –316 . 10.1016/j.jad.2010.04.007 
+20451256 
+136 
+Drexhage RC , Padmos RC , de Wit H , Versnel MA , Hooijkaas H , et al (2008 ) Patients with schizophrenia show raised serum levels of the pro-inflammatory chemokine CCL2: Association with the metabolic syndrome in patients? 
+Schizophr Res 
+102 : 352 –355 . 10.1016/j.schres.2008.03.018 
+18486454 
+137 
+Rostene W , Dansereau MA , Godefroy D , Van Steenwinckel J , Reaux-Le Goazigo A , et al (2011 ) Neurochemokines: A menage a trois providing new insights on the functions of chemokines in the central nervous system . J Neurochem 
+118 : 680 –694 . 10.1111/j.1471-4159.2011.07371.x 
+21722132 
+138 
+Guyon A , Skrzydelski D , De Giry I , Rovere C , Conductier G , et al (2009 ) Long term exposure to the chemokine CCL2 activates the nigrostriatal dopamine system: A novel mechanism for the control of dopamine release . Neuroscience 
+162 : 1072 –1080 . 10.1016/j.neuroscience.2009.05.048 
+19477239 
+139 
+Chintawar S , Cayrol R , Antel J , Pandolfo M , Prat A  (2009 ) Blood-brain barrier promotes differentiation of human fetal neural precursor cells . Stem Cells 
+27 : 838 –846 . 10.1002/stem.25 
+19350685 
+140 
+Gordon RJ , McGregor AL , Connor B  (2009 ) Chemokines direct neural progenitor cell migration following striatal cell loss . Mol Cell Neurosci 
+41 : 219 –232 . 10.1016/j.mcn.2009.03.001 
+19332124 
+141 
+Widera D , Holtkamp W , Entschladen F , Niggemann B , Zanker K , et al (2004 ) MCP-1 induces migration of adult neural stem cells . Eur J Cell Biol 
+83 : 381 –387 . pii: S0171-9335(04)70406-9
+15506562 
+142 
+Rosito M , Deflorio C , Limatola C , Trettel F  (2012 ) CXCL16 orchestrates adenosine A3 receptor and MCP-1/CCL2 activity to protect neurons from excitotoxic cell death in the CNS . J Neurosci 
+32 : 3154 –3163 . 10.1523/JNEUROSCI.4046-11.2012 
+22378888 
+143 
+Wojkowska DW , Szpakowski P , Ksiazek-Winiarek D , Leszczynski M , Glabinski A  (2014 ) Interactions between neutrophils, Th17 cells, and chemokines during the initiation of experimental model of multiple sclerosis . Mediators Inflamm 
+2014 : 590409 
+10.1155/2014/590409 
+24692851 
+144 
+Lee YH , Kim JH , Song GG  (2013 ) Pathway analysis of a genome-wide association study in schizophrenia . Gene 
+525 : 107 –115 . 10.1016/j.gene.2013.04.014 
+23644028 
+145 
+Shao W , Zhang SZ , Tang M , Zhang XH , Zhou Z , et al (2013 ) Suppression of neuroinflammation by astrocytic dopamine D2 receptors via alphaB-crystallin . Nature 
+494 : 90 –94 . 10.1038/nature11748 
+23242137 
+146 
+Ousman SS , Tomooka BH , van Noort JM , Wawrousek EF , O'Connor KC , et al (2007 ) Protective and therapeutic role for alphaB-crystallin in autoimmune demyelination . Nature 
+448 : 474 –479 . 10.1038/nature05935 
+17568699 
+147 
+Corvin A , Morris DW  (2014 ) Genome-wide association studies: Findings at the major histocompatibility complex locus in psychosis . Biol Psychiatry 
+75 : 276 –283 . 10.1016/j.biopsych.2013.09.018 
+24199664 
+148 
+Gesundheit B , Rosenzweig JP , Naor D , Lerer B , Zachor DA , et al (2013 ) Immunological and autoimmune considerations of autism spectrum disorders . J Autoimmun 
+44 : 1 –7 . 10.1016/j.jaut.2013.05.005 
+23867105 
+149 
+Hamshere ML , Walters JT , Smith R , Richards AL , Green E , et al (2013 ) Genome-wide significant associations in schizophrenia to ITIH3/4, CACNA1C and SDCCAG8, and extensive replication of associations reported by the schizophrenia PGC . Mol Psychiatry 
+18 : 708 –712 . 10.1038/mp.2012.67 
+22614287 
+150 
+Irish Schizophrenia Genomics Consortium, Wellcome Trust Case Control Consortium 2  (2012 ) Genome-wide association study implicates HLA-C*01:02 as a risk factor at the major histocompatibility complex locus in schizophrenia . Biol Psychiatry 
+72 : 620 –628 . 10.1016/j.biopsych.2012.05.035 
+22883433 
+151 
+Williams HJ , Craddock N , Russo G , Hamshere ML , Moskvina V , et al (2011 ) Most genome-wide significant susceptibility loci for schizophrenia and bipolar disorder reported to date cross-traditional diagnostic boundaries . Hum Mol Genet 
+20 : 387 –391 . 10.1093/hmg/ddq471 
+21037240 
+152 
+Brimberg L , Sadiq A , Gregersen PK , Diamond B  (2013 ) Brain-reactive IgG correlates with autoimmunity in mothers of a child with an autism spectrum disorder . Mol Psychiatry 
+18 : 1171 –1177 . 10.1038/mp.2013.101 
+23958959 
+153 
+The Schizophrenia Psychiatric Genome-Wide Association Study (GWAS) Consortium  (2011 ) Genome-wide association study identifies five new schizophrenia loci . Nat Genet 
+43 : 969 –976 . 10.1038/ng.940 
+21926974 
+154 Miya K, Takahashi Y, Mori H (2013) Anti-NMDAR autoimmune encephalitis. Brain Dev. 10.1016/j.braindev.2013.10.005 
+
+155 
+Kuo YL , Tsai HF , Lai MC , Lin CH , Yang YK  (2012 ) Anti-NMDA receptor encephalitis with the initial presentation of psychotic mania . J Clin Neurosci 
+19 : 896 –898 . 10.1016/j.jocn.2011.10.006 
+22330692 
+156 Hammer C, Stepniak B, Schneider A, Papiol S, Tantra M, et al. (2013) Neuropsychiatric disease relevance of circulating anti-NMDA receptor autoantibodies depends on blood-brain barrier integrity. Mol Psychiatry. 10.1038/mp.2013.110 
+
+157 Miya K, Takahashi Y, Mori H (2013) Anti-NMDAR autoimmune encephalitis. Brain Dev. pii: S0387-7604(13)00295-7
+158 
+Schizophrenia Working Group of the Psychiatric Genomics Consortium  (2014 ) Biological insights from 108 schizophrenia-associated genetic loci . Nature 
+511 : 421 –427 . 10.1038/nature13595 
+25056061 
+159 
+Boulanger LM  (2004 ) MHC class I in activity-dependent structural and functional plasticity . Neuron Glia Biol 
+1 : 283 –289 . 10.1017/S1740925X05000128 
+18185853 
+160 
+Huh GS , Boulanger LM , Du H , Riquelme PA , Brotz TM  (2000 ) Functional requirement for class I MHC in CNS development and plasticity . Science 
+290 : 2155 –2159 .
+11118151 
+161 
+McAllister AK  (2014 ) Major histocompatibility complex I in brain development and schizophrenia . Biol Psychiatry 
+75 : 262 –268 . 10.1016/j.biopsych.2013.10.003 
+24199663 
+162 
+Na KS , Jung HY , Kim YK  (2014 ) The role of pro-inflammatory cytokines in the neuroinflammation and neurogenesis of schizophrenia . Prog Neuropsychopharmacol Biol Psychiatry 
+48 : 277 –286 . 10.1016/j.pnpbp.2012.10.022 
+23123365 
+163 
+Lacerda HR , Falcão Mda C , de Albuquerque VM , Zírpoli JC , Miranda-Filho Dde B , et al (2014 ) Association of inflammatory cytokines and endothelial adhesion molecules with immunological, virological, and cardiometabolic disease in HIV-infected individuals . J Interferon Cytokine Res . 34 (5 ):385 –93 . 10.1089/jir.2013.0029 
+24359573 
+164 
+Oxenkrug GF  (2011 ) Interferon-gamma-inducible kynurenines/pteridines inflammation cascade: Implications for aging and aging-associated psychiatric and medical disorders . J Neural Transm 
+118 : 75 –85 . 10.1007/s00702-010-0475-7 
+20811799 
+165 
+Steiner J , Bernstein HG , Schiltz K , Muller UJ , Westphal S , et al (2014 ) Immune system and glucose metabolism interaction in schizophrenia: A chicken-egg dilemma . Prog Neuropsychopharmacol Biol Psychiatry 
+48 : 287 –294 . 10.1016/j.pnpbp.2012.09.016 
+23085507 
+166 
+Kaur J  (2014 ) A comprehensive review on metabolic syndrome . Cardiol Res Pract 
+2014 : 943162 
+10.1155/2014/943162 
+24711954 
+167 
+Lacerda HR , Falcao Mda C , de Albuquerque VM , Zirpoli JC , Miranda-Filho Dde B , et al (2014 ) Association of inflammatory cytokines and endothelial adhesion molecules with immunological, virological, and cardiometabolic disease in HIV-infected individuals . J Interferon Cytokine Res 
+34 : 385 –393 . 10.1089/jir.2013.0029 
+24359573 
+168 
+Bek MJ , Reinhardt HC , Fischer KG , Hirsch JR , Hupfer C , et al (2003 ) Up-regulation of early growth response gene-1 via the CXCR3 receptor induces reactive oxygen species and inhibits Na+/K+-ATPase activity in an immortalized human proximal tubule cell line . J Immunol 
+170 : 931 –940 .
+12517959 
+169 
+O'Donovan KJ , Tourtellotte WG , Millbrandt J , Baraban JM  (1999 ) The EGR family of transcription-regulatory factors: Progress at the interface of molecular and systems neuroscience . Trends Neurosci 
+22 : 167 –173 .
+10203854 
+170 
+Saben J , Zhong Y , Gomez-Acevedo H , Thakali KM , Borengasser SJ , et al (2013 ) Early growth response protein-1 mediates lipotoxicity-associated placental inflammation: Role in maternal obesity . Am J Physiol Endocrinol Metab 
+305 : E1 –14 . 10.1152/ajpendo.00076.2013 
+23632636 
+171 
+Pinciroli P , Alberti C , Sensi M , Canevari S , Tomassetti A  (2013 ) An IL6-correlated signature in serous epithelial ovarian cancer associates with growth factor response . BMC Genomics 
+14 : 508-2164-14-508. 10.1186/1471-2164-14-508 
+
+172 
+Matsumoto K , Ono K , Ouchi H , Tsushima R , Murakami Y  (2012 ) Social isolation stress down-regulates cortical early growth response 1 (egr-1) expression in mice . Neurosci Res 
+73 : 257 –262 . 10.1016/j.neures.2012.04.004 
+22542571
+

@@ -1,0 +1,278 @@
+
+==== Front
+BMC NeurosciBMC NeurosciBMC Neuroscience1471-2202BioMed Central London 35510.1186/s12868-017-0355-2Research ArticleA receptor-based analysis of local ecosystems in the human brain http://orcid.org/0000-0003-0129-1463Janušonis Skirmantas +1 805 893 6032skirmantas.janusonis@psych.ucsb.edu 0000 0004 1936 9676grid.133342.4Department of Psychological and Brain Sciences, University of California, Santa Barbara, CA 93106-9660 USA 20 3 2017 20 3 2017 2017 18 3310 8 2016 16 3 2017 © The Author(s) 2017
+Open AccessThis article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.Background
+As a complex system, the brain is a self-organizing entity that depends on local interactions among cells. Its regions (anatomically defined nuclei and areas) can be conceptualized as cellular ecosystems, but the similarity of their functional profiles is poorly understood. The study used the Allen Human Brain Atlas to classify 169 brain regions into hierarchically-organized environments based on their expression of 100 G protein-coupled neurotransmitter receptors, with no a priori reference to the regions’ positions in the brain’s anatomy or function. The analysis was based on hierarchical clustering, and multiscale bootstrap resampling was used to estimate the reliability of detected clusters.
+
+Results
+The study presents the first unbiased, hierarchical tree of functional environments in the human brain. The similarity of brain regions was strongly influenced by their anatomical proximity, even when they belonged to different functional systems. Generally, spatial vicinity trumped long-range projections or network connectivity. The main cluster of brain regions excluded the dentate gyrus of the hippocampus. The nuclei of the amygdala formed a cluster irrespective of their striatal or pallial origin. In its receptor profile, the hypothalamus was more closely associated with the midbrain than with the thalamus. The cerebellar cortical areas formed a tight and exclusive cluster. Most of the neocortical areas (with the exception of some occipital areas) clustered in a large, statistically well supported group that included no other brain regions.
+
+Conclusions
+This study adds a new dimension to the established classifications of brain divisions. In a single framework, they are reconsidered at multiple scales—from individual nuclei and areas to their groups to the entire brain. The analysis provides support for predictive models of brain self-organization and adaptation.
+
+Keywords
+Neural networksEcosystemsNeurotransmitter receptorsForebrainMidbrainHindbrainPalliumCerebral cortexHierarchical clusteringMultiscale bootstrap resamplingUCSB Academic Senate Research Grantsissue-copyright-statement© The Author(s) 2017
+==== Body
+Background
+The brain can be perceived as a well-tuned machine. In this view, each of its parts performs specific, pre-assigned computations (subroutines), which then are linked through local and long-range neuroanatomical connections. Throughout the history of neuroscience, this intuition has been supported by human-made devices that are composed of functionally-dedicated, irreplaceable, and permanently connected parts. The value of this approach has been demonstrated by experimental and clinical observations in specific brain subsystems (particularly sensory and motor), and it remains a powerful guiding principle in basic research and clinical practice.
+
+At a deeper conceptual level, the brain is very different from human-made machines. It is a complex and adaptive dynamical system [1] that is not fundamentally different from other living systems such as individual cells, ecosystems, or human societies. In all of these self-organizing (“dissipative”) systems [2, 3], the global order is not the master that drives the parts but rather a product (“emergent phenomenon”) of local interactions. The simplicity of these local processes often defies intuition [4–8]. The potential of complex-systems approaches in neuroscience has been appreciated for decades [9, 10], but it is only recently that they have begun to reshape our understanding of global brain properties, such as large-scale regional networks [11–13], neurotransmitter receptor communities [14], and nested cortical oscillations [15].
+
+It is natural to expect that self-organizing forces operate at the level of local cellular ecosystems, corresponding to anatomically defined brain regions. These regions are often assigned a specific role based on their distinguishing characteristics (e.g., the “serotonergic” raphe nuclei or the “motor” cortex). In reality, each brain region is a rich, adapting system containing diverse populations of cells and a multitude of other elements (traversing axons, the extracellular matrix, blood cells and cell fragments [16], extracellular vesicles [17]). The internal richness of these systems, the core of their self-organization, is typically poorly understood and is often obscured by their assigned “function.” Treating them as ecosystems does not merely replace one metaphor with another metaphor; instead, it leads to specific predictions. In particular, it suggests that brain cells may support one another only when the benefits of cooperation outweigh competition, axon and vasculature routing may be only locally beneficial (with no meaningful global function), some cell groups in the healthy brain may be essentially parasitic (with other cells simply adapting to them), and the entire brain may be a “tensegrity” structure composed of these opposing forces. Scattered evidence from various brain systems supports this possibility [18–21]. Importantly, different brain regions may represent the same “neurobiome,” just as two separated geographical areas may represent the same ecological biome (e.g., tropical rainforest, savanna).
+
+Direct observation of interactions among many diverse elements in a brain region is beyond our current technical capabilities. However, high-throughput analyses already allow us to “phenotype” cellular ecosystems, with no reference to their functions (real or perceived). This analysis can be based on neurotransmitter receptors, a well understood element of brain dynamics. The purpose of neurotransmitter receptors, or any sensors in general, is to detect a change in time (an always-present entity carries no information and its detection is wasteful). The carrier of the change is represented by the general receptor class (e.g., receptors detect a concentration difference of glutamate but not dopamine). Within a receptor class, a receptor subtype (e.g., mGluR1) is likely to be associated with a particular dynamic of the change. This aspect of neurotransmitter signaling has received surprisingly little attention, even though it can be built on a solid theoretical foundation. Narrow tuning based on expected signal patterns increases detection sensitivity, boosts processing speed, and reduces energy consumption. This Bayesian property has been demonstrated in the spiking of some neurons [22], in brain sensory systems [11], and it may also operate at the level of single but complex molecules. In particular, different receptor subtypes may be sensitive to different dynamical patterns of the same physical carriers. This can explain the multitude of receptor subtypes, many of which converge onto the same signaling cascades. As a consequence, the expression levels of specific receptor subtypes may reflect the (directly unobservable) neurotransmitter dynamics in the given brain region. In addition, some receptor subtypes can be cell-type specific and represent the cellular composition of the region.
+
+These considerations suggest that, if many receptors are considered simultaneously, their set can provide a reasonable approximation of the structure and natural dynamics of a brain region. Importantly, this approximation is unbiased with respect to the proposed “function” of the region. This study sought to hierarchically classify 169 regions of the human brain, based on their expression of a large set of G protein-coupled neurotransmitter receptors (GPCRs).
+
+Methods
+The mRNA expression data (z-scores) of 100 GPCRs (Table 1) in 169 brain regions of 6 human brain specimens were downloaded from the Allen Brain Atlas data portal (http://human.brain-map.org; April 23, 2016). The brain donors were two African-American males (24 and 39 years of age), three Caucasian males (31, 55, and 57 years of age), and one Hispanic female (49 years of age). Technical details about the brain donors, tissue preparation, specificity controls, and data normalization are described in the Allen Human Brain Atlas Technical White Papers (Case Qualification and Donor Profiles, Microarray Survey, Microarray Data Normalization).Table 1 The receptor set
+
+Number	Neurotransmitter	Receptor	Gene	
+1	Glutamate	mGluR1	GRM1	
+2	Glutamate	mGluR2	GRM2	
+3	Glutamate	mGluR3	GRM3	
+4	Glutamate	mGluR4	GRM4	
+5	Glutamate	mGluR5	GRM5	
+6	Glutamate	mGluR6	GRM6	
+7	Glutamate	mGluR7	GRM7	
+8	Glutamate	mGluR8	GRM8	
+9	GABA	GABABR1	GABBR1	
+10	GABA	GABABR2	GABBR2	
+11	Dopamine	D1	DRD1	
+12	Dopamine	D2	DRD2	
+13	Dopamine	D3	DRD3	
+14	Dopamine	D4	DRD4	
+15	Dopamine	D5	DRD5	
+16	Adrenergic	α1A	ADRA1A	
+17	Adrenergic	α1B	ADRA1B	
+18	Adrenergic	α1D	ADRA1D	
+19	Adrenergic	α2A	ADRA2A	
+20	Adrenergic	α2B	ADRA2B	
+21	Adrenergic	α2C	ADRA2C	
+22	Adrenergic	β1	ADRB1	
+23	Adrenergic	β2	ADRB2	
+24	Adrenergic	β3	ADRB3	
+25	Serotonin	5-HT1A	HTR1A	
+26	Serotonin	5-HT1B	HTR1B	
+27	Serotonin	5-HT1D	HTR1D	
+28	Serotonin	5-HT1E	HTR1E	
+29	Serotonin	5-HT1F	HTR1F	
+30	Serotonin	5-HT2A	HTR2A	
+31	Serotonin	5-HT2B	HTR2B	
+32	Serotonin	5-HT2C	HTR2C	
+33	Serotonin	5-HT4	HTR4	
+34	Serotonin	5-HT5A	HTR5A	
+35	Serotonin	5-HT6	HTR6	
+36	Serotonin	5-HT7	HTR7	
+37	Cholinergic	M1	CHRM1	
+38	Cholinergic	M2	CHRM2	
+39	Cholinergic	M3	CHRM3	
+40	Cholinergic	M4	CHRM4	
+41	Cholinergic	M5	CHRM5	
+42	Histamine	H1	HRH1	
+43	Histamine	H2	HRH2	
+44	Histamine	H3	HRH3	
+45	Histamine	H4	HRH4	
+46	Bradykinin	B1	BDKRB1	
+47	Bradykinin	B2	BDKRB2	
+48	Cholecystokinin	CCK1	CCKAR	
+49	Cholecystokinin	CCK2	CCKBR	
+50	CRH	CRF1	CRHR1	
+51	CRH	CRF2	CRHR2	
+52	Galanin	Gal1	GALR1	
+53	Galanin	Gal2	GALR2	
+54	Galanin	Gal3	GALR3	
+55	MCH	MCH1	MCHR1	
+56	MCH	MCH2	MCHR2	
+57	MSH	MC1	MC1R	
+58	MSH	MC2	MC2R	
+59	MSH	MC3	MC3R	
+60	MSH	MC4	MC4R	
+61	MSH	MC5	MC5R	
+62	NPY	Y1	NPY1R	
+63	NPY	Y2	NPY2R	
+64	NPY	Y4	PPYR1	
+65	NPY	Y5	NPY5R	
+66	NPY	Y6	NPY6R	
+67	Neurotensin	NT1	NTSR1	
+68	Neurotensin	NT2	NTSR2	
+69	Opioid	μ	OPRM1	
+70	Opioid	δ	OPRD1	
+71	Opioid	κ	OPRK1	
+72	Nociceptin	ORL-1	OPRL1	
+73	Orexin	OX1	HCRTR1	
+74	Orexin	OX2	HCRTR1	
+75	Oxytocin	OT	OXTR	
+76	Somatostatin	SST1	SSTR1	
+77	Somatostatin	SST2	SSTR2	
+78	Somatostatin	SST3	SSTR3	
+79	Somatostatin	SST4	SSTR4	
+80	Somatostatin	SST5	SSTR5	
+81	Tachykinin	NK1	TACR1	
+82	Tachykinin	NK2	TACR2	
+83	Tachykinin	NK3	TACR3	
+84	TRH	TRHR	TRHR	
+85	VIP	VPAC1	VIPR1	
+86	VIP	VPAC2	VIPR2	
+87	Vasopressin	V1a	AVPR1A	
+88	Vasopressin	V1b	AVPR1B	
+89	Vasopressin	V2	AVPR2	
+90	Adenosine	A1	ADORA1	
+91	Adenosine	A2A	ADORA2A	
+92	Adenosine	A2B	ADORA2B	
+93	Adenosine	A3	ADORA3	
+94	Purine	P2Y1	P2RY1	
+95	Purine	P2Y2	P2RY2	
+96	Purine	P2Y4	P2RY4	
+97	Purine	P2Y6	P2RY6	
+98	Purine	P2Y11	P2RY11	
+99	Cannabinoid	CB1	CNR1	
+100	Cannabinoid	CB2	CNR2	
+
+
+
+Expression data were available from four or more brains in 86% of the 169 brain regions, and 53% of the regions were represented in all six brains. Only four brain regions (2%) were represented by a single brain. The median number of mRNA probes per gene was 3.
+
+The initial data processing was performed in Mathematica 10.4 (Wolfram Research, Inc.). The mean expression values of each brain region were obtained by averaging across all probes in each of the brains, followed by averaging of the obtained means across all brains.
+
+Each brain region was assumed to be a 100-dimensional vector (where each neurotransmitter receptor represented a dimension), and the standard Euclidean metric was used to measure the functional distance between any two regions. The hierarchical clustering analysis used the “average” agglomerative method and was performed in R 3.3.1 (The R Foundation for Statistical Computing) using the package pvclust [23]. This package uses multiscale bootstrap resampling [24] to estimate the approximately unbiased (AU) probability of detected clusters. It has been demonstrated that the AU is superior to the ordinary bootstrap probability (BP), and its high value (e.g., >0.95) provides strong evidence that the detected cluster exists in the population [25]. The number of bootstrap replications was 10,000, and the sample sizes ranged from 0.5 to 1.4 of the original size (with a step of 0.1). With these settings, most of the standard errors of the AU p values did not exceed 0.02 (Fig. 1). AU p values were used to guide interpretations, but no arbitrary cut-offs were used. This general approach has been successfully used in a number of applications, including GPCR-based profiling of human tissues [26], classification of tumors based on gene expression [25], and analysis of regional gene expression patterns in avian brains [27, 28].Fig. 1 The estimated standard errors of the approximately unbiased p values (AU)
+
+
+
+
+Results
+The results of the clustering analysis are presented in Figs. 2, 3, 4, 5 and 6. All brain regions formed a strong, highest-level cluster (#167, AU = 0.96) that excluded only one structure, the choroid plexus (Fig. 2). At the next level, this cluster split into the dentate gyrus of the hippocampus and the rest of the regions (#166, AU = 0.81). Notably, this main cluster included the pineal gland, parts of which are likely to operate outside the blood–brain barrier [29] (Fig. 5).Fig. 2 The hierarchical clustering of brain structures (Group 1). At each cluster, the top two numbers represent the estimated approximately unbiased p value (AU, left, red, %) and bootstrap probability value (BP, right, blue,  %), and the cluster identification number is indicated below (gray). The right branch of cluster #165 (Group 2) is expanded in Fig. 3. For compactness, the length of the branches does not represent distances. The “lobules” refer to the hemispheric parts of the cerebellar lobules
+
+
+Fig. 3 The hierarchical clustering of Group 2. At each cluster, the top two numbers represent the estimated approximately unbiased p value (AU, left, red, %) and bootstrap probability value (BP, right, blue, %), and the cluster identification number is indicated below (gray). The right branches of cluster #131 (Group 3) and cluster #157 (Group 4) are expanded in Figs. 4 and 5, respectively. For compactness, the length of the branches does not represent distances. The term “basal nuclei” is replacing the traditional but anatomically inaccurate term “basal ganglia” [30]
+
+
+Fig. 4 The hierarchical clustering of Group 3 (from Fig. 3). At each cluster, the top two numbers represent the estimated approximately unbiased p value (AU, left, red, %) and bootstrap probability value (BP, right, blue, %), and the cluster identification number is indicated below (gray). For compactness, the length of the branches does not represent distances. FL frontal lobe, OL occipital lobe, PL parietal lobe, TL temporal lobe
+
+
+Fig. 5 The hierarchical clustering of Group 4 (from Fig. 3). At each cluster, the top two numbers represent the estimated approximately unbiased p value (AU, left, red, %) and bootstrap probability value (BP, right, blue, %), and the cluster identification number is indicated below (gray). The right branch of cluster #145 (Group 5) is expanded in Fig. 6. For compactness, the length of the branches does not represent distances
+
+
+Fig. 6 The hierarchical clustering of Group 5 (from Fig. 5). At each cluster, the top two numbers represent the estimated approximately unbiased p value (AU, left, red, %) and bootstrap probability value (BP, right, blue, %), and the cluster identification number is indicated below (gray). For compactness, the length of the branches does not represent distances
+
+
+
+
+The main brain cluster (Fig. 2) was composed of two big clusters: the exceptionally tight cluster of the cerebellar cortex (#106, AU = 1.0) and the rest of the regions, the clustering of which was looser at this hierarchical level (#165, AU = 0.77). A large, strong sub-cluster within the cerebellar cortex (#75, AU = 0.97) excluded vermal lobules I-II (also known as the lingula) and VIIAt, as well as the entire lobule X (also known as the nodulus and the flocculus in the vermis and the hemispheres, respectively).
+
+An unexpectedly strong functional relationship was found between the paraventricular nuclei of the thalamus and the central glial substance of the myelencephalon (#116, AU = 1.0). A somewhat looser cluster at a higher hierarchical level also included the corpus callosum and the cingulum (#160, AU = 0.88). The functional similarity among these diverse structures (representing the diencephalon, myelencephalon, and telencephalon) may be due to their physical proximity to the ventricular system. However, this cluster did not include other periventricular structures such as the periaqueductal gray, raphe nuclei, or the paraventricular nucleus of the hypothalamus.
+
+In the remaining brain regions (Fig. 3), the locus ceruleus did not form a cluster with any other regions and appeared to be a special functional environment. This contrasted with the raphe nuclei, another “diffuse” neurotransmitter system, which were similar to many other mesencephalic and metencephalic structures, including the tectum (the superior and inferior colliculi) (Fig. 6; cluster #127, AU = 0.98). The analysis also suggested that the habenular nuclei may represent a special environment, at a slightly lower hierarchical level with respect to the locus ceruleus (Fig. 3).
+
+The striatum formed a strong cluster that included the dorsal part (the caudate/putamen) and the ventral part (the nucleus accumbens) (Fig. 3; cluster #120, AU = 0.98). At this hierarchical level, it was not associated with the dorsal pallidum (the globus pallidus), and its association with the ventral pallidum (the substantia innominata) was weak (cluster #146, AU = 0.66).
+
+The paleocortex (the piriform cortex), the archicortex (the hippocampus), and the neocortex formed a cluster that also included all subdivisions of the amygdala, the septal nuclei, the lateral tuberal nucleus of the hypothalamus, and the claustrum (Fig. 3; cluster #151, AU = 0.89). Among the hippocampal subdivisions, CA1 and the subiculum were most strongly associated with the neocortex (cluster #137, AU = 0.85). Notably, the central nucleus of the amygdala (of presumed striatal origin) was associated not with the striatum but with the amygdalar nuclei of presumed lateral pallial origin (the lateral nucleus, the basolateral nucleus, the basomedial nucleus, and the cortico-medial nuclei) (cluster #141, AU = 0.92).
+
+Within the neocortical group (Fig. 4), a strong cluster was formed by cortical areas that excluded the occipital pole, the cuneus, the lingual gyrus, and the posterior paracentral lobule (cluster #81, AU = 0.99). Of the excluded regions, the cuneus and the lingual gyrus appeared to be nearly identical environments (cluster #5, AU = 1.0). Within the large neocortical cluster, the strongest sub-clusters were formed by the superior, middle, and inferior temporal gyri, with the notable exception of the transverse/Heschl gyri (cluster #6, AU = 0.99), and by the superior and middle frontal gyri (cluster #4, AU = 0.99). A functionally interesting cluster was formed by the occipitotemporal gyrus, superior parietal lobule, angular gyrus, and precuneus (cluster #14, AU = 0.95) which, extended one hierarchical step up, also included the postcentral gyrus, the inferior occipital gyrus, and the superior occipital gyrus (cluster #19, AU = 0.97).
+
+The thalamic nuclei formed a strong cluster (Fig. 5; cluster #135, AU = 0.94), and the association of this group with the less tight hypothalamic cluster was no stronger than that with the brainstem group. Interestingly, the hypothalamic environment appeared to be strongly “mesencephalic,” not “diencephalic” (Fig. 6; cluster #142, AU = 0.99).
+
+The four deep cerebellar nuclei were radically different from the cerebellar cortex (consistent with classic presentations [30]) and were strongly associated with some cranial nuclei (the abducence and cochlear nuclei), other related brainstem nuclei (the superior olivary complex and the red nucleus), and brainstem somatosensory nuclei (the cuneate and gracile nuclei) (Fig. 5; cluster #123, AU = 0.97). Extended three hierarchical steps up, the cluster included the subthalamus, the globus pallidus, and the substantia nigra with the ventral tegmental area (cluster #139; AU = 0.96). Another step up, it included the interstitial nucleus of Cajal (cluster #140, AU = 0.96). This mesencephalic nucleus projects directly to the oculomotor complex, but it also projects to the inferior olivary nucleus, which in turn projects to the cerebellar cortex [31].
+
+Discussion
+Generally, the functional similarity among brain structures was consistent with classic neuroanatomical presentations and the development of the brain vesicles. The large traditionally defined groups included the telencephalon with its paleocortical, archicortical, and neocortical (isocortical) subdivisions, the thalamus and the hypothalamus, the deep cerebellar nuclei with cranial and other brainstem nuclei, the cerebellar cortex, and the brainstem. It should be emphasized that the clustering algorithm was blind to any knowledge about potential associations among the brain regions (neuroanatomical, developmental, or network-related), and that these divisions were reassembled by the algorithm based solely on the regions’ neurotransmitter receptor profiles.
+
+The obtained clusters appeared to be strongly driven by the spatial geometry of the brain. The current view of the brain is strongly functional and emphasizes systems, networks, and long-range projections [12, 13, 32, 33]. Because the activity of some far-separated brain structures is correlated [11], their receptor profiles might too be similar. The obtained results suggest that, generally, physical proximity trumps long-range functional connectivity. This is exemplified by a large midbrain cluster (Fig. 6; cluster #127). Its structures participate in vastly different systems (e.g., vision, pain modulation, diffuse neurotransmission), but they are physically adjacent by virtue of being located in the tectum and the tegmentum. The simplicity of this result is somewhat unexpected, but it may shed new light on some unsettled problems. For example, the “amygdala” can be considered to be a highly heterogeneous complex, composed of at least a striatal (“basal nuclei-like”) part and a lateral-pallial (“piriform cortex-like”) part [31, 34, 35]. The present study cannot prove or disprove this hypothesis (which has a developmental component), but all amygdalar nuclei in the adult brain appear to be similar environments with respect to GPCR expression (Fig. 3). Also, the substantia nigra plays a key role in the function of the basal nuclei (and is sometimes considered a part of them), but it is not clear if its cellular environment is more similar to the dorsal striatum (the caudate/putamen) or the dorsal pallidum (the globus pallidus). The clustering analysis strongly suggests the latter (Fig. 5).
+
+Care should be used in these generalizations. Adjacent regions may be difficult to dissect along strict anatomical boundaries (which can also vary from individual to individual), and some dissected brain regions may contain functionally distinct subregions that may not be captured at this level of resolution. For example, the substantia nigra is composed of the pars compacta and pars reticulata, the latter of which contains GABAergic neurons. In their morphology and connectivity, these neurons are similar to the neurons of the globus pallidus [36, 37]. Likewise, the strong separation of the Edinger–Westphal nucleus from the oculomotor nucleus (Fig. 6) may be due to the fact that the Edinger–Westphal nucleus, though associated with the oculomotor nucleus, also contains neurons that project to very different targets [38]. A recently published human brain atlas at the cellular resolution is a major improvement in the delineation of brain regions in three dimensions [39].
+
+The close association among the precuneus, angular gyrus, superior parietal lobule, and occipitotemporal gyrus (Fig. 4) is interesting because these structures can be viewed as a subset of the default-mode network [11, 13]. However, the analysis revealed no clear functional similarity among different parts of large-scale brain networks. For example, the medial prefrontal cortex, an essential part of the default-mode network, was not clustered with the parietal structures of the network. Also, the analysis separated the anterior (frontal) cingulate cortex from the insula, even though they are thought to form a “salience” network [13]. As supported by many experimental findings, the anterior (frontal) cingulate cortex was strongly different from the posterior (parietal) cingulate cortex, the former being associated with temporal regions and the latter with occipital, parietal, and frontal regions just anterior to the central sulcus (Fig. 4).
+
+The general functional continuity of adjacent areas does not imply that all traditional brain divisions are consistent with the obtained results. For example, the hippocampal dentate gyrus appears to be a radically different environment compared to the rest of the brain (Fig. 2). One possible explanation for this finding is that the dentate gyrus in a special region that continues to generate new neurons in adulthood [40–42]. Its unique GPCR profile may reflect mammalian brain differentiation because non-mammalian species that do not have a well-defined dentate gyrus also show hippocampal neurogenesis. It has been suggested that the dentate gyrus is a relatively “young” substructure in an “old” (archicortical) brain region [42]. Further support for this association could be obtained from other mammalian brain regions in which adult neurogenesis has been demonstrated. One such region is the ventricular-subventricular zone (V-SVZ) of the lateral ventricles that produces the rostral migratory stream to the olfactory bulb [41, 43]. Olfactory neurogenesis is well established in adult rodents; however, in the developing human brain it declines after the first two years and is virtually absent in adulthood [41, 43, 44]. A recent study has provided evidence that new neurons may be added to the adult human striatum [45], but this finding is inconsistent with another report [46] and needs further verification [43].
+
+Functionally, the hypothalamus appears to be more associated with the midbrain than with the thalamus (Fig. 6). This does not interrupt physical continuity and requires only a rostro-caudal tilt of the dorso-ventral plane. In a different context, a similar tilt is used to explain why thalamocortical projections have to pass through the ventral thalamus, which in the developing brain is shifted rostrally. The thalamic reticular nucleus, an essential component of thalamic function, is a major derivative of the ventral thalamus [47]. Also, the midbrain and the hypothalamus are connected through the ventral branch of the ascending reticular activating system (ARAS) which controls global brain functions, including wakefulness and sleep [48].
+
+The Allen Human Brain Atlas provides fine-grained information about the expression of a large set of genes in many brain regions. However, the current specimen set is small (six brains). The obtained results should be interpreted with caution, especially when the statistical evidence for a cluster is low. An important aspect of this study is that it uses a recently developed method to assign probabilities to all clusters; this information should be included in interpretations of the results. Some low probabilities may be due to expression data that are noisy or vary considerably across individuals [14]. However, they may also reflect meaningful differences between subject groups. In particular, hierarchical clustering can be used to study sex-specific differences in receptor expression (in larger samples). A recent DTI study, based on an exceptionally large sample, has shown considerable differences between the brains of females and males with respect to their large-scale network connectivity [49].
+
+The used data set has important limitations, some of which are discussed in a study of large-scale GPCR associations [14]. Functional GPCRs are proteins, but the analysis was based on GPCR mRNA levels. It has been estimated that, on average, mRNA levels explain only 40% of the variability in protein levels, and that protein amounts are strongly controlled by translation [50]. However, protein amounts of a GPCR can still be misleading because its functional effects may crucially depend on its embedding in different membrane domains [51], post-translational modifications [52], internalization [53], and heteromerization with other GPCRs [54, 55]. These processes are essential for understanding the functional strength of a receptor in a given region, but they also limit the accuracy of protein detection methods. In contrast, mRNA amounts can be measured with high accuracy, and these methods can be easily automated to achieve high throughput.
+
+It should also be noted that similar receptor levels may be present in different cell types (e.g., neurons, microglia, endothelial cells) and in different cellular domains (e.g., presynaptically or postsynaptically, on proximal or distal dendrites). Also, some GPCRs can activate several different signal transduction pathways. This suggests that similarity between two mRNA profiles can be meaningful only if interpreted in the context of neuroanatomical and neuropharmacological information. In the study, this problem was mitigated by the large receptor set and the Euclidean distance metric. In this approach, two brain regions are “close” only if their mRNA levels are comparable for most of the receptors (i.e., similarity among a small number of receptors is insufficient). Since many receptors tend to be expressed in specific cell types and cellular domains, a small Euclidean distance is unlikely to be due to a structural or spatial permutation of receptors in the two regions, leading to their radically different functional states.
+
+Conclusions
+The study presents an unbiased, hierarchical classification of human brain regions based on their GPCR expression. At this point of mammalian brain evolution, spatial proximity of brain regions tends to override long-range connectivity. However, some brain structures represent unique environments, suggesting uneven and ongoing differentiation within the central nervous system.
+
+Abbreviations
+AUapproximately unbiased probability
+
+BPbootstrap probability
+
+CA1
+Cornu Ammonis area 1
+
+Acknowledgements
+None.
+
+Competing interests
+The author declares that he has no competing interests.
+
+Availability of data and materials
+The datasets used in the analyses are available at the Allen Brain Atlas data portal (http://human.brain-map.org). To access the expression heat map for any of the genes (Table 1), enter the standard name of the gene. To download the associated numerical data, click “Download these data” under the heat map.
+
+Ethics approval and consent to participate
+The used human data have been made publicly available by the Allen Institute for Brain Science. As stated in the database’s “Technical White Paper: Case Qualification and Donor Profiles,” “Brain tissue, cerebrospinal fluid and blood samples were collected after obtaining informed consent from decedent’s next-of-kin. Institutional Review Board (IRB) review and approval was obtained for collection of tissue and non-identifying case information at the tissue banks and repositories that provided tissue for this project” (http://human.brain-map.org; see Documentation).
+
+Funding
+The study was supported by UCSB Academic Senate Research grants.
+==== Refs
+References
+1. Gros C   Complex and adaptive dynamical systems: a primer 2011 Berlin Springer 
+2. Nicolis G  Prigogine I   Exploring complexity 1989 New York W.H. Freeman and Company 
+3. Prigogine I   The end of certainty 1996 New York The Free Press 
+4. Babloyantz A   Self-organization phenomena resulting from cell-cell contact J Theor Biol 1977 68 551 561 10.1016/0022-5193(77)90105-9 926807 
+5. Meinhardt H   The algorithmic beauty of sea shells 2003 3 New York Springer 
+6. Watanabe M  Kondo S   Is pigment patterning in fish skin determined by the Turing mechanism? Trends Genet 2015 31 88 96 10.1016/j.tig.2014.11.005 25544713 
+7. Mallarino R  Henegar C  Mirasierra M  Manceau M  Schradin C  Vallejo M  Beronja S  Barsh GS  Hoekstra HE   Developmental mechanisms of stripe patterns in rodents Nature 2016 539 518 523 10.1038/nature20109 27806375 
+8. Grimm V  Revilla E  Berger U  Jeltsch F  Mooij WM  Railsback SF  Thulke HH  Weiner J  Wiegand T  DeAngelis DL   Pattern-oriented modeling of agent-based complex systems: lessons from ecology Science 2005 310 987 991 10.1126/science.1116681 16284171 
+9. Babloyantz A  Destexhe A   Low-dimensional chaos in an instance of epilepsy Proc Natl Acad Sci USA 1986 83 3513 3517 10.1073/pnas.83.10.3513 3085091 
+10. Scherf O  Pawelzik K  Wolf F  Geisel T   Theory of ocular dominance pattern formation Phys Rev E Stat Phys Plasmas Fluids Relat Interdiscip Topics 1999 59 6977 6993 11969686 
+11. Raichle ME   Two views of brain function Trends Cogn Sci 2010 14 180 190 10.1016/j.tics.2010.01.008 20206576 
+12. Lu H  Zou Q  Gu H  Raichle ME  Stein EA  Yang Y   Rat brains also have a default mode network Proc Natl Acad Sci USA 2012 109 3979 3984 10.1073/pnas.1200506109 22355129 
+13. Menon V   Large-scale brain networks and psychopathology: a unifying triple network model Trends Cogn Sci 2011 15 483 506 10.1016/j.tics.2011.08.003 21908230 
+14. Janušonis S   Functional associations among G protein-coupled neurotransmitter receptors in the human brain BMC Neurosci 2014 15 16 10.1186/1471-2202-15-16 24438157 
+15. He BJ  Zempel JM  Snyder AZ  Raichle ME   The temporal structures and functional significance of scale-free brain activity Neuron 2010 66 353 369 10.1016/j.neuron.2010.04.020 20471349 
+16. Janušonis S. Serotonin in space: understanding single fibers. ACS Chem Neurosci. 2017 (in press).
+17. Budnik V  Ruiz-Canada C  Wendler F   Extracellular vesicles round off communication in the nervous system Nat Rev Neurosci 2016 17 160 172 10.1038/nrn.2015.29 26891626 
+18. Ramachandran VS   Consciousness and body image: lessons from phantom limbs, Capgras syndrome and pain asymbolia Philos Trans R Soc Lond B Biol Sci 1998 353 1851 1859 10.1098/rstb.1998.0337 9854257 
+19. Wake H  Moorhouse AJ  Jinno S  Kohsaka S  Nabekura J   Resting microglia directly monitor the functional state of synapses in vivo and determine the fate of ischemic terminals J Neurosci 2009 29 3974 3980 10.1523/JNEUROSCI.4363-08.2009 19339593 
+20. Mosienko V  Beis D  Pasqualetti M  Waider J  Matthes S  Qadri F  Bader M  Alenina N   Life without brain serotonin: reevaluation of serotonin function with mice deficient in brain serotonin synthesis Behav Brain Res 2015 277 78 88 10.1016/j.bbr.2014.06.005 24928769 
+21. Zhou L  Gall D  Qu Y  Prigogine C  Cheron G  Tissir F  Schiffmann SN  Goffinet AM   Maturation of “neocortex isole” in vivo in mice J Neurosci 2010 30 7928 7939 10.1523/JNEUROSCI.6005-09.2010 20534841 
+22. Rieke F  van Steveninck RR  Bialek W   Spikes: exploring the neural code 1999 Cambridge The MIT Press 
+23. Suzuki R, Shimodaira H. pvclust: Hierarchical clustering with p-values via multiscale bootstrap resampling. The R Project for Statistical Computing; 2015.
+24. Shimodaira H   Approximately unbiased tests of regions using multistep-multiscale bootstrap resampling Ann Stat 2004 32 2616 2641 10.1214/009053604000000823 
+25. Suzuki R  Shimodaira H   Pvclust : an R package for assessing the uncertainty in hierarchical clustering Bioinformatics 2006 22 1540 1542 10.1093/bioinformatics/btl117 16595560 
+26. Hakak Y  Shrestha D  Goegel MC  Behan DP  Chalmers DT   Global analysis of G-protein-coupled receptor signaling in human tissues FEBS Lett 2003 550 11 17 10.1016/S0014-5793(03)00762-2 12935878 
+27. Jarvis ED  Yu J  Rivas MV  Horita H  Feenders G  Whitney O  Jarvis SC  Jarvis ER  Kubikova L  Puck AE  Siang-Bakshi C  Martin S  McElroy M  Hara E  Howard J  Pfenning A  Mouritsen H  Chen CC  Wada K   Global view of the functional molecular organization of the avian cerebrum: mirror images and functional columns J Comp Neurol 2013 521 3614 3665 10.1002/cne.23404 23818122 
+28. Chen CC  Winkler CM  Pfenning AR  Jarvis ED   Molecular profiling of the developing avian telencephalon: regional timing and brain subdivision continuities J Comp Neurol 2013 521 3666 3701 10.1002/cne.23406 23818174 
+29. Duvernoy HM  Risold PY   The circumventricular organs: an atlas of comparative anatomy and vascularization Brain Res Rev 2007 56 119 147 10.1016/j.brainresrev.2007.06.002 17659349 
+30. Vanderah TW  Gould DJ   Nolte’s the human brain 2016 7 Philadephia Elsevier 
+31. Butler AB  Hodos W   Comparative vertebrate neuroanatomy 2005 2 Hoboken Wiley-Interscience 
+32. Misic B  Betzel RF  de Reus MA  van den Heuvel MP  Berman MG  McIntosh AR  Sporns O   Network-level structure-function relationships in human neocortex Cereb Cortex 2016 26 3285 3296 10.1093/cercor/bhw089 27102654 
+33. Misic B  Sporns O   From regions to connections and networks: new bridges between brain and behavior Curr Opin Neurobiol 2016 40 1 7 10.1016/j.conb.2016.05.003 27209150 
+34. Swanson LW   The amygdala and its place in the cerebral hemisphere Ann NY Acad Sci 2003 985 174 184 10.1111/j.1749-6632.2003.tb07081.x 12724158 
+35. Swanson LW  Petrovich GD   What is the amygdala? Trends Neurosci 1998 21 323 331 10.1016/S0166-2236(98)01265-X 9720596 
+36. Francois C  Yelnik J  Percheron G   Golgi study of the primate substantia nigra. II. Spatial organization of dendritic arborizations in relation to the cytoarchitectonic boundaries and to the striatonigral bundle J Comp Neurol 1987 265 473 493 10.1002/cne.902650403 3123530 
+37. Guatteo E  Cucchiaroni ML  Mercuri NB   Substantia nigra control of basal ganglia nuclei J Neural Transm Suppl 2009 73 91 101 
+38. Kozicz T  Bittencourt JC  May PJ  Reiner A  Gamlin PD  Palkovits M  Horn AK  Toledo CA  Ryabinin AE   The Edinger–Westphal nucleus: a historical, structural, and functional perspective on a dichotomous terminology J Comp Neurol 2011 519 1413 1434 10.1002/cne.22580 21452224 
+39. Ding SL    Comprehensive cellular-resolution atlas of the adult human brain J Comp Neurol 2016 524 3127 3481 10.1002/cne.24080 27418273 
+40. Rakic P   Neurogenesis in adult primates Prog Brain Res 2002 138 3 14 10.1016/S0079-6123(02)38067-1 12432759 
+41. Apple DM  Fonseca RS  Kokovay E   The role of adult neurogenesis in psychiatric and cognitive disorders Brain Res 2017 1655 270 276 10.1016/j.brainres.2016.01.023 26801829 
+42. Kempermann G   Adult neurogenesis: an evolutionary perspective Cold Spring Harb Perspect Biol 2016 8 a018986 10.1101/cshperspect.a018986 
+43. Lim DA  Alvarez-Buylla A   The adult ventricular-subventricular zone (V-SVZ) and olfactory bulb (OB) neurogenesis Cold Spring Harb Perspect Biol 2016 8 a018820 10.1101/cshperspect.a018820 27048191 
+44. Sanai N  Nguyen T  Ihrie RA  Mirzadeh Z  Tsai HH  Wong M  Gupta N  Berger MS  Huang E  Garcia-Verdugo JM  Rowitch DH  Alvarez-Buylla A   Corridors of migrating neurons in the human brain and their decline during infancy Nature 2011 478 382 386 10.1038/nature10487 21964341 
+45. Ernst A  Alkass K  Bernard S  Salehpour M  Perl S  Tisdale J  Possnert G  Druid H  Frisen J   Neurogenesis in the striatum of the adult human brain Cell 2014 156 1072 1083 10.1016/j.cell.2014.01.044 24561062 
+46. Wang C  You Y  Qi D  Zhou X  Wang L  Wei S  Zhang Z  Huang W  Liu Z  Liu F  Ma L  Yang Z   Human and monkey striatal interneurons are derived from the medial ganglionic eminence but not from the adult subventricular zone J Neurosci 2014 34 10906 10923 10.1523/JNEUROSCI.1758-14.2014 25122892 
+47. Sherman SM  Guillery RW   Exploring the thalamus and its role in cortical function 2006 Cambridge The MIT Press 
+48. Brown RE  Basheer R  McKenna JT  Strecker RE  McCarley RW   Control of sleep and wakefulness Physiol Rev 2012 92 1087 1187 10.1152/physrev.00032.2011 22811426 
+49. Ingalhalikar M  Smith A  Parker D  Satterthwaite TD  Elliott MA  Ruparel K  Hakonarson H  Gur RE  Gur RC  Verma R   Sex differences in the structural connectome of the human brain Proc Natl Acad Sci USA 2014 111 823 828 10.1073/pnas.1316909110 24297904 
+50. Schwanhausser B  Busse D  Li N  Dittmar G  Schuchhardt J  Wolf J  Chen W  Selbach M   Global quantification of mammalian gene expression control Nature 2011 473 337 342 10.1038/nature10098 21593866 
+51. Villar VA  Cuevas S  Zheng X  Jose PA   Localization and signaling of GPCRs in lipid rafts Methods Cell Biol 2016 132 3 23 10.1016/bs.mcb.2015.11.008 26928536 
+52. Norskov-Lauritsen L  Brauner-Osborne H   Role of post-translational modifications on structure, function and pharmacology of class C G protein-coupled receptors Eur J Pharmacol 2015 763 233 240 10.1016/j.ejphar.2015.05.015 25981296 
+53. Luttrell LM  Gesty-Palmer D   Beyond desensitization: physiological relevance of arrestin-dependent signaling Pharmacol Rev 2010 62 305 330 10.1124/pr.109.002436 20427692 
+54. Gaitonde SA  Gonzalez-Maeso J   Contribution of heteromerization to G protein-coupled receptor function Curr Opin Pharmacol 2016 32 23 31 10.1016/j.coph.2016.10.006 27835800 
+55. Fribourg M    Decoding the signaling of a GPCR heteromeric complex reveals a unifying mechanism of action of antipsychotic drugs Cell 2011 147 1011 1023 10.1016/j.cell.2011.09.055 22118459
+

@@ -1,0 +1,341 @@
+
+==== Front
+Ann Med
+Ann Med
+Annals of Medicine
+0785-3890
+1365-2060
+Taylor & Francis
+
+33830879
+10.1080/07853890.2021.1908588
+1908588
+Version of Record
+Research Article
+Oncology
+Multi-omics reveals novel prognostic implication of SRC protein expression in bladder cancer and its correlation with immunotherapy response
+W. Xu et al.
+Xu Wenhao ab
+Anwaier Aihetaimujiang ab
+Ma Chunguang ab
+Liu Wangrui c
+Tian Xi ab
+Palihati Maierdan b
+Hu Xiaoxin d
+Qu Yuanyuan ab
+Zhang Hailiang ab
+Ye Dingwei ab
+a Department of Urology, Fudan University Shanghai Cancer Center, Shanghai, PR China
+b Department of Oncology, Shanghai Medical College, Fudan University, Shanghai, PR China
+c Department of Neurosurgery, Fudan University Shanghai Cancer Center, Shanghai, PR China
+d Department of Radiology, Fudan University Shanghai Cancer Center, Shanghai, PR China
+* These authors contributed equally to this work.
+
+Supplemental data for this article can be accessed online at https://doi.org/10.1080/07853890.2021.1908588.
+
+CONTACT Yuanyuan Qu quyy1987@163.comDepartment of Urology, Fudan University Shanghai Cancer Center, Dong’an Road 270, Shanghai, PR China
+Hailiang Zhang 071106248@alu.fudan.edu.cnDepartment of Urology, Fudan University Shanghai Cancer Center, Dong’an Road 270, Shanghai, PR China
+Dingwei Ye dwyelie@163.comDepartment of Urology, Fudan University Shanghai Cancer Center, Dong’an Road 270, Shanghai, PR China
+8 4 2021
+2021
+53 1 596610
+© 2021 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group.
+2021
+The Author(s)
+https://creativecommons.org/licenses/by/4.0/ This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
+
+Abstract
+
+Purpose
+
+This study aims to identify potential prognostic biomarkers of bladder cancer (BCa) based on large-scale multi-omics data and investigate the role of SRC in improving predictive outcomes for BCa patients and those receiving immune checkpoint therapies (ICTs).
+
+Methods
+
+Large-scale multi-comic data were enrolled from the Cancer Proteome Atlas, the Cancer Genome Atlas and gene expression omnibus based on machining-learning methods. Immune infiltration, survival and other statistical analyses were implemented using R software in cancers (n = 12,452). The predictive value of SRC was performed in 81 BCa patients receiving ICT from aa validation cohort (n = 81).
+
+Results
+
+Landscape of novel candidate prognostic protein signatures of BCa patients was identified. Differential BECLIN, EGFR, PKCALPHA, ANNEXIN1, AXL and SRC expression significantly correlated with the outcomes for BCa patients from multiply cohorts (n = 906). Notably, risk score of the integrated prognosis-related proteins (IPRPs) model exhibited high diagnostic accuracy and consistent predictive ability (AUC = 0.714). Besides, we tested the clinical relevance of baseline SRC protein and mRNA expression in two independent confirmatory cohorts (n = 566) and the prognostic value in pan-cancers. Then, we found that elevated SRC expression contributed to immunosuppressive microenvironment mediated by immune checkpoint molecules of BCa and other cancers. Next, we validated SRC expression as a potential biomarker in predicting response to ICT in 81 BCa patient from FUSCC cohort, and found that expression of SRC in the baseline tumour tissues correlated with improved survival benefits, but predicts worse ICT response.
+
+Conclusion
+
+This study first performed the large-scale multi-omics analysis, distinguished the IPRPs (BECLIN, EGFR, PKCALPHA, SRC, ANNEXIN1 and AXL) and revealed novel prediction model, outperforming the currently traditional prognostic indicators for anticipating BCa progression and better clinical strategies. Additionally, this study provided insight into the importance of biomarker SRC for better prognosis, which may inversely improve predictive outcomes for patients receiving ICT and enable patient selection for future clinical treatment.
+
+Keywords
+
+Bladder cancer
+biomarker
+prediction model
+multi-omics
+SRC
+immune checkpoint therapy
+National Key Research and Development 2019YFC1316000 Natural Science Foundation of Shanghai 10.13039/100007219 20ZR1413100 Shanghai Municipal Health Commission Project 2020CXJQ03 This work is supported by Grants from National Key Research and Development Project [No. 2019YFC1316000], the Natural Science Foundation of Shanghai [No. 20ZR1413100] and Shanghai Municipal Health Commission Project [No. 2020CXJQ03].
+==== Body
+Introduction
+
+Urinary bladder cancer (BCa) is the fourth common malign neoplasia globally, responding for an incidence of approximately 7% among all male malignant tumours [1]. Pathologically, BCa can be manifested as low grade or high grade. In addition, according to the invasion of the muscular layer of the bladder wall, it also can be divided into non-muscular invasion or muscular invasion [2]. However, there is a large probability of false positives for the common screening method for BCa, such as urine cytology, due to its relatively low sensitivity [3]. Moreover, the diagnosis and post-treatment supervising of BCa requires expensive imaging and invasive cystoscopy, which patients need to undergo regularly several times each year to determine recurrence [4]. Therefore, it is urgently needed to investigate more convenient, non- or least invasion and accurate test for early diagnosis and predicting the prognosis for BCa patients [5].
+
+As the standard and traditional method of initial treatment for patients with inoperable locally advanced or metastatic BCa, chemotherapy brings relatively high initial response rate while the median survival time is only about 15 months [5]. In addition, due to potential renal insufficiency, poor functional status or comorbidities, up to 50% of patients with advanced BCa could not receive cisplatin therapy. Since 2016, the emergence of new therapies such as immunotherapy and ADCs has broken this dilemma and brought significantly improved survival benefits for BCa patients [6]. With the progress of a series of clinical trials and data mining results, increasing evidence points to biomarkers, including PD-L1, TMB, dMMR/MSI-H, haemoglobin, etc., and predictive models predicting immune checkpoint therapies (ICTs) response [7–9]. However, there are more potential biomarkers for disease diagnosis and progression prediction worth exploring, and their application in the clinical strategies still needs to undergo multi-step verification [10].
+
+To improve the accuracy of precision medicine, researchers have found several detectable and promising biomarkers of BCa [10,11]. However, due to instability of urine dilution, different races, environments and dietary culture, it is difficult for metabonomic in urine to become biomarkers for BCa [12]. Many tumour suppressors, such as Calcium activated chloride channel A4 (CLCA4), have been widely accepted as a marker related to tumour progression, including BCa [13]. Moreover, increasing evidence has indicated that high/low expression of some proteins or mutation of genes significantly correlated with carcinogenesis, progression and poor outcomes of BCa [14–16]. However, these biomarkers are not as accurate due to their genome instability or other inherent limitations [17]. Thus, novel biomarkers or prediction model that could be more accurate, convenient and sensitive for BCa patients is urgently needed.
+
+Multi-omics, such as genomics, proteomics and single-cell omics techniques, are widely used for different purposes in different research fields, such as detecting disease-related diagnostic markers, understanding pathogenesis and explaining functional protein pathways in different diseases [18–20]. Recently, proteomic analysis has been accepted as a powerful tool to investigate the protein expression in different tissues or organs [21,22], and explore potential protein biomarkers for several cancers [23]. So, it is promising to investigate potential biomarkers and evaluate protein markers with economy and sensitivity in BCa using the reverse-phase protein arrays (RPPA) as a powerful approach of proteomic [24,25].
+
+This study first identified landscape of novel prognostic protein signatures in the discovering dataset based on large-scale RPPA data (n = 340). Further, potential integrated prognosis-related proteins (IPRPs) model was constructed to assess the survival risk score of bladder cancer. Next, we tested the clinical relevance of baseline SRC protein and mRNA expression in two independent confirmatory cohorts (TCGA, n = 404; GSE13507, n = 162) and prognostic role of SRC in cancers. Then, we found that elevated SRC expression contributed to immunosuppressive microenvironment mediated by immune checkpoint molecules of BCa. Next, we validated SRC expression as a potential biomarker in predicting response to ICT in real-world cohort (n = 81). We found that the expression of SRC in the baseline tumour tissues correlated with improved survival benefits, but predicts worse ICT response. Cumulatively, this study revealed that the risk score of IPRPs model based on large-scale multi-omics data predicts outcomes for BCa patients. SRC, the key biomarker for better prognosis, may inversely improve predictive outcomes for patients receiving ICT and enable patient selection for ICT.
+
+Materials and methods
+
+Raw biological microarray data
+
+The level 4 data of RPPA from the Cancer Proteome Atlas (TCPA) were recruited in analyses. Clinical data and gene expression profiles were obtained from the Cancer Genome Atlas (TCGA) for patients with BCa. A total of 341 BCa cases with full data of biological microarray data and clinical data were obtained using R software to impute the missing data and match the sample ID.
+
+Collected patients from a real-world cohort
+
+The Fudan University Shanghai Cancer Centre (FUSCC, Guangxi, China) cohort consisted of 81 BCa patients receiving ICTs in the Department of Urology, Fudan University Shanghai Cancer Centre, from August 2018 to June 2020. Pathology reports or electronic medical records provided clinicopathological information. Samples of BCa and normal bladder tissues were collected during surgery and then processed and stored at the FUSCC tissue bank.
+
+Screening of candidate proteins
+
+To assess the prognostic value of proteins, survival analysis was performed using the Kaplan–Meier method and the hazard ratio (HR) estimates with 95% confidence intervals (95% CI) were performed using univariate Cox regression analysis. The volcano plot and survival curves were plotted using ggplot2 package [26] and survival package [27] of R software, respectively. To elevate the prognostic accuracy, Lasso Cox regression analysis were performed to further restrict the candidate proteins using the glmnet package [28] of R language.
+
+Construction of multivariate cox model and IPRPs model
+
+Multivariate analysis was utilized to identify the candidate proteins with most prognostic value and calculate the risk score based on the expression of proteins and survival rates. Risk level of patients was divided into high risk or low risk according to the median-risk score. To verify the correlation between patient’s prognosis and risk score, survival curves and scatter diagrams were plotted using R software. The heat map was drawn to visualize the expression of each candidate protein in two groups.
+
+Univariate and multivariate Cox regression analyses were performed to identify the independent prognostic factors and construct the IPRPs model on this basis. The diagnostic stability of IPRPs model was assessed by receiver operating characteristic (ROC) and the corresponding area under curve (AUC). A cut-off of 0.4 for Pearson’s correlation was utilized to determine the proteins associated with IPRPs model. p-values for both statistics less than .05 were considered significant.
+
+Validation of proteomic prognostic value of hub nodes in genomic dataset
+
+Gene expression data was utilized to further verify the prognostic value of proteomic results. A total of 404 BCa patients with available survival data were downloaded from TCGA and 165 BCa patients were enrolled in analysis from Gene Expression Omnibus (GEO) (Chip dataset GSE13507). Pearson correlation analysis were utilized to validate the correlations between protein and RNA expression. Survival analysis was performed using the Kaplan–Meier method and p value <.05 was considered significant. Additionally, the single-cell RNA-seq datasets, GSE145281 and GSE130001, were enrolled in this study from Tumour Immune Single-cell Hub to characterize tumour microenvironment at single-cell resolution [29].
+
+Gene set enrichment analysis and differential expressed genes (DEGs)
+
+Gene Set Enrichment Analysis (GSEA) was utilized to investigate the potential hallmarks using transcriptional profiles from TCGA datasets between high- and low-risk group with 1000 permutations. Adjusted settings and parameters for GSEA and DEGs are as reported in previous studies [30–32]. Protein–protein interaction (PPI) networks of DEGs was predicted using Search Tool for the Retrieval of Interacting Genes (STRING; http://string-db.org) (version 10.0) [33]. An interaction with specificity scores high than 0.4 was regarded as statistically significant. To visualize molecular interaction networks of DEGs, Cytoscape (version 3.5) [34] and MCODE (version 1.4.2) [35], a Cytoscape plug-in, were utilized to select the most significant hub genes with MCODE Score ≥20. Functional enrichment analyses of hub genes were performed using ClusterProfiler package [36].
+
+Immunohistochemistry staining and evaluation
+
+Immunohistochemistry (IHC) analysis was performed to detect implications of SRC expression in response to immunotherapy for BCa patients. SRC protein expression was detected in BCa tissues using anti-SRC (HPA030875) from the HPA database and Anti-SRC antibody (ab109381, Abcam, Cambridge, MA) from FUSCC cohort. Positive or negative staining of a certain protein in one FFPE slide was independently assessed by two experienced pathologists, and determined as previously described [37].
+
+Statistical analysis
+
+All statistical analyses and graphical plotting were performed with SPSS (version 23.0, SPSS, Chicago, IL), GraphPad Prism 8 or R software (version 3.3.2, GraphPad Software, La Jolla, CA). Survival curves were established using the Kaplan–Meier method and analyzed by log-rank test with 95% confidence intervals (95% CI). All hypothetical tests were two-sided and p value less than .05 were considered statistically significant.
+
+Results
+
+Screening and identification of significantly prognostic proteins
+
+After identification and standardization of the microarray results, we performed Kaplan–Meier analysis and univariate Cox regression analysis to initially screen the 17 proteins as listed in Table 1. Selected proteins were separated as high- and low-risk, as shown in volcano plot (Figure 1(A)). LASSO Cox regression analysis further restricted the candidate proteins and nine proteins (BAK, BECLIN, EGFR, PKCALPHA, SMD3, SRC, RICTOR, ANNEXIN1 and AXL) were identified as prognostic proteins in BCa (Figure 1(B,C)). Ultimately, through multivariate Cox regression analysis, six proteins with the most prognostic value were identified and the risk score for each patient were calculated (integrated risk score= 1.285 × BECLIN expression (ref. Low) + 0.286 × EGFR expression (ref. low) + 0.242 × PKCALPHA expression (ref. low) − 0.240 × SRC expression (ref. low) + 0.293 × ANNEXIN1 expression (ref. low) + 0.556 × AXL expression (ref. low)).
+
+Figure 1. Selecting and identification of significantly prognostic proteins based on machine-learning algorithm in proteomics. (A) Volcano plot indicated the significantly prognostic proteins with high-risk (marked in red) and low-risk (marked in green). (B and C) Lasso Cox regression analysis was applied to further restrict the fit with prognostic values to obtain integrated prognosis-related proteins.
+
+Table 1. Kaplan–Meier analysis and univariate Cox regression analysis of differential expressed proteins (both p-value < 0.05).
+
+Protein	p-value (KM)	p-value (Unicox)	HR	
+BAK	.001	.042	0.589 (0.354–0.979)	
+BECLIN	.027	.017	2.272 (1.160–4.448)	
+EGFR	.002	.002	1.369 (1.119–1.675)	
+GATA3	.001	.004	0.781 (0.662–0.922)	
+PKCALPHA	.044	.049	1.363 (1.001–1.855)	
+SMAD3	.036	.012	0.464 (0.255–0.847)	
+SRC	.001	.002	0.639 (0.484–0.842)	
+ARID1A	.002	.050	0.545 (0.297–1.000)	
+RICTOR	.017	.007	1.157 (1.041–1.287)	
+SF2	<.001	.030	0.510 (0.278–0.938)	
+TAZ	<.001	.015	1.887 (1.130–3.151)	
+ANNEXIN1	<.001	<.001	1.362 (1.167–1.590)	
+ADAR1	.035	.038	0.731 (0.544–0.983)	
+SMAC	.014	.005	0.604 (0.426–0.856)	
+AXL	.002	.040	1.744 (1.025–2.969)	
+GATA6	.003	.026	2.020 (1.086–3.759)	
+CABL	.004	.018	1.522 (1.073–2.160)	
+KM: Kaplan–Meier analysis; Unicox: univariate Cox regression analysis; HR: hazard ratio.
+
+Survival analysis and construction of IPRPs model
+
+As shown in Figure 2, survival curves demonstrated that elevated BECLIN, EGFR, PKCALPHA, ANNEXIN1, AXL expression and down-regulation of SRC significantly correlated with poor outcomes of BCa patients (p < .05), and identified as IPRPs. In addition, the expression of six proteins between the high- and the low-risk group displayed in the heatmap (Figure 3(A)). Survival analysis showed strong power of IPRPs model to predict prognosis that high-risk BCa patients had significantly worse prognosis comparing to the low-risk group (p < .001; Figure 3(B)). Patients in the high-risk group had poor survival outcome comparing to the low-risk group (p < .01) and the increased risk score responded to shorter survival cases (Figure 3(C,D)).
+
+Figure 2. Survival analysis indicated significantly prognostic role of BECLIN, EGFR, PKCALPHA, ANNEXIN1, AXL, SRC proteins expression. (A–E) High expression of BECLIN, EGFR, PKCALPHA, ANNEXIN1 and AXL significantly correlated with worse outcomes in BCa patients (p < .05). (F) Down-regulated of SRC was markedly related with poor prognosis (p < .001).
+
+Figure 3. Differential expression of integrated prognosis-related proteins (IPRPs) and construction of the prediction model. (A) Expression of each IPRPs in high- and low-risk BCa groups. (B) Survival analysis showed strong power of IPRPs model to predict prognosis that high-risk BCa patients had significantly worse prognosis comparing to low-risk group (p < 0.001). (C and D) Increased risk score responded to shorter survival cases.
+
+Independent prognostic implication of IPRPs model
+
+Cox regression analysis showed that in univariate models, traditional prognostic factors, specifically pT stage, pN stage and pathologic stage were significantly correlated with OS (all p < .001). Importantly, in both univariate and multivariate models, risk score of IPRPs model was significantly relevant to OS (univariate: HR = 1.597, p < .001; multivariate: HR = 1.443, p < .001; Figure 4(A,B)). In addition, the age of patients was also significantly correlated with OS both in univariate (p < .001) and multivariate (p = .003) models. Moreover, As shown in Figure 4(C), age, T stage and N stage had a potential prediction value with all AUC > 0.500; notably, the risk score of IPRPs model was particular exhibited high diagnostic accuracy and consistent predictive ability (AUC = 0.714).
+
+Figure 4. Cox regression and ROC analysis indicated significantly and independently prognostic role of IPRPs model. (A and B) Forest plot displayed that the risk score of IPRPs model significantly predicts survival for BCa patients in univariate (p < .001, HR = 1.597) and multivariate (p < .001, HR = 1.442) Cox regression analysis, respectively. (C) ROC curves showed the predictive ability of each independent factor, and the risk score exhibited a good prognostic value with AUC = 0.714. (D) Sankey diagram showed the association between various types of proteins and IPRPs.
+
+Significant proteins associated with IPRPs
+
+Sankey diagram showed the association between various types of proteins and IPRPs (Figure 4(D)). A total of 8 proteins significantly correlated with the expression of BECLIN (correlation coefficients range from −0.43 to 0.59, p < .001), and 5 with the expression of PKCALPHA (correlation coefficients range from 0.41 to 0.94, p < .001), 4 with ANNEXIN1 (correlation coefficients range from −0.447 to 0.42, p < .001), 15 with SRC (correlation coefficients range from −0.48 to 0.61, p < .001), only 1 with EGFR (correlation coefficient = 0.48, p < .001), and the detailed displayed in Supplementary Figure 1.
+
+Genomic prognostic validation of significant proteins
+
+To further validate the prognostic value of six significant proteins, we first performed Pearson correlation analysis between RNA expression and protein expression. As shown in Figure 5(A), proteome expressions of EGFR, PKCALPHA, ANNEXIN1, AXL and SRC were positively correlated with corresponding mRNA expression. Second, survival analyses were performed in GEO and TCGA cohorts, respectively, and the results indicated that low PRKCA (protein name is PKCALPHA) expression was significantly correlated with OS in GSE13507 cohort (p = .006) (Figure 5(B–F)). More importantly, in larger sample TCGA cohort, high expression of EGFR, ANXA1 (protein name is ANNEXIN1), AXL and low expression of SRC were markedly related with poor outcomes, which is consistent with results of proteomics (all p < .05) (Figure 5(G–K)).
+
+Figure 5. Genomic prognostic validation of significant proteins in multiply datasets. (A) Proteome expression of EGFR, PKCALPHA, ANNEXIN1, AXL and SRC were positively correlated with corresponding mRNA expression. (B–F) Survival analyses were performed in GEO and TCGA cohorts respectively, and the results indicated that low PRKCA (protein named PKCALPHA) expression was significantly correlated with OS in GSE13507 cohort (p = .006). (G-K) In larger sample TCGA cohort, high expression of EGFR, ANXA1 (protein named ANNEXIN1), AXL and low expression of SRC were markedly related with poor outcomes, which is consistent with results of proteomics (p < .05).
+
+Significant involved genes and pathways related to IPRPs model
+
+As shown in heatmap (Figure 6(A)), a total of most 100 significant genes obtained from GSEA with positive and negative correlations. GSEA demonstrated that significant pathways of IPRPs model mainly involved in ATP synthesis coupled electron transport, respiratory electron transport chain, oxidative phosphorylation, mitochondrial respiratory chain complex assembly, respirasome and fatty acid beta oxidation (Figure 6(B–G)). Additionally, a total of 917 DEGs associated with risk score were identified and protein–protein interaction network of DEGs was constructed and selected 29 hub genes (PPY, CXCL11, CASR, CXCL10, ADCY7, CCL5, MCHR1, OXGR1, CCL20, CXCL1, CCL21, PCP2, CCR8, CXCL12, CCR2, GRM3, CHRM2, CCL13, GPR37, FPR3, ANXA1, SAA1, CCL4, GNG8, GNB4, GNG4, PTGDR2, PENK, PPBP). The protein–protein interaction network of differential expressed genes was constructed and visualize in Figure 7(H). Functional enrichment analyses of hub genes were performed and visualized in bubble chart. Significant genes were enriched in G-protein coupled receptor signalling pathway, locomotion, taxis and chemokine signalling pathways (p < .0001; Table 2; Figure 6(I)).
+
+Figure 6. Significant involved genes and hallmarks pathways of IPRPs model in BCa obtained from GSEA functional enrichment analysis. (A) Top 100 significant genes positively and negatively correlated with risk score of IPRPs model were performed in a heat map. (B–G) The most involved significant pathways included ATP synthesis coupled electron transport, respiratory electron transport chain, oxidative phosphorylation, mitochondrial respiratory chain complex assembly, respirasome and fatty acid beta oxidation. (H) The protein-protein interaction network of differential expressed genes was constructed and visualize. (I) Functional enrichment analyses of hub genes were performed and visualized in bubble chart. Significant genes were enriched in G-protein coupled receptor signalling pathway, locomotion, taxis and chemokine signalling pathways (p < .0001).
+
+Figure 7. SRC correlate with immune cell infiltrations pan-cancers microenvironment and negatively correlated with expression levels of immune check-point molecular in BCa. (A-B) Spearman correlations between SRC and immunoinhibitors and abundance of tumour-infiltrating lymphocytes (TILs) across human cancers were applied. SRC expression were negatively correlated with immunoinhibitors expression and abundance of TILs in BCa. (C) SRC expression showed significantly positive associated with tumour purity (cor.=0.334), and negative association with CD8+ T cell (cor.= −0.182) and dendritic cell infiltration (cor.= −0.357). (D–G) Spearman’ test suggested that SRC expression significantly correlated with decreased abundance of activated CD8+ T cells (r= −0.328), activated dendritic cells (r= −0.442), immature dendritic cells (r= −0.142) and plasmacytoid dendritic cells (r= −0.302). (H–K) Spearman’ test suggested that SRC expression significantly correlated PDCD1 (r= −0.362), PDCD1LG2 (r= −0.555), LAG3 (r= −0.474) and TIGIT (r= −0.391). (L) Spearman’s correlation tests indicated that SRC significantly showed negative correlation with immune check-point molecular expressions, which differs from other cancers.
+
+Table 2. GO and KEGG pathways enrichment analysis of hub genes.
+
+Term	Description	Count in gene set	p value	
+GO:0006935	Chemotaxis	14	1.77E-14	
+GO:0042330	Taxis	14	1.77E-14	
+GO:0007186	G-protein coupled receptor signalling pathway	16	2.13E-13	
+GO:0002548	Monocyte chemotaxis	8	7.16E-13	
+GO:0097529	Myeloid leukocyte migration	9	2.00E-11	
+GO:0030595	Leukocyte chemotaxis	9	8.97E-11	
+GO:0070098	Chemokine-mediated signalling pathway	7	1.59E-10	
+GO:0006954	Inflammatory response	11	1.97E-10	
+GO:0040011	Locomotion	15	5.59E-10	
+GO:0005615	Extracellular space	10	1.06E-05	
+GO:0008009	Chemokine activity	7	1.71E-11	
+GO:0048020	Chemokine receptor binding	4	8.81E-06	
+GO:0042056	Chemoattractant activity	4	8.81E-06	
+hsa04062	Chemokine signalling pathway	14	2.07E-18	
+hsa04060	Cytokine–cytokine receptor interaction	11	5.53E-12	
+GO: Gene Ontology; KEGG: Kyoto Encyclopaedia of Genes and Genomes.
+
+SRC correlate with immune cell infiltrations in BCa and pan-cancers
+
+Spearman correlations between SRC and immunoinhibitors and abundance of tumour-infiltrating lymphocytes (TILs) across human cancers were applied. SRC expressions were negatively correlated with immunoinhibitors expression and abundance of TILs in BCa (Figure 7(A,B)). As shown in Figure 7(C), SRC expression showed significantly positive associated with tumour purity (cor.=0.334), and negative association with CD8+ T cell (cor.= −0.182) and dendritic cell infiltration (cor.= −0.357). In Figure 7(D–G), Spearman’ test suggested that SRC expression significantly correlated with decreased abundance of activated CD8+ T cells (r= −0.328), activated dendritic cells (r= −0.442), immature dendritic cells (r= −0.142) and plasmacytoid dendritic cells (r= −0.302). In Figure 7(H–K), Spearman’ test suggested that SRC expression significantly correlated PDCD1 (r= −0.362), PDCD1LG2 (r= −0.555), LAG3 (r= −0.474) and TIGIT (r= −0.391). Next, we found SRC markedly correlated with immune checkpoint molecules in most cancers in TCGA database in Table S1. As shown in Figure 7(L), Spearman’s correlation tests indicated that SRC significantly showed negative correlation with immune check-point molecular expressions, which differs from other cancers.
+
+Prognostic implications of SRC expression in cancers in its subgroup survival analysis of BCa
+
+As shown in Figure 8(A), prognostic role of SRC was detected in cancers, with significance marked in solid. Prognostic value with Z-scores and adjusted p-value of SRC in cancers based on TCGA database using K–M and log-rank methods are shown in Table S2. Next, survival analysis showed significantly prognostic role of SRC in TCGA-BLCA cohort (p < 0.001, HR = 0.55; Figure 8(B)). In Figure 8(B,C), decreased SRC expression significantly correlated poorer outcomes in male (p < .001, HR = 0.45), while have no significant association with prognosis in female BCa patients (p = .2). In Figure 8(E,F), decreased SRC expression significantly correlated poorer outcomes in both high (HR = 0.44) and low (HR = 0.52) tumour mutation burden. In Figure 8(G–J), decreased SRC expression significantly correlated poorer outcomes in CD8+ T cells infiltration enriched (HR = 0.57) and decreased (HR = 0.57) subgroups, and B cells infiltration enriched (HR = 0.56) and decreased (HR = 0.46) subgroups. In Figure 8(K,L), decreased SRC expression significantly correlated poorer outcomes in mesenchymal stem cells enriched (HR = 0.61) and, especially, decreased (HR = 0.34) subgroups. In Figure 8(M,N), decreased SRC expression significantly correlated poorer outcomes in while (HR = 0.60) and black African or American (HR = 0.29) subgroups.
+
+Figure 8. Prognostic implications of SRC expression in cancers in its subgroup survival analysis of BCa. (A) Prognostic role of SRC in cancers, with significance marked in solid. (B) Survival analysis showed significantly prognostic role of SRC in TCGA-BLCA cohort (p < .001, HR = 0.55). (C and D) Decreased SRC expression significantly correlated poorer outcomes in male (p < 0.001, HR = 0.45), while have no significant association with prognosis in female BCa patients (p = 0.2). (E and F) Decreased SRC expression significantly correlated poorer outcomes in both high (HR = 0.44) and low (HR = 0.52) tumour mutation burden. (G–J) Decreased SRC expression significantly correlated poorer outcomes in CD8+ T cells infiltration enriched (HR = 0.57) and decreased (HR = 0.57) subgroups, and B cells infiltration enriched (HR = 0.56) and decreased (HR = 0.46) subgroups. (K and L) Decreased SRC expression significantly correlated poorer outcomes in mesenchymal stem cells enriched (HR = 0.61) and, especially, decreased (HR = 0.34) subgroups. (M and N) Decreased SRC expression significantly correlated poorer outcomes in while (HR = 0.60) and black African or American (HR = 0.29) subgroups.
+
+SRC predicts predictive outcomes for BCa patients receiving ICT
+
+To detect implications of SRC expression in response to immunotherapy for BCa patients, immunohistochemistry (IHC) was performed. SRC protein expression was detected in BCa tissues using anti-SRC (HPA030875) from the HPA database and Anti-SRC antibody (ab109381) from FUSCC cohort. SRC was mainly stained in plasma membrane and cytosol (Figure 9(A); Supplementary Figure 2). Inversely, elevated SRC protein expression significantly correlated with poorer survival in 81 BCa patients receiving ICT from Fudan University Shanghai Cancer Centre (Figure 9(B)). There are 32% PR (n = 14), 18% CR (n = 8), 25% SD (n = 11) and 25% PD (n = 11) cases in the low SRC expression subgroup, and 19% PR (n = 7), 5% CR (n = 2), 19% SD (n = 7) and 57% PD (n = 21) cases in the high SRC expression subgroup (Figure 9(C)). Interestingly, the single-sequencing dataset GSE145281 and GSE130001 suggested localization and binding targets of SRC mainly in monocyte/macrophages and epithelial cells (Figure 9(D,E)).
+
+Figure 9. SRC protein expression significantly predicts immunotherapy responses for 81 BCa patients from FUSCC cohort. (A) Immunohistochemistry was performed and SRC was mainly stained in plasma membrane and cytosol. (B) Elevated SRC protein expression significantly correlated with poorer survival in 81 BCa patients receiving ICT. (C) There are 32% PR (n = 14), 18% CR (n = 8), 25% SD (n = 11) and 25% PD (n = 11) cases in low SRC expression subgroup, and 19% PR (n = 7), 5% CR (n = 2), 19% SD (n = 7) and 57% PD (n = 21) cases in high SRC expression subgroup. (D and E) The single-sequencing dataset GSE145281 and 130001 suggested localization and binding targets of SRC mainly in monocyte/macrophages and epithelial cells.
+
+Discussion
+
+Bladder cancer ranks 7th and 17th among the most common tumours in men and women, respectively, and is also an important public health problem in China [38]. There were 80,500 new cases of BCa, of which 32,900 cases responding for cancer-related death in 2015 [39]. In America, 19.5% of every 100,000 people suffer from bladder cancer, with a mortality rate of 7.9% [40], and US $5 billion is predicted to spend on the treatment of bladder cancer by 2020 [41]. With rapid development of precision medicine, there are more potential biomarkers for disease diagnosis and progression prediction worth exploring and applying in clinical strategies. Additionally, identification of baseline expression of a single gene evaluated by currently available matching learning methods would have immediate and promising translational potential.
+
+This study first identified landscape of novel prognostic protein signatures in the discovering dataset based on large-scale RPPA data (n = 340). Next, potential integrated prognosis-related proteins (IPRPs) model (including BECLIN, PKCALPHA, EGFR, ANNEXIN1, AXL and SRC) was constructed to assess the survival risk score of bladder cancer. BECLIN is identified as a necessary autophagy protein, which has been proved to play an essential role in BECLIN ± mice tumour inhibition [42]. PKCALPHA involved in mediating cell proliferation, differentiation and apoptosis. In the process of cell function regulation, it interacts with many proto-oncogenes [43]. The expression and activation of EGFR are related to many precancerous lesions and malignant tumours [44], and is associated with malignancy of at least 33–50% of human epithelial tumours [45]. In addition, EGFR has been considered to be the carcinogenic driver of NSCLC and predicts TKI inhibitors therapy responses [46]. ANNEXIN1 is a member of the ANNEXIN protein superfamily, which not only has a very clear anti-inflammatory effect, but also plays an important role in apoptosis [47]. Importantly, ANNEXIN1 has been proved to be a key regulator of adaptive immunity through its ability to control T cell activation and autoimmune diseases [48]. Next, the overexpression of AXL is found closely related to cell proliferation, migration and invasion by activating carcinogenic signalling pathways, including PI3K/Akt and/or MAPK/Erk [49].
+
+SRC is a non-receptor tyrosine kinase, which is activated following engagement of many different classes of cellular receptors and plays an important role in many kinds of carcinogenesis [50]. In addition, SRC inhibitors have been shown in preclinical trials that they may be used in targeted therapy for advanced breast cancer by inhibiting bone metastasis [51]. Our study also demonstrated that SRC, as the key biomarker for better prognosis, may inversely It is increasingly proven that the immune response to ICT is affected by immune cells and tumour-related factors. Activation of SRC family kinases may lead to elevated abundance of myeloid-derived suppressor cell, lack of anti-tumour immune responses and anti-CTLA4 immunotherapy resistance [52,53]. The combinatorial treatment with SRC family kinases inhibitors could increase the of anti-CTLA4 immunotherapy efficacy of HNSCC [52]. Interestingly, although elevated SRC expression predict favourable clinical outcomes, c-SRC kinase together with a therapeutic T-cell receptor blocked pMHC-induced ERK phosphorylation and turning T cells incapable of executing their downstream effector functions into "dummy T cell" [54]. These evidences fully indicated that SRC had great potential in predicting the efficacy for patients receiving ICTs.
+
+However, this study also has its limitation. Our study is based on the retrospective design of large-scale proteomic and genomic analysis and failed to clarify the underlying mechanism of IPRPs. Multicenter prospective studies are needed to validate the results and prediction value of IPRPs model. In addition, it is still necessary to perform in vitro and in vivo experiments investigating role of SRC as potential therapeutic target and predictive biomarker for overall survival and ICT responses.
+
+Conclusion
+
+This study first performed the large-scale multi-omics analysis, distinguished the IPRPs (BECLIN, EGFR, PKCALPHA, SRC, ANNEXIN1 and AXL) and revealed novel prediction model, outperforming the currently traditional prognostic indicators for anticipating BCa progression and better clinical strategies. Additionally, this study provided insight into the importance of biomarker SRC for better prognosis, which may inversely improve predictive outcomes for patients receiving ICT and enable patient selection for future clinical treatment.
+
+Supplementary Material
+
+Supplemental Material
+
+Click here for additional data file.
+
+Acknowledgements
+
+The authors are grateful to all patients for their dedicated participation in the current study.
+
+Author contributions
+
+Conceptualization; Wen-Hao Xu, Aihetaimujiang Anwaier, Xi Tian
+
+Data curation; Wen-Hao Xu, Aihetaimujiang Anwaier, Xi Tian, Chunguang Ma
+
+Formal analysis; Wen-Hao Xu, Aihetaimujiang Anwaier, Chunguang Ma, Maierdan Palihati, Xiaoxin Hu
+
+Funding acquisition; Yuan-Yuan Qu, Hai-Liang Zhang, Ding-Wei Ye
+
+Investigation; Wen-Hao Xu, Aihetaimujiang Anwaier, Maierdan Palihati, Xiaoxin Hu
+
+Methodology; Wen-Hao Xu, Aihetaimujiang Anwaier, Maierdan Palihati, Xiaoxin Hu
+
+Resources: Chunguang Ma, Yuanyuan Qu
+
+Software: Xi Tian, Xiaoxin Hu, Chunguang Ma
+
+Supervision: Yuan-Yuan Qu, Hai-Liang Zhang, Ding-Wei Ye
+
+Validation: Wen-Hao Xu, Aihetaimujiang Anwaier, Wang-Rui Liu, Xi Tian
+
+VisualizationVisualisation: Wen-Hao Xu, Aihetaimujiang Anwaier, Xi Tian
+
+Roles/Writing – original draf: Wen-Hao Xu, Aihetaimujiang Anwaier, Xi Tian1
+
+Writing – review & editing. Yuan-Yuan Qu, Hai-Liang Zhang, Ding-Wei Ye
+
+Ethical approval and consent to participate
+
+All of the study designs and test procedures were performed in accordance with the Helsinki Declaration II. The Ethics approval and participation consent of this study was approved and agreed by the ethics committee of Fudan University Shanghai Cancer Centre (Shanghai, China).
+
+Disclosure statement
+
+The author reports no conflicts of interest in this work.
+
+Data availability statement
+
+The datasets used and/or analyzed during the current study are available from the corresponding author on reasonable request or online database.
+==== Refs
+References
+
+1 Siegel RL, Miller KD, Jemal A. Cancer statistics, 2020. CA A Cancer J Clin. 2020;70 (1 ):7–30.
+2 Bansal N, Gupta A, Sankhwar SN. Proteometabolomics of bladder cancer: current and future prospects. Cancer Biomarkers: Section A Dis Markers. 2015;15 (4 ):339–348.
+3 Miyake M, Owari T, Hori S, et al. Emerging biomarkers for the diagnosis and monitoring of urothelial carcinoma. Res Rep Urol. 2018;10 :251–261.30588457
+4 Berdik C. Bladder cancer: 4 big questions. Nature. 2017;551 (7679 ):S51.29117157
+5 Lenis AT, Lec PM, Chamie K, et al. Bladder cancer: a review. JAMA. 2020;324 (19 ):1980–1991.33201207
+6 Giridhar KV, Kohli M. Management of muscle-invasive urothelial cancer and the emerging role of immunotherapy in advanced urothelial cancer. Mayo Clin Proc. 2017;92 (10 ):1564–1582.28982487
+7 Goswami S, Chen Y, Anandhan S, et al. ARID1A mutation plus CXCL13 expression act as combinatorial biomarkers to predict responses to immune checkpoint therapy in mUCC. Sci Transl Med. 2020;12 (548 ):eabc4220.32554706
+8 Necchi A, Madison R, Raggi D, et al. Comprehensive assessment of immuno-oncology biomarkers in adenocarcinoma, urothelial carcinoma, and squamous-cell carcinoma of the bladder. Eur Urol. 2020;77 (4 ):548–556.31959546
+9 Chan TA, Yarchoan M, Jaffee E, et al. Development of tumor mutation burden as an immunotherapy biomarker: utility for the oncology clinic. Ann Oncol. 2019;30 (1 ):44–56.30395155
+10 van Dijk N, Funt SA, Blank CU, et al. The cancer immunogram as a framework for personalized immunotherapy in urothelial cancer. Eur Urol. 2019;75 (3 ):435–444.30274701
+11 D’Andrea D, Soria F, Zehetmayer S, et al. Diagnostic accuracy, clinical utility and influence on decision-making of a methylation urine biomarker test in the surveillance of non-muscle-invasive bladder cancer. BJU Int. 2019;123 (6 ):959–967.30653818
+12 Lenz EM, Bright J, Wilson ID, et al. Metabonomics, dietary influences and cultural differences: a 1H NMR-based study of urine samples obtained from healthy British and Swedish subjects. J Pharm Biomed Anal. 2004;36 (4 ):841–849.15533678
+13 Hou T, Zhou L, Wang L, et al. CLCA4 inhibits bladder cancer cell proliferation, migration, and invasion by suppressing the PI3K/AKT pathway. Oncotarget. 2017;8 (54 ):93001–93013.29190973
+14 Kataoka M, Ishibashi K, Kumagai S, et al. Expression and function of LPA1 in bladder cancer. J Urol. 2015;194 (1 ):238–244.25524242
+15 Liu Y, Wu X, Wang G, et al. CALD1, CNN1, and TAGLN identified as potential prognostic molecular markers of bladder cancer by bioinformatics analysis. Medicine. 2019;98 (2 ):e13847.30633156
+16 Whongsiri P, Pimratana C, Wijitsettakul U, et al. LINE-1 ORF1 protein is up-regulated by reactive oxygen species and associated with bladder urothelial carcinoma progression. Cancer Genomics Proteomics. 2018;15 (2 ):143–151.29496693
+17 Lintula S, Hotakainen K. Developing biomarkers for improved diagnosis and treatment outcome monitoring of bladder cancer. Expert Opin Biol Ther. 2010;10 (8 ):1169–1180.20446896
+18 Aslam B, Basit M, Nisar MA, et al. Proteomics: technologies and their applications. J Chromatogr Sci. 2017;55 (2 ):182–196.28087761
+19 Xu W-H, Xu Y, Tian X, et al. Large-scale transcriptome profiles reveal robust 20-signatures metabolic prediction models and novel role of G6PC in clear cell renal cell carcinoma. J Cell Mol Med. 2020;24 (16 ):9012–9027.32567187
+20 Xu W-H, Xu Y, Wang J, et al. Prognostic value and immune infiltration of novel signatures in clear cell renal cell carcinoma microenvironment. Aging (Albany NY). 2019;11 (17 ):6999–7020.31493764
+21 Rahim MAA, Rahim ZHA, Ahmad WAW, et al. Can saliva proteins be used to predict the onset of acute myocardial infarction among high-risk patients? Int J Med Sci. 2015;12 (4 ):329–335.25897294
+22 Li X, Li S, Lu M, et al. Proteomic profiling of iron overload-induced human hepatic cells reveals activation of TLR2-mediated inflammatory response. Molecules. 2016;21 (3 ):322.26999096
+23 Borrebaeck CAK. Precision diagnostics: moving towards protein biomarker signatures of clinical utility in cancer. Nat Rev Cancer. 2017;17 (3 ):199–204.28154374
+24 Nishizuka S, Charboneau L, Young L, et al. Proteomic profiling of the NCI-60 cancer cell lines using new high-density reverse-phase lysate microarrays. PNAS. 2003;100 (24 ):14229–14234.14623978
+25 Tibes R, Qiu Y, Lu Y, et al. Reverse phase protein array: validation of a novel proteomic technology and utility for analysis of primary leukemia specimens and hematopoietic stem cells. Mol Cancer Ther. 2006;5 (10 ):2512–2521.17041095
+26 Wickham H. ggplot2: elegant graphics for data analysis. New York, NY: Springer-Verlag; 2016.
+27 Therneau TM, Grambsch PM. Modeling survival data: extending the Cox model. New York, NY: Springer; 2000.
+28 Friedman J, Hastie T, Tibshirani R. Regularization paths for generalized linear models via coordinate descent. J Stat Softw. 2010;33 (1 ):1–22.20808728
+29 Sun D, Wang J, Han Y, et al. TISCH: a comprehensive web resource enabling interactive single-cell transcriptome visualization of tumor microenvironment. Nucleic Acids Res. 2021;49 (D1 ):D1420–D1430.33179754
+30 Ritchie ME, Phipson B, Wu D, et al. Limma Powers Differential Expression Analyses for RNA-Sequencing and Microarray Studies. 2015;43 (7 ):7.
+31 Xu W-H, Qu Y-Y, Wang J, et al. Elevated CD36 expression correlates with increased visceral adipose tissue and predicts poor prognosis in ccRCC patients. J Cancer. 2019;10 (19 ):4522–4531.31528216
+32 Xu WH, Wu J, Wang J, et al. Screening and identification of potential prognostic biomarkers in adrenocortical carcinoma. Front Genet. 2019;10 :821.31572440
+33 Franceschini A, Szklarczyk D, Frankild S, et al. STRING V9.1: protein–protein interaction networks, with increased coverage and integration. Nucleic Acids Res. 2012. 41 (D1 ):D808–D815.23203871
+34 Smoot ME, Ruscheinski J, Wang P-L, et al. Cytoscape 2.8: new features for data integration and network visualization. Bioinformatics. 2011;27 :431–432.21149340
+35 Bandettini WP, Kellman P, Mancini C, et al. MultiContrast Delayed Enhancement (MCODE) improves detection of subendocardial myocardial infarction by late gadolinium enhancement cardiovascular magnetic resonance: a clinical validation study. J Cardiovasc Magn Reson. 2012;14 (1 ):83.23199362
+36 Yu G, Wang L-G, Han Y, et al. clusterProfiler: an R package for comparing biological themes among gene clusters. OMICS. 2012;16 (5 ):284–287.22455463
+37 Xu W-H, Shi S-N, Xu Y, et al. Prognostic implications of Aquaporin 9 expression in clear cell renal cell carcinoma. J Transl Med. 2019;17 (1 ):363.31703694
+38 Kakehi Y, Hirao Y, Kim WJ, et al. Bladder Cancer Working Group report. Jpn J Clin Oncol. 2010;40 :i57–i64.20870921
+39 Wanqing C, Rongshou Z, Peter DB, et al. Cancer statistics in China. CA: Cancer J Clinicians. 2015;66 (2 ):115–132.
+40 Alireza S, Abdul-aziz K, Leila M, et al. Epidemiologic status of bladder cancer in Shiraz, southern Iran. Asian Pacific J Cancer Prev. 2011;12 (5 ):1323–1327.
+41 Yeung C, Dinh T, Lee J. The health economics of bladder cancer: an updated review of the published literature. PharmacoEconomics. 2014;32 (11 ):1093–1104.25056838
+42 Vega-Rubín-de-Celis S. The role of beclin 1-dependent autophagy in cancer. Biology. 2019;9 (1 ):4.
+43 Alison MM, Rinako N. The link between PKCalpha regulation and cellular transformation. Immunol Lett. 2005;96 (2 ):155–162.15585319
+44 Liu X, Wang P, Zhang C, et al. Epidermal growth factor receptor (EGFR): a rising star in the era of precision medicine of lung cancer. Oncotarget. 2017;8 (30 ):50209–50220.28430586
+45 Fortunato C, Giampaolo T. EGFR antagonists in cancer treatment. New Engl J Med. 2008;358 (11 ):1160–1174.18337605
+46 Jean-Charles S, Suresh SR. Osimertinib in EGFR mutation-positive advanced NSCLC. New Engl J Med. 2018;378 (13 ):1262–1263.
+47 Fanny T, Mark V, Jamal D, et al. Annexin1 regulates DC efferocytosis and cross-presentation during Mycobacterium tuberculosis infection. J Clin Invest. 2015;125 (2 ):752–768.25562320
+48 Fulvio D'A, Ahmed M, Emilio L, et al. Annexin-1 modulates T-cell activation and differentiation. Blood. 2007;109 (3 ):1095–1102.17008549
+49 Shen Y, Chen X, He J, et al. Axl inhibitors as novel cancer therapeutic agents. Life Sci. 2018;198 :99–111.29496493
+50 Aita VM, Liang XH, Murty VV, et al. Cloning and genomic organization of beclin 1, a candidate tumor suppressor gene on chromosome 17q21. Genomics. 1999;59 (1 ):59–65.10395800
+51 Zheng M-W, Zhang C-H, Chen K, et al. Preclinical evaluation of a novel orally available SRC/Raf/VEGFR2 inhibitor, SKLB646, in the treatment of triple-negative breast cancer. Mol Cancer Ther. 2016;15 (3 ):366–378.26721945
+52 Yu G-T, Mao L, Wu L, et al. Inhibition of SRC family kinases facilitates anti-CTLA4 immunotherapy in head and neck squamous cell carcinoma. Cell Mol Life Sci. 2018;75 (22 ):4223–4234.29955905
+53 Mao L, Deng W-W, Yu G-T, et al. Inhibition of SRC family kinases reduces myeloid-derived suppressor cells in head and neck cancer. Int J Cancer. 2017;140 (5 ):1173–1185.27798955
+54 Inderberg EM, Mensali N, Oksvold MP, et al. Human c-SRC kinase (CSK) overexpression makes T cells dummy. Cancer Immunol Immunother. 2018;67 (4 ):525–536.29248956
+

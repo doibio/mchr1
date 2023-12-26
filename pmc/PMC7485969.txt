@@ -1,0 +1,712 @@
+
+==== Front
+PLoS Negl Trop Dis
+PLoS Negl Trop Dis
+plos
+plosntds
+PLoS Neglected Tropical Diseases
+1935-2727 1935-2735 Public Library of Science San Francisco, CA USA 
+
+32866158
+10.1371/journal.pntd.0008627
+PNTD-D-20-00588
+Research Article
+Biology and Life Sciences
+Genetics
+Genomics
+Biology and Life Sciences
+Organisms
+Eukaryota
+Animals
+Invertebrates
+Nematoda
+Brugia
+Brugia Malayi
+Biology and Life Sciences
+Zoology
+Animals
+Invertebrates
+Nematoda
+Brugia
+Brugia Malayi
+Biology and Life Sciences
+Bioengineering
+Genome Engineering
+Synthetic Genome Editing
+Crispr
+Engineering and Technology
+Bioengineering
+Genome Engineering
+Synthetic Genome Editing
+Crispr
+Biology and Life Sciences
+Synthetic Biology
+Synthetic Genomics
+Synthetic Genome Editing
+Crispr
+Engineering and Technology
+Synthetic Biology
+Synthetic Genomics
+Synthetic Genome Editing
+Crispr
+Biology and Life Sciences
+Molecular Biology
+Molecular Biology Techniques
+Artificial Gene Amplification and Extension
+Polymerase Chain Reaction
+Research and Analysis Methods
+Molecular Biology Techniques
+Artificial Gene Amplification and Extension
+Polymerase Chain Reaction
+Medicine and Health Sciences
+Medical Conditions
+Parasitic Diseases
+Biology and Life Sciences
+Molecular Biology
+Molecular Biology Techniques
+Transfection
+Research and Analysis Methods
+Molecular Biology Techniques
+Transfection
+Biology and life sciences
+Biochemistry
+Proteins
+DNA-binding proteins
+Nucleases
+Biology and Life Sciences
+Biochemistry
+Enzymology
+Enzymes
+Hydrolases
+Nucleases
+Biology and Life Sciences
+Biochemistry
+Proteins
+Enzymes
+Hydrolases
+Nucleases
+Biology and Life Sciences
+Molecular Biology
+Molecular Biology Techniques
+Cloning
+Vector Cloning
+Research and Analysis Methods
+Molecular Biology Techniques
+Cloning
+Vector Cloning
+CRISPR-mediated Transfection of Brugia malayi
+CRISPR transfection of B. malayiLiu Canhui ConceptualizationFormal analysisMethodology1 Grote Alexandra ConceptualizationFormal analysisWriting – original draftWriting – review & editing2¤ Ghedin Elodie ConceptualizationData curationFormal analysisInvestigationProject administrationWriting – original draftWriting – review & editing23 http://orcid.org/0000-0001-5099-7820Unnasch Thomas R. ConceptualizationFormal analysisFunding acquisitionMethodologyProject administrationSupervisionWriting – original draftWriting – review & editing1* 1 
+Center for Global Health Infectious Disease Research, College of Public Health, University of South Florida, Tampa, Florida, United States of America
+2 
+Center for Genomics and Systems Biology, Department of Biology, New York University, New York, New York, United States of America
+3 
+Department of Epidemiology, School of Global Public Health, New York University, New York, New York, United States of America
+Specht Sabine Editor University of Zurich, SWITZERLAND
+The authors have declared that no competing interests exist.
+
+¤ Current address: Broad Institute of MIT and Harvard, Cambridge, Massachusetts, United States of America
+
+* E-mail: tunnasch@usf.edu
+31 8 2020 
+8 2020 
+14 8 e000862710 4 2020 21 7 2020 © 2020 Liu et al2020Liu et alThis is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.The application of reverse genetics in the human filarial parasites has lagged due to the difficult biology of these organisms. Recently, we developed a co-culture system that permitted the infective larval stage of Brugia malayi to be transfected and efficiently develop to fecund adults. This was exploited to develop a piggyBac transposon-based toolkit that can be used to produce parasites with transgene sequences stably integrated into the parasite genome. However, the piggyBac system has generally been supplanted by Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR) based technology, which allows precise editing of a genome. Here we report adapting the piggyBac mediated transfection system of B. malayi for CRISPR mediated knock-in insertion into the parasite genome. Suitable CRISPR insertion sites were identified in intergenic regions of the B. malayi genome. A dual reporter piggybac vector was modified, replacing the piggyBac inverted terminal repeat regions with sequences flanking the insertion site. B. malayi molting L3 were transfected with a synthetic guide RNA, the modified plasmid and the CAS9 nuclease. The transfected parasites were implanted into gerbils and allowed to develop into adults. Progeny microfilariae were recovered and screened for expression of a secreted luciferase reporter encoded in the plasmid. Approximately 3% of the microfilariae were found to secrete luciferase; all contained the transgenic sequences inserted at the expected location in the parasite genome. Using an adaptor mediated PCR assay, transgenic microfilariae were examined for the presence of off target insertions; no off-target insertions were found. These data demonstrate that CRISPR can be used to modify the genome of B. malayi, opening the way to precisely edit the genome of this important human filarial parasite.
+
+Author summary
+Human filarial parasites are the causative agents of lymphatic filariasis (elephantiasis) and onchocerciasis (river blindness) and are some of the most important causes of morbidity worldwide. A large obstacle to research on these organisms has been the inability to employ reverse genetic methods and to develop integrated transgenic parasite lines. Recently, we developed a piggyBac transposon-based method that employed a co-culture system that permitted the infective larval stage of B. malayi to be transfected by lipofection in culture, resulting in the production of developmentally competent transgenic parasites. However, the piggyBac system cannot be used to precisely edit particular sequences in the genome. Thus, the piggyBac system has generally been supplanted by Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR) based technology, which permits precise targeting (and editing) of particular sequences in the genome. Here, we report building upon the methods developed for piggyBac mediated transfection of B. malayi to develop a CRISPR mediated method for precise transgenesis in this parasite.
+
+http://dx.doi.org/10.13039/100000060National Institute of Allergy and Infectious Diseases1 R21 AI135172-01A1http://orcid.org/0000-0001-5099-7820Unnasch Thomas R. This research was supported by a grant from the National Institute of Allergy and Infectious Diseases to TRU (Award 1 R21 AI135172-01A1). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript. PLOS Publication Stagevor-update-to-uncorrected-proofPublication Update2020-09-11Data AvailabilityAll relevant data are within the manuscript and its Supporting Information files.Data Availability
+All relevant data are within the manuscript and its Supporting Information files.
+==== Body
+Introduction
+The human filarial parasites are the causative agents of two of the most important diseases of mankind in terms of socioeconomic disruption, lymphatic filariasis and onchocerciasis. Both of these diseases are currently the subject of international efforts to achieve elimination [1], primarily through the use of community directed treatments using donated drugs [2, 3]. These programs all rely on the use of a small number of drugs that must be given repeatedly over a long period of time to achieve elimination [4]. The need to obtain high drug coverage over a long period of time is logistically difficult and expensive, and the reliance on a limited number of drugs makes the programs vulnerable to failure if resistance develops to the currently available antifilarial agents [5]. Thus, further research to develop new drugs and to better understand the mechanisms of resistance to the currently available drugs is needed.
+
+Reverse genetic techniques have become essential tools in the effort to develop new drugs and understand the mechanism of drug resistance in many pathogen systems. Unfortunately, the human filarial parasites have lagged behind many other organisms in the development and application of these technologies. This is partially due to the difficult biology of these organisms as they do not survive outside of their vertebrate hosts. Furthermore, only Brugia malayi (a parasite causing lymphatic filariasis in Southeast Asia) can be cultured in a variety of surrogate animal hosts, most efficiently in the Mongolian jird or gerbil (Meriones unguiculatus) [6–9].
+
+Despite these obstacles, some progress has been made in developing methods to genetically modify the filariae. Recently, we developed a method relying upon a novel co-culture system that permitted the infective larval stage of B. malayi to be transfected by lipofection in culture, resulting in the production of developmentally competent transgenic parasites [10]. We exploited this method to develop a number of reporter plasmids based upon the heterologous piggyBac transposon-based system that can be used to produce transgenic parasites in which the transgenic sequences are stably integrated into the parasite genome. However, the piggyBac system has some inherent disadvantages for studies of gene expression, such as the semi-random nature of the insertion point which can result in effects difficult to control. These may include position effects resulting from insertion into different locations in the genome (euchromatin versus heterochromatin, for example) as well as the possibility of multiple insertions into a single genome, resulting in copy number variation. In addition, the piggyBac system cannot be used to precisely edit particular sequences in the genome. Thus, the piggyBac system has generally been supplanted by Clustered Regularly Interspaced Short Palindromic Repeats (CRISPR) based technology [11], which permits precise targeting (and editing) of particular sequences in the genome. CRISPR has recently been applied to genetically modify a number of parasitic worm species (for reviews see [12–14]). Most of the studies that have applied CRISPR to parasitic worms have been conducted using Strongyloides spp., which have the advantage of having free-living stages in their lifecycle. CRISPR has been used in Strongyloides to disrupt genes involved in development [12], motility [15] and thermotaxis [16]. CRISPR has also been shown to be a useful tool for producing targeted genetic modifications in the liver fluke Opisthorchis viverrini [17] and in the blood fluke Schistosoma mansoni [18]. Here, we report building upon the methods developed for piggyBac mediated transfection of B. malayi to develop a CRISPR mediated method for precise transgenesis in this parasite.
+
+Materials and methods
+Ethics statement
+Protocols involving animals were reviewed by the Institutional Animal Care and Use Committee of the University of South Florida and were approved under protocol # R IS00003568. The Animal Facilities at the University of South Florida are fully accredited by AAALAC International as program #000434 and are managed in accordance with the Guide for the Care and Use of Laboratory Animals, the Animal Welfare Regulations, the PHS Policy, the FDA Good Laboratory Practices, and the IACUC Principles and Procedures of Animal Care and Use. The University of South Florida has assurance #D16-00589 (A4100-01) on file with OLAW/PHS and maintains registration #58-R-0015 with USDA/APHIS/AC.
+
+Preparation of pCHR1-BmGLuc-GFP
+pCHR1-BmGLuc-GFP was derived from two plasmids, pBACII-EGDH and pBACIIBmGLuc-GFP [10]. As a first step in this process, the plasmid backbone was amplified from pBACII-EGDH. The amplification targeted positions 4142–726 on the published sequence, which eliminated the ITRs and GFP expression cassette from pBACII-EGDH. The primers used in the amplification were:
+
+BACIIF’: 5’ GGACTTTGTCCAGGATCATATCGTCGGGTCTT 3’
+
+BACIIR’: 5’ GGGGCCCGTTCTGCAGCGTGTCGAGCAT 3’
+
+BACIIF' contains a synthetic Pfl F1 site and BACIIR' contains a synthetic Apa 1 site for subsequent cloning. These are underlined in the sequences.
+
+Amplification reactions used Thermo Scientific Maxima Hot Start PCR Master Mix (Thermo Fisher, Harrisburg, PA). Amplification reactions were carried out using 100 ng of pBACll-EGDH DNA as a template. Cycling conditions consisted of an initial denaturation step at 94°C for 5min, followed by 5 cycles consisting of 94°C for 30 sec, 52°C for 30 sec and 72°C for 5min, followed by 25 cycles consisting of 94°C for 30 sec, 57°C for 30 sec and 72°C for 5 min. The reaction was completed by an incubation at 72°C for 10 min. The resulting amplicon was gel-purified on a 1% agarose gel and the 5’ ends of the amplicon phosphorylated with T4 DNA kinase (New England Biolabs, Ipswich, MA) following the manufacturer’s instructions. The blunt ends of the amplicon were self-ligated and the resulting circular DNA recovered by transformation into One Shot TOP10 chemically competent E. coli cells (Thermo Fisher) to produce an empty plasmid backbone.
+
+The Bmhsp70-GLuc Bmrps12-GFP expression cassette was then amplified from pBACIIBmGLuc-GFP using the following primers:
+
+GFPGLUC F’ 5’ GGGGCCCCTAGAACAATATTCACAAGGAC 3’
+
+GFPGLUC R’ 5’ GGACTTTGTC GCCCAAGCAATTTCGAATGAAGGA 3’
+
+GFPGLUC F’ contains a synthetic Apa 1 site and GFPGLUC R’ contains a synthetic Pfl F1 site. These sites are underlined in the sequences. Amplification reactions were carried out using Thermo Scientific Maxima Hot Start PCR Master Mix with 100 ng of pBACII-BmGLuc-GFP DNA as a template. Cycling conditions consisted of an initial denaturation step at 94°C for 5min, followed by 20 cycles consisting of 94°C for 30 sec, 52°C for 30 sec and 72 OC for 5min. The reaction was completed with a final extension at 72 OC for 10 min. The resulting amplicon was cloned into the PCRII cloning vector (Thermo Fisher) and the sequence of the amplicon confirmed.
+
+Both the vector and the TA clone were then digested with Pfl F1 and Apa 1. The insert from the PCRII cloning vector was gel-purified on a 1% agarose gel, and the vector was treated with alkaline phosphatase. The vector and the insert were then ligated and plasmids recovered following transformation into One Shot TOP10 chemically competent E. coli cells (Thermo Fisher).
+
+The downstream domain of the insertion site was then amplified from B. malayi genomic DNA with the following primers:
+
+BmCHR1 c6485129: 5’ GGACTTTGTCCaaatgattgtattggatagaataatgcga 3’
+
+BmCHR1 nc6485987: 5’ GGACTTTGTCCTTGTGACGCCACTTGTATTGCT 3’
+
+The primers included synthetic Pfl F1 sites (underlined) for subsequent cloning. Amplification reactions were carried out using Thermo Scientific Maxima Hot Start PCR Master Mix with 100 ng of B. malayi genomic DNA as a template. Cycling conditions consisted of an initial denaturation step at 94°C for 5min, followed by 35 cycles consisting of 94°C for 30 sec, 52°C for 30 sec and 72°C for 2min. The reaction was completed with a final extension at 72°C for 10 min. The resulting amplicon (876 bp including the extra nucleotides at the 5’ ends of the primers) was cloned into the PCRII cloning vector and its sequence confirmed. The plasmid containing the expression cassette and the TA clone with the downstream domain were then digested with Pfl F1. The downstream domain was gel-purified on a 1% agarose gel and the digested vector treated with alkaline phosphatase as described above. The insert and plasmid fragments were ligated and recovered following transformation into One Shot TOP10 chemically competent E. coli cells. The identity and orientation of the insert in the resulting plasmid was confirmed by DNA sequencing.
+
+The upstream domain of the insertion site was amplified from B. malayi genomic DNA using the following primers:
+
+BmCHR1 c6484000: 5’ GGGGCCCGcaactacattgagaattgttgta 3’
+
+BmCHR1 nc6485105: 5’ GGGGCCCTgaacggaaaacacaaaaacttataa 3’
+
+The primers included synthetic Apa 1 sites (underlined) for subsequent cloning. Amplification reactions were carried out using Thermo Scientific Maxima Hot Start PCR Master Mix with 100 ng of B. malayi genomic DNA as a template. Cycling conditions consisted of an initial denaturation step at 94°C for 5min, followed by 35 cycles consisting of 94°C for 30 sec, 52°C for 30 sec and 72°C for 2min. The reaction was completed with a final extension at 72°C for 10 min. The resulting amplicon (1118 bp including the extra nucleotides from the 5’ ends of the primers) was cloned into the PCRII cloning vector and its sequence confirmed. The plasmid containing the expression cassette and the downstream insertion domain and the TA clone with the upstream domain were then digested with Apal 1. The upstream domain fragment was gel-purified on a 1% agarose gel and the digested vector treated with alkaline phosphatase as described above. The insert and plasmid fragments were ligated and recovered following transformation into One Shot TOP10 chemically competent E. coli cells. The identity and orientation of the insert in the resulting plasmid was confirmed by sequencing. The activity of the expression cassette in this final construct (designated pCHR1-BmGLuc-GFP) was confirmed by biolistic transfection of isolated B. malayi embryos followed by assaying the culture medium for secreted GLuc activity, as previously described [19].
+
+Preparation of sgRNA
+Chr1scaffold 001:6484000–6485999 was analyzed to identify the best target location for CRISPR cutting and insertion using the target selection program ChopChop (chopchop.rc.fas.harvard.edu). The best target sequence was located at positions corresponding to the sequence 5’ TTTGATTTACTATCTCTTCTCGG 3’. The PAM sequence (NGG, underlined), while required for Cas9 recognition of the target sequence, is not part of the sgRNA sequence. A terminal G was then appended to the 5’ end of the sequence to promote in vitro transcription, and the sequence of the T7 promoter was then added to the 5’ end. A 14 nucleotide overlap sequence was then appended to the 3’ end of the oligonucleotide. This resulted in the final oligonucleotide sequence:
+
+5’ ttctaatacgactcactatagTTTGATTTACTATCTCTTCTgttttagagctaga 3’.
+
+The sequence of the final sgRNA is indicated in uppercase, the T7 promoter sequence in regular lowercase, the single G added to promote transcription in bold and the 3’ overlap in underlined lowercase. This oligonucleotide was synthesized by a commercial vendor (Eurofin Genomics, Louisville, KY).
+
+sgRNAs were generated from the synthesized oligonucleotide using the EnGen sgRNA Synthesis Kit, S. pyogenes (New England Biolabs) following the manufacturer’s instructions. The resulting sgRNA was purified using the Monarch RNA Cleanup Kit (New England Biolabs). The purified sgRNA was analyzed for integrity and purity by 15% polyacrylamide gel electrophoresis.
+
+In vitro confirmation of sgRNA directed cutting of the target sequence
+The genomic sequence corresponding to the upstream and downstream domains flanking the insertion site were amplified using 100 ng of B. malayi genomic DNA as a template. The PCR was performed using Thermo Maxima DreamTaq Hot Start PCR with the primers BmCHR1 c6484000 and BmCHR1 nc6485987. The cycling conditions consisted of 4 min at 94°C followed by 35 cycles consisting of 30 sec at 94°C, 30 sec at 55°C and 2 min at 72°C. The reaction was completed with a final extension for 10 min at 72°C. The resulting amplicon was purified on a 1% agarose gel.
+
+A solution containing 3 μl of 10X NEBuffer 3.1 (New England Biolabs), 3 μl of 300nM sg RNA, and 1 μl of 1uM EnGen Cas9 Nuclease NLS (New England Biolabs) in a final volume of 27 μl was prepared and incubated at 25°C for 10 minutes. A total of 3 μl of a 30nM solution of the amplicon from the above reaction was then added, bringing the final volume to 30 μl. The reaction was incubated at 37°C for 15 minutes. A total of 1 μl of Proteinase K (0.8 units; New England Biolabs) was added to stop the reaction, and the mixture incubated at room temperature for an additional 10 minutes. The resulting reaction products were then analyzed on a 1% agarose gel.
+
+Lipofection, implantation and recovery of B. malayi
+B. malayi infective larvae (L3) were obtained from the Filarial Research Reagent Resource Center (FR3). Prior to the arrival of the L3, the individual wells of a 24-well tissue culture plate were seeded with 1x105 Bovine Embryo Skeletal Muscle (BESM) cells/well. The cells were cultured for 1–2 days in Minimal Essential Media (MEM) containing 20% fetal bovine serum (FBS) until they reached 70% to 90% confluency. Upon receipt, the L3 were washed five times with a solution consisting of RPMI 1640 medium containing 0.1x Antibiotic Antimycotic solution (Gibco), 10 μg/ml gentamycin and 2 μg/ml Ciprofloxin. A total of 200 L3 were then dispersed in 5 ml of RPMI 1640 medium containing 25 mM HEPES, 20% fetal calf serum, 20 mM glucose, 24 mM sodium bicarbonate, 2.5 μg/ml amphotericin B, 100 U/ml penicillin, 100 U/ml streptomycin, 40 μg/ml gentamicin, 2 μg/ml Ciprofloxin and 2 μg/ml Fortaz (CF-RPMI). The L3 were allowed to settle and all but 1ml of medium removed. The medium on the feeder cells was replaced with CF-RPMI and transwells (Costar, 3.0 um pore size) were placed in the wells. The dispersed L3 were then aliquoted among the transwells so that each transwell contained approximately 100 L3. Additional CF-RPMI was added to the well to bring the total volume in the well to 1mL.
+
+Lipofection of the cultured larvae used two micelle preparations, one containing the CAS9-RNP complexes and one containing the plasmid DNA. The CAS9-RNP micelles were prepared by diluting 18 μl RNAiMAX reagent (Thermo Fisher) in 300 μl Opti-MEM medium (Thermo Fisher). A total of 60 pmol of sgRNA (2 μg) and 60pmol of EnGen Cas9 Nuclease NLS (New England Biolabs) were then added to 300 μl Opti-MEM medium. This was gently mixed and incubated at room temperature for 10 minutes to form the CAS9- RNP micelles. The RNP complexes were then combined with 300 μl of the diluted RNAiMAX reagent and the mixture was incubated for 20 minutes at room temperature. A total of 50μl of the Cas9-RNP liposome complex solution was then added to each transwell containing the L3.
+
+The plasmid micelles were prepared by diluting 24 μl Lipofectamine LTX reagent (Thermo Fisher) in 300 μl Opti-MEM medium (Thermo Fisher). A total of 6 μg of pCHR1-BmGLuc-GFP plasmid DNA were added to 300 μl Opti-MEM medium; 6 μl PLUS Reagent was then added to the DNA solution. This solution was combined with 300 μl of the diluted Lipofectamine LTX Reagent to prepare the DNA micelles. The mixture was incubated for 5 minutes at room temperature. A total of 50 μl of the micelle solution was then added to each well containing the L3 and the CAS9-RNP liposome complexes. The L3 were then cultured at 37°C under 5% CO2. The feeder cell medium was changed and additional freshly prepared micelle solutions were added to the transwells on a daily basis. On day 5, molting of the L3 was induced by the inclusion of ascorbic acid to a final concentration of 75 μM in the feeder cell medium. The L3 were incubated for a total of eight days. On day 8 (three days after molting was induced) the transfected larvae were collected and injected intraperitoneally into two naive jirds using an 18-gauge needle. Approximately 100 L3 were injected into each animal. The parasites were allowed to develop for 140 days. The animals were then euthanized and microfilariae recovered from the peritoneal cavity. Recovered microfilariae were cultured individually in 100 μl of CF-RPMI for 48 hours in 96 well plates and the medium assayed for secreted GLuc activity as previously described [19].
+
+Hemi-nested PCR analysis of transgene insertion sites
+Individual microfilaria were placed in 100 μl of nuclease-free deionized water and subjected to two freeze-thaw cycles. The samples were then heated to 100°C for 10 minutes and 1 μl of proteinase K (1mg/ml) was added. The samples were incubated at 55°C for 50 minutes and the proteinase K inactivated by heating the samples to 95°C for 10 minutes.
+
+Insertion sites were amplified from the DNA isolated from the individual parasites using a hemi-nested PCR protocol. Hemi-nested PCR was performed using Thermo Maxima DreamTaq Hot Start PCR master mix with 5 μl of the solution described above as a template and the following primers:
+
+RPS12 UTR F: 5’ GACTATTGTTTGTTTATTGTTTGTATTGA 3’
+
+BmCHR1 nc 6486557: 5’ CCTCTCGCTTTTCCATCGTCT 3’
+
+The cycling conditions were as follows: one cycle of 4 min at 94°C followed by 30 cycles consisting of 30 sec at 94°C, 30 sec at 55°C and 2 min at 72°C. The reaction was completed with a final extension for 10 min at 72°C. The reaction product was diluted 1/20 in deionized water and 1μl of this product was used as a template in a second PCR using RPS12 UTR F and BmCHR1 nc 6486371 5’ GTTTTATCGCGCTCGTTCCA 3’ as the primers. Cycling conditions consisted of 1 min at 94°C followed by 30 cycles of 30 sec at 94°C, 30 sec at 55°C and 2 min at 72°C. The reaction was completed with a final extension for 10 min at 72°C. The products from the second reaction were analyzed by electrophoresis on a 1% agarose gel. The DNA sequences of the resulting purified amplicons were then determined by a commercial sequencing service (Eurofin Genomics, Louisville, KY).
+
+Adaptor Mediated PCR assay for off Target Insertion Sites
+The DNA sequence of pCHR1-BmGLuc-GFP and its predicted insertion site were examined to identify a restriction enzyme that would cut once in the pCHR1-BmGLuc-GFP cassette to be integrated into the genome but would also and cut outside of the flanking DNA sequence included in pCHR1-BmGLuc-GFP. The restriction enzyme Nru 1 was found to match these criteria. Purified DNA samples from individual microfilaria were digested with Nru 1 (New England Biolabs) following the manufacturer’s instructions. The digest products were purified using the QIAquick PCR purification kit (Qiagen). Purified DNA was recovered in 30 μl of water.
+
+The purified Nru 1 restriction fragments were then ligated to an adaptor to facilitate subsequent amplification. Two complementary oligonucleotides were used in this process, with the following sequences:
+
+Nru 1F 5’ AGTAGGAAAGTCCCGTAAGG 3’
+
+Nru 1R 5’ CCTTACGGGACTTTCCTAC 3’
+
+A total of 5 μl of 10uM Nru 1 F was phosphorylated withT4 Polynucleotide Kinase (New England Biolabs) in a final volume of 50 μl, following the manufacturer’s instructions. Upon completion of the reaction, 5 μl of a solution of 10 μM Nru 1R was added to the reaction. The reaction was heated to 94°C for 5min and allowed to cool slowly to 37°C. The annealed phosphorylated adaptor (1 μl) was combined with 30 μl of the purified DNA from above, and the adaptor and DNA ligated in a total volume of 50 μl with T4 DNA ligase (New England Biolabs), following the manufacturer’s instructions.
+
+The insertion sites were amplified from the adaptor ligated genomic DNA using a Hemi-nested PCR protocol. Hemi-Nested PCR was performed using Thermo Maxima DreamTaq Hot Start PCR master mix (Cat# K9011). Reactions contained 25 μl Thermo Maxima DreamTaq Hot Start PCR master mix, 5 μl of adaptor ligated DNA solution, 1μl of 10 μM of RPS12UTR EXT primer (5’ CTGTCCACACAATCTGCCCT 3’), 1 μl of 10uM Nru 1R in a total volume of 50 μl. The cycling conditions were as follows: One Cycle of 94°C (4min) followed by 30 cycles 9 oC (30s), 55°C (30s), 72°C (10min). The reaction was completed with a final extension for 10 min at 72°C. The amplification product was diluted 1/20 in water and used as a template in the nested PCR. The nested PCR reaction contained 25 μl Thermo Maxima DreamTaq Hot Start PCR master mix, 1 μl of the diluted first PCR product, 1 μl of 10 μM of RPS12UTR INT primer (5’ GACTATTGTTTGTTTATTGTTTGTATTGA 3’), 1 μl of 10 μM Nru 1R in a total of 50 μl. The cycling conditions were as follows: One Cycle at 94°C (1min), followed by 30 cycles consisting of 94°C (30s), 55°C (30s), 72°C (10min). The reaction was completed with a final extension at 72°C for 10 min. The products from the second reaction were analyzed by electrophoresis on a 1% agarose gel.
+
+Results
+As a first step in determining if CRISPR could be used to insert genes at a specific position in the B. malayi genome, the genomic sequence was analyzed to identify potential insertion sites. We attempted to identify “genomic safe harbors” [20] where integration of the reporter cassette would be unlikely to disrupt the normal function of nearby genes. In identifying such sites, we used the following criteria: 1. The intergenic regions had to be unique in the genome; 2. They had to contain a terminal protospacer adjacent motif (PAM) necessary for recognition by the sgRNA/CAS9 RNP (NGG); and 3. The putative PAM sequence had to be at least 2kb from the nearest predicted coding region. Based on these criteria we identified three candidate insertion sites that would represent potential genomic safe harbors (Table 1). One of these, Chr1scaffold 001:6484000–6485999 (B. malayi v4 assembly available in the European Nucleotide Archive database under accession number GCA_000002995.5 [https://www.ebi.ac.uk/ena/data/view/GCA_000002995.5]), was chosen at random to serve as the insertion site.
+
+10.1371/journal.pntd.0008627.t001Table 1 Putative Safe Harbor Sites for CRISPR Insertion of the Reporter Cassette.
+Location	Upstream UTR (Distance in nt)	Downstream UTR (Distance in nt)	
+Chr1scaffold 001:14386500–14387872	Bm433 (6560)	Bm8071 (13807)	
+Chr1scaffold 001:6484000–6485999	Bm3846 (9870)	Bm13263 (9871)	
+Chr1scaffold 001:9808670–9810425	Bm10782 (6368)	Bm5327 (28,626)	
+Chr1scaffold 001:6484000–6485999 was then analyzed to identify the best target location for CRISPR cutting and insertion as described in the Materials and Methods. Based upon this analysis, the sequence corresponding to positions 6485106–6485125 in Chr1 scaffold 001 was identified as the sequence best suited to serve as the sgRNA target. The genomic sequences upstream (6484000–6485105; 1106 nt) and downstream (6485129–6485987; 859 nt) of the sgRNA target site and its 3’ PAM motif were then combined with the dual reporter expression cassette in pBACIIBmGLuc-GFP [19]. This resulted in the production of pCHR1-BmGLuc-GFP (Fig 1).
+
+10.1371/journal.pntd.0008627.g001Fig 1 Map of pCHR1-BmGLuc-GFP: Reporter open reading frames and direction of transcription are indicated by the colored arrows.
+This plasmid contains the upstream (1106 nt) and downstream (859 nt) sequences of the sgRNA recognition site flanking a dual reporter cassette. The cassette contains a modified Gaussia princips secreted luciferase (GLuc) under the control of the Bmhsp70 promoter and Bmhsp70 3’ UTR, and the green florescent protein (GFP) ORF under the control of the Bmrps12 promoter and 3’ UTR.
+
+An sgRNA was then prepared corresponding to the sequence encoded in positions 6485106–6485125 of Chr1 scaffold 001. To confirm that the sgRNA could specifically direct cutting at the target sequence, the sgRNA was first tested in an in vitro cutting assay with a PCR amplicon amplified from B. malayi genomic DNA that contained the sgRNA target sequence, as well as the upstream and downstream sequences present in pCHR1-BmGLuc-GFP. The sgRNA, when combined with the amplicon and CAS9 nuclease, cut the amplicon into 1123 and 877 bp fragments, consistent with the predicted sizes of the fragments had the sgRNA directed the CAS9 nuclease to cut the amplicon at the target site (Fig 2). Cutting was not observed in the absence of either the CAS9 nuclease or the sgRNA (Fig 2).
+
+10.1371/journal.pntd.0008627.g002Fig 2 In vitro digestion of the putative insertion site: An amplicon corresponding to Chr1scaffold 001:6484000–6485999 was produced and digested with the corresponding sgRNA and CAS9 nuclease, as described in Materials and Methods. Lane A = undigested amplicon. Lane A+R+C = amplicon incubated with the sgRNA and CAS9 nuclease. Lane A+C = amplicon incubated with CAS9 nuclease alone. Lane A+R = amplicon incubated with the sgRNA alone.
+
+The sgRNA, Cas9 nuclease, and pCHR1-BmGLuc-GFP were then introduced into molting B. malayi L3 by lipofection as described in the Materials and Methods. The transgenic parasites were injected intraperitoneally into two naïve gerbils and allowed to develop to adults and produce F1 progeny microfilariae, as previously described [10]. The microfilariae from the gerbils were isolated, placed in individual wells of 96 well plates, and were assayed for secreted GLuc reporter activity, as previously described [19]. A total of 1440 individual microfilariae (960 from one animal and 480 from the second animal) were screened in this manner. The results of the GLuc assay revealed that the individual microfilaria segregated into two distinct groups. Most of the microfilariae (n = 1394) analyzed secreted low levels of GLuc activity that were not different from those seen from untransfected individual microfilariae (Fig 3). However, secreted GLuc activity detected into the culture medium from 46 microfilariae was 7 to 8-fold higher than for the 1394 parasites in this low activity group (p < 0.001; t test), indicating that these F1 progeny may be carrying the transgenes (Fig 3). This represented a ~3% prevalence of transgenic F1 parasites, which was consistent with the results previously obtained with parasites transfected with the piggyBac constructs [10].
+
+10.1371/journal.pntd.0008627.g003Fig 3 Gaussia luciferase activity secreted by individual F1 microfilaria: Microfilariae were collected from two gerbils that were independently infected with transfected molting L3 and cultured overnight, and one gerbil infected with untransfected L3. The media for the cultured individual microfilaria were assayed for Gaussia luciferase activity, as described in Materials and Methods. The number of microfilariae producing luciferase activity corresponding to each interval on the X axis are represented by the bars. The Y axis is presented using a logarithmic scale for clarity. #mf = number of mf secreting the indicated range of Gaussia luciferase activity into the culture medium. RLU = Relative light units.
+
+DNA from the individual GLuc positive microfilaria was then assayed by hemi-nested PCR for the presence of the transgenic sequences and for their insertion point in the genome. All of the GLuc positive microfilariae (n = 46) produced PCR amplicons consistent with insertion of the transgenic sequences into the expected location in the genome, while no product was detected from randomly selected individuals from the population of 1394 microfilariae that produced activity equivalent to that seen from untransfected microfilariae, or from B. malayi genomic DNA prepared from an untransfected female parasite (Fig 4).
+
+10.1371/journal.pntd.0008627.g004Fig 4 Hemi-nested PCR analysis of insertion sites in individual microfilaria secreting Gaussia luciferase: Results shown are 12 representatives of those obtained from all 46 luciferase positive microfilariae recovered. Lanes labeled mf+ = DNA prepared from individual microfilaria positive for luciferase activity. Lane mf- = DNA prepared from an individual microfilaria recovered from the animals that did not secrete luciferase. Lane DNA = genomic DNA prepared from untransfected adult female B. malayi DNA.
+
+To further confirm the insertion site, the DNA sequence of the amplicons from 10 randomly selected microfilariae were determined. All matched the sequence predicted for insertion of the transgenic sequences into the site targeted by the sgRNA.
+
+Although all of the transgenic microfilariae contained the insertion at the predicted site, it was considered possible that insertions might have occurred at additional off target sites in the genome in the transgenic parasites. To detect such off-target insertions, DNA from 14 individual transgenic microfilariae was digested with Nru 1 and an adaptor was ligated to the ends of the resulting restriction fragments. The adaptor ligated products were then amplified using a hemi-nested PCR assay to identify the insertion sites, as described in the Materials and Methods. All 14 of the DNA samples from the individual transgenic microfilaria produced a single PCR amplicon, demonstrating that they contained a single insertion site, while no product was detected from DNA prepared from 13 non-transgenic microfilariae (Fig 5).
+
+10.1371/journal.pntd.0008627.g005Fig 5 Adaptor mediated hemi-nested PCR assay for off target insertion sites: Results shown are representatives from 14 individual transgenic microfilariae and 13 non-transgenic microfilariae, all of which gave results identical to those shown here. Lanes labeled mf- = non-transgenic microfilaria and those labeled mf+ = transgenic microfilaria.
+
+The single band seen in all the transgenic microfilariae was approximately 2400 bp, consistent with the amplicon predicted to be produced from insertion into the predicted site (2374 bp). DNA sequence analysis of the amplicons confirmed that they were derived from the expected insertion site.
+
+Discussion
+The results presented demonstrate that CRISPR can be used to direct insertions into defined locations in the genome of B. malayi. Previously, we have developed a toolkit for integrative stable transfection of B. malayi that utilized the piggyBac transposon-based system. The piggyBac system results in integration into loci with the sequence TTAA, which are widely distributed in the genome. While this semi-random mechanism of insertion can be quite useful in some instances (for example, conducting saturation mutagenesis of the Plasmodium falciparum genome [21]), the ability to direct insertions into specific locations in the genome confers several advantages for the production of knock-in mutations. For example, using CRISPR, it should be possible to insert constructs carrying various promoters driving the expression of a reporter gene into a single designated location in the genome. By doing so, one can eliminate any position effects that might result from a more random insertion into different locations in the genome. Furthermore, if all insertions are located at the same position in the genome, all individual transgenic parasites will carry exactly the same insertion. This will make the process of crossing parasites to obtain a homozygous parasite line less complicated to perform.
+
+Another important potential application of CRISPR in B. malayi will be precise editing of sequences in the genome. Thus, it should be possible to knock out specific genes or to create conditional mutants, permitting one to carry out functional genomic studies on this parasite. It should also be possible to introduce alleles found to be associated with drug resistance into susceptible parasites, allowing one to directly test the hypothesis that a particular mutation is responsible for the development of resistance. However, in this study, we have not yet demonstrated that CRISPR will be capable of such precise editing in B. malayi. Studies addressing this question are currently underway.
+
+While the results presented here demonstrate that CRISPR can be used in B. malayi, some obstacles remain to be overcome before this tool can be used to routinely and efficiently develop transgenic parasite lines. First, it will be necessary to develop a way to efficiently screen for transgenic F1 microfilariae or L3. In the current study, we found that roughly 3% of the F1 microfilariae produced from adult parasites transfected as L3 were transgenic. This percentage is very similar to what was obtained using the piggyBac system [10] and so may be a characteristic of the system rather than specific to the CRISPR constructs used here. Given that only 10–15% of the L3 introduced into a gerbil survive to produce adult parasites [22] it seems that a minimum of 30–40 L3 are required to reliably establish a patent infection. If 3% of the F1 parasites are transgenic, this will require screening 1000–2000 F1 progeny to obtain sufficient transgenic parasites to maintain the transgenic line. Manually sorting and screening this number of parasites is quite labor intensive. Thus, more efficient ways to isolate and screen the F1 parasites will be needed if this technology is to be used routinely. Alternatively, the methods used for CRISPR mediated modification might be optimized to produce a larger percentage of transgenic F1 offspring in B. malayi. For example, in the work reported here, we have used upstream and downstream arms that were chosen to direct long-range homologous recombination, as the dual reporter gene cassette we inserted was quite large. The sequences we used (1106 nt and 859 nt) were within the range reported to be optimal for CRISPR mediated long range homologous recombination in the free living nematode Caenorhabditis elegans (500-1500nt) [23, 24], but larger or smaller arms may prove to be more efficient in directing CRISPR-mediated long range recombination in B. malayi. It is also possible that smaller modifications involving gene editing or short range homologous recombination may prove to be more efficient than long range homologous recombination. CRISPR mediated short range homologous recombination has been reported to be more efficient than long range homologous recombination in C. elegans [24]. In Strongyloides stercoralis, roughly 17% of the F1 progeny in a study using CRISPR mediated short range homologous recombination were transgenic [15]. Other modifications may also improve the efficiency of CRISPR in B. malayi. For example, in Strongyloides stercoralis, co-transfection with a plasmid expressing the CAS9 nuclease under the control of an endogenous promoter was found to be more efficient in generating transgenic F1 progeny than co-transfection with CAS9 nuclease–sgRNA RNPs [15].
+
+Finally, it is likely that many of the phenotypes of interest (e.g. knockouts of specific parasite genes) will likely be recessive, meaning that they will only manifest themselves in parasites homozygous for the mutant of interest. Thus, it will be necessary to develop ways to genotype the parasites without adversely affecting their ability to survive and develop in the animal host. Work addressing all of these obstacles is currently underway.
+
+We are extremely grateful to the NIH/NIAID Filariasis Research Reagent Resource Center (FR3; www.filariasiscenter.org) for providing us with the parasites used in this study. We would also like to thank Ms. Kristi Miley for technical assistance.
+
+10.1371/journal.pntd.0008627.r001
+Decision Letter 0
+Geary Timothy G. Deputy Editor Specht Sabine Associate Editor © 2020 Geary, Specht2020Geary, SpechtThis is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.Submission Version0
+2 Jun 2020
+
+
+Dear Dr. Unnasch,
+
+Thank you very much for submitting your manuscript "CRISPR-mediated Transfection of Brugia malayi" for consideration at PLOS Neglected Tropical Diseases. As with all papers reviewed by the journal, your manuscript was reviewed by members of the editorial board and by several independent reviewers. In light of the reviews (below this email), we would like to invite the resubmission of a significantly-revised version that takes into account the reviewers' comments. 
+
+We cannot make any decision about publication until we have seen the revised manuscript and your response to the reviewers' comments. Your revised manuscript is also likely to be sent to reviewers for further evaluation.
+
+When you are ready to resubmit, please upload the following:
+
+[1] A letter containing a detailed list of your responses to the review comments and a description of the changes you have made in the manuscript. Please note while forming your response, if your article is accepted, you may have the opportunity to make the peer review history publicly available. The record will include editor decision letters (with reviews) and your responses to reviewer comments. If eligible, we will contact you to opt in or out.
+
+[2] Two versions of the revised manuscript: one with either highlights or tracked changes denoting where the text has been changed; the other a clean version (uploaded as the manuscript file). 
+
+Important additional instructions are given below your reviewer comments.
+
+Please prepare and submit your revised manuscript within 60 days. If you anticipate any delay, please let us know the expected resubmission date by replying to this email. Please note that revised manuscripts received after the 60-day due date may require evaluation and peer review similar to newly submitted manuscripts.
+
+Thank you again for your submission. We hope that our editorial process has been constructive so far, and we welcome your feedback at any time. Please don't hesitate to contact us if you have any questions or comments.
+
+Sincerely,
+
+Sabine Specht
+
+Associate Editor
+
+PLOS Neglected Tropical Diseases
+
+Timothy Geary
+
+Deputy Editor
+
+PLOS Neglected Tropical Diseases
+
+***********************
+
+Reviewer's Responses to Questions
+
+Key Review Criteria Required for Acceptance?
+
+As you describe the new analyses required for acceptance, please consider the following:
+
+Methods
+
+-Are the objectives of the study clearly articulated with a clear testable hypothesis stated?
+
+-Is the study design appropriate to address the stated objectives?
+
+-Is the population clearly described and appropriate for the hypothesis being tested?
+
+-Is the sample size sufficient to ensure adequate power to address the hypothesis being tested?
+
+-Were correct statistical analysis used to support conclusions?
+
+-Are there concerns about ethical or regulatory requirements being met?
+
+Reviewer #1: The methods in this study are clearly articulated. This paper reports a very significant technical achievement in genome modification of B. malayi and is not explicitly hypothesis driven. This is appropriate for such a report. Sample sizes are sufficient to support the claims of the paper, and statistical analyses were used. An additional control involving microfilariae from non-transgenic adults would clarify the status of worms exhibiting an apparent low-level of GLuc expression in Figure 3. There are no concerns about ethical or regulatory issues.
+
+Reviewer #2: Excellent. Only minor corrections to the text.
+
+--------------------
+
+Results
+
+-Does the analysis presented match the analysis plan?
+
+-Are the results clearly and completely presented?
+
+-Are the figures (Tables, Images) of sufficient quality for clarity?
+
+Reviewer #1: The analysis presented matches the plan
+
+The issue of the status of mff apparently expressing a low level of GLuc expression, alluded to in the summary needs to be addressed.
+
+Figures and tables are OK, but authors should consider revising Fig. 2 along lines suggested in Substantive Point 12 in the summary.
+
+Reviewer #2: Very clear. Only minor corrections to the text.
+
+--------------------
+
+Conclusions
+
+-Are the conclusions supported by the data presented?
+
+-Are the limitations of analysis clearly described?
+
+-Do the authors discuss how these data can be helpful to advance our understanding of the topic under study?
+
+-Is public health relevance addressed?
+
+Reviewer #1: Conclusions are supported by the data, and limitations of the system are clearly addressed. 
+
+The discussion would be greatly improved if it placed the current findings on B. malayi in the broader context of CRISPR/Cas9 mutagenesis in other parasitic helminths.
+
+Public health relevance of the reported findings is addressed
+
+Reviewer #2: Straight to the point! Only minor corrections to the text.
+
+--------------------
+
+Editorial and Data Presentation Modifications?
+
+Use this section for editorial suggestions as well as relatively minor modifications of existing data that would enhance clarity. If the only modifications needed are minor and/or editorial, you may wish to recommend “Minor Revision” or “Accept”. 
+
+Reviewer #1: Seven suggestions in this area are presented under MINOR POINTS OF GRAMMAR AND USAGE in the summary,
+
+Reviewer #2: Only very minor corrections/modifications. These are indicated in the attached word document. I recommend rapid publication.
+
+--------------------
+
+Summary and General Comments
+
+Use this section to provide overall comments, discuss strengths/weaknesses of the study, novelty, significance, general execution and scholarship. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. If requesting major revision, please articulate the new experiments that are needed.
+
+Reviewer #1: Review of Manuscript No. PNTD-D-20-00588 by Liu, Unnasch and others entitled “CRISPR-mediated Transfection of Brugia malayi”. The authors, who have previously achieved both transient and integrative transgenesis in B. malayi, report here the integration of a single copy of a reporter transgene into a large intergenic region in the genome of this parasite by CRISPR/Cas9. B. malayi, a human pathogen in its own right, is regarded widely as a model for the other parasites that cause lymphatic filariasis. This is an exceedingly important finding for the field and marks an important step forward in what has been a long record of success by this group of authors in devising functional genomic methods for the lymphatic dwelling filariae. These achievements are remarkable considering the difficult technical hurdles conferred by the fact that there are no free-living stages of B. malayi or any other filaria, and that both a mosquito and a mammalian host are required for the parasite to complete its life cycle. 
+
+This paper has many strengths. It reports the first proof of principle for CRISPR/Cas9 genome modification in these very important pathogens. In doing so, the authors have succeeded in precisely targeting a single-copy reporter transgene integration to what could be characterized as a genomic safe harbor locus in the B. malayi genome. They take pains to demonstrate that there were no off-target integrations produced by their system. In general, the authors do a good job of discussing their findings in the context of previous work on transgenesis in B. malayi.
+
+The paper also has some substantive deficiencies and areas for improvement, which are enumerated below. Chief among these is that the reported findings, important as they are, are discussed rather narrowly in the context of previous work on B. malayi, rather than in a wider context of contemporary efforts to achieve CRISPR/Cas9 genome modification in other parasitic helminths, both nematodes and trematodes. The paper would be greatly improved by placing the new findings in B. malayi in this broader context. 
+
+Another technical area of the paper that needs to be addressed and clarified is the status of the 1394 F1 microfilariae that appear in Figure 3 to be displaying a low level of GLuc activity, but are subsequently characterized as non-transgenic parasites. If the authors regard the GLuc activity seen in these worms to be a “background” signal, they should explicitly state that and provide an explanation for the origin of this low-level signal. Ideally, the inclusion of control microfilariae from a gerbil infected with non-transgenic L3 in this figure would resolve this.
+
+Another substantive clarification that would be significant for the paper would be to provide the length(s) in bp of the homology arms in the transgene construct (ie stretches of sequence homologous to sequences flanking the predicted double-stranded break). The lengths of these homology arms might bear on the 3% frequency of integration the authors observe. 
+
+Other points and recommendations for substantive improvements are enumerated below. Following that, a few minor points of grammar and usage are listed. 
+
+SUBSTANTIVE ISSUES AND SUGGESTIONS
+
+1. Line 96: Is it worth mentioning in this area the potential for unintended insertional mutagenesis due to widespread piggyBac integrations?
+
+2. Line 146: It would be informative to insert the length in bp of the amplicon here. There's evidence that longer homology arms give higher efficiency of integration.
+
+3. Line 162: Again, it would be good to give the length of this homology arm in bp.
+
+4. Line 315: Sites such as these have been characterized elsewhere as "genomic safe harbors". Would it be appropriate/useful to do that here?
+
+5. Line 336: Again, need to indicate the lengths of the flanking homology arms in bp.
+
+6. Line 365: Then to what do you attribute the apparent low level of GLuc activity seen in the 1394 parasites? Is it simply "background"? This is a very important clarification for the paper. A control comprising microfilariae from a gerbil infected with non-transgenic L3 would be important in resolving this.
+
+7. Line 377: How about rates of CRISPR/Cas9 mutation/editing in other parasitic helminths (nematodes or flatworms)? The paper would be greatly improved by a discussion of the present findings in the larger context of CRISPR/Cas9 genome modification in other parasitic helminths.
+
+8. Line 382: Are these the 1394 mff referred to in line 365? It'd be good to clarify whether you consider those to be GLuc negative worms. 
+
+9. Line 428: Wouldn't single-copy transgene integrations by CRISPR/Cas9 also eliminate the confounding effects of transgene over expression from the variable but potentially large numbers of piggyBac insertions?
+
+10. Line 447: Some mention of mutation frequencies produced in other parasitic helminths by CRISPR/Cas9 would enhance this part of the discussion. Also, knowing the length of the homology arms used in this study might reflect on this. There may be evidence that the length of these can enhance frequency of integration.
+
+11. Line 450: C. elegans workers have devised a fluorescence activated sorting system for transgenic worms, and this has been "piloted" in transgenic parasitic nematodes. Would that be worth adding to the discussion?
+
+12. Figure 2 and caption (lines 350-354): Recommend substituting abbreviated labels for these code numbers, making it easier to interpret the gel without referring to text or caption to decode.
+
+MINOR POINTS OF GRAMMAR AND USAGE
+
+1. Line 63: suggest Insert "agents" after "causative".
+
+2. Line 219: Consider using the singular "medium" here and following where appropriate. Should be singular in the next sentence too.
+
+3. Line 396: Make it "microfilariae"....plural, right?
+
+4. Line 397: Suggest adding "considered" before "possible".
+
+5. Line 399: Make it "was digested" (subject verb agreement)
+
+6. Line 402: Shouldn't it be "microfilariae"...plural?
+
+7. Line 429: Suggest "...will be precise editing of genome sequences."
+
+Reviewer #2: This is definitely the most important paper in filarial biology that I have read this year. It is an excellent follow-up to their recent paper on successful transfection of Brugia malayi. Along with transfection, the application of CRISPR technology to filarial parasites will prove to be one of the most significant technological advances needed to elucidate the biology of these difficult organisms. The paper is well written and clear. I have made a few suggestions for clarity and caught a few grammar issues/typos, but no significant modifications are necessary and I recommend quick publication.
+
+--------------------
+
+PLOS authors have the option to publish the peer review history of their article (what does this mean?). If published, this will include your full peer review and any attached files.
+
+If you choose “no”, your identity will remain anonymous but your review may still be made public.
+
+Do you want your identity to be public for this peer review? For information about this choice, including consent withdrawal, please see our Privacy Policy.
+
+Reviewer #1: No
+
+Reviewer #2: No
+
+Figure Files:
+
+While revising your submission, please upload your figure files to the Preflight Analysis and Conversion Engine (PACE) digital diagnostic tool, https://pacev2.apexcovantage.com. PACE helps ensure that figures meet PLOS requirements. To use PACE, you must first register as a user. Then, login and navigate to the UPLOAD tab, where you will find detailed instructions on how to use the tool. If you encounter any issues or have any questions when using PACE, please email us at figures@plos.org.
+
+Data Requirements:
+
+Please note that, as a condition of publication, PLOS' data policy requires that you make available all data used to draw the conclusions outlined in your manuscript. Data must be deposited in an appropriate repository, included within the body of the manuscript, or uploaded as supporting information. This includes all numerical values that were used to generate graphs, histograms etc.. For an example see here: http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.1001908#s5.
+
+Reproducibility:
+
+To enhance the reproducibility of your results, PLOS recommends that you deposit laboratory protocols in protocols.io, where a protocol can be assigned its own identifier (DOI) such that it can be cited independently in the future. For instructions see https://journals.plos.org/plosntds/s/submission-guidelines#loc-methods
+
+Attachment Submitted filename: Review of Liu et al MS.docx
+
+Click here for additional data file.
+
+ 10.1371/journal.pntd.0008627.r002
+Author response to Decision Letter 0
+Submission Version1
+12 Jun 2020
+
+
+Attachment Submitted filename: Liu et al rev cover.docx
+
+Click here for additional data file.
+
+ 10.1371/journal.pntd.0008627.r003
+Decision Letter 1
+Geary Timothy G. Deputy Editor Specht Sabine Associate Editor © 2020 Geary, Specht2020Geary, SpechtThis is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.Submission Version1
+21 Jul 2020
+
+
+Dear Dr. Unnasch,
+
+We are pleased to inform you that your manuscript 'CRISPR-mediated Transfection of Brugia malayi' has been provisionally accepted for publication in PLOS Neglected Tropical Diseases.
+
+Before your manuscript can be formally accepted you will need to complete some formatting changes, which you will receive in a follow up email. A member of our team will be in touch with a set of requests.
+
+Please note that your manuscript will not be scheduled for publication until you have made the required changes, so a swift response is appreciated.
+
+IMPORTANT: The editorial review process is now complete. PLOS will only permit corrections to spelling, formatting or significant scientific errors from this point onwards. Requests for major changes, or any which affect the scientific understanding of your work, will cause delays to the publication date of your manuscript.
+
+Should you, your institution's press office or the journal office choose to press release your paper, you will automatically be opted out of early publication. We ask that you notify us now if you or your institution is planning to press release the article. All press must be co-ordinated with PLOS.
+
+Thank you again for supporting Open Access publishing; we are looking forward to publishing your work in PLOS Neglected Tropical Diseases.
+
+Best regards,
+
+Sabine Specht
+
+Associate Editor
+
+PLOS Neglected Tropical Diseases
+
+Timothy Geary
+
+Deputy Editor
+
+PLOS Neglected Tropical Diseases
+
+***********************************************************
+
+Reviewer's Responses to Questions
+
+Key Review Criteria Required for Acceptance?
+
+As you describe the new analyses required for acceptance, please consider the following:
+
+Methods
+
+-Are the objectives of the study clearly articulated with a clear testable hypothesis stated?
+
+-Is the study design appropriate to address the stated objectives?
+
+-Is the population clearly described and appropriate for the hypothesis being tested?
+
+-Is the sample size sufficient to ensure adequate power to address the hypothesis being tested?
+
+-Were correct statistical analysis used to support conclusions?
+
+-Are there concerns about ethical or regulatory requirements being met?
+
+Reviewer #1: Objectives of the study are clearly articulated and study design is appropriate for the stated objectives. This is a report of new methodology for Brugia and not a hypothesis driven study, which is entirely appropriate. The study population is clearly described and sample sizes are sufficient. Analysis and interpretation of data are satisfactory. Ethical issues are satisfactorily addressed.
+
+Reviewer #2: Nothing additional to add to my earlier review. The paper is excellent and meets all criteria for publication.
+
+**********
+
+Results
+
+-Does the analysis presented match the analysis plan?
+
+-Are the results clearly and completely presented?
+
+-Are the figures (Tables, Images) of sufficient quality for clarity?
+
+Reviewer #1: Yes, the analysis matches the analysis plan and results in the revised manuscript are now clearly and completely presented. Figures and tables are of sufficient quality for clarity.
+
+Reviewer #2: Nothing to add to my earlier review.
+
+**********
+
+Conclusions
+
+-Are the conclusions supported by the data presented?
+
+-Are the limitations of analysis clearly described?
+
+-Do the authors discuss how these data can be helpful to advance our understanding of the topic under study?
+
+-Is public health relevance addressed?
+
+Reviewer #1: Conclusions are certainly supported by the data presented, and limitations of the analysis are described. The impact of these data and public health relevance are clearly presented in the manuscript narrative.
+
+Reviewer #2: Nothing to add to my earlier review.
+
+**********
+
+Editorial and Data Presentation Modifications?
+
+Use this section for editorial suggestions as well as relatively minor modifications of existing data that would enhance clarity. If the only modifications needed are minor and/or editorial, you may wish to recommend “Minor Revision” or “Accept”.
+
+Reviewer #1: The revised manuscript incorporates all crucial points raised by this reviewer about the original submission. I support the authors' decision not to discuss the possible application of fluorescence activated parasite sorting.
+
+Reviewer #2: No modifications suggested.
+
+**********
+
+Summary and General Comments
+
+Use this section to provide overall comments, discuss strengths/weaknesses of the study, novelty, significance, general execution and scholarship. You may also include additional comments for the author, including concerns about dual publication, research ethics, or publication ethics. If requesting major revision, please articulate the new experiments that are needed.
+
+Reviewer #1: This is a very important paper, reporting the first achievement of targeted mutagenesis in a filarial worm via CRISPR/Cas9. It draws significantly on the authors' previous achievements in transgenesis and transgene integration into the chromosomes of Brugia. The authors have done a very conscientious job of revising the manuscript and have incorporated virtually all suggestions by this reviewer following the initial review.
+
+Reviewer #2: As described in my original review, this is a very important paper with implications to revolutionize work on filarial parasites. The changes made to the paper since my last review are all acceptable and slightly improve the quality of the paper.
+
+**********
+
+PLOS authors have the option to publish the peer review history of their article (what does this mean?). If published, this will include your full peer review and any attached files.
+
+If you choose “no”, your identity will remain anonymous but your review may still be made public.
+
+Do you want your identity to be public for this peer review? For information about this choice, including consent withdrawal, please see our Privacy Policy.
+
+Reviewer #1: No
+
+Reviewer #2: No
+
+10.1371/journal.pntd.0008627.r004
+Acceptance letter
+Geary Timothy G. Deputy Editor Specht Sabine Associate Editor © 2020 Geary, Specht2020Geary, SpechtThis is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+25 Aug 2020
+
+
+Dear Dr. Unnasch,
+
+We are delighted to inform you that your manuscript, "CRISPR-mediated Transfection of Brugia malayi," has been formally accepted for publication in PLOS Neglected Tropical Diseases.
+
+We have now passed your article onto the PLOS Production Department who will complete the rest of the publication process. All authors will receive a confirmation email upon publication.
+
+The corresponding author will soon be receiving a typeset proof for review, to ensure errors have not been introduced during production. Please review the PDF proof of your manuscript carefully, as this is the last chance to correct any scientific or type-setting errors. Please note that major changes, or those which affect the scientific understanding of the work, will likely cause delays to the publication date of your manuscript. Note: Proofs for Front Matter articles (Editorial, Viewpoint, Symposium, Review, etc...) are generated on a different schedule and may not be made available as quickly.
+
+Soon after your final files are uploaded, the early version of your manuscript will be published online unless you opted out of this process. The date of the early version will be your article's publication date. The final article will be published to the same URL, and all versions of the paper will be accessible to readers.
+
+Thank you again for supporting open-access publishing; we are looking forward to publishing your work in PLOS Neglected Tropical Diseases. 
+
+Best regards,
+
+Shaden Kamhawi
+
+co-Editor-in-Chief
+
+PLOS Neglected Tropical Diseases
+
+Paul Brindley
+
+co-Editor-in-Chief
+
+PLOS Neglected Tropical Diseases
+==== Refs
+References
+1 Anonymous . London Declaration On Neglected Tropical Diseases 
+2012  Available from: www.UnitingToCombatNTDs.org.
+2 The Global Alliance to Eliminate Lymphatic Filariasis [1/30/20]. Available from: https://www.gaelf.org.
+3 Anonymous . Progress toward elimination of onchocerciasis in the Americas—1993–2012
+. Morbidity and Mortality Weekly Report . 2013 ;62 (20 ):405 –8
+. Epub 2013/05/24. .23698606 
+4 Stolk WA , Walker M , Coffeng LE , Basanez MG , de Vlas SJ . Required duration of mass ivermectin treatment for onchocerciasis elimination in Africa: a comparative modelling analysis
+. Parasit Vect . 2015 ;8 :552  Epub 2015/10/23. 10.1186/s13071-015-1159-9 
+26489937 
+5 Osei-Atweneboana MY , Awadzi K , Attah SK , Boakye DA , Gyapong JO , Prichard RK . Phenotypic evidence of emerging ivermectin resistance in Onchocerca volvulus
+. PLoS Negl Trop Dis . 2011 ;5 (3 ):e998  Epub 2011/04/07. 10.1371/journal.pntd.0000998 
+21468315 
+6 Nelson FK , Greiner DL , Shultz LD , Rajan TV . The immunodeficient SCID mouse as a model for human lymphatic filariasis
+. J Exp Med . 1991 ;173 (3 ):659 –63
+. 10.1084/jem.173.3.659 
+1997651 
+7 Mak JW , Choong MF , Lam PL , Suresh K . Experimental infection of the leaf-monkeys, Presbytis cristata and Presbytis melalophos with subperiodic Brugia malayi
+. Acta Trop . 1990 ;47 (4 ):223 –6
+. 10.1016/0001-706x(90)90013-p 
+1973024 
+8 Denham DA , Fletcher C . The cat infected with Brugia pahangi as a model of human filariasis
+. Ciba Found Symp . 1987 ;127 :225 –35
+. 10.1002/9780470513446.ch15 
+3595322 
+9 Weil GJ , Li BW , Liftis F , Chandrashekar R . Brugia malayi: antibody responses to larval antigens in infected and immunized jirds
+. Exp Parasitol . 1992 ;74 (3 ):315 –23
+. 10.1016/0014-4894(92)90155-4 
+1582484 
+10 Liu C , Mhashilkar AS , Chabanon J , Xu S , Lustigman S , Adams JH , et al
+Development of a toolkit for piggyBac-mediated integrative transfection of the human filarial parasite Brugia malayi
+. PLoS Negl Trop Dis . 2018 ;12 (5 ):e0006509 
+10.1371/journal.pntd.0006509 
+29782496 
+11 Zamanian M , Andersen EC . Prospects and challenges of CRISPR/Cas genome editing for the study and control of neglected vector-borne nematode diseases
+. FEBS J . 2016 ;283 (17 ):3204 –21
+. Epub 2016/06/15. 10.1111/febs.13781 
+27300487 
+12 Lok JB . CRISPR/Cas9 Mutagenesis and Expression of Dominant Mutant Transgenes as Functional Genomic Approaches
+ in Parasitic Nematodes. Front Genet . 2019 ;10 :656  Epub 2019/08/06. 10.3389/fgene.2019.00656 
+31379923 
+13 Castelletto ML , Gang SS , Hallem EA . Recent advances in functional genomics for parasitic nematodes of mammals
+. J Exp Biol . 2020 ;223 (Pt Suppl 1 ). Epub 2020/02/09. 10.1242/jeb.206482  .32034038 
+14 Ward JD . Spotlight on CRISPR in Strongyloides Parasitic Nematodes
+. Trends Parasitol . 2018 ;34 (1 ):6 –9
+. Epub 2017/11/28. 10.1016/j.pt.2017.11.005 
+29174224 
+15 Gang SS , Castelletto ML , Bryant AS , Yang E , Mancuso N , Lopez JB , et al
+Targeted mutagenesis in a human-parasitic nematode
+. PLoS Pathog . 2017 ;13 (10 ):e1006675  Epub 2017/10/11. 10.1371/journal.ppat.1006675 
+29016680 
+16 Bryant AS , Ruiz F , Gang SS , Castelletto ML , Lopez JB , Hallem EA . A Critical Role for Thermosensation in Host Seeking by Skin-Penetrating Nematodes
+. Curr Biol . 2018 ;28 (14 ):2338 –47.e6
+. Epub 2018/07/19. 10.1016/j.cub.2018.05.063 
+30017486 
+17 Arunsan P , Ittiprasert W , Smout MJ , Cochran CJ , Mann VH , Chaiyadet S , et al
+Programmed knockout mutation of liver fluke granulin attenuates virulence of infection-induced hepatobiliary morbidity
+. Elife . 2019 ;8  Epub 2019/01/16. 10.7554/eLife.41463 
+30644359 
+18 Ittiprasert W , Mann VH , Karinshak SE , Coghlan A , Rinaldi G , Sankaranarayanan G , et al
+Programmed genome editing of the omega-1 ribonuclease of the blood fluke, Schistosoma mansoni
+. Elife . 2019 ;8  Epub 2019/01/16. 10.7554/eLife.41337 
+30644357 
+19 Xu S , Liu C , Tzertzinis G , Ghedin E , Evans CC , Kaplan R , et al
+In vivo transfection of developmentally competent Brugia malayi infective larvae
+. Int J Parasitol . 2011 ;41 :355 –62
+. 10.1016/j.ijpara.2010.10.005  .21118694 
+20 Papapetrou EP , Schambach A . Gene Insertion Into Genomic Safe Harbors for Human Gene Therapy
+. Mol Ther . 2016 ;24 (4 ):678 –84
+. Epub 2016/02/13. 10.1038/mt.2016.38 
+26867951 
+21 Zhang M , Wang C , Otto TD , Oberstaller J , Liao X , Adapa SR , et al
+Uncovering the essential genes of the human malaria parasite Plasmodium falciparum by saturation mutagenesis
+. Science (New York, NY) . 2018 ;360 (6388 ). Epub 2018/05/05. 10.1126/science.aap7847 
+29724925 
+22 Mhashilkar AS , Adapa SR , Jiang RH , Williams SA , Zaky W , Slatko BE , et al
+Phenotypic and molecular analysis of the effect of 20-hydroxyecdysone on the human filarial parasite Brugia malayi
+. Int J Parasitol . 2016 ;46 (5–6 ):333 –41
+. 10.1016/j.ijpara.2016.01.005  Epub 2 
+16 
+10.1016/j.ijpara.2016.01.005  PubMed Central PMCID: PMC26896576. 26896576 
+23 Dickinson DJ , Ward JD , Reiner DJ , Goldstein B . Engineering the Caenorhabditis elegans genome using Cas9-triggered homologous recombination
+. Nat Methods . 2013 ;10 (10 ):1028 –34
+. Epub 2013/09/03. 10.1038/nmeth.2641 
+23995389 
+24 Dickinson DJ , Goldstein B . CRISPR-Based Methods for Caenorhabditis elegans Genome Engineering
+. Genetics . 2016 ;202 (3 ):885 –901
+. Epub 2016/03/10. 10.1534/genetics.115.182162 
+26953268
+

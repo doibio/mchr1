@@ -1,0 +1,441 @@
+
+==== Front
+Sci RepSci RepScientific Reports2045-2322Nature Publishing Group UK London 4698110.1038/s41598-019-46981-4ArticleAnalysis of lncRNA-miRNA-mRNA Interactions in Hyper-proliferative Human Pulmonary Arterial Smooth Muscle Cells Chinnappan Mahendran 1Gunewardena Sumedha 23Chalise Prabhakar 4Dhillon Navneet K. ndhillon@kumc.edu 121 0000 0001 2177 6375grid.412016.0Division of Pulmonary and Critical Care Medicine, University of Kansas Medical Center, Kansas City, Kansas USA 2 0000 0001 2177 6375grid.412016.0Department of Molecular & Integrative Physiology, University of Kansas Medical Center, Kansas City, Kansas USA 3 0000 0001 2177 6375grid.412016.0Kansas Intellectual and Developmental Disabilities Research Center, University of Kansas Medical Center, Kansas City, Kansas USA 4 0000 0001 2177 6375grid.412016.0Department of Biostatistics, University of Kansas Medical Center, Kansas City, Kansas USA 19 7 2019 19 7 2019 2019 9 1053322 4 2019 3 7 2019 © The Author(s) 2019Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.We previously reported enhanced proliferation of smooth muscle cells on the combined exposure of HIV proteins and cocaine leading to the development of HIV-pulmonary arterial hypertension. Here, we attempt to comprehensively understand the interactions between long noncoding RNAs (lncRNAs), mRNAs and micro-RNAs (miRNAs) to determine their role in smooth muscle hyperplasia. Differential expression of lncRNAs, mRNAs and miRNAs were obtained by microarray and small-RNA sequencing from HPASMCs treated with and without cocaine and/or HIV-Tat. LncRNA to mRNA associations were conjectured by analyzing their genomic proximity and by interrogating their association to vascular diseases and cancer co-expression patterns reported in the relevant databases. Neuro-active ligand receptor signaling, Ras signaling and PI3-Akt pathway were among the top pathways enriched in either differentially expressed mRNAs or mRNAs associated to lncRNAs. HPASMC with combined exposure to cocaine and Tat (C + T) vs control identified the following top lncRNA-mRNA pairs, ENST00000495536-HOXB13, T216482-CBL, ENST00000602736-GDF7, and, TCONS_00020413-RND1. Many of the down-regulated miRNAs in the HPASMCs treated with C + T were found to be anti-proliferative and targets of up-regulated lncRNAs targeting up-regulated mRNAs, including down-regulation of miR-185, -491 and up-regulation of corresponding ENST00000585387. Specific knock down of the selected lncRNAs highlighted the importance of non-coding RNAs in smooth muscle hyperplasia.
+
+Subject terms
+Non-coding RNAsMolecular medicinehttps://doi.org/10.13039/100000050U.S. Department of Health &amp; Human Services | NIH | National Heart, Lung, and Blood Institute (NHLBI)R01HL129875Dhillon Navneet K. https://doi.org/10.13039/100000026U.S. Department of Health &amp; Human Services | NIH | National Institute on Drug Abuse (NIDA)R01DA034542R01DA042715Dhillon Navneet K. issue-copyright-statement© The Author(s) 2019
+==== Body
+Introduction
+Human immunodeficiency virus (HIV)-1 associated pulmonary arterial hypertension (PAH) is one of the prominent noninfectious complications of HIV infection1,2. Since, not all the HIV infected patients develop HIV-PAH, it is proposed that other environmental factors may serve as second hit in the development of PAH in these individuals3,4. Reports suggest that drugs of abuse such as cocaine, opioids/morphine and methamphetamine are possible independent risk factors for the development of pulmonary arterial hypertension (PAH)5–8. Adding to this, the intravenous drug usage (IVDU) is widely reported to be a major risk factor for HIV infection and reports including from our lab suggest that IVDU and HIV-1 infection act in concert in potentiating PAH9–15.
+
+PAH is a pathological condition caused by pulmonary vascular remodeling involving hyper-proliferation of pulmonary arterial smooth muscle cells (PASMC) and endothelial cell (EC) dysfunction leading to increased blood pressure in the arteries leading to lung16,17. Both SMC and EC are not infected by HIV-1 but are continuously exposed to the viral proteins that are secreted by the infected immune cells of the host. Various studies, including from our group, have reported the role of viral proteins such as negative regulatory factor (Nef), glycoprotein-120 and trans-activator of transcription (Tat) in endothelial injury and pulmonary vascular remodeling7,18–20. Furthermore, our previous findings based on cell-culture and non-infectious HIV-transgenic model expressing 7 of 9 viral proteins demonstrate hyper-proliferation of pulmonary SMC in response to HIV protein(s) and cocaine21. We also observed that while HIV proteins namely Tat, gp120 and Nef were equally able to down-regulate the expression of bone morphogenetic protein receptors (BMPR), HIV-Tat demonstrated maximum effect in the presence of cocaine in human PASMCs22.
+
+Multiple molecular mechanisms including pathways regulated by noncoding RNAs have been reported to contribute to the development of PAH23,24. The significance of noncoding RNAs can be realized by the facts that only 2% of the human genome codes for protein coding genes and 90% of the rest of 98% of the genome codes for these non-protein coding genes25. Non-coding RNAs such as micro RNAs (miRNAs) and long non-coding RNAs (lncRNAs) play critical roles in regulating the fundamental aspects of cellular homeostasis and tissue development26,27. miRNAs are generally short RNAs with 21–23 nucleotides (nts) that regulate gene expression post transcriptionally by binding to mRNAs in a sequence specific manner. We had earlier characterized a novel role for miR-216 and -301 in modulating HIV-protein Tat and cocaine mediated SMC hyperplasia via targeting BMPR-2 mRNA10. Our studies also revealed the role of miRNAs carried in extracellular vesicles derived from HIV-infected and morphine exposed macrophages in regulating proliferation of PASMCs11.
+
+LncRNAs, novel class of non-coding RNAs that were recently discovered with the advancement of RNA-sequencing techniques are longer than 200 nts28. While the roles of miRNAs in PAH have been elaborately studied, functions of lncRNAs in smooth muscle dysfunction and PAH remain less explored. lncRNAs are reported to regulate gene expression by multiple mechanisms. Some function as decoy, guide or scaffold to a diverse set of transcription factors and chromatin silencing proteins and therefore regulate expression of protein coding genes at the transcriptional and post-transcriptional levels28. The lncRNAs sharing common miRNA bindings sites as target mRNA can also act as competitive endogenous RNA (ceRNA) by functioning as miRNA sponge or they can also act as precursors and encode miRNAs therefore regulating the levels and downstream functions of miRNAs29. Since multiple ways of interaction between miRNAs to lncRNAs, miRNA to mRNA, lncRNA to mRNA (cis and trans) have been reported to play crucial roles in determining the cellular fate, it becomes essential to study these interactions in an integrated fashion to comprehensively decipher the factors underpinning the pathology of PAH.
+
+Here, we report the first integrated analysis of altered lncRNA, miRNA and mRNA expression in hyper-proliferative human primary PASMCs treated with cocaine and Tat uncovering the critical interactions between these molecules that may eventually help us not only in understanding the cocaine and Tat induced hyper-proliferation but also in general regulation of smooth muscle dysfunction associated with all types of pulmonary hypertension.
+
+Results
+Differential expression of lncRNAs in Cocaine and Tat protein treated HPASMCs
+As shown in the schematic diagram in Fig. 1, microarrays were used to capture the expression profile of lncRNAs in Tat and cocaine treated HPASMCs. This analysis revealed a number of lncRNAs with significant differential expression (Fig. 2A). A total of 1,291 lncRNAs were significantly up-regulated and a total 2,155 were down-regulated in the combined treatment of cocaine and Tat (C + T) compared to control. LncRNAs have been classified into many different groups based on their genomic location with relevance to the nearby protein coding gene sequences30 which helps to predict some of their possible mode of action in regulating other cellular RNA molecules. Based on this classification, significantly differentially expressed lncRNAs in the C + T group compared to the untreated control were found to be 72% (2,509) intergenic, 12% (415) natural antisense and 9% (321) intronic antisense regions (Fig. 2B) in the genome. These lncRNAs ranged from 100 to 43,681 nts in size (Fig. 2C) and were distributed across all chromosomes (Fig. 2D).Figure 1 Schematic showing the overall workflow of the analysis. *Competing endogenous RNA; **The Database for Annotation, Visualization and Integrated Discovery (DAVID) v6.8.
+
+Figure 2 Differential expression and characteristics of lncRNAs. (A) Volcano plot for significantly dys-regulated lncRNAs in Cocaine and Tat (C + T) treated HPASMCs when compared with untreated control (Con). Subclasses (B), size ranges (C) and chromosome location (D) of significantly dys-regulated lncRNAs in C + T vs control group.
+
+
+
+Differential expression of mRNAs in Cocaine and Tat protein treated HPASMCs
+Analysis of microarray data of mRNA expression levels in the combined treatment of cocaine and Tat resulted in the up-regulation of 325 mRNAs and down regulation of 536 mRNAs, compared to control (Fig. 3A). A biological functional and pathway analysis based on GO terms and KEGG pathways was performed in order to understand the relevance of the significantly differentially expressed mRNAs to the phenotypic changes in HPASMC upon combined treatment of cocaine and Tat (Fig. 3 and Tables 1 and 2). For both, up-regulated (Fig. 3B) and down regulated (Fig. 3C) mRNA, the neuroactive ligand receptor pathway appeared as one of the top most enriched KEGG pathways. The up-regulated genes in this pathway were, DRD2, GLP1R, HTR1A, OPRL1 and PTGER3, and, the down-regulated genes were, P2RY13, PRLR. These genes are involved in G-protein coupled receptor signaling, and GLP1R is being recommended for PAH therapeutics31. The Ras signaling pathway, which was significantly enriched among the up-regulated genes in cocaine + Tat treated cells, had seven genes: EFNA3, FGF22, FGF3, FGFR2, PLA2G2A, PLA2G5, and, RASGRP4, associated with it (Fig. 3B), and of these the FGF signaling molecules are well known to induce proliferation32. The most highly enriched biological process associated GO term of the differentially expressed genes was calcium homeostasis for up-regulated genes (Table 1) and G-protein coupled receptor signaling for down-regulated genes (Table 2). The most enriched molecular function associated GO term for both the up and down regulated genes was trans-membrane receptor activity. The GO term of the cellular component most significantly associated with both the up and down regulated genes was intrinsic component of membrane.Figure 3 Differential expression and pathway analysis of dys-regulated mRNAs in cocaine and Tat (C + T) treated HPASMCs. (A) Volcano plot for significantly dys-regulated mRNAs in C + T treated group vs. control. KEGG pathway enrichment for up-regulated (B) and down-regulated (C) mRNAs in cocaine and Tat (C + T) treated HPASMCs.
+
+Table 1 GO terms for up-regulated mRNAs in HPASMCs treated with cocaine and Tat compared to untreated control.
+
+GO.ID	Term	Count	
+
+Biological Process
+	
+GO:0055074	calcium ion homeostasis	18	
+GO:0072507	divalent inorganic cation homeostasis	18	
+GO:0051480	regulation of cytosolic calcium ion concentration	14	
+GO:0003008	system process	50	
+GO:0050877	neurological system process	36	
+GO:0006874	cellular calcium ion homeostasis	16	
+GO:0030802	regulation of cyclic nucleotide biosynthetic process	9	
+GO:0055065	metal ion homeostasis	20	
+GO:1900371	regulation of purine nucleotide biosynthetic process	9	
+GO:0030808	regulation of nucleotide biosynthetic process	9	
+
+Cellular Component
+	
+GO:0031224	intrinsic component of membrane	113	
+GO:0016021	integral component of membrane	109	
+GO:0005887	integral component of plasma membrane	43	
+GO:0031226	intrinsic component of plasma membrane	43	
+GO:0044425	membrane part	123	
+GO:0005886	plasma membrane	98	
+GO:0071944	cell periphery	99	
+GO:0044459	plasma membrane part	55	
+GO:0098590	plasma membrane region	22	
+GO:0001673	male germ cell nucleus	2	
+
+Molecular Function
+	
+GO:0099600	transmembrane receptor activity	38	
+GO:0004872	receptor activity	44	
+GO:0060089	molecular transducer activity	44	
+GO:0004888	transmembrane signaling receptor activity	36	
+GO:0005509	calcium ion binding	23	
+GO:0038023	signaling receptor activity	37	
+GO:0004930	G-protein coupled receptor activity	25	
+GO:0022836	gated channel activity	13	
+GO:0005231	excitatory extracellular ligand-gated ion channel activity	5	
+GO:0010181	FMN binding	3	
+Table 2 GO terms for down-regulated mRNAs in HPASMCs treated with cocaine and Tat compared to untreated control.
+
+GO.ID	Term	Count	
+
+Biological Process
+	
+GO:0007186	G-protein coupled receptor signaling pathway	50	
+GO:0055085	transmembrane transport	50	
+GO:0034220	ion transmembrane transport	39	
+GO:0045665	negative regulation of neuron differentiation	13	
+GO:0007283	spermatogenesis	24	
+GO:0048232	male gamete generation	24	
+GO:0006811	ion transport	52	
+GO:0031345	negative regulation of cell projection organization	11	
+GO:0010977	negative regulation of neuron projection development	10	
+GO:0051961	negative regulation of nervous system development	15	
+
+Cellular Component
+	
+GO:0031224	intrinsic component of membrane	176	
+GO:0031226	intrinsic component of plasma membrane	69	
+GO:0044425	membrane part	197	
+GO:0016021	integral component of membrane	164	
+GO:0071944	cell periphery	158	
+GO:0005886	plasma membrane	155	
+GO:0044459	plasma membrane part	91	
+GO:0005887	integral component of plasma membrane	61	
+GO:0005891	voltage-gated calcium channel complex	5	
+GO:0031225	anchored component of membrane	10	
+
+Molecular Function
+	
+GO:0099600	transmembrane receptor activity	58	
+GO:0004872	receptor activity	65	
+GO:0060089	molecular transducer activity	65	
+GO:0004888	transmembrane signaling receptor activity	54	
+GO:0038023	signaling receptor activity	56	
+GO:0004930	G-protein coupled receptor activity	38	
+GO:0043225	ATPase-coupled anion transmembrane transporter activity	4	
+GO:0004871	signal transducer activity	61	
+GO:0030246	carbohydrate binding	16	
+GO:0008514	organic anion transmembrane transporter activity	8	
+
+
+In-silico functional association between differentially expressed lncRNAs and mRNAs in cocaine and Tat treated HPASMCs
+We looked for associations between the significantly differentially expressed mRNAs and lncRNAs in the relevant databases mentioned in Methods, to find out the reported association between them along with their known functional significance. We investigated the association of all significantly altered lncRNA and mRNAs in the C + T group compared to control using the LncDisease database and found that 37 significantly dys-regulated lncRNAs, were related to multiple differentially expressed mRNAs associated with cardiovascular diseases. The up-regulated lncRNA ENST00000495536 was one of the top candidates in the list and was associated with down-regulated HOXB13 mRNA in cocaine + Tat group (Fig. 4A).Figure 4 Predicted association of dys-regulated LncRNAs to altered mRNA expression in cocaine and Tat treated HPASMCs. (A) Table lists microarray details of selected top lncRNA/mRNA predicted associations. (B) KEGG pathway enrichment for mRNAs associated to lncRNAs based on genomic proximity (<300kbp). (C,D) Quantitative RT-PCR based validation of selected lncRNA/mRNA pairs from vascular disease and cancer co-expression database (C); and from genomic proximity (D) analysis. p-value *<0.05 vs. control (Con), ##<0.01, #<0.05 vs. cocaine(Coc), $$<0.01, $<0.05 vs. Tat.
+
+
+
+We next performed a correlation analysis of the significantly differentially expressed lncRNA and mRNA in the C + T group in conjunction with the lncRNA Cancer database. Significantly differentially expressed lncRNAs were associated with significantly differentially expressed mRNAs that showed a differential expression pattern that was in concordance with the correlation information obtained from the lncRNA Cancer database. We identified associations between 19 unique lncRNAs and 16 unique cancer related genes, making a total of 27 lncRNA to mRNA pairs that matched co-expression correlation values in the range of 0.6 to 0.8 in the lncRNACancer database (Supplementary File I). Cancer driver genes namely CBL, GFI1, RASGRF2 and ELK3 were significantly down-regulated and associated with the significantly down-regulated lncRNAs -T216482, -T334719, -T217484 and -T265137 respectively. On the other hand, down-regulated HOXB13 in C + T group was associated with the up-regulated lncRNA T151531. Figure 4A, lists some of the top lncRNA and mRNA associations retrieved from this analysis and suggests underlining interactions between these RNAs in regulating critical proliferation signals in HPASMC.
+
+Given that lncRNAs are known to regulate the expression of proximal protein coding genes in cis regulatory mechanisms33, we explored the lncRNA and mRNA microarray data to identify lncRNAs that may regulate in cis nearby mRNAs. A functional analysis of these mRNAs using the DAVID annotation tool revealed their association to multiple proliferation related pathways such as Hippo, PI3-Akt and cAMP signaling (Fig. 4B). A list of, long intergenic noncoding RNAs (lincRNAs) or antisense lncRNAs, along with their associated mRNA was prepared for the significantly differentially expressed lincRNAs and antisense lncRNAs in the C + T group based on their genomic proximity (<300 kbp from each other). A total of 345 pairs of lincRNA - mRNA associations were found. The lncRNA TCONS_00020413 was one of the top candidates in this list and was up-regulated in C + T compared to control, while expression of its nearby gene, RND1, was significantly down regulated (Fig. 4A). RND1 is a tumor suppressor protein that belongs to the Rho family GTPases. A biological functional analysis of these significantly differentially expressed mRNAs, in the lincRNA/mRNA pairs, done using ingenuity pathway analysis (IPA), listed cancer as one of the top diseases, with 208 mRNAs out of 345 being associated with it. GDF7 was one of the top candidate genes among the cancer related molecules. It was associated with three lncRNAs namely, T185733, NR_046836 and ENST00000602736 (Fig. 4A). The analysis of significantly differentially expressed antisense lncRNA and significantly differentially expressed mRNA, that were in close proximity to each other, yielded 21 lncRNA/mRNA pairs. The up-regulated antisense lncRNA T041024 in C + T group was in proximity to the down-regulated ALOX5 gene implicated in hypertension.
+
+In order to validate the microarray expression data of the identified lncRNA/mRNA pairs, we performed qRT-PCR on the top ranked lncRNAs that had a raw intensity above 100 (raw intensity is a surrogate measure of gene expression in microarrays) and their associated mRNAs from each of the three data sets mentioned above (Fig. 4A). From the lncRNA/mRNA associations established using the vascular disease database, we confirmed the up-regulation of the lncRNA, ENST00000495536, which was 2.4-fold up-regulated in cocaine + Tat treated HPASMCs compared to untreated cells. This lncRNA was associated with the HOXB13 gene, which was 2.1-fold down-regulated in cocaine + Tat. These alterations in the cocaine + Tat treated cells were also significant when compared to HPASMCs treated with only cocaine or Tat mono-treatments. Furthermore, mono- treatment of cocaine or Tat resulted in no significant change in either ENST00000495536 or HOXB13 mRNA levels compared to un-treated controls (Fig. 4C). We also observed that the lncRNA and mRNA pair NR_108042-BDKR1 was up or down-regulated ~2 -fold, respectively, in the cocaine + Tat group compared to control. From the lncRNA and mRNA associations obtained by cancer co expression analysis, we validated by qRT-PCR, the differential expression of lncRNA T216482 (2 fold down-regulated) and its associated mRNA, CBL (1.9 fold down-regulated) in C + T treated cells compared to control (Fig. 4C). These changes were also similarly significant when C + T treated cells were compared to cells with the mono-treatment of cocaine or Tat.
+
+We also validated by qRT-PCR, the expression of lincRNA TCONS_00020413 identified from the genome proximity analysis (Fig. 4A) and its associated gene, RND1. This lncRNA was significantly up-regulated by 2-fold in C + T treated HPASMC compared to control, whereas mono-treated cells with either cocaine or Tat resulted in only a non-significant 1.3 fold and 1.5 fold up-regulation, respectively (Fig. 4D). Its associated mRNA, RND1, was 2-fold down-regulated in cells treated with the cocaine + Tat (Fig. 4D). Further, we validated the mRNA expression of GDF7 (BMP12) and the three lincRNAs associated with it that was identified by their close genomic proximity. Validation by qRT-PCR established a 2-fold up-regulation of GDF7 while its associated lncRNA T185733 was 2.8-fold up-regulated and the other two lncRNAs, NR_046836 and ENST00000602736, were 1.7-fold and 1.8-fold down-regulated respectively, in cocaine + Tat compared to control (Fig. 4D). One of the lncRNA - mRNA pairs that was identified from the microarray analysis and selected for validation by qRT-PCR, NR_027022 – GOLTIA, showed no significant difference in expression in cocaine + Tat treated cells when compared to  untreated control (Fig. 4D).
+
+Dys-regulation of miRNAs in cocaine and Tat protein treated HPASMCs
+To determine the miRNAs that are involved in Tat and cocaine mediated hyper-proliferation of smooth muscle cells, we performed small RNA sequencing on total RNA isolated from HPASMC treated with cocaine and Tat for 48 h. Analysis of significantly differentially expressed miRNAs revealed 78 miRNAs in the cocaine + Tat group, 48 in the Tat only group and 60 in the cocaine only group, when compared with untreated control cells (Fig. 5A). In order to determine the genes that are regulated by these miRNAs and ascertain their functional relevance, we used the IPA miRNA target filtering tool to identify all the known down-stream target genes of these miRNAs and performed a biological functional analysis on them using DAVID (Fig. 6B). We next filtered these genes to only include those genes that were significantly differentially expressed in our microarray data and performed a biological functional analysis on them (Fig. 5C). The above analysis was performed for miRNAs and mRNAs that were significantly differentially expressed in cocaine + Tat group compared to control. The functional analysis results from DAVID on all down-stream mRNA targets of the significantly differentially expressed miRNAs suggest that these miRNAs may regulate mRNAs related to cancer and proliferation related pathways such as PI3-Akt, Ras, MAPK (Fig. 5B). Furthermore, the functional analysis results from DAVID on the significantly differentially expressed down-stream mRNA targets of the significantly differentially expressed miRNAs revealed associations to various proliferation related pathways such as PI3-Akt, Ras and calcium signaling (Fig. 5C).Figure 5 Differential expression of miRNAs and their predicted and experimentally validated mRNA targets in HPASMCs treated with cocaine and/or Tat. (A) Hierarchical clustering for differentially expressed miRNAs. (B,C) Biological functional analysis of significantly dysregulated miRNAs using DAVID tool on all the known down-stream mRNA targets of these miRNAs based on IPA analysis (B) and including only significantly differentially expressed mRNA target genes in the microarray data (C). (D) Combined functional analysis of the significantly differentially expressed mRNA and miRNAs in association with SMC proliferation using IPA (QIAGEN Inc., https://www.qiagenbioinformatics.com/products/ingenuitypathway-analysis).
+
+Figure 6 Quantitative RT-PCR analysis of the selected up-regulated lncRNA (A) and down-regulated miRNA (B) in the cells treated with and without cocaine and/or Tat. p-value ##<0.01, #<0.05 vs. cocaine (Coc); $<0.05 vs. Tat.
+
+
+
+In addition, a combined functional analysis of the significantly differentially expressed mRNA and miRNAs in cocaine + Tat treated HPASMCs using IPA highlighted several PAH related factors that support smooth muscle proliferation (Fig. 5D). Among the identified targets were the down-regulated genes, BMP7, CBL, TNFSF9, ITLN1, Nos3, TNRC6B, HDAC, and the up-regulated genes, CALCA, NOX1, KALRN, CXCL16, MYOCD and NOS1, which are known to induce smooth muscle cell proliferation. The analysis also revealed the significantly differentially expressed miRNAs in our data, miR-221, -10a, -122b, -21 and let-7, which are reported to activate proliferative signals in smooth muscle cells (Fig. 5D). Overall, the dysregulated miRNA and mRNA profile in cocaine + Tat smooth muscle cells shows that they may play a critical role in cocaine + Tat induced hyper- proliferation of HPASMC.
+
+Integrated analysis of significantly dys-regulated lncRNA, miRNA and mRNA in HPASMC exposed to combined treatment of cocaine and Tat
+Long noncoding RNAs are known to function as competing endogenous RNAs (ceRNAs) and affect mRNA levels by sequestering common miRNAs that target both the lncRNA and mRNAs34. We explored this function of ceRNA by analyzing the association of the up-regulated lncRNAs and mRNAs in our microarray data to the down-regulated miRNAs from our small RNAseq data for the HPASMCs exposed to the combined treatment of cocaine and Tat. Since lncRNAs with high expression levels are reported to function as sponge RNAs much effectively than lncRNAs with comparatively low expression35, we selected those lncRNAs that were significantly up-regulated with raw signal intensity greater than 100, for this analysis. For reasons of annotation, only those lncRNAs that were listed in any one or more of the public databases, GENCODE and Ensemble or described by Cabili et al.36, were selected. We used LncBase v.2 available in DIANA Tools to retrieve information on miRNA binding to specific lncRNAs. The LncBase v.2 database holds information for over 70 k miRNA to lncRNA interactions, supported by either direct or indirect experiments derived from manually curated publications, and the analysis of 153 Argonaut-crosslinking immunoprecipitation (AGO CLIP)-Seq libraries37. We used IPA to ascertain the experimentally validated miRNA to mRNA interactions.
+
+Out of the selected up-regulated lncRNAs, 10 of them had one or more binding sites for 12 of the down-regulated miRNAs. These 12 miRNAs targeted 134 of the up-regulated mRNAs. Using this information, we generated a putative molecular interactive network describing how lncRNAs acting as ceRNAs could potentially regulate mRNA expression by modulating the level of its up-stream miRNA regulator(s) (Table 3). This analysis indicates that some of the up-regulated lncRNAs may function as sponge or ceRNAs of the down-regulated anti-proliferative miRNAs in hyper-proliferative smooth muscle cells.Table 3 List of up-regulated lncRNAs/mRNAs with potential down-regulated miRNA targets in cocaine and Tat treated hyper-proliferative smooth muscle cells.
+
+LncRNA	Fold change	P-value	Micro RNA	No. of binding sites on lncRNA	Fold change	P-value	
+TCONS_00001909	1.631	0.037	hsa-miR-376b-5p	22	−3.855	0.029	
+			hsa-miR-193a-3p	7	−3.381	0.002	
+			hsa-miR-370-3p	6	−2.299	0.001	
+TCONS_00028198	1.552	0.018	hsa-miR-376b-5p	15	−3.855	0.029	
+			hsa-miR-33a-3p	13	−2.98	0.012	
+			hsa-miR-185-5p	21	−2.865	0.007	
+ENST00000585387	1.735	0.011	hsa-miR-491-5p	2	−2.585	0.041	
+			hsa-miR-185-5p	2	−2.865	0.007	
+			hsa-miR-654-5p	1	−1.787	0.019	
+TCONS_00022282	1.573	0.017	hsa-miR-185-5p	3	−2.865	0.007	
+TCONS_00025369	2.04	0.007	hsa-miR-491-5p	1	−2.585	0.041	
+TCONS_00012383	1.73	0.013	hsa-miR-185-5p	1	−2.865	0.007	
+			hsa-miR-503-5p	1	−4.321	0.0035	
+ENST00000595383	1.78	0.007	hsa-miR-1277-5p	1	−1.709	0.0145	
+			hsa-miR-33a-3p	1	−2.98	0.012	
+TCONS_00024430	1.77	0.015	hsa-miR-324-3p	2	−2.066	0.0391	
+ENST00000412357	1.54	0.048	hsa-miR-33a-5p	2	−3.541	0.0001	
+ENST00000429843	1.83	0.015	hsa-miR-146a-5p	1	−3.066	0.0023	
+miRNA	mRNA						
+hsa-miR-1277-5p	APCS, LINC01554, NPPC, PLN, PTGER3, SERTM1, SPRR2F	
+hsa-miR-146a-5p	CCR9, IL36, IRF5, NDNF, S100A12, TLR9, TMEM100	
+hsa-miR-185-5p	VAT1L,UBXN10,UBE2QL1,SSX7,SMARCC2,SLC36A1,SLAMF6,SET,S100A7A, RNASE2, PRR23B, PLN,PLCB2, PIANP, PCDHA10, PABPC1L2A, NKAIN1,LRRC38,LINC01554,KIR3DL3, KCNK9, KCNJ15, HK2, GPR12, FXYD4, ETV3L, DNAH10OS, DMBX1, DLX2, CXCL16, C5AR1, BAK1, ARL5C, ANKRD63, VAT1L,	
+hsa-miR-193a-3p	TP53AIP1, RHAG, PLCB2, PARP15, NOS1, NDOR1, MAGEE1, MAGEA3/MAGEA6, KRT33B, IQCJ, HTR1A, GABRP, CYP2S1, CRYAA/CRYAA2, CNTN2, BAK1	
+hsa-miR-324-3p	ZDHHC22, TMEM86A, STS, SCGN, RAPGEFL1, RAB44, PTPRU, PTGER3
+
+PRSS55, PRAMEF22, PPP4R4, NKAIN1, IGF2, FKRP, FAM92B, EFNA3
+
+DUSP13, DNAH10OS, DMBX1, CYP2A6, ARL5C, ALDH3B2
+
+	
+hsa-miR-33a-3p	TMEM69, P2RY8, HLA-DQB1, CDKL4, ASB18	
+hsa-miR-33a-5p	TTC4, TMEM86A, PLN, GPR88	
+hsa-miR-370-3p	UBXN10, TSNARE1, TMEM86A, SLAMF6, SDK2, NKAIN1, DNAH10OS, CRYAA/CRYAA2, CHRND, C10orf25	
+hsa-miR-376b-5p	ZNF772, ZNF74, TMEM69, SERTM1, SELL, SCN11A, RP5_1052I52, PADI3, KRTAP26-1, KIAA0408, CHRNA4, CCR1, C16orf89, C10orf25, BTG4	
+hsa-miR-491-5p	UROC1, UBXN10, TSNARE1, TMEM86A, TMEM69, TLR9, SMYD1, SLC36A1, SLC25A42, SLC22A12, SELL, S100A7A, RAX, RASGRP4, RAB44, PTPRU, PLCB2, PIANP, PCDHGB2, P2RY8, P2RX2, NOS1, NKAIN1, NCALD, KIR3DL3, KCNIP2, IGFL3, IGF2, HLA-DQB1, GLP1R, FKRP, ELF5, EFNA3, CYP2S1, CNTN2, CHAD, CA1, C5AR1, C1orf229, C1orf115, C17orf107, BAK1	
+hsa-miR-503-5p	TMEM100, TAT, SLC36A1, KLHL26, IGF2, FKRP, FCGR1A, CYP2S1, BAK1
+
+ARL5C, ALDH3B2
+
+	
+hsa-miR-654-5p	VNN3, UBXN10, UBE2QL1, TSNARE1, TRIM55, TMEM86A, SLC25A42, RORC
+
+RGR, PEBP4, PABPC1L2A, OBP2B, MUC12, MMEL1, KIR3DL3, KCNIP2
+
+GPR88, GPR17, GCM1, FXYD4, ETV3L, DUSP13, DRD2, DNAH10OS, DMBX1
+
+CXCL16, CLEC12B, C17orf50, C17orf107
+
+	
+
+
+Of the analyzed up-regulated lncRNAs, TCONS_00001909 had 22, 7, and 6 predicted binding sites for the down-regulated miRNAs, miR-376b, -193a and -370, respectively. This connection can potentially explain the role of this lncRNA in the up-regulation of mRNAs such as ZNF74, SCN11A, C10orf25, MAGEA3/MAGEA6, UBXN10 and TSNARE1 that are regulated by these miRNAs (Table 3). The lncRNA, TCONS_00028198 contains 15, 13 and 21 binding sites for the down-regulated miRNAs, miR-376b, -33a, and -185 respectively, which in turn is known to regulate several of the up-regulated mRNAs implicated in proliferation such as, VAT1L, UBE2QL1, SSX7, SLAMF6, S100A7A, RNASE2, PLN, PCDHA10, PABPC1L2A, CXCL16, LRRC38, FXYD4, ETV3L, ZNF74, SCN11A and C10orf25 (Table 3). The lncRNA, ENST00000585387 has two predicted binding sites each for the miRNAs, miR-491 and -185 and thus may act as a ceRNA for these miRNAs which are known to regulate the up-regulated genes, NOS1, KCNIP2, IGF2, ELF5, EFNA3, CHAD, C17orf107 and BAK1. Overall, evidence from our bioinformatic analysis suggests that many lncRNAs that are significantly up-regulated have the potential to sequester many anti-proliferative miRNAs in HPASMCs exposed to combined treatment of cocaine and Tat and thereby regulate the expression of their downstream target genes.
+
+Our in silico analysis using down-regulated mRNA/lncRNA with up-regulated miRNAs also identified an inter-regulatory relationship between them. We identified 21 down-regulated lncRNAs that may potentially target 7 up-regulated miRNAs in cells treated with combined C + T treatment when compared with untreated controls. Based on prediction and experimentally validated findings, these miRNAs had a potential to target 131 down-regulated mRNAs in C + T vs control comparison (Table 4).Table 4 List of down-regulated lncRNAs/mRNAs with potential up-regulated miRNA targets in cocaine and Tat treated hyper-proliferative smooth muscle cells.
+
+LncRNA	Fold change	P-value	miRNA	No. of binding sites on lncRNA	Fold change	P-value	
+ENST00000596769	−2.8621	0.0043	hsa-miR-133a-3p	7	1.6677	0.0919	
+			hsa-miR-130b-5p	4	1.7023	0.0386	
+ENST00000603037	−1.5199	0.0208	hsa-let-7a-5p	4	2.1128	0.0011	
+TCONS_00014969	−3.2602	0.0194	hsa-miR-125b-5p	4	1.5854	0.0032	
+ENST00000589511	−2.6857	0.0467	hsa-miR-125b-5p	4	1.5854	0.0032	
+TCONS_00012168	−1.6284	0.0000	hsa-miR-130b-5p	4	1.7023	0.0386	
+TCONS_00026830	−4.1484	0.0010	hsa-let-7a-5p	3	2.1128	0.0011	
+ENST00000412149	−1.5780	0.0134	hsa-miR-10b-5p	3	1.6354	0.0038	
+			hsa-miR-125b-5p	3	1.5854	0.0032	
+ENST00000603095	−1.7070	0.0282	hsa-miR-133a-3p	3	1.6677	0.0919	
+ENST00000596769	−2.8621	0.0043	hsa-miR-10b-5p	2	1.6354	0.0038	
+TCONS_00026830	−4.1484	0.0010	hsa-miR-130b-5p	2	1.7023	0.0386	
+ENST00000595853	−2.6963	0.0011	hsa-miR-130b-5p	2	1.7023	0.0386	
+ENST00000569618	−2.0383	0.0213	hsa-miR-98-3p	2	1.7129	0.0391	
+ENST00000521148	−1.5589	0.0243	hsa-miR-10b-5p	1	1.6354	0.0038	
+ENST00000549516	−2.2653	0.0242	hsa-miR-125b-5p	1	1.5854	0.0032	
+ENST00000518355	−1.7250	0.0039	hsa-miR-125b-5p	1	1.5854	0.0032	
+ENST00000570084	−1.8786	0.0116	hsa-miR-130b-5p	1	1.7023	0.0386	
+ENST00000422345	−2.2413	0.0100	hsa-miR-133a-3p	1	1.6677	0.0919	
+TCONS_00013442	−1.8486	0.0223	hsa-miR-133a-3p	1	1.6677	0.0919	
+			hsa-miR-454-3p	1	2.2159	0.0003	
+
+miRNA
+	mRNA						
+hsa-let-7a-5p	AC144568.2, ARHGEF15, ARHGEF39, ATXN1L, CACNG4, CBL, CCL3L1
+
+CXorf36, DRD3, GJB4, HOXC11, IL12RB2, KCTD21, LIMD2, LOR, LRRC10
+
+MS4A7, MYO5B, PADI4, PRLR, PRR18, SALL4, SCN4B, SCYL3, SLC13A3
+
+SPRED3, TBC1D13, TMPPE, TNFSF9, TRIM67, TTC22, ZBTB8B, ZNF835
+
+ZPLD1
+
+	
+hsa-miR-125b-5p	ALOX5, ARHGEF39, CCDC169, CCR5, CD69, CTB_54O99, GLB1L2, ITGA7
+
+KCNJ9, KCNK10, KCTD21, LIMD2, MALL, OVOL1, PLD6, PRAMEF18/PRAMEF19
+
+RASD2, RASGRF2, SERPINE3, SHTN1, SLC25A48, ST8SIA4, TTPA, VTCN1
+
+ZBTB8B
+
+	
+hsa-miR-130b-5p	CCDC170, CCSER1, CEP83, ENDOU, KCNJ13, LHX6, OR2H1, RAET1L, RNF138
+
+SLC26A4, SMOC1, SYN3, ULBP2
+
+	
+hsa-miR-133a-3p	ARHGEF39, BMP7, CACNA2D4, CELF6, COL9A2, DAND5, DOLPP1, GLOD5
+
+GZMM, KCNJ9, PIRT, PROK1, PRR30, RASGRF2, SH3GL2, SIGLEC8, SLC7A2
+
+TDRKH, ZNF69
+
+	
+hsa-miR-454-3p	CD69, CDK19, ELK3, FAM129C, GRK7, KCNK10, MCHR1, MS4A7, NMUR2
+
+ODF4, PLPPR1, RASGRF2, RD3, RGS7BP, SMOC1, ST8SIA5, ZPLD1
+
+	
+hsa-miR-10b-5p	ANXA13, AWAT1, CHST9, DAND5, FCMR, IL5RA, LHPP, NPAS3, PLA1A, PRAMEF18/PRAMEF19, SLC6A19, SLC7A2, SYNGR1, ZNF69	
+hsa-miR-98-3p	AC144568.2, ALG10B, C20orf197, P2RY13, RAD51B, RNF138, SLC25A31
+
+ST8SIA4, ZC2HC1B
+
+	
+
+
+Next, we validated the expression of the lncRNAs, TCONS_00001909, TCONS_00028198 and ENST00000585387 along with four of their corresponding predicted miRNA targets: miR-376, -193, -185 and -491 (Fig. 6A), using qRT-PCR. These three lncRNAs were up-regulated in qRT-PCR by 2, 1.8 and 3.6 -fold, respectively, which was in concordance with the microarray data. The expression of these selected CeRNAs in C + T treated cells was significantly up regulated not only when compared to untreated cells, but also when compared to mono-treated cells with cocaine or Tat. All four target miRNAs validated by qRT-PCR were down regulated in cocaine + Tat treated cells compared to other treatments (Fig. 6B).
+
+Involvement of lncRNAs ENST00000585387 and ENST00000495536 in cocaine and Tat mediated smooth muscle hyperplasia
+Next, we selected the lncRNA ENST00000495536 that was associated with the gene, HOXB13 and the lncRNA ENST00000585387 premised to act as a ceRNA for miRNAs, miR-491, -185, for examining of their role in smooth muscle proliferation. We utilized gapmeR based LNAs to knockdown the expression of these two lncRNAs in HPASMCs. As shown in Fig. 7A, a 50% reduction in the levels of both lncRNA was observed, with a 40 nM concentration of antisense oligonucleotides (ASO) compared to HPASMCs transfected with scrambled gapmeRs (Fig. 7A). Both MTS and Cyquant proliferation assays revealed that the knockdown of either, ENST00000495536 or ENST00000585387, results in the inhibition of cocaine and Tat induced proliferation of HPASMCs compared to un-transfected or, scrambled gapmeR transfected C + T treated cells (Fig. 7E,F). These changes in proliferation were also clearly visible under the microscope as shown by the representative phase contrast images in Supplementary Fig. S1. Concomitant to these findings we observed that the knockdown of lncRNA 387 or 536 also prevented the C + T mediated down-regulation of miR-185 and -491 or HOXB13 mRNA (Fig. 7B,C). Together, these results suggest the role of lncRNAs in the cocaine and Tat mediated hyper proliferation of HPASMCs.Figure 7 Knock down of selected up-regulated lncRNAs alleviates the cocaine and Tat induced smooth muscle proliferation. (A) Validation of knock down of lncRNA. (B,C) Levels of miR-185 (B) and -491 (C) in HPASMC with and without knockdown of ENST00000585387. (D) Levels of HOXB13 mRNA in HPASMC on knockdown with ENST00000495536. (E) MTS and (F) CyQuant proliferation assays on HPASMCs transfected with antisense oligonucleotides against target lncRNA. AS-antisense oligonucleotide gapmeR, SCR-scrambled gapmeR, AS-387 against ENST00000585387, AS-536 against ENST00000495536, TR-transfection reagent control and C + T-combined treatment of cocaine and Tat. p-value ***<0.001, **<0.01, *<0.05.
+
+
+
+Discussion
+Dys-regulated expression of miRNAs, mRNAs and lncRNAs has been reported to play a critical role in the progression of PAH38,39. However, an integrated analysis of the potential interactions between these different types of RNA molecules is only beginning to emerge34,40. In this study, we predicted the inter-regulatory relationship between lncRNAs, mRNAs and miRNAs and identified their role in hyper-proliferation of pulmonary smooth muscle cells. We utilized high throughput techniques such as microarray and small RNAseq to quantify the expression levels of mRNAs, lncRNAs and miRNAs. Our analysis of dys-regulated mRNAs and lncRNAs, as described above, revealed a number of lncRNA - mRNAs associations involved in regulating hyperplasia of HPASMCs on exposure to cocaine and Tat protein. The KEGG pathway analysis of the significantly dys-regulated mRNAs identified neuroactive ligand receptor signaling and Ras signaling among the top signaling pathways. The combined analysis of dys-regulated miRNAs, mRNAs and lncRNAs revealed the potential of lncRNAs to act as ceRNAs/sponges for many anti-proliferative miRNAs leading to up-regulation of pro-proliferative mRNAs in cocaine and Tat treated HPASMC. Overall, these analyses provided clues to the possible cis and trans acting roles of various up-regulated lncRNAs in hyper-proliferative smooth muscle cells by inter-regulating, either directly or indirectly, transcriptional or post-transcriptional expression of downstream proliferative genes.
+
+Recent research on lncRNAs is proving to be a key to unlocking many underlying molecular mechanisms of development and pathology of diseases41. A vast number of lncRNAs have been identified that still remain to be characterized. Adding to the complexity of understanding lncRNAs is their versatile nature of cellular regulation, making them both intriguing and challenging to be characterized42. Lately, many studies have identified multiple lncRNAs implicated in PAH39,43–46, however, an integrated study considering miRNAs, mRNAs and lncRNAs with relevance to HPASMC hyper-proliferation and PAH have been lacking.
+
+The pathway analysis we performed on dys-regulated mRNAs identified many factors playing active role in neuroactive ligand receptors and ras signaling. It is interesting to note that genes such as C5AR1, CHRNA4 and HTR1A from the neuroactive ligand receptor pathway have been reported in association with PAH, lung cancer, COPD and idiopathic pulmonary fibrosis47–49. On the other hand, Ras signaling molecules such as FGFR2, PLA2G2A and PLA2G5 have been shown to be involved in vascular remodeling, idiopathic pulmonary fibrosis (IPF) and chronic thromboembolic pulmonary hypertension (CTEPH)50–52. Analyzing lncRNAs associated with molecules in these highly enriched/activated pathways in cocaine and Tat induced HPASMC can help us understand their mechanistic roles in these diseases.
+
+One of the top up-regulated vascular disease related lncRNAs in HPASMCS treated with both cocaine and Tat was ENST00000495536. It is classified as an intergenic lncRNA located around 12,000 bp, in the antisense strand, from the HOXB13 gene, PRAC2 small nuclear protein and miRNA 3185. The gene, PRAC2, was not expressed in our mRNA microarray data, however the expression of HOXB13 was significantly down-regulated in cocaine and Tat treated cells in the microarray data, and was confirmed by qRT-PCR. Loss of HOXB13 in colorectal tumor cells has been associated with the increase in proliferation53,54. The knock down of HOXB13 associated lncRNA, ENST00000495536 in HPASMC prevented the cocaine and Tat mediated decrease in HOXB13 mRNA expression with the corresponding inhibition of smooth muscle hyper-proliferation. The possibility of an association between the lncRNA, ENST00000495536 and the gene, HOXB13 is further strengthened by the observation that in most cases, the lincRNAs function in trans- while antisense lncRNAs function in cis, to modulate gene expression55. However, the mechanistic association of HOXB13 and its nearby lncRNA, ENST00000495536 in HPASMC and PAH needs to be further established.
+
+Our analysis identified cancer as one of the top diseases associated with the significantly differentially expressed lncRNAs and mRNAs and revealed the integrated link between the gene/lncRNA pairs: CBL/T216482 and GDF7 (BMP12)/T185733, prominently associated in cancer pathways. The expression of both the lncRNA, T216482 and its associated mRNA, CBL were down-regulated in cocaine and Tat treated HPASMCs. The CBL gene has been reported to be decreased in primary bone tumors, and ectopic CBL expression has been reported to reduce bone tumorigenesis by promoting tyrosine kinase receptor degradation56. Enhanced CBL activity is known to result in the down-regulation of EGFR expression and inhibition of proliferation in colon tumor cells57. GDF7 also known as BMP12 is reported to be involved in tissue regeneration58,59. It’s in proximity to not only lncRNA T185733 but also to two other lncRNAs, NR_046836 and ENST00000602736. Furthermore, RND1 located up-stream of the up-regulated intergenic lncRNA, TCONS_00020413 is known to act as a tumor suppressor by attenuating Ras/MAPK signaling60. Its expression was reduced in response to the combined treatment of cocaine and Tat.
+
+Analysis of significantly dys-regulated miRNAs and their mRNA targets in cocaine and Tat treated cells revealed many up-regulated miRNAs including miR-133 and miR-125 that target mRNAs involved in proliferative signaling. Of these two miRNAs, miR-133 is known to play role in vascular stress, remodeling and cell survival61. whereas miR-125 has been reported to play a role in pulmonary hypertension with increased expression observed in the lungs of hypoxic animals62. LncRNAs are known to regulate gene expression by sponging miRNAs that regulate mRNAs63. Our combined bioinformatics analysis of the up-regulated lncRNA and mRNAs, along with the down-regulated miRNAs, in cocaine and Tat cells revealed a number of lncRNA that possessed binding site for these down-regulated anti-proliferative miRNAs. We found that the lncRNA, TCONS_00028198 contained biding sites for miRNAs, miR-376b, -33a, and -185, and the lncRNA, ENST00000585387 contained bind sites for miRNA, miR-185 and -491, making them potential regulators of these miRNAs. Of these miRNAs, miR-376b and miR-33a have been shown to be significantly down-regulated in PH64,65 and miR-185 has been shown to mediate lung epithelial cell death post oxidative stress66. In addition, multiple studies suggest miR-185 and miR-491 as suppressors of cell- proliferation including vascular smooth muscle cells67–70. We observed that the knock down of lncRNA 397 results in up-regulation of miR-185 and miR-491 in HPASMCs exposed to the combined treatment of cocaine and Tat and this correlated with the decrease in C + T mediated hyper-proliferation of cells. Another significantly up-regulated lncRNA, TCONS_00001909 contained potential binding sites for miRNA, miR-193a, implicated in PAH71 and miR-370, recently identified as a tumor suppressor72.
+
+Many of the up-regulated mRNA targets of these miRNAs have not yet been characterized in either smooth muscle proliferation or in PAH however some of the mRNAs namely, CXCL16 and LRRC38 are known to play a positive role in proliferation73,74. The up-regulated gene, IGF2, which is a predicted target of miR-185, has been reported to be up-regulated in cells having a hypoxic environment75. Furthermore, it is intriguing to note that some of the alterations in the expression of lncRNAs, mRNAs and miRNAs may be attributed to a regulatory mechanism(s) operative at the DNA level considering that we observed the association between the down-regulated histone deacetylase-4 (HDAC4) mRNA and up-regulated miR-1076 in C + T treated cells. It’s plausible that miRNA dependent changes in the expression of HDAC proteins, known to play a critical role in the chromatin condensation and transcriptional repression77,78 may in turn be involved in regulating the expression of lncRNA,miRNA and mRNA levels.
+
+Long noncoding RNAs such as NEAT1, NRON, lincRNA-p21 and PANDA are known to modulate HIV infection and replication79–81. However to the best of our knowledge, this is the first attempt to report the effect of viral proteins in the interplay between lncRNAs, mRNAs and miRNAs. Although the functions of lncRNAs characterized here are based on their primary sequence, there are reports that suggest that the tertiary structure of lncRNAs play a major role in deciding lncRNA function82. Therefore, further functional evaluation of the identified lncRNA, miRNA and mRNA associations is needed for a comprehensive mechanistic understanding of their role in smooth muscle hyper-proliferation and pulmonary vascular remodeling.
+
+Materials and Methods
+Cell culture and RNA isolation
+Primary human pulmonary arterial smooth muscle cells (HPASMC) were grown on smooth muscle cell media (SMCM) with growth factors, 2% fetal bovine serum and penicillin/streptomycin until 70% confluency on 6 well plate and made quiescent for 48 h with serum free media and then treated with either cocaine (C) at 1 µM final concentration or with Tat (T) protein at 25 ng/mL concentration or with both (C + T) for 12, 24 and 48 h based on our previous findings12,21. Cells were harvested in TriZol reagent and the total RNA was isolated as per the manufacturer recommended protocol. Considering that HIV-PAH is more prevalent in males particularly among intravenous drug users1,83 pulmonary arterial smooth muscle cells used for this study were from males.
+
+Microarray analysis for lncRNA and mRNA expression
+The total RNA isolated from HPASMC were quantified by the NanoDrop ND-1000 and RNA integrity was assessed by standard denaturing agarose gel electrophoresis. For microarray analysis, Agilent Array platform was employed. The sample preparation and microarray hybridization were performed based on the manufacturer’s standard protocols with minor modifications. Each sample was amplified and transcribed into fluorescent cRNA along the entire length of the transcripts without 3’ bias utilizing a random priming method (Array Star Flash RNA Labeling Kit, Arraystar Inc). The labeled cRNAs were hybridized onto the Human LncRNA Array v4.0 (8 × 60 K, Arraystar). After washing the slides, the arrays were scanned by the Agilent Scanner G2505C.
+
+Agilent Feature Extraction software (version 11.0.1.1) was used to analyze the acquired array images. Quantile normalization and subsequent data processing were performed using GeneSpring GX v12.1 software package (Agilent Technologies). The statistical significance of the differentially expressed LncRNAs and mRNAs between cocaine and Tat (C + T) group and control group were calculated using the Student’s two sample t-test. The cutoff for significance was set at an absolute fold-change ≥1.5 and p-value ≤0.05. Biological functions of the significantly differentially expressed genes were obtained from the KEGG (Kyoto Encyclopedia of Genes and Genomes; http://www.genome.jp/kegg) and GO (Gene Ontology; http://www.geneontology.org) databases/online-software. The data were also analyzed through the use of IPA (QIAGEN Inc., https://www.qiagenbioinformatics.com/products/ingenuitypathway-analysis) for the analysis of associated pathways. The statistical significance of the association of genes with a biological function or pathway was calculated using the right-tailed Fisher’s Exact Test.
+
+Small RNA sequencing
+The global unbiased miRNA profiles of HPASMCs treated with cocaine and/or Tat were interrogated using illumina’s small RNA sequencing technology (TruSeq Small RNA Sample Prep Kit). Samples were prepared in triplicates (n = 3, for each treatment group). The small RNA-seq samples were sequenced for 50-cycle single end reads using a HiSeq2500 Sequencing System (Illumina, San Diego, CA). The 12 samples were multiplexed in a single lane. The sequence yield of the lane was approximately 375 million reads providing enough sequencing depth for each small RNA-Seq sample.
+
+The small RNA-Seq reads with non-canonical letters (e.g. N) were first removed from the samples. Adaptors were clipped from the remaining reads. Resulting reads that were shorter than 17 bp were discarded. The remaining reads were mapped to the human genome (GRCh38.rel77) using Bowtie84. The read abundance estimates of all known human miRNAs (mirBase v21) were computed using miRDeep285.
+
+The miRNA expression counts obtained from this process were analyzed using a negative binomial generalized linear model (NB-GLM) from the edgeR package86 to identify statistically significant differentially expressed miRNAs between the control and the three treatment conditions, cocaine (C), Tat (T) and combined treatment of cocaine and Tat (C + T). The edgeR package implements advance empirical Bayes methods to estimate feature-specific biological variation under minimal levels of biological replication. Finally, Hierarchical Clustering (Euclidean distance and Ward’s linkage) was performed to show the distinguishing clusters of miRNA expression patterns among different sample groups.
+
+Integrative analysis of dys-regulated non coding RNAs and mRNAs
+Differentially expressed mRNAs, miRNAs and lncRNAs that were more than 1.5 fold up or down regulated between treatments groups (C + T vs. Con) with a p-value less than 0.05 were considered for integrated analysis. The association between significantly differentially expressed miRNAs and mRNAs were explored using the IPA software. The analysis was performed, first by only considering experimentally validated miRNA/mRNA interactions without including microarray mRNA data (Fig. 5B); and then by including microarray mRNA data to also consider experimentally validated and highly predictive miRNA/mRNA interactions (Fig. 5C). The IPA software uses information on experimentally validated miRNA/mRNA interactions from TarBase and miRecords. It uses information on predicted miRNA/mRNA interactions from TargetScan. IPA also maintains a repository of miRNA related information from peer-reviewed literature that it uses for its analysis. The regulatory relationships between differentially expressed miRNAs and lncRNAs were obtained from LncBase v2.0 using the DIANA Tools software37. Only experimentally validated interactions were considered. Both IPA software and DAVID (Database for Annotation, Visualization and Integrated Discovery) software87 were used to perform pathway enrichment analysis.
+
+Significantly differentially expressed lncRNAs were also annotated for biological functions and diseases using several databases. In particular, the LncRNADisease database88 provided a source of experimentally validated and predicted lncRNA-disease associations, including a separate list of predicted lncRNA association with cardiovascular function and disease, and a list of lincRNA disease associations predicted by co-expression analysis. This database also provided a curated list of experimentally supported lncRNA interactions with mRNA. We used data from the lncRNA-Cancer gene co-expression network (lnCaNet)89 to identify genes that are putatively co-expressed with lncRNAs based on expression correlation. Information from the Lnc2Cancer database90 was used to obtain experimentally validated associations between lncRNA and human cancer.
+
+Quantitative Real Time (qRT)-PCR
+The cDNA was prepared using RT2 First strand synthesis kit (Cat#330404, Qiagen) as per the manufacturer’s protocol. qRT-PCR was performed using RT2 SYBR Green ROX qPCR Master Mix kit (Cat#330522, Qiagen). The qRT-PCR primers for the selected mRNA and lncRNAs were either custom designed using PrimerQuest tool and obtained from Integrated DNA technologies or ordered form Qiagen. Tables S1 and S2 (Supplementary File II) lists details of all the primers used in this study.
+
+GapmeR antisense oligonucleotide transfections
+Antisense oligonucleotide (ASO) based gapmeRs were designed against lncRNA using Qiagen, gapmer designer tool. The top ranked ASO were ordered along with positive and negative controls. HPASMC were reverse transfected while seeding in 6 well plate at 2 × 105 cells/well with specific gapmeR ASO at 40 nM using HiPerfect transfection reagent (Cat#301704; Qiagen). After 24 h of transfection, the cells were serum starved  for 24 h and  then treated for 48 h with cocaine and Tat. RNA isolation and qRT-PCR were performed as described above to evaluate the knockdown of specific lncRNAs. For proliferation assay cells were reverse transfected in a 96 well plate with a cell density of 104 cells/well. Proliferation assay was performed as described earlier9. Proliferation of the cells was quantified using CellTiter 96® AQueous One Solution Cell Proliferation Assay (MTS) (Promega,G3582) and CyQUANT® Cell Proliferation Assay Kit (Invitrogen, C7026) as recommended by the manufacturers.
+
+Statistical analysis
+The statistical analyses of the qRT-PCR data as shown in Figs 4C,D, 6A,B and 7A–D were carried out using the normalized data obtained relative to control. We used Kruskal Wallis test to assess if differences exist among the treatment groups followed by Dunn’s test for pairwise comparisons. The multiple testing adjustments were carried out using Benjamini and Hochberg’s method. Since our interest was also to assess the treatment effects of cocaine and Tat separately as well as combined cocaine and Tat (as a single group) with respect to untreated control we later used one factor analyses model (Kruskal Wallis test) where the Factor is the treatment effects. In this way, we were able to assess the individual treatment effects as well as the synergistic effect of the combined treatments. We did not design the study as a two factor model because we were not assessing the interaction effect of the treatments. The statistical analyses for the proliferation assay data as shown in Fig. 7E,F was carried out similarly on the background corrected raw readings. After the completion of the statistical analyses, for the better visual clarity of the outcomes, the data in the figures were presented in the relative scale as compared to control by calculating the fold changes. Since the control group was the reference for the fold change calculation, its value was set to 1 in the bar plots and hence lack the error bars. The test results were considered significant if the multiple tests adjusted P values were ≤ 0.05.
+
+Supplementary information
+
+Supplementary File II
+
+ 
+Supplementary File I
+
+ 
+
+
+Publisher’s note: Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+Supplementary information
+Supplementary information accompanies this paper at 10.1038/s41598-019-46981-4.
+
+Acknowledgements
+This work was supported by NIH National Institute on Drug Abuse Grants R01DA034542 and R01DA042715, and NIH National Heart, Blood, and Lung Institute R01HL129875 (to N.K.D.). The authors thank the Kansas Intellectual and Developmental Disabilities Research Center (NIH U54 HD 090216) and the Molecular Regulation of Cell Development and Differentiation – COBRE (5P20GM104936-10) at the University of Kansas Medical Center for RNA sequencing and bioinformatics services.
+
+Author Contributions
+N.K.D., supervised, conceived and designed the study; interpreted the results and wrote the manuscript. M.C. designed and carried out the experiments, analyzed and interpreted the results, performed in silico analyses and wrote the manuscript. S.G. performed in silico analyses, interpreted the results and contributed in writing the manuscript and P.C. performed the statistical analysis.
+
+Data Availability
+The datasets generated during and/or analyzed during the current study are available from the corresponding author on reasonable request.
+
+Competing Interests
+The authors declare no competing interests.
+==== Refs
+References
+1. Mehta NJ  Khan IA  Mehta RN  Sepkowitz DA   HIV-Related pulmonary hypertension: analytic review of 131 cases Chest 2000 118 1133 1141 10.1378/chest.118.4.1133 11035689 
+2. Crum NF    Comparisons of causes of death and mortality rates among HIV-infected persons: analysis of the pre-, early, and late HAART (highly active antiretroviral therapy) eras J Acquir Immune Defic Syndr 2006 41 194 200 10.1097/01.qai.0000179459.31562.16 16394852 
+3. George MP  Champion HC  Gladwin MT  Norris KA  Morris A   Injection drug use as a “second hit” in the pathogenesis of HIV-associated pulmonary hypertension Am J Respir Crit Care Med 2012 185 1144 1146 10.1164/rccm.201204-0609ED 22661521 
+4. Hsue PY    Role of HIV and human herpesvirus-8 infection in pulmonary arterial hypertension AIDS 2008 22 825 833 10.1097/QAD.0b013e3282f7cd42 18427200 
+5. Restrepo CS    Pulmonary complications from cocaine and cocaine-based substances: imaging manifestations Radiographics 2007 27 941 956 10.1148/rg.274065144 17620460 
+6. Terra Filho M  Yen CC  Santos Ude P  Munoz DR   Pulmonary alterations in cocaine users Sao Paulo Med J 2004 122 26 31 10.1590/S1516-31802004000100007 15160524 
+7. Spikes L    Enhanced pulmonary arteriopathy in simian immunodeficiency virus-infected macaques exposed to morphine Am J Respir Crit Care Med 2012 185 1235 1243 10.1164/rccm.201110-1909OC 22447963 
+8. Zamanian RT    Features and Outcomes of Methamphetamine-associated Pulmonary Arterial Hypertension Am J Respir Crit Care Med 2018 197 788 800 10.1164/rccm.201705-0943OC 28934596 
+9. Dalvi P  O’Brien-Ladner A  Dhillon NK   Downregulation of bone morphogenetic protein receptor axis during HIV-1 and cocaine-mediated pulmonary smooth muscle hyperplasia: implications for HIV-related pulmonary arterial hypertension Arterioscler Thromb Vasc Biol 2013 33 2585 2595 10.1161/ATVBAHA.113.302054 24008158 
+10. Chinnappan, M., Mohan, A., Agarwal, S., Dalvi, P. & Dhillon, N. K. Network of MicroRNAs Mediate Translational Repression of Bone Morphogenetic Protein Receptor-2: Involvement in HIV-Associated Pulmonary Vascular Remodeling. J Am Heart Assoc710.1161/JAHA.117.008472 (2018).
+11. Sharma H    Macrophage-derived extracellular vesicles mediate smooth muscle hyperplasia: role of altered miRNA cargo in response to HIV infection and substance abuse FASEB J 2018 32 5174 5185 10.1096/fj.201701558R 29672222 
+12. Dalvi P    Hyperactive TGF-beta Signaling in Smooth Muscle Cells Exposed to HIV-protein(s) and Cocaine: Role in Pulmonary Vasculopathy Scientific reports 2017 7 10433 10.1038/s41598-017-10438-3 28874783 
+13. Dalvi P    Enhanced autophagy in pulmonary endothelial cells on exposure to HIV-Tat and morphine: Role in HIV-related pulmonary arterial hypertension Autophagy 2016 12 2420 2438 10.1080/15548627.2016.1238551 27723373 
+14. Dalvi P    Effect of Cocaine on Pulmonary Vascular Remodeling and Hemodynamics in Human Immunodeficiency Virus-Transgenic Rats Am J Respir Cell Mol Biol 2016 55 201 212 10.1165/rcmb.2015-0264OC 26820592 
+15. Dalvi PN  Gupta VG  Griffin BR  O’Brien-Ladner A  Dhillon NK   Ligand-Independent Activation of Platelet-Derived Growth Factor Receptor beta during Human Immunodeficiency Virus-Transactivator of Transcription and Cocaine-Mediated Smooth Muscle Hyperplasia Am J Respir Cell Mol Biol 2015 53 336 345 10.1165/rcmb.2014-0369OC 25569182 
+16. Zurlo G    Sirtuin 1 regulates pulmonary artery smooth muscle cell proliferation: role in pulmonary arterial hypertension J Hypertens 2018 36 1164 1177 10.1097/HJH.0000000000001676 29369849 
+17. Ranchoux B    Endothelial dysfunction in pulmonary arterial hypertension: an evolving landscape (2017 Grover Conference Series) Pulmonary circulation 2018 8 2045893217752912 10.1177/2045893217752912 29283043 
+18. Almodovar S    Pathogenesis of HIV-associated pulmonary hypertension: potential role of HIV-1 Nef Proceedings of the American Thoracic Society 2011 8 308 312 10.1513/pats.201006-046WR 21653533 
+19. Almodovar S    Lung Vascular Remodeling, Cardiac Hypertrophy, and Inflammatory Cytokines in SHIVnef-Infected Macaques Viral Immunol 2018 31 206 222 10.1089/vim.2017.0051 29256819 
+20. Dalvi P    HIV-1/cocaine induced oxidative stress disrupts tight junction protein-1 in human pulmonary microvascular endothelial cells: role of Ras/ERK1/2 pathway PloS one 2014 9 e85246 10.1371/journal.pone.0085246 24409324 
+21. Dhillon NK    Effect of cocaine on human immunodeficiency virus-mediated pulmonary endothelial and smooth muscle dysfunction Am J Respir Cell Mol Biol 2011 45 40 52 10.1165/rcmb.2010-0097OC 20802087 
+22. Dalvi, P., O’Brien-Ladner, A. & Dhillon, N. K. Down-regulation of BMPR Axis during HIV-1 and Cocaine-mediated Pulmonary Smooth Muscle Hyperplasia: Implications for HRPAH. Arteriosclerosis, thrombosis, and vascular biology33 (2013).
+23. Davies RJ  Morrell NW   Molecular mechanisms of pulmonary arterial hypertension: role of mutations in the bone morphogenetic protein type II receptor Chest 2008 134 1271 1277 10.1378/chest.08-1341 19059957 
+24. Zhang CY    Role of Noncoding RNA in Pulmonary Arterial Hypertension and Potential Drug Therapeutic Target Curr Top Med Chem 2018 18 975 986 10.2174/1568026618666180719162124 30027849 
+25. Consortium EP    Identification and analysis of functional elements in 1% of the human genome by the ENCODE pilot project Nature 2007 447 799 816 10.1038/nature05874 17571346 
+26. Xue M  Zhuo Y  Shan B   MicroRNAs, Long Noncoding RNAs, and Their Functions in Human Disease Methods Mol Biol 2017 1617 1 25 10.1007/978-1-4939-7046-9_1 28540673 
+27. Salviano-Silva Amanda  Lobo-Alves Sara  Almeida Rodrigo  Malheiros Danielle  Petzl-Erler Maria   Besides Pathology: Long Non-Coding RNA in Cell and Tissue Homeostasis Non-Coding RNA 2018 4 1 3 10.3390/ncrna4010003 
+28. Wilusz JE  Sunwoo H  Spector DL   Long noncoding RNAs: functional surprises from the RNA world Genes Dev 2009 23 1494 1504 10.1101/gad.1800909 19571179 
+29. McMullen JR  Drew BG   Long non-coding RNAs (lncRNAs) in skeletal and cardiac muscle: potential therapeutic and diagnostic targets? Clin Sci (Lond) 2016 130 2245 2256 10.1042/CS20160244 27815509 
+30. Herrera-Solorio AM    Histone code and long non-coding RNAs (lncRNAs) aberrations in lung cancer: implications in the therapy response Clin Epigenetics 2017 9 98 10.1186/s13148-017-0398-3 28904641 
+31. Honda J    The glucagon-like peptide-1 receptor agonist liraglutide improves hypoxia-induced pulmonary hypertension in mice partly via normalization of reduced ET(B) receptor expression Physiol Res 2018 67 S175 S184 29947538 
+32. Miyake A  Itoh N   Fgf22 regulated by Fgf3/Fgf8 signaling is required for zebrafish midbrain development Biol Open 2013 2 515 524 10.1242/bio.20134226 23789101 
+33. Marchese FP  Raimondi I  Huarte M   The multidimensional mechanisms of long noncoding RNA function Genome Biol 2017 18 206 10.1186/s13059-017-1348-2 29084573 
+34. Liu Q    LncRNA RSU1P2 contributes to tumorigenesis by acting as a ceRNA against let-7a in cervical cancer cells Oncotarget 2017 8 43768 43781 10.18632/oncotarget.10844 27487126 
+35. Du Z    Integrative analyses reveal a long noncoding RNA-mediated sponge regulatory network in prostate cancer Nat Commun 2016 7 10982 10.1038/ncomms10982 26975529 
+36. Cabili MN    Integrative annotation of human large intergenic noncoding RNAs reveals global properties and specific subclasses Genes Dev 2011 25 1915 1927 10.1101/gad.17446611 21890647 
+37. Paraskevopoulou MD    DIANA-LncBase v2: indexing microRNA targets on non-coding transcripts Nucleic Acids Res 2016 44 D231 238 10.1093/nar/gkv1270 26612864 
+38. Liu P    Dysregulated expression of microRNAs and mRNAs in pulmonary artery remodeling in ascites syndrome in broiler chickens Oncotarget 2017 8 1993 2007 10.18632/oncotarget.12888 27791988 
+39. Han B  Bu P  Meng X  Hou X   Microarray profiling of long non-coding RNAs associated with idiopathic pulmonary arterial hypertension Exp Ther Med 2017 13 2657 2666 10.3892/etm.2017.4355 28587327 
+40. Qian Y    Comprehensive Analysis of miRNA-mRNA-lncRNA Networks in Non-Smoking and Smoking Patients with Chronic Obstructive Pulmonary Disease Cell Physiol Biochem 2018 50 1140 1153 10.1159/000494541 30355907 
+41. DiStefano JK   The Emerging Role of Long Noncoding RNAs in Human Disease Methods Mol Biol 2018 1706 91 110 10.1007/978-1-4939-7471-9_6 29423795 
+42. Sanchez Y  Huarte M   Long non-coding RNAs: challenges for diagnosis and therapies Nucleic Acid Ther 2013 23 15 20 10.1089/nat.2012.0414 23391415 
+43. Zhuo Y    Functional polymorphism of lncRNA MALAT1 contributes to pulmonary arterial hypertension susceptibility in Chinese people Clin Chem Lab Med 2017 55 38 46 10.1515/cclm-2016-0056 27362960 
+44. Sun Z    Long Non-Coding RNA MEG3 Downregulation Triggers Human Pulmonary Artery Smooth Muscle Cell Proliferation and Migration via the p53 Signaling Pathway Cell Physiol Biochem 2017 42 2569 2581 10.1159/000480218 28848087 
+45. Su H    LncRNA H19 promotes the proliferation of pulmonary artery smooth muscle cells through AT1R via sponging let-7b in monocrotaline-induced pulmonary arterial hypertension Respir Res 2018 19 254 10.1186/s12931-018-0956-z 30547791 
+46. Brock M    Analysis of hypoxia-induced noncoding RNAs reveals metastasis-associated lung adenocarcinoma transcript 1 as an important regulator of vascular smooth muscle cell proliferation Exp Biol Med (Maywood) 2017 242 487 496 10.1177/1535370216685434 28056547 
+47. Ikeda KT    Hypoxia-induced Pulmonary Hypertension in Different Mouse Strains: Relation to Transcriptome Am J Respir Cell Mol Biol 2019 60 106 116 10.1165/rcmb.2017-0435OC 30134121 
+48. Saccone NL    Multiple cholinergic nicotinic receptor genes affect nicotine dependence risk in African and European Americans Genes Brain Behav 2010 9 741 750 10.1111/j.1601-183X.2010.00608.x 20584212 
+49. Konigshoff M    Increased expression of 5-hydroxytryptamine2A/B receptors in idiopathic pulmonary fibrosis: a rationale for therapeutic intervention Thorax 2010 65 949 955 10.1136/thx.2009.134353 20671305 
+50. El Agha E    Is the fibroblast growth factor signaling pathway a victim of receptor tyrosine kinase inhibition in pulmonary parenchymal and vascular remodeling? Am J Physiol Lung Cell Mol Physiol 2018 315 L248 L252 10.1152/ajplung.00140.2018 29722558 
+51. Bauer Y    A novel genomic signature with translational significance for human idiopathic pulmonary fibrosis Am J Respir Cell Mol Biol 2015 52 217 231 10.1165/rcmb.2013-0310OC 25029475 
+52. Gu S    Comparison of gene expression profiles and related pathways in chronic thromboembolic pulmonary hypertension Int J Mol Med 2014 33 277 300 10.3892/ijmm.2013.1582 24337368 
+53. Jung C    HOXB13 is downregulated in colorectal cancer to confer TCF4-mediated transactivation Br J Cancer 2005 92 2233 2239 10.1038/sj.bjc.6602631 15928669 
+54. Jung C  Kim RS  Lee SJ  Wang C  Jeng MH   HOXB13 homeodomain protein suppresses the growth of prostate cancer cells by the negative regulation of T-cell factor 4 Cancer Res 2004 64 3046 3051 10.1158/0008-5472.CAN-03-2614 15126340 
+55. Morris KV   Long antisense non-coding RNAs function to direct epigenetic complexes that regulate transcription in human cells Epigenetics 2009 4 296 301 10.4161/epi.4.5.9282 19633414 
+56. Severe N    Targeting the E3 ubiquitin casitas B-lineage lymphoma decreases osteosarcoma cell growth and survival and reduces tumorigenesis J Bone Miner Res 2012 27 2108 2117 10.1002/jbmr.1667 22623369 
+57. Wang L    Berberine inhibits proliferation and down-regulates epidermal growth factor receptor through activation of Cbl in colon tumor cells PloS one 2013 8 e56666 10.1371/journal.pone.0056666 23457600 
+58. Furuya K  Nifuji A  Rosen V  Noda M   Effects of GDF7/BMP12 on proliferation and alkaline phosphatase expression in rat osteoblastic osteosarcoma ROS 17/2.8 cells J Cell Biochem 1999 72 177 180 10.1002/(SICI)1097-4644(19990201)72:2<177::AID-JCB2>3.0.CO;2-# 10022500 
+59. Fu SC    The roles of bone morphogenetic protein (BMP) 12 in stimulating the proliferation and matrix production of human patellar tendon fibroblasts Life Sci 2003 72 2965 2974 10.1016/S0024-3205(03)00169-3 12706484 
+60. Okada T    The Rho GTPase Rnd1 suppresses mammary tumorigenesis and EMT by restraining Ras-MAPK signalling Nature cell biology 2015 17 81 94 10.1038/ncb3082 25531777 
+61. White K  Loscalzo J  Chan SY   Holding our breath: The emerging and anticipated roles of microRNA in pulmonary hypertension Pulmonary circulation 2012 2 278 290 10.4103/2045-8932.101395 23130098 
+62. Huber LC    Featured Article: microRNA-125a in pulmonary hypertension: Regulator of a proliferative phenotype of endothelial cells Exp Biol Med (Maywood) 2015 240 1580 1589 10.1177/1535370215579018 25854878 
+63. Zhang G    LncRNA MT1JP functions as a ceRNA in regulating FBXW7 through competitively binding to miR-92a-3p in gastric cancer Mol Cancer 2018 17 87 10.1186/s12943-018-0829-6 29720189 
+64. Lu S    Downregulation of IL6 Targeted MiR-376b May Contribute to a Positive IL6 Feedback Loop During Early Liver Regeneration in Mice Cell Physiol Biochem 2015 37 233 242 10.1159/000430348 26302774 
+65. Rothman A    Assessment of microRNA and gene dysregulation in pulmonary hypertension by endoarterial biopsy Pulmonary circulation 2017 7 455 464 10.1177/2045893217704206 28597755 
+66. Zhang D  Lee H  Cao Y  Dela Cruz CS  Jin Y   miR-185 mediates lung epithelial cell death after oxidative stress Am J Physiol Lung Cell Mol Physiol 2016 310 L700 710 10.1152/ajplung.00392.2015 26747785 
+67. Gong F  Ren P  Zhang Y  Jiang J  Zhang H   MicroRNAs-491-5p suppresses cell proliferation and invasion by inhibiting IGF2BP1 in non-small cell lung cancer American journal of translational research 2016 8 485 495 27158341 
+68. Yu T    MicroRNA-491 regulates the proliferation and apoptosis of CD8(+) T cells. Scientific reports 2016 6 30923 10.1038/srep30923 27484289 
+69. Wang S    miR-185/P2Y6 Axis Inhibits Angiotensin II-Induced Human Aortic Vascular Smooth Muscle Cell Proliferation DNA and cell biology 2017 36 377 385 10.1089/dna.2016.3605 28277742 
+70. He J    miR-185 enhances the inhibition of proliferation and migration induced by ionizing radiation in melanoma Oncol Lett 2017 13 2442 2448 10.3892/ol.2017.5699 28454417 
+71. Sharma S    Apolipoprotein A-I mimetic peptide 4F rescues pulmonary hypertension by inducing microRNA-193-3p Circulation 2014 130 776 785 10.1161/CIRCULATIONAHA.114.007405 24963038 
+72. Chen XP  Chen YG  Lan JY  Shen ZJ   MicroRNA-370 suppresses proliferation and promotes endometrioid ovarian cancer chemosensitivity to cDDP by negatively regulating ENG Cancer Lett 2014 353 201 210 10.1016/j.canlet.2014.07.026 25063739 
+73. Darash-Yahana M    The chemokine CXCL16 and its receptor, CXCR6, as markers and promoters of inflammation-associated cancers PloS one 2009 4 e6695 10.1371/journal.pone.0006695 19690611 
+74. Chowdhury S    IGF-I stimulates CCN5/WISP2 gene expression in pancreatic beta-cells, which promotes cell proliferation and survival against streptozotocin Endocrinology 2014 155 1629 1642 10.1210/en.2013-1735 24552398 
+75. Maeng YS    Endothelial progenitor cell homing: prominent role of the IGF2-IGF2R-PLCbeta2 axis Blood 2009 113 233 243 10.1182/blood-2008-06-162891 18832656 
+76. Huang H    miR-10a contributes to retinoid acid-induced smooth muscle cell differentiation J Biol Chem 2010 285 9383 9389 10.1074/jbc.M109.095612 20118242 
+77. Stark M  Hayward N   Genome-wide loss of heterozygosity and copy number analysis in melanoma using high-density single-nucleotide polymorphism arrays Cancer Res 2007 67 2632 2642 10.1158/0008-5472.CAN-06-4152 17363583 
+78. Wang Z  Qin G  Zhao TC   HDAC4: mechanism of regulation and biological functions Epigenomics 2014 6 139 150 10.2217/epi.13.73 24579951 
+79. Zhang Q  Chen CY  Yedavalli VS  Jeang KT   NEAT1 long noncoding RNA and paraspeckle bodies modulate HIV-1 posttranscriptional expression MBio 2013 4 e00596 00512 10.1128/mBio.00596-12 23362321 
+80. Imam H  Bano AS  Patel P  Holla P  Jameel S   The lncRNA NRON modulates HIV-1 replication in a NFAT-dependent manner and is differentially regulated by early and late viral proteins Scientific reports 2015 5 8639 10.1038/srep08639 25728138 
+81. Huan C    Long Noncoding RNA uc002yug.2 Activates HIV-1 Latency through Regulation of mRNA Levels of Various RUNX1 Isoforms and Increased Tat Expression J Virol 2018 92 e01844 01817 10.1128/JVI.01844-17 29491162 
+82. Yan K    Structure Prediction: New Insights into Decrypting Long Noncoding RNAs International journal of molecular sciences 2016 17 132 10.3390/ijms17010132 
+83. Zuber J-P    Pulmonary arterial hypertension related to HIV infection: improved hemodynamics and survival associated with antiretroviral therapy Clinical infectious diseases 2004 38 1178 1185 10.1086/383037 15095226 
+84. Langmead B  Trapnell C  Pop M  Salzberg SL   Ultrafast and memory-efficient alignment of short DNA sequences to the human genome Genome Biol 2009 10 R25 10.1186/gb-2009-10-3-r25 19261174 
+85. Friedlander MR  Mackowiak SD  Li N  Chen W  Rajewsky N   miRDeep2 accurately identifies known and hundreds of novel microRNA genes in seven animal clades Nucleic acids research 2012 40 37 52 10.1093/nar/gkr688 21911355 
+86. Robinson MD  McCarthy DJ  Smyth G   K. edgeR: a Bioconductor package for differential expression analysis of digital gene expression data Bioinformatics 2010 26 139 140 10.1093/bioinformatics/btp616 19910308 
+87. Huang da W  Sherman BT  Lempicki RA   Systematic and integrative analysis of large gene lists using DAVID bioinformatics resources Nat Protoc 2009 4 44 57 10.1038/nprot.2008.211 19131956 
+88. Wang J    LncDisease: a sequence based bioinformatics tool for predicting lncRNA-disease associations Nucleic Acids Res 2016 44 e90 10.1093/nar/gkw093 26887819 
+89. Liu Y  Zhao M   lnCaNet: pan-cancer co-expression network for human lncRNA and cancer genes Bioinformatics 2016 32 1595 1597 10.1093/bioinformatics/btw017 26787663 
+90. Ning S    Lnc2Cancer: a manually curated database of experimentally supported lncRNAs associated with various human cancers Nucleic acids research 2016 44 D980 985 10.1093/nar/gkv1094 26481356
+

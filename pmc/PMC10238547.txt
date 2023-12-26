@@ -1,0 +1,297 @@
+
+==== Front
+Sci Rep
+Sci Rep
+Scientific Reports
+2045-2322
+Nature Publishing Group UK London
+
+36117
+10.1038/s41598-023-36117-0
+Article
+Integrated bioinformatics analysis for identifying key genes and pathways in female and male patients with dilated cardiomyopathy
+Zhang Min 1
+Wang Xinzhou 2
+Chen Wenbo 3
+Liu Wei 4
+Xin Jile 1
+Yang Debao 2
+Zhang Zhongyuan 2
+Zheng Xiaoke zhengxk.2006@163.com
+
+1
+1 grid.256922.8 0000 0000 9139 560X College of Pharmacy, Henan University of Chinese Medicine, Zhengzhou, 450046 China
+2 grid.256922.8 0000 0000 9139 560X The Second School of Clinical Medicine, Henan University of Chinese Medicine, Zhengzhou, 450002 China
+3 grid.412097.9 0000 0000 8645 6375 School of Medicine, Henan Polytechnic University, Jiaozuo, 454000 Henan China
+4 grid.108266.b 0000 0004 1803 0494 College of Life Sciences, Henan Agricultural University, Zhengzhou, 450002 China
+2 6 2023
+2 6 2023
+2023
+13 897721 12 2022
+30 5 2023
+© The Author(s) 2023
+https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+Dilated cardiomyopathy (DCM) is a common cause of heart failure, and males are more likely to suffer from DCM than females. This research aimed at exploring possible DCM-associated genes and their latent regulatory effects in female and male patients. WGCNA analysis found that in the yellow module, 341 and 367 key DEGs were identified in females and males, respectively. A total of 22 hub genes in females and 17 hub genes in males were identified from the PPI networks of the key DEGs based on Metascape database. And twelve and eight potential TFs of the key DEGs were also identified in females and males, respectively. Eight miRNAs of 15 key DEGs were screened in both females and males, which may be differentially expressed in females and males. Dual-luciferase reporter assay demonstrated that miR-21-5P could directly target the key gene MATN2. Furthermore, Sex differences in KEGG pathways were identified. Both KOBAS and GSEA analysis identified 19 significantly enriched pathways related to immune response in both females and males, and the TGF-β signaling pathway was exclusively identified in males. Network pharmacology analysis revealed that seven key DEGs were potential targets for the treatment of DCM, of which the OLR1 gene was only identified in males, the expression levels of the seven genes were verified by RT-PCR. The above results could offer a novel understanding of sex differences in key genes and pathways in DCM progression.
+
+Subject terms
+
+Gene regulatory networks
+Biomarkers
+issue-copyright-statement© Springer Nature Limited 2023
+==== Body
+pmcIntroduction
+
+Dilated cardiomyopathy (DCM) is characterized by ventricular enlargement and reduced myocardial systolic function, it is one of the common diseases that cause heart failure, arrhythmia, thromboembolism and sudden death1. The causes of DCM include genetic mutations, infections, exposure to toxins, inflammation, endocrine abnormalities, autoimmune or neuromuscular diseases2. There are sex differences in the incidence and prognosis of DCM3. Men are not only more likely to develop DCM but also exhibit worse prognosis as compared to women4. Male sex is recognized as an independent risk factor for poorer outcomes in DCM5, however, the molecular mechanism is still unclear. There are few studies about sex differences in pathogenesis or progression of DCM2.
+
+The biomarkers that are being used for the etiological diagnosis of DCM include genetic markers and immune markers. The genetic markers include titin (TTN), lamin A/C (LMNA), β-myosin heavy chain (MYH7), cardiac troponin T (TNNT2), etc., whereas immune markers include anti-heart autoantibodies (AHAs)—the general term of antibodies against myocardial protein molecules produced by the body6–8. However, since sometimes elevated levels of biomarkers may be caused by various cardiovascular diseases9, diagnosis of DCM specifically is still challenging. Currently, both drug-based treatments, such as angiotensin-converting enzyme (ACE) inhibitors and β-blockers, and non-drug treatments, such as left ventricular assist device (LVAD) therapy and heart transplantation, can significantly improve the prognosis of DCM patients7. In spite of this, there is still a high mortality rate in DCM patients with heart failure10.
+
+Weighted gene co‐expression network analysis (WGCNA) has been applied to multiple diseases to identify candidate biomarkers and therapeutic targets11. However, few studies have constructed co-expression modules for DCM12–15. In this study, gene expression profile data of female and male patients with DCM was analyzed to explore sex differences in the pathogenesis of DCM and to search for potential diagnostic biomarkers for DCM. After the identification of key differentially expressed genes (DEGs) in a major WGCNA module, hub genes in protein–protein interaction (PPI) networks, potential transcription factors (TFs) and microRNAs (miRNAs), and significantly enriched pathways were further analyzed to identify the differences between female and male patients. This research takes the lead in reporting sex differences in the key genes and pathways related to DCM base on bioinformatics methods. The pathogenesis of DCM is still unclear due to its heterogeneity, therefore, our findings would be beneficial for the diagnosis and prognosis of DCM.
+
+Materials and methods
+
+Dataset
+
+Left ventricular transcriptome data of DCM patients and healthy donors were analyzed. Related gene expression data of DCM was downloaded from the Gene Expression Omnibus (GEO) database of the NCBI database (https://www.ncbi.nlm.nih.gov/). GSE141910 dataset contains the RNA-sequencing data of 332 samples originating from 100 DCM male patients (DCM-M), 66 DCM female patients (DCM-F), 77 healthy male donors (Control-M) and 89 healthy female donors (Control-F).
+
+WGCNA analysis
+
+WGCNA R package was adopted for co-expression network construction. The weighted adjacency matrix was constructed as previously described16. Then, we transformed the weighted adjacency matrix into a topological overlap measure (TOM) matrix for estimating network connectivity17. Average linkage hierarchical clustering was carried out for constructing module dendrograms. To determine the importance of every module, Gene significance (GS) as well as module membership (MM) were calculated.
+
+DEGs and differentially expressed miRNAs (DEMs) analysis
+
+The "limma" R package was utilized for screening DEGs as well as DEMs. The DEGs of male ("DCM-M" vs "Control-M") and female ("DCM-F" vs "Control-F") groups were screened from the GSE141910 dataset, whereas the GSE112556 dataset was analyzed to screen DEMs. The screening criteria of DEGs and DEMs were set as false discovery rate (FDR) ≤ 0.05 and |log2 fold change (FC)|≥ 1.
+
+PPI networks and potential TFs
+
+The PPI networks and potential TFs were obtained by using Metascape database (http://metascape.org/gp/index.html#/main/step1)18. In this web-based algorithm, PPI network analysis was carried out by using STRING, BioGrid, OmniPath and InWeb_IM databases. And Molecular Complex Detection (MCODE) algorithm was used for identifying densely connected network components. Potential TFs were identified by using TRRUST database.
+
+Kyoto encyclopedia of gene genomes (KEGG) enrichment analysis
+
+For identifying KEGG pathways19,20, KEGG orthology based annotation system (KOBAS) database was performed (http://kobas.cbi.pku.edu.cn/kobas3)21, following the criterion of corrected P-value < 0.05. Gene set enrichment analysis (GSEA) was conducted to analyze KEGG pathways by using an online platform (https://www.omicshare.com/tools), the criteria were set as |NES|> 1, P < 0.05 and FDR < 0.25.
+
+Network pharmacology analysis
+
+The ingredients and targets of Radix Astragali were retrieved from the TCMSP database (https://old.tcmsp-e.com/index.php), and OB ≥ 30% and DL ≥ 0.18 were set as the criteria for screening ingredients. Subsequently, the gene symbols of targets were queried in the UniProt database (https://www.uniprot.org/). The intersection of the screened target genes and identified key DEGs were potential targets for treating DCM.
+
+Dual-luciferase reporter assays
+
+The putative binding sequence and its mutant sequence were cloned into pmirGLO Dual-luciferase vectors (Promega). Then 293 T cells were transfected with the recombinant plasmids (MATN2 3'-UTR-WT/MATN2 3'-UTR-MUT) or empty plasmid, and hsa-miR-21-5p mimics or mimics-NC. Twenty-four hours later luciferase activity was measured using a dual-luciferase reporter assay kit (Promega).
+
+Animal experiments
+
+The cTnTR141W transgenic male mice were purchased from the Chinese Academy of Medical Science. The mice are maintained on a C57BL/6J genetic background and exhibit phenotypic characteristic of human DCM at 4 months of age22. Echocardiography showed that the left ventricular end-systole diameter (LVESD) of all the transgenic mice was greater than 2.64 mm. Mice at the ages of 4.5 months were sacrificed and the hearts were excised for RNA isolation. The animal experiment protocol of this study has been reviewed and approved by laboratory animal welfare and ethics committee of Henan University of Chinese Medicine (approval no. IACUC-202305020).
+
+Quantitative RT-PCR
+
+Total RNA was extracted using Trizol reagent (Invitrogen, USA), and the cDNA was synthesized using a PrimeScriptTM RT reagent Kit (TaKaRa, China) according to the manufacturer's instructions. The gene expression levels of BNP, α-SMA, OLR1, CD40LG, CXCL10, CXCL11, COL1A1, DUOX2, and ESR1 were detected by the RT-PCR. GAPDH was used as an internal control. The primers are shown in a supplementary table (Table S1).
+
+Statistical analysis
+
+Data were presented as mean ± SD. Statistical analyses were performed by one-way ANOVA and Tukey’s test. P-values < 0.05 were considered to be statistically different. P-values were adjusted for multiple testing to control the false discovery rate according to the method of Benjamini-Hochberg, FDR (q-value) < 0.05 was defined as significance cut-off.
+
+Results
+
+Dataset quality assessment
+
+After the expression data of DCM and control samples in dataset GSE141910 was normalized, the distribution of gene expression was observed to be consistent among 332 samples (Fig. 1A). Outlier samples (GSM4215867, GSM4215891, GSM4215904, GSM4215942, GSM4215956, GSM4215978, GSM4215980, GSM4215981, GSM4215993, GSM4216080, GSM4216124, GSM4216154) were identified among the 332 samples based on the connectivity. The 12 outlier samples were later removed from the 332 samples, and the remaining 320 samples (Fig. 1B) were further analyzed in the follow-up study. Principal component analysis (PCA) was then conducted, and 2D-PCA plots indicated a remarkable separation between DCM and control groups (Fig. 2).Figure 1 Normalization of gene expression data and samples clustering to detect outliers. (A) Gene expression profiles after normalization. (B) The sample dendrogram and trait indicator.
+
+Figure 2 PCA plot of the normalized data for 320 samples.
+
+Identification of DEGs
+
+Compared to the control group, 794 up-regulated and 322 down-regulated DEGs were identified in the female group, and 753 up-regulated and 363 down-regulated DEGs were identified in the male group.
+
+Identification of key DEGs in the yellow module
+
+WGCNA package of R was adopted for putting genes with similar expression patterns into modules, the power of β = 14 (scale-free R2 = 0.85) (Fig. 3A, B) was chosen to ensure a scale-free network. Altogether, ten co-expression modules (Fig. 3C) were identified based on the cluster dendrogram. The correlation between the four groups and ten modules was determined (Fig. 4A, B). Apart from the gray module (that contained unclustered genes), the yellow module correlated significantly with "DCM-M", "DCM-F", "Control-M" and "Control-F" groups, and this module showed the strongest correlation with "DCM-M" group (Fig. 4A). The module eigengene (ME) of the yellow module was negatively correlated with "Control-M" (−0.501) and "Control-F" (−0.492) groups, but positively correlated with "DCM-M" (0.565) and "DCM-F" (0.44) groups. Subsequently, the P-value < 0.05 of GS and MM was set as a threshold to screen key genes in the yellow module. Thus, there were 624 key genes identified in both "Control-F" and "DCM-F" groups, and 341 of the 624 genes were DEGs. There were 650 key genes identified in both "Control-M" and "DCM-M" groups, and 367 of the 650 genes were DEGs. Follow-up analyses were carried out for the 341 key DEGs in females and 367 key DEGs in males.Figure 3 Construction of co-expression modules. (A,B) Analysis on the scale-free fit index and the mean connectivity. (C) Clustering dendrogram of genes in samples.
+
+Figure 4 Identification of modules. (A) Module eigengene-trait associations. Each row indicates a module eigengene and each column represents a trait. Blue and red colors represent negative and positive correlations, respectively. Within each table cell, the upper values mean the degree of correlation, the lower values are the P-values. (B) Clustering dendrogram of module eigengene and heatmap of eigengene adjacencies.
+
+PPI network analysis of the key DEGs
+
+PPI networks for the key DEGs in the yellow module were constructed (Fig. 5A, C). Based on this analysis, 22 genes in females and 17 genes in males from the densely connected network components were considered to be hub genes (Fig. 5B, D). Among these, the 17 hub genes (CCR7, CXCL11, PENK, CXCL10, CD3E, CD247, APLNR, AGTR2, CXCL9, OXER1, MCHR1, S1PR5, LCK, CD3G, ZAP70, CD3D and HLA-DQA1) were common in both female and male groups. Among the common hub genes, 7 (CD3E, CD247, LCK, CD3G, ZAP70, CD3D and HLA-DQA1) and 10 proteins (CXCL9, S1PR5, CCR7, MCHR1, OXER1, CXCL11, PENK, CXCL10, APLNR and AGTR2) respectively, interacted with each other in both females and males (Tables S2 and S3).Figure 5 Protein–protein interaction (PPI) network analysis. PPI networks of the key differentially expressed genes (DEGs) in the yellow module of female (A) and male groups (C). The densely connected network components of female (B) and male groups (D) from the PPI networks.
+
+Potential TFs of the key DEGs
+
+Twelve and eight potential TFs of the key DEGs were identified in the female and male group, respectively (Fig. 6A, B). Seven of these TFs (NFKB1, SPI1, SP1, ETS1, MYB, RELA and MITF) were identified in both groups. In both females and males, NFKB1 and RELA collectively targeted ten genes (CD40LG, CCR7, COL1A1, CXCL10, RGS4, CCL22, STAT4, CD83, TBX21 and TLR7); NFKB1, RELA and SP1 collectively targeted three genes (COL1A1, CD83 and TBX21); MYB and ETS1 collectively targeted three genes (COL1A1, LCK and MYB) (Fig. 6C, D).Figure 6 Transcription factors (TFs) analysis. Potential TFs of the key DEGs in the yellow module of female (A) and male groups (B). Regulatory networks of TFs and target genes in female (C) and male groups (D).
+
+MiRNAs of the key DEGs
+
+Based on the GSE112556 microarray data analysis, 13 DEMs were screened and identified in DCM patients. TargetScan, miRbase and DIANA-microT-CDS databases were used to predict target genes of miRNA separately, a total of 1217 target genes of the 13 DEMs were obtained from the three overlapped prediction results, and 15 of the 1217 genes were key DEGs in both females and males in the yellow module. As shown in Table 1, the 15 genes were the target genes of eight miRNAs, of which miR-9-3p targeted five genes (ITIH5, HAPLN1, NRK, CXCL14 and RYR3). In addition, miR-16-2-3p and miR-770-5p collectively targeted BCL11B, whereas miR-21-5p and miR-770-5p collectively targeted MATN2. To verify whether MATN2 is a direct target of miR-21-5p, we fused the MATN2 3'-UTR to a dual-luciferase reporter vector. The luciferase reporter assay results showed that compared to other groups, the relative luciferase activity was significantly repressed in the MATN2 3'-UTR-WT + miR-21-5p group (Fig. 7).Table 1 Potential miRNAs of the 15 key DEGs in the yellow module.
+
+Gene ID	Gene symbol	Upstream miRNAs of genes	
+80760	ITIH5	hsa-miR-9-3p	
+1404	HAPLN1	hsa-miR-9-3p	
+203447	NRK	hsa-miR-9-3p	
+9547	CXCL14	hsa-miR-9-3p	
+6263	RYR3	hsa-miR-9-3p	
+64919	BCL11B	hsa-miR-16-2-3p; hsa-miR-770-5p	
+5999	RGS4	hsa-miR-16-2-3p	
+10234	LRRC17	hsa-miR-21-3p	
+4147	MATN2	hsa-miR-21-5p; hsa-miR-770-5p	
+10125	RASGRP1	hsa-miR-21-5p	
+158158	RASEF	hsa-miR-144-3p	
+55512	SMPD3	hsa-miR-144-3p	
+116931	MED12L	hsa-miR-144-3p	
+117157	SH2D1B	hsa-miR-144-5p	
+8654	PDE5A	hsa-miR-382-5p	
+
+Figure 7 MATN2 was a direct target of miR-21-5p. (A) Schematic representation of the putative binding site between MATN2 and miR-21-5p. (B) MiR-21-5p significantly repressed luciferase activity in 293 T cells transfected with the MATN2 3'-UTR-WT plasmid. The error bars represent the standard deviation of three samples. **P < 0.01.
+
+KEGG pathways enriched by KOBAS and GSEA
+
+KEGG pathways analysis for the key DEGs in the yellow module were conducted by the KOBAS web-based search tool. There were 39 and 37 significantly enriched pathways in the female and male groups, respectively (Fig. 8A, B). Out of these, 35 enriched pathways were common in the female and male groups. Four pathways including PI3K-Akt signaling pathway, NF-κB signaling pathway, antigen processing and presentation, rheumatoid arthritis were unique in the female group, two pathways including transforming growth factor (TGF)-β signaling pathway and calcium signaling pathway were observed to be unique in the male group. GSEA web-based search tool was also used to search enriched KEGG pathways by analyzing the gene expression profile data of the dataset (Fig. 9A, B). GSEA analysis indicated that the genes were significantly enriched in 40 pathways in the female group and 29 pathways in the male group (Tables S4 and S5), of which 13 and two pathways were specifically enriched in the female and male groups, respectively. Sex differences in KEGG pathways were analyzed by comparing the results of GSEA and KOBAS using a Venn diagram (Fig. 10). There were 19 common enriched pathways in the female and male groups, including Th17 cell differentiation, Th1 and Th2 cell differentiation, viral protein interaction with cytokine and cytokine receptor, T cell receptor signaling pathway, natural killer cell mediated cytotoxicity, autoimmune thyroid disease, viral myocarditis, primary immunodeficiency, allograft rejection, graft-versus-host disease, intestinal immune network for IgA production, Epstein-Barr virus infection, hematopoietic cell lineage, cytokine-cytokine receptor interaction, cell adhesion molecules (CAMs), asthma, protein digestion and absorption, neuroactive ligand-receptor interaction, type I diabetes mellitus. These enrichment terms are significantly associated with immune response. Interestingly, the TGF-β signaling pathway was exclusively identified in the male group, and it was not only enriched by GSEA but also by KOBAS. Five genes (GDF6, FMOD, BMP4, GREM1 and LEFTY2) in the TGF-β signaling pathway were found to have higher levels of expression among males compared with females (Fig. S1).Figure 8 KEGG orthology based annotation system (KOBAS) was used to identify Kyoto encyclopedia of gene genomes (KEGG) pathways. The significantly enriched KEGG pathways of the key DEGs in female (A) and male groups (B). The sizes of the circle dots denote the numbers of enriched DEGs, larger circles indicate more enriched genes. The intensity of circle color means different P-values. RichFactor refers to the ratio of the enriched gene numbers to all annotated gene numbers in a pathway entry.
+
+Figure 9 Gene set enrichment analysis (GSEA) was used to identify KEGG pathways. The significantly enriched KEGG pathways of the gene expression data of the dataset in female (A) and male groups (B).
+
+Figure 10 Comparative analysis of the number of KEGG pathways significantly enriched by KOBAS and GSEA.
+
+Analysis of Radix Astragali target genes
+
+The Network pharmacology method was adopted to screen target genes of Radix Astragali for treating DCM. Results showed that a total of seven target genes of Radix Astragali (Huangqi) were the key DEGs (Table S6). Six of these DEGs (ESR1, DUOX2, COL1A1, CXCL11, CXCL10 and CD40LG) were identified in both females and males, while OLR1 was only identified in males. Among these genes, CXCL11 and CXCL10 were the hub genes in the PPI networks. Except for DUOX2 and CXCL11, Other genes were targets of the identified TFs. KOBAS analysis indicated that the seven genes were significantly enriched in 40 pathways (Table S7), and these pathways are mainly related to immune response. The seven target genes were up-regulated in DCM, RT-PCR analysis verified that the expression levels of the seven genes were higher in the cTnTR141W transgenic male mouse of DCM model (Fig. 11).Figure 11 RT-PCR analysis of the mRNA expression levels of the seven target genes. BNP and α-SMA are marker genes.
+
+Discussion
+
+Cardiac fibrosis is a common pathological stage of a variety of cardiovascular diseases, and it is a mainly pathological change of DCM. Under pathological conditions, fibroblasts are transformed into myofibroblasts with a stronger ability to secrete extracellular matrix, the formation of myofibroblasts is a key step in the process of cardiac fibrosis23. Many factors are involved in regulating cardiac fibrosis, such as TGF-β, matrix metalloproteinases (MMPs), renin–angiotensin–aldosterone system (RAAS), inflammation, and non-coding RNAs (ncRNAs)24. The prevalence of cardiac fibrosis is higher in males than in females25. Studies have revealed that male mice with myocarditis have a much greater tendency to develop fibrosis and DCM than female mice26, more fibrosis has been also detected in male patients with myocarditis compared with female patients27. Therefore, Studying the genes involved in the regulation of cardiac fibrosis may be helpful to clarify the sex-based differences in the incidence or pathogenetic mechanisms of DCM.
+
+In this study, the PPI networks and TFs of the key DEGs in females and males were analyzed by using Metascape database. These analyses could help to find some key factors involved in the regulation of DCM. We identified 17 hub genes from the PPI networks in both female and male groups. Several genes have been reported to be related to DCM or cardiac fibrosis. For example, HLA-DQ1 polymorphism is involved in the regulation of the immune response and may serve as genetic markers of idiopathic DCM28. The expression of CD3D and AGTR2 was increased in the heart following DCM29,30, and ventricular-specific expression of AGTR2 promotes the development of DCM and heart failure31. CXCL9 and CXCL10 are the main regulators of myocardial inflammatory cell migration and associated to the risk of DCM32. Apart from these, LCK, ZAP-70 and APLNR are also found to be associated with DCM33,34. TFs are proteins that play important roles in human diseases by binding to specific DNA sequence and regulating the transcription of related genes35. Seven common TFs were identified in female and male groups, previous studies indicate that four of these protein genes play important roles in DCM or cardiac fibrosis. Studies show that NFKB1 is involved in the process of cardiac remodeling, and the promoter polymorphism of the NFKB1 gene is associated with the risk of DCM36,37. It has been found that deletion of endothelial ETS1 in mice following angiotensin II infusion could alleviate cardiac fibrosis38. In addition, SP1 or MYB can mediate several miRNAs playing roles in regulating cardiac fibrosis39–43.
+
+MiRNAs are a type of ncRNAs with a length of about 22 nucleotides, which negatively regulate gene expression through inhibiting mRNA translation or facilitating mRNA degradation, these molecules have been linked to multiple cardiovascular diseases44–46. A lot of evidence has shown that miRNAs are involved in regulating the process of cardiac fibrosis by regulating signal pathways or its target genes, thereby affecting the structure and function of the heart47,48. For example, studies have shown that miR-1, miR-133a, miR-208a/b and miR-499 participate in regulating cardiogenesis, heart function and pathology49. In our study, 13 DCM-related DEMs were obtained by analyzing the miRNA microarray data, and target genes of DEMs were predicted by using three databases. Previous reports have shown sex differences in cardiac miRNA expression25, thus miR-21, miR-144, miR-9-3p, miR-770-5p, miR-382-5p and miR-16-2-3p identified in this study may be expressed differentially in females and males. Fifteen target genes were identified in the key DEGs of both female and male groups based on WGCNA. Several studies have shown that some DEMs of the 15 target genes are involved in regulating cardiac fibrosis. For instance, miR-9 inhibits the proliferation of myocardial fibroblasts and the expression of collagen by inhibiting the expression of the target gene PDGFR-β or TGFBR2, and exerts an inhibitory effect on the fibrosis of myocardial fibroblasts50,51. MiR-144 has been found to have potent effects on reducing infarct size and border zone fibrosis in myocardial infarction model52. MiR-21 expression level is significantly increased in the failing heart, silencing of miR-21 can alleviate interstitial fibrosis and cardiac dysfunction by treating mice with a specific antagomir53. MiR-21 has also been revealed to be up-regulated in human left ventricular tissues of DCM54, which is in accordance with our analysis. The identified up-regulated target gene MATN2 was proved to be a direct target of miR-21-5p, it has been reported to be highly expressed in idiopathic DCM or heart failure55,56. More importantly, MATN2 could stimulate cardiomyocyte proliferation57. In addition, three target genes (ITIH5, NRK, PDE5A) in DCM and RGS4 in heart failure have been reported to be up-regulated, the expression trend of these genes is consistent with our analysis results58–61. These findings suggest that miRNAs and their corresponding target genes can serve as candidate diagnostic biomarkers or drug targets for the clinical treatment of cardiac fibrosis or DCM.
+
+KOBAS and GSEA software were used to predict the significantly enriched KEGG pathways. Nineteen pathways, most of which are related to immune response, were identified in both females and males. It has been confirmed that the pathogenesis of DCM is related to autoimmune response62. Myocardial damage can be caused by abnormal immune responses, as it triggers inflammation and recruits immune cells to repair the myocardium, the cytokines released by immune cells such as Th17 and Th2 promote remodeling, collagen deposition and fibrosis, leading to heart enlargement, heart failure and arrhythmia63,64. The TGF-β signaling pathway was specifically identified in males. The expression of TGF-β has been observed to be increased in DCM patients65, studies have found that the cytokine TGF-β plays a vital role in the development of cardiac fibrosis and the regulation of immune response66–68. MiR-21 can activate TGF-β/Smad2/3 signaling pathway, cardiac fibrosis could be effectively inhibited by blocking this pathway69,70. Due to higher levels of gene expression in the TGF-β signaling pathway in males, thus, it is speculated that activation of TGF-β signaling pathway in males may promote cardiac fibrosis and DCM progression. Furthermore, estrogens have been found to possess antifibrotic effects, another reason that males are more likely to develop DCM than females may be due to the lack of estrogen protection24,25,71.
+
+Radix Astragali is an important drug widely used in traditional Chinese medicine (TCM) prescriptions for the treatment of DCM, and its treatment effect is remarkable72,73. The seven key target genes of Radix Astragali were potential targets for treating DCM, especially the hub genes CXCL11 and CXCL10. The pathways significantly enriched by the seven genes further revealed that immune response may be involved in the progression of DCM. Some experimental results have demonstrated the mRNA or protein expression levels of the seven genes. Among the identified seven up-regulated genes, researches have shown that the levels of DUOX2, CXCL10 and CD40LG expression were significantly higher in patients with DCM32,74,75, and ESR1 and COL1A1 were substantially up-regulated in the mouse model of DCM22,76. In addition, the expression levels of CXCL11 and OLR1 have been proved to be elevated in heart failure patients77,78. We also verified that the expression levels of the seven genes were up-regulated in a mouse model of DCM by RT-PCR. These findings suggest that the seven genes are likely to play critical roles in the progression of DCM.
+
+The expression trend of many key DEGs identified in this study is consistent with previously reported results, indicating that the database and our data analysis results are reliable.
+
+Conclusion
+
+We analyzed gene expression profile data of female and male patients with DCM to explore sex differences in the pathogenesis of DCM and to reveal potential diagnostic biomarkers for this disease. And we identified the differences in key genes and pathways between female and male patients by using different analytical methods. This study can provide a reference for exploring diagnostic biomarkers of female and male DCM patients and their latent effects on disease development.
+
+Supplementary Information
+
+Supplementary Figure S1.
+
+Supplementary Table S1.
+
+Supplementary Table S2.
+
+Supplementary Table S3.
+
+Supplementary Table S4.
+
+Supplementary Table S5.
+
+Supplementary Table S6.
+
+Supplementary Table S7.
+
+Supplementary Information
+
+The online version contains supplementary material available at 10.1038/s41598-023-36117-0.
+
+Acknowledgements
+
+We are grateful for the free databases used in this research.
+
+Author contributions
+
+X.Z. designed and guided this research. M.Z., X.W. and W.C. analysed the data and wrote the manuscript. M.Z., W.L., J.X., D.Y. and Z.Z. prepared the figures and revised the manuscript. All authors have read and agreed to the published version of the manuscript.
+
+Funding
+
+This study was supported by the Special Scientific Research Project of National Clinical Research Base of Traditional Chinese Medicine (2019JDZX019).
+
+Data availability
+
+All datasets are publicly available derived from NCBI databases. All data generated from the analysis process of this study are available from the corresponding author on reasonable request.
+
+Competing interests
+
+The authors declare no competing interests.
+
+Publisher's note
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+==== Refs
+References
+
+1. Richardson P Report of the 1995 World Health Organization/International Society and Federation of Cardiology Task Force on the Definition and Classification of cardiomyopathies Circulation 1996 93 841 842 10.1161/01.CIR.93.5.841 8598070
+2. Schultheiss HP Dilated cardiomyopathy Nat. Rev. Dis. Primers 2019 5 32 10.1038/s41572-019-0084-1 31073128
+3. Fairweather D Cooper LT Jr Blauwet LA Sex and gender differences in myocarditis and dilated cardiomyopathy Curr. Probl. Cardiol. 2013 38 7 46 10.1016/j.cpcardiol.2012.07.003 23158412
+4. Nieminen MS Gender related differences in patients presenting with acute heart failure. Results from EuroHeart Failure Survey II Eur. J. Heart Fail. 2008 10 140 148 10.1016/j.ejheart.2007.12.012 18279769
+5. Yogasundaram H Qi A Nguyen Q Oudit GY Battle of the sexes: Differential prognosis by sex in dilated cardiomyopathy Can. J. Cardiol. 2020 36 7 10 10.1016/j.cjca.2019.06.031 31537392
+6. Perez-Serra A Genetic basis of dilated cardiomyopathy Int. J. Cardiol. 2016 224 461 472 10.1016/j.ijcard.2016.09.068 27736720
+7. Weintraub RG Semsarian C Macdonald P Dilated cardiomyopathy Lancet 2017 390 400 414 10.1016/S0140-6736(16)31713-5 28190577
+8. Caforio AL Prospective familial assessment in dilated cardiomyopathy: Cardiac autoantibodies predict disease development in asymptomatic relatives Circulation 2007 115 76 83 10.1161/CIRCULATIONAHA.106.641472 17179019
+9. Zhao J Identification of target genes in cardiomyopathy with fibrosis and cardiac remodeling J. Biomed. Sci. 2018 25 63 10.1186/s12929-018-0459-8 30115125
+10. Halliday BP Cleland JGF Goldberger JJ Prasad SK Personalizing risk stratification for sudden death in dilated cardiomyopathy: The past, present, and future Circulation 2017 136 215 231 10.1161/CIRCULATIONAHA.116.027134 28696268
+11. Niu X Weighted gene co-expression network analysis identifies critical genes in the development of heart failure after acute myocardial infarction Front. Genet. 2019 10 1214 10.3389/fgene.2019.01214 31850068
+12. Qiu Z Downregulation of AC061961.2, LING01-AS1, and RP11-13E15 is associated with dilated cardiomyopathy progression J. Cell Physiol. 2019 234 4460 4471 10.1002/jcp.27247 30203513
+13. Xiao J Li F Yang Q Zeng XF Ke ZP Co-expression analysis provides important module and pathways of human dilated cardiomyopathy J. Cell Physiol. 2020 235 494 503 10.1002/jcp.28989 31236962
+14. Shao X Integrated analysis of mRNA and microRNA expression profiles reveals differential transcriptome signature in ischaemic and dilated cardiomyopathy induced heart failure Epigenetics 2021 16 917 932 10.1080/15592294.2020.1827721 33016206
+15. Chen YX Identification and functional prediction of long non-coding RNAs in dilated cardiomyopathy by bioinformatics analysis Front. Genet. 2021 12 648111 10.3389/fgene.2021.648111 33936172
+16. Langfelder P Horvath S WGCNA: An R package for weighted correlation network analysis BMC Bioinform. 2008 9 559 10.1186/1471-2105-9-559
+17. Botia JA An additional k-means clustering step improves the biological features of WGCNA gene co-expression networks BMC Syst. Biol. 2017 11 47 10.1186/s12918-017-0420-6 28403906
+18. Zhou Y Metascape provides a biologist-oriented resource for the analysis of systems-level datasets Nat. Commun. 2019 10 1523 10.1038/s41467-019-09234-6 30944313
+19. Kanehisa M Sato Y Kawashima M Furumichi M Tanabe M KEGG as a reference resource for gene and protein annotation Nucleic Acids Res. 2016 44 D457 462 10.1093/nar/gkv1070 26476454
+20. Kanehisa M Goto S KEGG: Kyoto encyclopedia of genes and genomes Nucleic Acids Res. 2000 28 27 30 10.1093/nar/28.1.27 10592173
+21. Bu D KOBAS-i: Intelligent prioritization and exploratory visualization of biological functions for gene enrichment analysis Nucleic Acids Res. 2021 49 W317 W325 10.1093/nar/gkab447 34086934
+22. Zhao HP Protective action of tetramethylpyrazine phosphate against dilated cardiomyopathy in cTnT(R141W) transgenic mice Acta Pharmacol. Sin. 2010 31 281 288 10.1038/aps.2010.6 20154713
+23. Valiente-Alandi I Schafer AE Blaxall BC Extracellular matrix-mediated cellular communication in the heart J. Mol. Cell Cardiol. 2016 91 228 237 10.1016/j.yjmcc.2016.01.011 26778458
+24. Cojan-Minzat BO Zlibut A Agoston-Coldea L Non-ischemic dilated cardiomyopathy and cardiac fibrosis Heart Fail. Rev. 2020 26 1081 10.1007/s10741-020-09940-0
+25. Medzikovic L Aryan L Eghbali M Connecting sex differences, estrogen signaling, and microRNAs in cardiac fibrosis J. Mol. Med. (Berl) 2019 97 1385 1398 10.1007/s00109-019-01833-6 31448389
+26. Coronado MJ Testosterone and interleukin-1beta increase cardiac remodeling during coxsackievirus B3 myocarditis via serpin A 3n Am. J. Physiol. Heart Circ. Physiol. 2012 302 H1726 1736 10.1152/ajpheart.00783.2011 22328081
+27. Cocker MS Abdel-Aty H Strohm O Friedrich MG Age and gender effects on the extent of myocardial involvement in acute myocarditis: A cardiovascular magnetic resonance study Heart 2009 95 1925 1930 10.1136/hrt.2008.164061 19710029
+28. Liu W Li WM Sun NL HLA-DQA1, -DQB1 polymorphism and genetic susceptibility to idiopathic dilated cardiomyopathy in Hans of northern China Ann. Hum. Genet. 2005 69 382 388 10.1111/j.1529-8817.2005.00166.x 15996167
+29. Aranguiz-Urroz P Differential participation of angiotensin II type 1 and 2 receptors in the regulation of cardiac cell death triggered by angiotensin II Am. J. Hypertens. 2009 22 569 576 10.1038/ajh.2009.32 19300422
+30. Noutsias M Expression of functional T-cell markers and T-cell receptor Vbeta repertoire in endomyocardial biopsies from patients presenting with acute myocarditis and dilated cardiomyopathy Eur. J. Heart Fail. 2011 13 611 618 10.1093/eurjhf/hfr014 21422001
+31. Yan X Ventricular-specific expression of angiotensin II type 2 receptors causes dilated cardiomyopathy and heart failure in transgenic mice Am. J. Physiol. Heart Circ. Physiol. 2003 285 H2179 2187 10.1152/ajpheart.00361.2003 12869376
+32. Nogueira LG Myocardial chemokine expression and intensity of myocarditis in Chagas cardiomyopathy are controlled by polymorphisms in CXCL9 and CXCL10 PLoS Negl. Trop. Dis. 2012 6 e1867 10.1371/journal.pntd.0001867 23150742
+33. Wang Z Analysis of IgG subclass antibodies and expression of T-Cell receptor signaling molecules in anti-CD4 monoclonal antibody treated mice with autoimmune cardiomyopathy Autoimmunity 2006 39 455 460 10.1080/08916930600845915 17060024
+34. Sarzani R The 212A variant of the APJ receptor gene for the endogenous inotrope apelin is associated with slower heart failure progression in idiopathic dilated cardiomyopathy J. Card. Fail. 2007 13 521 529 10.1016/j.cardfail.2007.04.002 17826642
+35. Lambert SA The human transcription factors Cell 2018 172 650 665 10.1016/j.cell.2018.01.029 29425488
+36. Zhou B Functional polymorphism of the NFKB1 gene promoter is related to the risk of dilated cardiomyopathy BMC Med. Genet. 2009 10 47 10.1186/1471-2350-10-47 19480714
+37. Santos DG Nuclear factor (NF) kappaB polymorphism is associated with heart function in patients with heart failure BMC Med. Genet. 2010 11 89 10.1186/1471-2350-11-89 20534156
+38. Xu L Endothelial-specific deletion of Ets-1 attenuates angiotensin II-induced cardiac fibrosis via suppression of endothelial-to-mesenchymal transition BMB Rep. 2019 52 595 600 10.5483/BMBRep.2019.52.10.206 30670148
+39. Zhang LX Role and mechanism of microRNA-548c-3p/c-Myb in myocardial infarction fibrosis in rats Eur. Rev. Med. Pharmacol. Sci. 2019 23 4908 4916 31210326
+40. Zhao N MiRNA-711-SP1-collagen-I pathway is involved in the anti-fibrotic effect of pioglitazone in myocardial infarction Sci China Life Sci. 2013 56 431 439 10.1007/s11427-013-4477-1 23633075
+41. Cao F Li Z Ding WM Yan L Zhao QY LncRNA PVT1 regulates atrial fibrosis via miR-128-3p-SP1-TGF-beta1-Smad axis in atrial fibrillation Mol. Med. 2019 25 7 10.1186/s10020-019-0074-5 30894138
+42. Zhao J Long non-coding RNA Linc00152 is involved in cell cycle arrest, apoptosis, epithelial to mesenchymal transition, cell migration and invasion in gastric cancer Cell Cycle (Georgetown, Tex.) 2015 14 3112 3123 10.1080/15384101.2015.1078034 26237576
+43. Deng P MicroRNA-150 inhibits the activation of cardiac fibroblasts by regulating c-Myb Cell Physiol. Biochem. 2016 38 2103 2122 10.1159/000445568 27184887
+44. Bauersachs J Thum T Biogenesis and regulation of cardiovascular microRNAs Circ. Res. 2011 109 334 347 10.1161/CIRCRESAHA.110.228676 21778437
+45. Watson CJ MicroRNA signatures differentiate preserved from reduced ejection fraction heart failure Eur. J. Heart Fail. 2015 17 405 415 10.1002/ejhf.244 25739750
+46. Huntzinger E Izaurralde E Gene silencing by microRNAs: Contributions of translational repression and mRNA decay Nat. Rev. Genet. 2011 12 99 110 10.1038/nrg2936 21245828
+47. Diez J Do microRNAs regulate myocardial fibrosis? Nat. Clin. Pract. Cardiovasc. Med. 2009 6 88 89 10.1038/ncpcardio1415 19047992
+48. van Rooij E Olson EN Searching for miR-acles in cardiac fibrosis Circ. Res. 2009 104 138 140 10.1161/CIRCRESAHA.108.192492 19179664
+49. Chistiakov DA Orekhov AN Bobryshev YV Cardiac-specific miRNA in cardiogenesis, heart function, and cardiac pathology (with focus on myocardial infarction) J. Mol. Cell Cardiol. 2016 94 107 121 10.1016/j.yjmcc.2016.03.015 27056419
+50. Wang L MicroRNA-9 regulates cardiac fibrosis by targeting PDGFR-beta in rats J. Physiol. Biochem. 2016 72 213 223 10.1007/s13105-016-0471-y 26896308
+51. Li J Dai Y Su Z Wei G MicroRNA-9 inhibits high glucose-induced proliferation, differentiation and collagen accumulation of cardiac fibroblasts by down-regulation of TGFBR2 Biosci. Rep. 2016 36 e00417 10.1042/BSR20160346 27756824
+52. Zhang L IDH1R132H promotes malignant transformation of benign prostatic epithelium by dysregulating microRNAs: Involvement of IGF1R-AKT/STAT3 signaling pathway Neoplasia 2018 20 207 217 10.1016/j.neo.2017.12.001 29331887
+53. Thum T MicroRNA-21 contributes to myocardial disease by stimulating MAP kinase signalling in fibroblasts Nature 2008 456 980 984 10.1038/nature07511 19043405
+54. Xu HF MicroRNA21 regulation of the progression of viral myocarditis to dilated cardiomyopathy Mol. Med. Rep. 2014 10 161 168 10.3892/mmr.2014.2205 24804616
+55. Huang H Identification of potential gene interactions in heart failure caused by idiopathic dilated cardiomyopathy Med. Sci. Monit. 2018 24 7697 7709 10.12659/MSM.912984 30368515
+56. Li D Lin H Li L Multiple feature selection strategies identified novel cardiac gene expression signature for heart failure Front. Physiol. 2020 11 604241 10.3389/fphys.2020.604241 33304275
+57. Zacchigna S Paracrine effect of regulatory T cells promotes cardiomyocyte proliferation during pregnancy and after myocardial infarction Nat. Commun. 2018 9 2432 10.1038/s41467-018-04908-z 29946151
+58. Louzao-Martinez L Characteristic adaptations of the extracellular matrix in dilated cardiomyopathy Int. J. Cardiol. 2016 220 634 646 10.1016/j.ijcard.2016.06.253 27391006
+59. Ahmad F Nicotinamide riboside kinase-2 alleviates ischemia-induced heart failure through P38 signaling Biochim. Biophys. Acta Mol. Basis Dis. 2020 1866 165609 10.1016/j.bbadis.2019.165609 31743747
+60. Wu H Epigenetic regulation of phosphodiesterases 2A and 3A underlies compromised beta-adrenergic signaling in an iPSC model of dilated cardiomyopathy Cell Stem Cell 2015 17 89 100 10.1016/j.stem.2015.04.020 26095046
+61. Owen VJ Expression of RGS3, RGS4 and Gi alpha 2 in acutely failing donor hearts and end-stage heart failure Eur. Heart J. 2001 22 1015 1020 10.1053/euhj.2000.2578 11428836
+62. Caforio AL Evidence from family studies for autoimmunity in dilated cardiomyopathy Lancet 1994 344 773 777 10.1016/S0140-6736(94)92339-6 7916071
+63. Travers JG Kamal FA Robbins J Yutzey KE Blaxall BC Cardiac fibrosis: The fibroblast awakens Circ. Res. 2016 118 1021 1040 10.1161/CIRCRESAHA.115.306565 26987915
+64. Zhang M Zhang S T cells in fibrosis and fibrotic diseases Front. Immunol. 2020 11 1142 10.3389/fimmu.2020.01142 32676074
+65. Pauschinger M Dilated cardiomyopathy is associated with significant changes in collagen type I/III ratio Circulation 1999 99 2750 2756 10.1161/01.CIR.99.21.2750 10351968
+66. Bujak M Frangogiannis NG The role of TGF-beta signaling in myocardial infarction and cardiac remodeling Cardiovasc. Res. 2007 74 184 195 10.1016/j.cardiores.2006.10.002 17109837
+67. Dobaczewski M Chen W Frangogiannis NG Transforming growth factor (TGF)-beta signaling in cardiac remodeling J. Mol. Cell Cardiol. 2011 51 600 606 10.1016/j.yjmcc.2010.10.033 21059352
+68. Meng XM Nikolic-Paterson DJ Lan HY TGF-beta: The master regulator of fibrosis Nat. Rev. Nephrol. 2016 12 325 338 10.1038/nrneph.2016.48 27108839
+69. Khalil H Fibroblast-specific TGF-beta-Smad2/3 signaling underlies cardiac fibrosis J. Clin. Invest. 2017 127 3770 3783 10.1172/JCI94753 28891814
+70. Yuan J Mir-21 promotes cardiac fibrosis after myocardial infarction via targeting Smad7 Cell Physiol. Biochem. 2017 42 2207 2219 10.1159/000479995 28817807
+71. Vitale C Mendelsohn ME Rosano GM Gender differences in the cardiovascular effect of sex hormones Nat. Rev. Cardiol. 2009 6 532 542 10.1038/nrcardio.2009.105 19564884
+72. Zhao P Chinese medicinal herb Radix Astragali suppresses cardiac contractile dysfunction and inflammation in a rat model of autoimmune myocarditis Toxicol. Lett. 2008 182 29 35 10.1016/j.toxlet.2008.08.002 18782607
+73. Yang YZ Chen RZ Zhang JN Observation on collaborative treatment of dilated cardiomyopathy Zhongguo Zhong Xi Yi Jie He Za Zhi 2001 21 254 256 12577349
+74. Gil-Cayuela C Myocardium of patients with dilated cardiomyopathy presents altered expression of genes involved in thyroid hormone biosynthesis PLoS ONE 2018 13 e0190987 10.1371/journal.pone.0190987 29320567
+75. Ueno A Murasaki K Hagiwara N Kasanuki H Increases in circulating T lymphocytes expressing HLA-DR and CD40 ligand in patients with dilated cardiomyopathy Heart Vessels 2007 22 316 321 10.1007/s00380-007-0977-x 17879023
+76. Guo Q Integrated bioinformatic analysis reveals immune molecular markers and potential drugs for diabetic cardiomyopathy Front. Endocrinol. (Lausanne) 2022 13 933635 10.3389/fendo.2022.933635 36046789
+77. Altara R Emerging importance of chemokine receptor CXCR3 and its ligands in cardiovascular diseases Clin. Sci. (Lond) 2016 130 463 478 10.1042/CS20150666 26888559
+78. Takaya T Left ventricular expression of lectin-like oxidized low-density lipoprotein receptor-1 in failing rat hearts Circ. J. 2010 74 723 729 10.1253/circj.CJ-09-0488 20190428
+

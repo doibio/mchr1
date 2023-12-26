@@ -1,0 +1,235 @@
+
+==== Front
+Comput Math Methods Med
+Comput Math Methods Med
+cmmm
+Computational and Mathematical Methods in Medicine
+1748-670X
+1748-6718
+Hindawi
+
+10.1155/2022/8030243
+Research Article
+Hub Gene Screening Associated with Early Glaucoma: An Integrated Bioinformatics Analysis
+Tian Rui
+Li Fuqiang
+Che Songtian
+Song Meijiao
+Liu Lu
+Guo Rong
+Li Zhuoya
+Hu Xiaomin
+https://orcid.org/0000-0002-4081-2834
+Zhang Hui zhui99@jlu.edu.cn
+
+Department of Ophthalmology, The Second Hospital of Jilin University, Changchun, 130041 Jilin Province, China
+Academic Editor: Ahmed Faeq Hussein
+
+2022
+15 7 2022
+2022 803024331 5 2022
+21 6 2022
+25 6 2022
+Copyright © 2022 Rui Tian et al.
+2022
+https://creativecommons.org/licenses/by/4.0/ This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Background
+
+Primary open-angle glaucoma (POAG) is the most common type of glaucoma. The potential influence of some DEGs on the progression of POAG was still incomplete. In this study, we integrated transcriptome data with clinical data to investigate the relationship between them in POAG patients.
+
+Methods
+
+The gene expression profile (GSE27276) from Gene Expression Omnibus (GEO) was used to identify DEGs. The LIMMA package of R was used to identify the DEGs (Diboun et al., 2006). The adjusted P values (adj P value) were calculated instead to avoid the appearance of false-positive results. Genes with |log2 fold change (FC)| larger than 1 and adj P value < 0.01 were taken as DEGs between PH and PC samples. GO (Gene Ontology) function and KEGG (Kyoto Encyclopedia of Genes and Genomes) pathway enrichment analyses of the DEGs were performed. Protein-protein interactions (PPIs) of the DEGs were constructed.
+
+Results
+
+A total of 182 DEGs were identified through our analysis, of which 119 genes were upregulated and 63 genes were downregulated. GO enrichment analysis illustrated that these DEGs were mostly enriched into haptoglobin binding, antioxidant activity, and organic acid binding. KEGG enrichment analysis illustrated that these DEGs were mostly enriched into Staphylococcus aureus infection. The most significant module was identified by MCODE consists of 8 DEGs, and BCL11A is the seeded gene. The second most significant module consists of 5 DEGs, and IL1RN is the seeded gene.
+
+Conclusion
+
+Our results demonstrate the potential influence of some DEGs on the progression of POAG, providing a comprehensive bioinformatics analysis of the pathogenesis, which may contribute to future investigation into the molecular mechanisms and biomarkers.
+
+Special Project of Medical and Health Talents in Jilin Province2020SCZT045 Special Project for Medical and Sanitary Talent of Jilin Province2019SCZT032 Health Technology Innovation Project in Jilin Province2020J038 2019J015 Department of Science and Technology of Jilin Province20200801026GH Natural Science Foundation Project of Science and Technology Department of Jilin Province20190201150JC
+==== Body
+pmc1. Introduction
+
+Primary open-angle glaucoma (POAG) is the most common type of glaucoma, accounting for 60%-70% of all glaucoma, which usually affects both eyes but is not necessarily symmetrical [1]. The morbidity of POAG increased fast and threatened the health and life of the population with population growth and aging [2, 3]. Many different abnormalities have been noted on histopathological examination of the drainage angle in patients with POAG [4]. These include narrowed intertrabecular spaces, thickened basement membranes, fused trabecular beams, reduction in trabecular endothelial cells, reduction in actin filaments, narrowing of collector channels, foreign material accumulation, scleral spur thickening, and closure of Schlemm's canal. POAG patients often find themselves with this disease when it has entered the middle and late stage of the disease, so if early detection and treatment can be achieved, the retina and optic nerve can be protected to a large extent, and the existence of effective vision of patients can be prolonged [5]. Visual loss from glaucoma is irreversible, and therefore, prevention is a key strategy to preventing morbidity from this condition.
+
+Its pathogenesis is often related to genetic factors [6, 7]. At present, it is mainly believed that some structural changes in outflow channel of the aqueous humor caused by some factors could result in unobstructed outflow of the aqueous humor and increase of intraocular pressure, but there is basically no stenosis or obstruction in the structure of the atrial angle [8]. Intraocular pressure (IOP) is considered the most important risk factor for the development of POAG and remains the only known modifiable risk factor. Population studies have shown increased prevalence of glaucoma with increasing IOP [9]. The prevalence of POAG increases with age, even after compensating for the association between age and IOP [10]. Several studies have shown POAG to be more prevalent in people of African-Caribbean descent compared with Caucasians. Not only is POAG more prevalent in black race, its onset is earlier, and disease progression has been shown to be faster and more refractory to treatment [11]. Myopia has also been shown to be a risk factor for POAG in several studies [12].
+
+POAG is treated with medication of first choice, namely, eye drops. Drugs that reduce the generation of aqueous humorous fluid and accelerate the outflow of aqueous humorous fluid can be selected [13, 14]. If a combination of drugs does not achieve the desired IOP, a combination formulation may be used. If drugs do not work, selective laser trabeculoplasty is an option [15]. Glaucoma surgery is the last option if the visual field progression cannot be suppressed by drugs or lasers. No matter drugs, laser, surgical treatment are to make the IOP drop to the visual field injury no longer progress level [16]. According to the etiology and inducement of POAG, the key preventive measure is to regularly monitor intraocular pressure, maintain a good attitude, and pay attention to systemic diseases [17, 18]. POAG has a genetic tendency and is generally considered to be polygenic [19]. Therefore, the family history of primary open-angle glaucoma is the most dangerous factor. People with family genetic history should go to the hospital in time for early screening of POAG.
+
+In the present study, the differential expression of critical genes plays a key role in the mechanism of common development of the POAG and will affect therapy as well as the efficacy of medicine. Recent genome-wide studies have identified lots of novel loci associated with POAG. For example, the mutations myocilin (MYOC), optineurin (OPTN), and TANK-binding kinase 1 (TBK1) may cause POAG that is inherited as a Mendelian trait. The relationship between differentially expressed genes (DEGs) and the progression of POAG still demanded to be explained. The sharing of transcriptome data and the development of new bioinformatics analysis tools have enabled us to integrate transcriptome data with clinical data to investigate the relationship between them. This can help us understand the development of POAG from both perspectives and provide a new perspective for the prevention and treatment of the disease.
+
+2. Material and Methods
+
+2.1. Data
+
+The gene expression profiles (GSE27276), which are composed of 13 controls and 15 primary open-angle glaucoma (POAG) cases, were downloaded from the Gene Expression Omnibus (GEO) database (https://www.ncbi.nlm.nih.gov/geo/) and exploited as discovery datasets to identify differentially expressed genes (DEGs). This study compared genome-wide expression profiles of individuals with and without POAG.
+
+Of these cases, six controls and one POAG cases had the expression performed from both left and right eyes. One technical replicate was done between two cases.
+
+2.2. Identification of DEGs
+
+The LIMMA package of R was used to identify the DEGs [20]. The adjusted P values (adj P value) were calculated instead to avoid the appearance of false-positive results. Genes with |log2 fold change (FC)| larger than 1 and adj P value < 0.01 were taken as DEGs between PH and PC samples. The relevant immune genes were searched in IMMPORT (https://www.immport.org/resources) to find potential immunotherapy targets.
+
+2.3. GO and KEGG Enrichment Analyses
+
+GO (Gene Ontology) function and KEGG (Kyoto Encyclopedia of Genes and Genomes) pathway enrichment analyses of the DEGs were performed using clusterProfiler and pathview packages of R, which are designed for automating the process of biological-term classification and the enrichment analysis of gene clusters [21].
+
+2.4. PPI Network Construction
+
+Protein-protein interactions (PPIs) of the DEGs were constructed based on the Search Tool for the Retrieval of Interacting Genes (STRING; http://string.embl.de/) with the confidence score ≥ 0.9 [22]. Subsequently, the PPI network was visualized by means of Cytoscape software (version 3.5.1). Furthermore, the plugin of Molecular Complex Detection (MCODE) [23] in Cytoscape software was applied to explore the significant modules in the PPI network with default settings.
+
+2.5. Statistical Analysis
+
+Statistical calculations were carried out using SPSS statistical software (SPSS Inc., USA). For multiple comparisons, data were analyzed via analysis of variance (ANOVA) with the Tukey-Kramer Multiple Comparisons Test. P values < 0.05 were considered significant.
+
+3. Results
+
+3.1. Differentially Expressed Genes (DEGs)
+
+The gene expression profiles (GSE27276) were used to identify DEGs, which are composed of 13 controls and 15 primary open-angle glaucoma (POAG) cases. A total of 182 DEGs were identified through our analysis, of which 119 genes were upregulated and 63 genes were downregulated (Figures 1 and 2). Of those 182 DEGs, 36 DEGs were identified as immune-related genes (Table 1). Their functions can be classified as antigen processing and presentation, antimicrobials, BCR signaling pathway, cytokines, cytokine receptors, interleukins, interleukin receptor, natural killer cell cytotoxicity, TCR signaling pathway, TGFb family member, and TNF family member receptors. Of the 36 immune-related genes, 22 DEGs were upregulated, including CHP2, CSF3, DEFB1, FABP5, FAM3B, FAM3D, GDF15, IL1RN, IL20RB, LCN2, MASP1, MTNR1A, NAMPT, S100A11, S100A12, S100A14, S100A2, S100A8, S100A9, SAA2, SERPINA3, and SLPI. Of the 36 immune-related genes, 14 DEGs were downregulated, including CCN2, CD74, CLEC11A, GPHA2, GRP, HLA-DMB, HLA-DPA1, MCHR1, OGN, PTGDS, TNFRSF25, TPM2, TYROBP, and VIM.
+
+3.2. Functional Enrichment Analysis of DEGs
+
+GO enrichment analysis illustrated that these DEGs were enriched in several terms (Figure 3), including haptoglobin binding, antioxidant activity, organic acid binding, oxygen carrier activity, peroxidase activity, oxidoreductase activity, calcium-dependent protein binding, MAP kinase phosphatase activity, fatty acid binding, oxygen binding, protein tyrosine/serine/threonine phosphatase activity, protein tyrosine/threonine phosphatase activity, RAGE receptor binding, insulin-like growth factor binding, extracellular matrix structural constituent, MAP kinase tyrosine/serine/threonine phosphatase activity, long-chain fatty acid binding, intermediate filament binding, molecular carrier activity, monocarboxylic acid binding, protein serine phosphatase activity, protein threonine phosphatase activity, structural constituent of muscle, serine-type endopeptidase activity, extracellular matrix structural constituent conferring compression resistance, growth factor binding, serine-type peptidase activity, serine hydrolase activity, protein serine/threonine phosphatase activity, and protein tyrosine phosphatase activity. KEGG enrichment analysis illustrated that these DEGs were enriched in several pathways (Figure 4). The top 10 most enriched pathways were Staphylococcus aureus infection, estrogen signaling pathway, tyrosine metabolism, IL-17 signaling pathway, malaria, toxoplasmosis, African trypanosomiasis, mineral absorption, phenylalanine metabolism, and histidine metabolism.
+
+3.3. Protein-Protein Interaction Network
+
+STRING was used to construct the PPI network, and the most significant modules in the PPI network were identified in Cytoscape software. The regulatory network is complex (Figure 5), and the top 5 DEGs with the highest degrees are LCN2, HP, KRT19, CDH2, and KRT5 (Figure 6). The most significant module was identified by MCODE with 8 nodes and 54 edges (Table 2). The module consists of 8 DEGs, including HP, HBG2, HBD, HBB, HBG1, HBA1, HBA2, and BCL11A. Of the 8 DEGs, BCL11A is the seeded gene. The average degree of the 8 DEGs is 6.75 and the average score is 5.84. They are enriched into two KEGG pathways, including African trypanosomiasis and malaria. The second most significant module was identified by MCODE with 5 nodes and 20 edges (Table 3). This module consists of 5 DEGs, including IL1RN, LCN2, S100A8, S100A12, and S100A9. Of the 5 DEGs, IL1RN is the seeded gene. The average degree of the 5 DEGs is 4, and the average score is 3.78. They are enriched into two KEGG pathways, including IL-17 signaling pathway and cytokine-cytokine receptor interaction.
+
+4. Discussion
+
+In the present study, the DEGs between controls and primary open-angle glaucoma (POAG) patients were explored. A total of 182 DEGs were identified through our analysis, of which 119 genes were upregulated and 63 genes were downregulated. Of the 36 immune-related genes, 22 DEGs were upregulated and 14 DEGs were downregulated. Their functions can be classified as antigen processing and presentation, antimicrobials, BCR signaling pathway, cytokines, cytokine receptors, interleukins, interleukin receptor, natural killer cell cytotoxicity, TCR signaling pathway, TGFb family member, and TNF family member receptors. GO enrichment analysis illustrated that these 182 DEGs were mostly enriched into haptoglobin binding, antioxidant activity, and organic acid binding. KEGG enrichment analysis illustrated that these 182 DEGs were mostly enriched into Staphylococcus aureus infection. Haptoglobin is an acute phase reactive protein [24]. Antioxidant activity is usually by preventing the diffusion stage of oxidation chain reactions [25]. This study is meaningful since transcriptome data was integrated to investigate the potential pathogenesis of DEGs between controls and primary open-angle glaucoma (POAG) patients. This study provides a reference for understanding the pathogenesis value of DEGs and formulating reasonable clinical diagnosis and treatment.
+
+The top 5 DEGs with the highest degrees in the protein-protein network are LCN2, HP, KRT19, CDH2, and KRT5. The gene LCN2 encodes a protein that belongs to the lipocalin family. Members of this family transport small hydrophobic molecules such as lipids, steroid hormones, and retinoids [26]. The gene HP encodes a preproprotein, which is processed to yield both alpha and beta chains, which subsequently combine as a tetramer to produce haptoglobin [27]. The protein encoded by the gene KRT19 is a member of the keratin family. The keratins are intermediate filament proteins responsible for the structural integrity of epithelial cells and are subdivided into cytokeratins and hair keratins [28]. The gene CDH2 encodes a classical cadherin and member of the cadherin superfamily. Alternative splicing results in multiple transcript variants, at least one of which encodes a preproprotein proteolytically processed to generate a calcium-dependent cell adhesion molecule and glycoprotein [29]. The protein encoded by this gene KRT5 is a member of the keratin gene family. The type II cytokeratins consist of basic or neutral proteins which are arranged in pairs of heterotypic keratin chains coexpressed during differentiation of simple and stratified epithelial tissues [30].
+
+The most significant module was identified by MCODE with 8 nodes and 54 edges. This module consists of 8 DEGs, including HP, HBG2, HBD, HBB, HBG1, HBA1, HBA2, and BCL11A. Of the 8 DEGs, BCL11A is the seeded gene. This gene BCL11A encodes a C2H2 type zinc-finger protein by its similarity to the mouse Bcl11a/Evi9 protein [31]. The corresponding mouse gene is a common site of retroviral integration in myeloid leukemia and may function as a leukemia disease gene, in part, through its interaction with BCL6. During hematopoietic cell differentiation, this gene is downregulated. It is possibly involved in lymphoma pathogenesis since translocations associated with B cell malignancies also deregulate its expression [32]. The second most significant module was identified by MCODE with 5 nodes and 20 edges. This module consists of 5 DEGs, including IL1RN, LCN2, S100A8, S100A12, and S100A9. Of the 5 DEGs, IL1RN is the seeded gene. The protein encoded by this gene IL1RN is a member of the interleukin 1 cytokine family. This protein inhibits the activities of interleukin 1, alpha (IL1A), and interleukin 1, beta (IL1B), and modulates a variety of interleukin 1-related immune and inflammatory responses, particularly in the acute phase of infection and inflammation [33, 34].
+
+Some limitations should be acknowledged. First, only one dataset was included in the analysis, without considering the impact of population heterogeneity in different countries on the results. Second, the lack of verifiable datasets in this study limits the extrapolation of research results. Third, this study is only for the reanalysis of existing data and lacks the support and verification of experimental data. In conclusion, our results provide a comprehensive bioinformatics analysis between controls and POAG patients, which could contribute to the understanding of the development of POAG and prevention and treatment of the disease.
+
+5. Conclusion
+
+This study demonstrated the potential influence of some DEGs on the progression of POAG, providing a comprehensive bioinformatics analysis of the pathogenesis, which may contribute to future investigation into the molecular mechanisms and biomarkers.
+
+Acknowledgments
+
+This paper was funded by the Natural Science Foundation Project of Science and Technology Department of Jilin Province (No. 20190201150JC), the International Science and Technology Cooperation Project of the Department of Science and Technology of Jilin Province (No. 20200801026GH), the Health Technology Innovation Project in Jilin Province (No. 2019J015), the Special Project for Medical and Sanitary Talent of Jilin Province (No. 2019SCZT032), the Health Technology Innovation Project in Jilin Province (No. 2020J038), and the Special Project of Medical and Health Talents in Jilin Province (No. 2020SCZT045).
+
+Data Availability
+
+The data used to support this study is available from the corresponding author upon request.
+
+Conflicts of Interest
+
+The authors declare that they have no conflicts of interest.
+
+Figure 1 Volcano plots of DEGs in GSE27276.
+
+Figure 2 Heatmap plots of DEGs in GSE27276.
+
+Figure 3 The enriched GO terms of DEGs in GSE27276.
+
+Figure 4 The enriched KEGG pathways of DEGs in GSE27276.
+
+Figure 5 Protein-protein interaction network of DEGs in GSE27276.
+
+Figure 6 The top 30 DEGs with the highest degree in the protein-protein interaction network.
+
+Table 1 Immune-related DEGs in GSE27276.
+
+Symbol	ID	Name	Synonyms	Chromosome	Category	
+CCN2	1490	Cellular communication network factor 2	CTGF|HCS24|IGFBP8|NOV2	6	Cytokines	
+CD74	972	CD74 molecule	DHLAG|HLADG|II|Ia-GAMMA|p33	5	Antigen_processing_and_presentation	
+CHP2	63928	Calcineurin-like EF-hand protein 2	—	16	BCRSignalingPathway, NaturalKiller_cell_cytotoxicity, TCRsignalingPathway	
+CLEC11A	6320	C-type lectin domain-containing 11A	CLECSF3|LSLCL|P47|SCGF	19	Cytokines	
+CSF3	1440	Colony-stimulating factor 3	C17orf33|CSF3OS|GCSF	17	Cytokines	
+DEFB1	1672	Defensin beta 1	BD1|DEFB-1|DEFB101|HBD1	8	Antimicrobials, chemokines, cytokines	
+FABP5	2171	Fatty acid-binding protein 5	E-FABP|EFABP|KFABP|PA-FABP|PAFABP	8	Antimicrobials	
+FAM3B	54097	FAM3 metabolism regulating signaling molecule B	2-21|C21orf11|C21orf76|ORF9|PANDER|PRED44	21	Cytokines	
+FAM3D	131177	FAM3 metabolism regulating signaling molecule D	EF7|OIT1	3	Cytokines	
+GDF15	9518	Growth differentiation factor 15	GDF-15|MIC-1|MIC1|NAG-1|PDF|PLAB|PTGFB	19	Antimicrobials, cytokines, TGFb_family_member	
+GPHA2	170589	Glycoprotein hormone subunit alpha 2	A2|GPA2|ZSIG51	11	Cytokines	
+GRP	2922	Gastrin-releasing peptide	BN|GRP-10|preproGRP|proGRP	18	Cytokines	
+HLA-DMB	3109	Major histocompatibility complex, class II, DM beta	D6S221E|RING7	6	Antigen_processing_and_presentation	
+HLA-DPA1	3113	Major histocompatibility complex, class II, DP alpha 1	DP(W3)|DP(W4)|DPA1|HLA-DP1A|HLA-DPB1|HLADP|HLASB|PLT1	6	Antigen_processing_and_presentation	
+IL1RN	3557	Interleukin 1 receptor antagonist	DIRA|ICIL-1RA|IL-1RN|IL-1ra|IL-1ra3|IL1F3|IL1RA|IRAP|MVCD4	2	Cytokines, interleukins	
+IL20RB	53833	Interleukin 20 receptor subunit beta	DIRS1|FNDC6|IL-20R2	3	Cytokine_receptors, interleukins_receptor	
+LCN2	3934	Lipocalin 2	24p3|MSFI|NGAL|p25	9	Antimicrobials	
+MASP1	5648	Mannan-binding lectin serine peptidase 1	3MC1|CRARF|CRARF1|MAP1|MASP|MASP3|MAp44|PRSS5|RaRF	3	Antimicrobials	
+MCHR1	2847	Melanin-concentrating hormone receptor 1	GPR24|MCH-1R|MCH1R|SLC-1|SLC1	22	Cytokine_receptors	
+MTNR1A	4543	Melatonin receptor 1A	MEL-1A-R|MT1	4	Cytokine_receptors	
+NAMPT	10135	Nicotinamide phosphoribosyltransferase	1110035O14Rik|PBEF|PBEF1|VF|VISFATIN	7	Cytokines	
+OGN	4969	Osteoglycin	OG|OIF|SLRR3A	9	Cytokines	
+PTGDS	5730	Prostaglandin D2 synthase	L-PGDS|LPGDS|PDS|PGD2|PGDS|PGDS2	9	Antimicrobials, cytokine_receptors	
+S100A11	6282	S100 calcium-binding protein A11	HEL-S-43|MLN70|S100C	1	Antimicrobials	
+S100A12	6283	S100 calcium-binding protein A12	CAAF1|CAGC|CGRP|ENRAGE|MRP-6|MRP6|p6	1	Antimicrobials	
+S100A14	57402	S100 calcium-binding protein A14	BCMP84|S100A15	1	Antimicrobials	
+S100A2	6273	S100 calcium-binding protein A2	CAN19|S100L	1	Antimicrobials	
+S100A8	6279	S100 calcium-binding protein A8	60B8AG|CAGA|CFAG|CGLA|CP-10|L1Ag|MA387|MIF|MRP8|NIF|P8	1	Antimicrobials	
+S100A9	6280	S100 calcium-binding protein A9	60B8AG|CAGB|CFAG|CGLB|L1AG|LIAG|MAC387|MIF|MRP14|NIF|P14	1	Antimicrobials	
+SAA2	6289	Serum amyloid A2	SAA|SAA1	11	Chemokines, cytokines	
+SERPINA3	12	Serpin family A member 3	AACT|ACT|GIG24|GIG25	14	Antimicrobials	
+SLPI	6590	Secretory leukocyte peptidase inhibitor	ALK1|ALP|BLPI|HUSI|HUSI-I|MPI|WAP4|WFDC4	20	Antimicrobials	
+TNFRSF25	8718	TNF receptor superfamily member 25	APO-3|DDR3|DR3|GEF720|LARD|PLEKHG5|TNFRSF12|TR3|TRAMP|WSL-1|WSL-LR	1	Cytokine_receptors, TNF_family_members_receptors	
+TPM2	7169	Tropomyosin 2	AMCD1|DA1|DA2B|DA2B4|HEL-S-273|NEM4|TMSB	9	Antimicrobials	
+TYROBP	7305	Transmembrane immune signaling adaptor TYROBP	DAP12|KARAP|PLOSL|PLOSL1	19	NaturalKiller_cell_cytotoxicity	
+VIM	7431	Vimentin	—	10	Antimicrobials	
+
+Table 2 The most significant module in the PPI network.
+
+Gene	Node status	Score	
+HP	Clustered	6	
+HBG2	Clustered	5.785714	
+HBD	Clustered	5.785714	
+HBB	Clustered	5.785714	
+HBG1	Clustered	5.785714	
+HBA1	Clustered	5.785714	
+HBA2	Clustered	5.785714	
+BCL11A	Seed	6	
+
+Table 3 The second most significant module in the PPI network.
+
+Gene	Node status	Score	
+IL1RN	Seed	4	
+LCN2	Clustered	3.733333	
+S100A8	Clustered	3.733333	
+S100A12	Clustered	3.733333	
+S100A9	Clustered	3.733333
+==== Refs
+1 Quigley H. A. Broman A. T. The number of people with glaucoma worldwide in 2010 and 2020 The British Journal of Ophthalmology 2006 90 3 262 267 10.1136/bjo.2005.081224 2-s2.0-33644655886 16488940
+2 Wu J. Yu X. Ping X. Socioeconomic disparities in the global burden of glaucoma: an analysis of trends from 1990 to 2016 Graefe's Archive for Clinical and Experimental Ophthalmology 2020 258 3 587 594 10.1007/s00417-019-04484-y 31820080
+3 Tham Y. Li X. Wong T. Y. Quigley H. A. Aung T. Cheng C. Global prevalence of glaucoma and projections of glaucoma burden through 2040: a systematic review and meta-analysis Ophthalmology 2014 121 11 2081 2090 10.1016/j.ophtha.2014.05.013 2-s2.0-84908473395 24974815
+4 Weinreb R. N. Aung T. Medeiros F. A. The pathophysiology and treatment of glaucoma: a review JAMA 2014 311 18 1901 1911 10.1001/jama.2014.3192 2-s2.0-84900344026 24825645
+5 Marshall L. L. Hayslett R. L. Stevens G. A. Therapy for open-angle glaucoma The Consultant Pharmacist 2018 33 8 432 445 10.4140/TCP.n.2018.432 2-s2.0-85052014352 30068436
+6 Choquet H. Wiggs J. L. Khawaja A. P. Clinical implications of recent advances in primary open-angle glaucoma genetics Eye (London, England) 2020 34 1 29 39 10.1038/s41433-019-0632-7 31645673
+7 Youngblood H. Hauser M. A. Liu Y. Update on the genetics of primary open-angle glaucoma Experimental Eye Research 2019 188, article 107795 10.1016/j.exer.2019.107795 2-s2.0-85072280266
+8 Sharts-Hopko N. C. Glynn-Milley C. Primary open-angle glaucoma The American Journal of Nursing 2009 109 2 40 47 10.1097/01.NAJ.0000345434.37734.ee 2-s2.0-60749125824
+9 Ho H. Daas A. Ho J. Intraocular pressure changes following topical ocular hypotensive medications washout British Journal of Ophthalmology 2021 105 2 205 209 10.1136/bjophthalmol-2019-315778 32277009
+10 Hoffmann E. M. Prokosch-Willing V. Primäre offenwinkelglaukome Klinische Monatsblätter für Augenheilkunde 2017 234 11 1407 1422 10.1055/s-0043-118611 2-s2.0-85029713760 28931182
+11 Kosoko-Lasaki O. Gong G. Haynatzki G. Wilson M. R. Race, ethnicity and prevalence of primary open-angle glaucoma Journal of the National Medical Association 2006 98 10 p. 1626 17052053
+12 Iglesias A. I. Ong J. S. Khawaja A. P. Determining possible shared genetic architecture between myopia and primary open-angle glaucoma Investigative Opthalmology & Visual Science 2019 60 8 3142 3149 10.1167/iovs.18-26231 2-s2.0-85071632236 31323684
+13 Onoe H. Hirooka K. Nagayama M. The efficacy, safety and satisfaction associated with switching from brinzolamide 1% and brimonidine 0.1% to a fixed combination of brinzolamide 1% and brimonidine 0.1% in glaucoma patients Journal of Clinical Medicine 2021 10 22 p. 5228 10.3390/jcm10225228 34830510
+14 Li T. Lindsley K. Rouse B. Comparative effectiveness of first-line medications for primary open-angle glaucoma: a systematic review and network meta-analysis Ophthalmology 2016 123 1 129 140 10.1016/j.ophtha.2015.09.005 2-s2.0-84951175949 26526633
+15 Song Y. Song Q. Qin Y. A comparative study of the clinical efficacy and safety of pneumatic trabeculoplasty and selective laser trabeculoplasty for patients with primary open-angle glaucoma or ocular hypertension Medical Science Monitor 2021 27, article e933454 10.12659/MSM.933454
+16 Cvenkel B. Kolko M. Current medical therapy and future trends in the management of glaucoma treatment Journal of Ophthalmology 2020 2020 14 6138132 10.1155/2020/6138132
+17 Kass M. A. Heuer D. K. Higginbotham E. J. The ocular hypertension treatment study Archives of Ophthalmology 2002 120 6 701 830 10.1001/archopht.120.6.701 2-s2.0-0036269833 12049574
+18 Izzotti A. Di Marco B. De Flora S. Saccà S. Open angle glaucoma: epidemiology, pathogenesis and prevention Recenti Progressi in Medicina 2006 97 1 37 45 16535929
+19 Mabuchi F. Mabuchi N. Sakurada Y. Genetic variants associated with the onset and progression of primary open- angle glaucoma American Journal of Ophthalmology 2020 215 135 140 10.1016/j.ajo.2020.03.014 32217119
+20 Diboun I. Wernisch L. Orengo C. A. Koltzenburg M. Microarray analysis after RNA amplification can detect pronounced differences in gene expression using limma BMC Genomics 2006 7 1 1 4 16403227
+21 Yu G. Wang L. Han Y. He Q. Y. clusterProfiler: an R package for comparing biological themes among gene clusters Omics: a Journal of Integrative Biology 2012 16 5 284 287 10.1089/omi.2011.0118 2-s2.0-84860718683 22455463
+22 Szklarczyk D. Franceschini A. Wyder S. STRING v10: protein-protein interaction networks, integrated over the tree of life Nucleic Acids Research 2015 43 D1 D447 D452 10.1093/nar/gku1003 2-s2.0-84941051170 25352553
+23 Bader G. D. Hogue C. W. V. An automated method for finding molecular complexes in large protein interaction networks BMC Bioinformatics 2003 4 1 1 27 12513700
+24 Wassell J. Haptoglobin: function and polymorphism Clinical Laboratory 2000 46 11-12 547 552 11109501
+25 Lu W. Shi Y. Wang R. Antioxidant activity and healthy benefits of natural pigments in fruits: a review International Journal of Molecular Sciences 2021 22 9 p. 4945 10.3390/ijms22094945
+26 Santiago-Sánchez G. S. Pita-Grisanti V. Quiñones-Díaz B. Gumpper K. Cruz-Monserrate Z. Vivas-Mejía P. E. Biological functions and therapeutic potential of lipocalin 2 in cancer International Journal of Molecular Sciences 2020 21 12 p. 4365 10.3390/ijms21124365 32575507
+27 Wan B. Zhou S. Wang M. Zhang X. Ji G. Progress on haptoglobin and metabolic diseases World Journal of Diabetes 2021 12 3 206 214 10.4239/wjd.v12.i3.206 33758643
+28 Saha S. K. Kim K. Yang G. M. Choi H. Cho S. G. Cytokeratin 19 (KRT19) has a role in the reprogramming of cancer stem cell-like cells to less aggressive and more drug-sensitive cells International Journal of Molecular Sciences 2018 19 5 p. 1423 10.3390/ijms19051423 2-s2.0-85046782072 29747452
+29 László Z. I. Bercsényi K. Mayer M. N-cadherin (Cdh 2) maintains migration and postmitotic survival of cortical interneuron precursors in a cell-type-specific manner Cerebral Cortex (New York, N.Y. : 1991) 2020 30 3 1318 1329 10.1093/cercor/bhz168 31402374
+30 Khani P. Farokh Forghani S. Ataei Kachoei Z. Zekri A. Ghazi F. Analysis of KRT5 and KRT14 gene mutations and mode of inheritance in Iranian patients with clinical suspicion of epidermolysis bullosa simplex Medical Journal of the Islamic Republic of Iran 2020 34 p. 43 10.47176/mjiri.34.43 32884918
+31 Bauer D. E. Kamran S. C. Lessard S. An erythroid enhancer of BCL11A subject to genetic variation determines fetal hemoglobin level Science (New York, N.Y.) 2013 342 6155 253 257 10.1126/science.1242088 2-s2.0-84885620722 24115442
+32 Sankaran V. G. Menne T. F. Xu J. Human fetal hemoglobin expression is regulated by the developmental stage-specific repressor BCL11A Science (New York, N.Y.) 2008 322 5909 1839 1842 10.1126/science.1165409 2-s2.0-57849083996 19056937
+33 Sarani H. Molashahi B. Taheri M. Association between the interleukin-1 receptor antagonist (IL1RN) variable number of tandem repeats (VNTR) polymorphism and lymphoma International journal of hematology-oncology and stem cell research 2021 15 2 90 95 10.18502/ijhoscr.v15i2.6039 34466207
+34 Attur M. Zhou H. Samuels J. Interleukin 1 receptor antagonist (IL1RN) gene variants predict radiographic severity of knee osteoarthritis and risk of incident disease Annals of the Rheumatic Diseases 2020 79 3 400 407 10.1136/annrheumdis-2019-216055 31852669
+

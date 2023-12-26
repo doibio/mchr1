@@ -1,0 +1,356 @@
+
+==== Front
+Int J Mol Sci
+Int J Mol Sci
+ijms
+International Journal of Molecular Sciences
+1422-0067 MDPI 
+
+33451076
+10.3390/ijms22020751
+ijms-22-00751
+Article
+Comprehensive Analysis of Cardiac Xeno-Graft Unveils Rejection Mechanisms
+Park Min Young 1† Krishna Vasamsetti Bala Murali 2† https://orcid.org/0000-0001-7704-5942Kim Wan Seop 3 https://orcid.org/0000-0003-1249-6181Kang Hee Jung 4 Kim Do-Young 1 Lim Byeonghwi 1 Cho Kahee 5 Kim Jun Seok 6 Chee Hyun Keun 6 https://orcid.org/0000-0002-8737-0084Park Jung Hwan 7 https://orcid.org/0000-0002-7056-3648Yang Hyun Suk 8 Rallabandi Harikrishna Reddy 2 Ock Sun A. 2 Park Mi-Ryung 2 Lee Heasun 2 https://orcid.org/0000-0003-2949-3075Hwang In-Sul 2 https://orcid.org/0000-0002-6934-398XKim Jun-Mo 1* https://orcid.org/0000-0002-0651-0306Oh Keon Bong 2* Yun Ik Jin 9* 1 Department of Animal Science and Technology, College of Biotechnology and Natural Resources, Chung-Ang University, Gyeonggi-do 17546, Korea; minypark@cau.ac.kr (M.Y.P.); dodamx2@cau.ac.kr (D.-Y.K.); hwi1208@cau.ac.kr (B.L.)
+2 Animal Biotechnology Division, National Institute of Animal Science, RDA, Jeollabukdo 55365, Korea; vbmk84@korea.kr (B.M.K.V.); reddy2@korea.kr (H.R.R.); ocksa@korea.kr (S.A.O.); mrpark45@korea.kr (M.-R.P.); leehs1498@korea.kr (H.L.); insuri2642@korea.kr (I.-S.H.)
+3 Department of Pathology, Konkuk University Medical Center, Konkuk University School of Medicine, Seoul 05030, Korea; 20050034@kuh.ac.kr
+4 Department of Laboratory Medicine, Hallym University College of Medicine, Hallym University Sacred Heart Hospital, Dongan-gu, Anyang 14068, Korea; kangheejung@hallym.ac.kr
+5 Primate Organ Transplantation Centre, Genia Inc., Sungnam 13201, Korea; kahee.cho@genia.co.kr
+6 Department of Thoracic and Cardiovascular Surgery, Konkuk University Medical Center, Konkuk University School of Medicine, Seoul 05030, Korea; drheart@kuh.ac.kr (J.S.K.); 20050711@kuh.ac.kr (H.K.C.)
+7 Department of Nephrology, Konkuk University Medical Center, Konkuk University School of Medicine, Seoul 05030, Korea; pjh@kuh.ac.kr
+8 Department of Cardiology, Konkuk University Medical Center, Konkuk University School of Medicine, Seoul 05030, Korea; yang.hyun@kuh.ac.kr
+9 Department of Surgery, Konkuk University Medical Center, Konkuk University School of Medicine, Seoul 05030, Korea
+* Correspondence: junmokim@cau.ac.kr (J.-M.K.); keonoh@korea.kr (K.B.O.); ijyun@kuh.ac.kr (I.J.Y.); Tel.: +82-2-2030-7583 (I.J.Y.); Fax: +82-2-2030-7749 (I.J.Y.)† Equal contribution.
+
+
+13 1 2021 
+1 2021 
+22 2 75118 12 2020 11 1 2021 © 2021 by the authors.2021Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (http://creativecommons.org/licenses/by/4.0/).Porcine heart xenotransplantation is a potential treatment for patients with end-stage heart failure. To understand molecular mechanisms of graft rejection after heart transplantation, we transplanted a 31-day-old alpha-1,3-galactosyltransferase knockout (GTKO) porcine heart to a five-year-old cynomolgus monkey. Histological and transcriptome analyses were conducted on xenografted cardiac tissue at rejection (nine days after transplantation). The recipient monkey’s blood parameters were analyzed on days −7, −3, 1, 4, and 7. Validation was conducted by quantitative real-time PCR (qPCR) with selected genes. A non-transplanted GTKO porcine heart from an age-matched litter was used as a control. The recipient monkey showed systemic inflammatory responses, and the rejected cardiac graft indicated myocardial infarction and cardiac fibrosis. The transplanted heart exhibited a total of 3748 differentially expressed genes compared to the non-transplanted heart transcriptome, with 2443 upregulated and 1305 downregulated genes. Key biological pathways involved at the terminal stage of graft rejection were cardiomyopathies, extracellular interactions, and ion channel activities. The results of qPCR evaluation were in agreement with the transcriptome data. Transcriptome analysis of porcine cardiac tissue at graft rejection reveals dysregulation of the key molecules and signaling pathways, which play relevant roles on structural and functional integrities of the heart.
+
+porcine cardiac tissuexenotransplantationheart failuretranscriptome analysis (or RNA-seq analysis)
+==== Body
+1. Introduction
+Heart transplantation is the ultimate therapy for end-stage heart failure patients. However, understanding the molecular mechanisms underlying transplanted graft rejection is challenging. Graft rejection is typically classified as hyperacute rejection, antibody-mediated rejection, acute cellular rejection, or chronic rejection, according to histopathological peculiarities. Histological diagnosis of endomyocardial biopsy based on the guidelines set by the International Society for Heart and Lung Transplantation has been considered the gold standard to detect graft rejection. Accumulated gene expression profiles from histological data allows for the following emerging molecular diagnostics: a microarray-based tool developed to detect acute cellular rejection and antibody-mediated rejection in heart transplants (Molecular Microscope® Diagnostic System, or MMDx) and unsupervised machine learning based on rejection-associated transcripts [1]. Both techniques have been designed for the monitoring of graft rejections [2]. However, none of these approaches have proven sufficiently reliable in enhancing our understanding of the complexity of rejection mechanisms.
+
+Xenografts have been considered as a potential alternative to allografts. Particularly, genetically modified pig heart xenotransplantation (XTx) has become a promising solution due to the adequate size and compatibility of the xenografts as well an increased survival rate due to recent advances in surgical techniques [3,4]. Yet, failures in XTx (e.g., short survival) have frequently occurred due to complex graft rejection mechanisms classified similarly to allograft rejection criteria, such as hyperacute rejection, acute humoral xenograft rejection, acute cellular xenograft rejection, or chronic rejection and vasculopathy [5,6]. Recently, RNA sequencing techniques have been employed successfully for a comprehensive analysis of the global transcriptome and, thus, the molecular mechanisms of dysfunctional cardiac tissue in patients [7,8]. Therefore, the aims of this study were to report the molecular responses of graft rejection at the transcriptome level and to identify the key genes and signaling pathways involved at graft rejection. Pig-to-monkey XTx was used as a model, wherein a genetically modified homozygous alpha-1,3-galactosyltransferase knockout (GTKO) pig [9] heart was heterotopically transplanted into a cynomolgus monkey, and RNA sequencing was carried out. We provided information about the key molecules and signaling pathways facilitating the pathophysiological mechanisms in parallel with the standard diagnosis based on hematological and histological analyses of the recipient and grafted donor-heart.
+
+2. Results
+2.1. Recipient Monkey Blood Analysis Showed Systemic Inflammatory Responses at Rejection
+Neutrophils, CRP, and fibrinogen are described as indicative markers for innate immunity and their levels are considered as candidate biomolecules at early cardiac rejection from previous studies [10,11,12]. In accordance, our results of hematological and biochemical blood parameters of the recipient monkey during the study period revealed a steady increase in absolute count and percentage of neutrophils accompanied with increased levels of high-sensitivity C-Reactive Protein (hs-crp) and fibrinogen after transplantation, indicating acute inflammatory responses. The level of hemoglobin steadily decreased after transplantation with an increase in red cell distribution width and lactate dehydrogenase level, indicating the development of hemolytic anemia after transplantation. A high level of troponin I on post-op day 7 indicates severe xeno-cardiac damage. Changes in coagulation parameters were not remarkable except for an increase in the level of fibrinogen, reflecting the fact that anticoagulation therapy was not given to the recipient (Table 1).
+
+2.2. Histological Assessment of Rejected Xenograft Showed Myocardial Infarction and Fibrosis
+The rejected porcine heart (XH) exhibited a myocardial pallor, redness, and white fibrosis (Figure 1A). The cardiac chambers were filled with hematoma. Microscopic observation of XH tissue sections showed endomyocardial infarction and patchy interstitial fibrosis (Figure 1B). Intraventricular large organizing hematoma was evident in XH.
+
+2.3. Transcriptome Analysis Showed Alterations of a Number of Genes in a Rejected Xenograft 
+The transcriptome analysis of cardiac tissue produced a total of 289 million paired-end sequence reads, with an average of 48 million reads and 51% GC content per sample. The relative expression level of transcripts was normalized to the trimmed means of M (TMM) values and calculated for similarity and dissimilarity between the samples. The multidimensional scaling plot represents the distribution of samples from the rejected porcine heart (XH) and the control porcine heart (NH) (Figure 2A). Samples were closely clustered within the same group, while the samples from XH were clearly distinguished from those from NH. Then, 19,299 porcine genes were narrowed down at FDR < 0.05 and log2 fold change ≥ 2, and 1710 differentially expressed genes (DEGs) were identified between XH and NH. Among them, 2443 genes were upregulated and 1305 genes downregulated in the XH when compared with NH, including 2095 upregulated and 1068 downregulated genes, which are annotated as shown in the volcano plot (Figure 2B).
+
+2.4. Functional Annotation and Gene Set Enrichment Analysis (GSEA) Suggested Multiple Molecular Mechanisms Involved in Graft Rejection
+To determine the graft rejection-related biological pathways, we performed a series of bioinformatics analyses using DEG data. The Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway enrichment analysis of DEG data revealed 21 pathways that were significantly enriched (Figure 3, Figure S1). Notably, downregulated DEGs were enriched in the pathways associated with a cardiac function, such as hypertrophic cardiomyopathy (HCM) and dilated cardiomyopathy (DCM) as well as signaling pathways (such as calcium and chemokine signaling) (Figure 3 and Table 2). These pathways represent a series of interactions during rejection after heart transplantation in XH. Next, to functionally classify the genes at rejection, we performed GO enrichment analysis of significant DEGs. Table 3 shows significantly clustered functional terms for maintaining intracellular ions of a steady-state through ion transport between cells. Finally, we also performed GSEA analysis for further validation and functional enrichment of gene sets. Figure 4 shows the results obtained using the hallmark database, showing the gene sets that are either up-regulated or down-regulated in XH compared to NH with a normalized enrichment score on the x-axis and false discovery rate (FDR) value on the y-axis. In the top 10 gene sets, allograft rejection pathways were significantly suppressed, while genes relevant to the cell cycle and inflammatory response pathways were upregulated.
+
+2.5. qPCR Validation of Randomly Selected DEGs Confirmed a Similar Expression Trend
+We analyzed the transcript level of randomly selected DEGs that presented up-regulation or down-regulation of the calcium signaling pathway (HTR2C, SLC8A3, BDKRB1, ATP2A2, and ADRB1), CM pathways (IGF1, ADRB1, and ACTC1), cytokine-cytokine receptor interaction (IL6), extracellular matrix (ECM) receptor interaction (ITGA8, and TNC), focal adhesion (COL1A1, and TNC), cardiac fibroblast markers (ACTA2, COL1A1, and VIM), and cardiac hypertrophy markers (NPPA, and NPPB) using qPCR. 
+
+All the quantified genes showed a similar expression trend in qPCR as that observed in RNA sequencing (Figure 5A). The genes depicted in a red color indicate upregulated genes in XH compared to NH, including Nppb, Nppa, Tnc, Bdkrb1, IL6, Hrt2c, Slc8a3, VIM, Actin Alpha 2 (Acta2), Integrin Subunit Alpha 8 (Itga8), Igf1, and Col1a1. Similarly, the genes indicated in blue (Adrb1, Atp2a2, and Actc1) were downregulated in XH when it was compared to NH. The intensity of each color represents the degree of the relative expression level. Additionally, relative expression values obtained from qPCR and RNA-seq analysis were significantly correlated (R2 = 0.8146) (Figure 5B).
+
+3. Discussion
+Given that graft rejection is a highly complicated process, a comprehensive understanding of the molecular and/or biochemical mechanisms involved in the initiation and progression of the rejection is lacking. In the present study, as an initial step, we applied next-generation RNA sequencing technology, which is known as a powerful tool for comprehensive analysis of the global transcriptome [7,13,14] to translate and understand rejection mechanisms at a molecular level in early failed porcine XH. 
+
+The functioning of various biological pathways, which are crucial for the maintenance of structural integrity and functional homeostasis of the heart, appears to have been disturbed in XH. The KEGG enrichment analyses of DEGs authentically produced 21 biological pathways, which could be broadly categorized as intracellular signaling pathways, immune functions, and cardiomyopathies (CM) (Figure 3). The downregulated patterns of HCM, DCM, arrhythmogenic right ventricular cardiomyopathy (ARVC), and calcium signaling pathways as well as the upregulated patterns of ECM-receptor interaction pathways observed in this study have been well-known to occur in allograft rejection [15], cardiovascular disease (CVD) [8], and heart failure (HF) [8,13,15], suggesting that the DEG data obtained in this study not only defines the graft rejection mechanisms but is also useful for understanding CVD and HF.
+
+Myocardial infarction and fibrosis observed in XH and the hemolytic anemia revealed in blood parameter analysis suggest the development of microvascular thrombosis in XH. Consistent with these findings, KEGG analysis of DEGs showed an upregulation of ECM-receptor interaction pathways in XH. ECM-receptor interactions are known to be involved in the signaling events that regulate cell survival, growth, shape, differentiation, migration, and motility [16], specifically required in remodeling of the heart [17]. The genes coding for type IA1 collagen (COL1A1) and type VIA3 collagen (CLA6A3) were increased in XH, which are comparable to animal models of myocardial infarction [18]. Upregulation of type XIA2 collagen (COL11A2) in XH corroborates the results of the earlier RNA sequencing study on patients with ischemic cardiomyopathy after allotransplantation [19]. 
+
+We found that the expression of Thrombospondin 1 and 4 (THBS1 and 4, or TSP-1 and TSP-4), and Tenascin C (TNC) among members of a matricellular proteins (MPs) class were upregulated in XH (Figure S2). MPs, which functionally and structurally interact with extracellular matrix (ECM), and cell surface receptor and signaling molecules, exert fibrogenic actions on cardiomyocytes, fibroblasts, as well as immune and vascular cells in the remodeling of myocardium [18,20]. Members of MPs show different patterns of spatial and temporal upregulation during cardiac remodeling, such as TSP-1 in myocardial infarction, ventricular hypertrophy, and cardiac dilation, TSP-4 in ventricular hypertrophy and myocardial injury, and Tenascin C in tissue injury and fibrosis [21,22,23,24,25,26,27]. Dramatic upregulation of molecules of MPs and ECM in XH appear to lead to prolonged and/or abnormal mechano-transduction processes in myocytes, consequently resulting in HF [28,29].
+
+CM is a well-known heart disease [30], which causes the heart muscle to become enlarged, thick, or rigid (American Heart Association (AHA), www.heart.org) and frequently leads to heart failures in humans [31]. According to AHA, CM can be inherited and acquired, meaning that it can be developed by perturbation of the expression of genes in the heart by the physiological and mechanical stresses of transplantation. The main types of CM by classification based on structural and functional changes [32], such as HCM and DCM, are among the top 10 enriched pathways in XH in this study, indicating that various forms of CM were enforced in XH.
+
+Among the enriched pathways of XH, the calcium signaling pathway showed a pattern of down-regulation, suggesting perturbation of Ca2+ homeostasis, which is a major contributor to HF [33]. The expression of multiple calcium handling proteins of cardiomyocytes such as G-protein coupled receptors (CCKAR, DRD1, PTGER3, CYSLTR2, ADRB1, ADRA1A, HTR2C, and HTR2A) and ion channels (CACNA1I, CACNA1B, ATP2B3, and SLC8A3) was altered in XH. G-protein coupled receptors are expressed in major cardiac cells and play a central role in normal cardiac health and diseases [34]. Decreased expression of adrenoreceptor beta1 (ADRB1) and adrenoreceptor alpha 1A (ADRA1A) in XH may contribute to impaired β-adrenoreceptor signaling, a hallmark of HF in humans [35,36]. Ion channels are critical for excitation-contraction coupling of the heart [37] and are often dysregulated in CVD and HF [38]. In addition, our data indicate the accumulation of systemic inflammatory responses in the recipient monkey, which might lead to the destruction of cardiomyocytes in XT with the development of microvascular thrombosis and subsequent infarction. Taken together, we suggest that XH in this study was responding to the pathological tissue remodeling processes comprised of overlapped myocardial infarction, fibrosis, and/or hypertrophy.
+
+Overall, our multi-method study uncovered the critical mechanisms involved in early-day rejected cardiac transplants, like dysregulation of calcium signaling pathway and the relevant factors driving cardiac remodeling processes. Additionally, we unveiled a detailed list of DEGs involved and/or related to the pathological and biochemical outcomes of cardiac transplantation as well as CVDs (Supplementary Table S2). Particularly, the major pathways involved in cardiac graft injection includes immune response (chemokine signaling pathway, cytokine-cytokine signaling pathway, and cytotoxicity), cell cycle/apoptosis (DNA replication, p53 signaling pathway), and structural organization and maintenance (cardiac muscle contraction, calcium signaling pathway) (Figure 3 and Figure 4). Key genes will comprise the major pathways listed above, which are associated with cell-cell interaction and innate immunity (Table 2). Our data are partly consistent with human clinical studies as the major pathways. The related genes discussed in this study were also described in a number of previous studies. Upregulated expression of inflammatory markers in our data are in accordance with previous studies [39,40]. The significance of the genes in the cell cycle can be inferred from the study from Bodez et al., where cardiac allograft recipients received a cell cycle inhibitor in addition to an immunosuppressant [41,42]. The calcium-mediated pathway has been emphasized in Tarazón et al., suggesting sarcoplasmic reticulum Ca2+-ATPase (SERCA2a) as a potential non-invasive biomarker of cardiac allograft rejection [43] as well as in Dhar et al. [44]. Although the etiology of cardiac xenograft rejection in this study is equivocal, the comprehensive analysis presents that the discrepancy between the grafted heart and immune system of the recipient as well as physiological damage of the graft resulted in HF with a chronic rejection condition. We believe that the large amount of DEG data obtained in this study could not only provide a crucial clue to complete drawing of functional network topology for progression and manifestation among spatiotemporal molecular mechanisms and pathways related to cardiac rejection and diseases, but also information to develop an advanced molecular diagnostic platform for an accurate assessment of cardiac diseases.
+
+4. Methods
+4.1. Ethics Statements
+The experimental procedures were approved by the Orient Bio Institutional Animal Care and Use Committee (IACUC No. ORIENT-IACUC-15053).
+
+4.2. Experimental Animals and Heterotopic Transplantation Procedure
+A 31-day-old male homozygous GTKO pig (generation for which were inbred descendants between cloned heterozygous GTKO Chicago mini male pig and wild-type Landrace female pig) was used as a donor (National Institute of Animals Science, Jeollabuk-do, Korea). Weight of porcine heart was 55.0 g at the time of transplantation. The recipient, which is a five-year-old male cynomolgus monkey, was housed in a clean, pathogen-free facility at Genia Inc. (Seongnam, Korea). The bodyweight of the monkey on the day of transplantation was 6.1 kg. Surgical procedures were performed under inhalation anesthesia, which was maintained with 3% of isoflurane (Forane solution®, JW phamaceuticals, Seoul, Korea) after intramuscular injection of Ketamine (10 mg/kg) (Ketamine 50®, Yuhan corporation, Seoul, Korea). Heterotopic abdominal XTx was performed as described previously [45]. The ascending aorta and root of the donor pig was briefly anastomosed to the recipient monkey’s abdominal aorta and the pig’s main pulmonary artery to the monkey’s inferior vena cava. The pig’s coronary arteries were perfused from the abdominal aorta, and the coronary venous blood entered the right heart via the coronary sinus and was ejected into the inferior vena cava via the pulmonary trunk.
+
+4.3. Immunosuppressive Regimen
+Immunosuppression was induced in the recipient cynomolgus monkey through treatment with Thymoglobulin (Genzyme, 5 mg·kg−1 on days −3, −2, −1, and 0), anti-CD20 antibody (rituximab, Genetech, 20 mg·kg−1 on days −7 and 0), and anti-CD154 (NIH Nonhuman Primate Reagent Resource, 20 mg·kg−1·day−1 ×7, 5C8) for the suppression of T-cell and B-cell activation. Cobra venom factor (Quidel, 0.05 mg·kg−1 on days −1, 0, 1, 2, and 3) was used to inhibit complement activation. For maintenance therapy, we applied FK506 (P.O. at 4 mg·kg−1·day−1), mycophenolate mofetil (P.O. at 100 mg·kg−1·day−1), and methylprednisolone (I.V. at 1 mg·kg−1·day−1 for 2 days, tapered down).4.4. Collection of Porcine Cardiac Tissue 
+
+The rejected porcine heart (XH) on post-operation day (POD) 9 was dissected from the cynomolgus monkey in a surgical facility at Genia Inc. Small fragments collected randomly with six samples of ventricles were plunged into liquid nitrogen for RNA sequencing or into 4% paraformaldehyde for histological analysis. An age-matched litter of the donor was sacrificed at NIAS, and samples (NH) were collected.
+
+4.4. Hematological and Biochemical Analysis of a Cynomolgus Monkey 
+The recipient monkey’s blood parameters were analyzed on days −7, −3, 1, 4, and 7, as described in the Supplementary Materials and methods in detail. 
+
+4.5. Histological Analysis
+Specimens were fixed in 10% neutral buffered formalin and embedded in paraffin. The paraffin blocks were sliced at thicknesses of 3 µm. The sections were processed by deparaffinization and rehydration and stained with hematoxylin and eosin. 
+
+4.6. RNA Sequencing Preparation
+One microgram of total RNA prepared by pooling with equal amounts from each sample was used to construct cDNA libraries with the TruSeq RNA library kit. The protocol consisted of polyA-selected RNA extraction, RNA fragmentation, random hexamer-based reverse transcription, and 100 bp paired-end sequencing by Illumina HiSeq 2000 (San Diego, CA, USA). The libraries were quantified using quantitative real-time PCR (qPCR), according to the qPCR Quantification Protocol Guide and qualified using Agilent Technologies 2100 Bioanalyzer (Santa Clara, CA, USA).
+
+4.7. Transcriptome Alignment and Differentially Expressed Genes (DEGs) Analysis of the Porcine Cardiac Tissue
+A total of 570 million raw RNA sequence reads were produced at an average of 48.2 million sequence reads per sample. Raw sequence reads were quality checked by FastQC [46]. Using the Trimmomatic v0.38 tool, reads were trimmed to remove the adapter sequence, and reads that were below 75 bp were dropped [47]. Trimmed reads were aligned against the swine reference genome (Sus scrofa.Sscrofa11.1.93, GCA_000003025.6) obtained from the Ensembl genome browser (ftp://ftp.ensembl.org/pub/release-95/fasta/sus_scrofa/dna/) by the HISAT2 v2.0.4 tool using default options [48]. Subsequently, the number of reads for each gene was calculated by using Feature Counts v1.6.2 [49]. The relative gene expression level was obtained as the trimmed means of M values (TMM) [50] using an R package edgeR. DEGs were selected with a cut-off of absolute log2 fold change ≥ 2 and a q-value of 0.05 by comparing XH versus NH. The DEGs obtained were used for further analyses. 
+
+4.8. Gene Ontology and Pathway Enrichment Analysis
+DEGs with Ensembl gene IDs were converted to match human gene IDs and gene symbols using the Database for Annotation, Visualization, and Integrated Discovery (DAVID, https://david.ncifcrf.gov/) [51]. The DEGs were analyzed for functional clustering and enrichment of Gene Ontology (GO) [52] terms and pathways in a biological process, cellular component, molecular function, and Kyoto Encyclopedia of Genes and Genomes (KEGG) pathways using the DAVID program [53]. The most significant enrichment pathway was expressed by a log2 fold enrichment and a −log10 p-value. Significant functional annotation clustering was implemented by comparing each enriched GO term with Kappa similarity overlaps and a threshold greater than 3 and 0.5, respectively.
+
+4.9. Gene Set Enrichment Analysis (GSEA)
+Gene expression data normalized to TMM values were analyzed by the GSEA using the enrichment hallmark database and reactome pathways [54]. The statistical significance (nominal p-value) of the enrichment score (ES) was estimated by using an empirical 1000 gene set permutation test procedure that preserves the complex correlation structure of the gene expression data. GSEA results were visualized by a bar plot and the Enrichment Map tool in Cytoscape (p-value < 0.005, False discovery rate, FDR < 0.005, and similarity cut off of overlap coefficient ≥ 0.5) [55].
+
+4.10. Quantitative Real-Time PCR (qPCR)
+Total RNA was extracted from cardiac tissue using RNeasy Mini kit (Qiagen, Hilden, Germany) and cDNA was synthesized using SuperScript IV first-strand cDNA synthesis kit (Invitrogen, Carlsbad, CA, USA). Quantitative real-time PCR was performed using StepOne Real-Time PCR system (ABI, Foster City, CA, USA) and Power SYBR Green PCR Master Mix (ABI). The list of primers used for qPCR is presented in Supplementary Table S1.
+
+4.11. Statistical Analysis
+All analyses were carried out using the statistic Prism software (GraphPad). One-way ANOVA and Tukey’s post hoc t-test was used for statistical analyses. Data are presented as mean ± SE.
+
+Acknowledgments
+This research was supported by the Chung-Ang University Research Grants in 2020.
+
+Publisher’s Note: MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+Supplementary Materials
+The following are available online at https://www.mdpi.com/1422-0067/22/2/751/s1. Figure S1: Network of gene set enrichment analysis (GSEA) using the Reactome database. Figure S2: Immunohistochemistry of matricellular proteins from heart sections of XH and NH. Table S1: List of primers used for qPCR. 
+
+Click here for additional data file.
+
+ Author Contributions
+Conceptualization, I.J.Y., K.B.O. and J.-M.K. Formal analysis, M.Y.P., B.M.K.V., D.-Y.K. and B.L. Methodology, W.S.K., H.J.K., J.S.K., H.K.C., J.H.P., H.S.Y. and I.J.Y. Resources, K.C. Supervision, I.J.Y., K.B.O. and J.-M.K. Validation, H.R.R., S.A.O., M.-R.P., H.L. and I.-S.H. Writing—original draft, M.Y.P. and B.M.K.V. Writing—review & editing, I.J.Y., K.B.O. and J.-M.K. All authors have read and agreed to the published version of the manuscript.
+
+Funding
+This work was carried out with the support of “Cooperative Research Program for Agriculture Science and Technology Development (Project No. PJ01384202)” Rural Development Administration, Republic of Korea. This work was also supported by National Research Foundation of Korea (NRF-2018R1A6A1A03025159) to Jun-Mo Kim.
+
+Institutional Review Board Statement
+The study was conducted according to the guidelines of the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of Orient Bio Institutional Animal Care and Use Committee (IACUC No. ORIENT-IACUC-15053).
+
+Informed Consent Statement
+Not applicable.
+
+Data Availability Statement
+Data is contained within the article or Supplementary Material.
+
+Conflicts of Interest
+The authors declare no conflict of interest.
+
+Figure 1 Gross and microscopic findings of the rejected porcine heart (XH). (A) Representative images showing anterior (left) and interior views (right) of XH. Interior views include sagittal plane (1 and 2) and transverse plane (3) of the XH heart. (B) Photomicrographs showing endomyocardial infarction and interstitial fibrosis in XH to compare with the normal histological appearance in the control porcine heart(NH).
+
+Figure 2 Overview of differentially expressed genes in the rejected porcine heart (XH-DEGs). (A) The multi-dimensional scaling plot of total RNAs NH (blue) and XH (red). (B) The volcano plot with a bar plot for differentially expressed genes (DEGs) of XH compared to that of NH. Individual colored dots indicate upregulated genes (red, FDR < 0.05 and logFC ≥ 2) and downregulated genes (blue, FDR < 0.05 and logFC ≤ −2) in the treatment group. The labeled genes were the selected top 5% of the upregulated genes annotated by the gene symbol. The bar plot represents the number of DEGs for non-annotated and annotated genes.
+
+Figure 3 KEGG pathway enrichment analysis of XH-DEGs. Enrichment analysis of pathways associated with XH-DEGs was based on the KEGG databases using the DAVID database (https://david-d.ncifcrf.gov). Down-regulated and up-regulated pathways are shown on the left and right, respectively. The light color represents fold enrichment and dark color indicates −log10 p-value. Cutoff p-value < 0.05.
+
+Figure 4 GSEA of whole transcriptome comparisons. A bubble chart of the GSEA hallmark indicates the normalized enrichment scores (NES, x-axis) and false discovery rate (FDR, y-axis). The size of each circle represents the weighted numbers of genes involved in the term.
+
+Figure 5 Validation of DEGs by qPCR. DEGs of XH across various biological pathways were verified using qRT-PCR. (A) Heat map showing the comparison of expression levels of qPCR vs. RNA sequencing. (B) Correlation analysis between XH and NH.
+
+ijms-22-00751-t001_Table 1Table 1 Hematological and biochemical blood parameters of recipient cynomolgus monkey.
+
+Type	Post-Operation Day	
+−7	−3	1	4	7	
+Calcium (mg/dL)	10.20	10.20	9.00	9.00	9.40	
+Phosphorus (mg/dL)	6.40	5.10	5.90	5.30	4.50	
+BUN (mg/dL)	29.00	25.00	32.00	39.00	35.00	
+Uric acid (mg/dL)	0.30	0.30	<0.10	0.20	0.10	
+Creatinine (mg/dL)	45.00	1.08	1.09	0.92	0.83	
+Na (mEq/L)	143.00	147.00	149.00	143.00	142.00	
+K (mEq/L)	4.90	5.10	5.10	5.30	5.80	
+Cl (mEq/L)	100.00	106.00	111.00	109.00	103.00	
+TCO2 (mmol/L)	15.00	19.00	23.00	21.00	23.00	
+hs-CRP (mg/dL)	0.12	0.20	6.72	1.14	13.68	
+AST(GOT) (IU/L)	53.00	51.00	1419.00	306.00	103.00	
+ALT(GPT) (IU/L)	85.00	79.00	255.00	157.00	94.00	
+Total protein (g/dL)	6.90	7.30	6.10	5.60	5.70	
+Albumin (g/dL)	3.90	4.20	3.30	3.00	2.80	
+TBIL (mg/dL)	0.40	0.40	0.40	0.40	0.30	
+Alk. Phos (IU/L)	513.00	466.00	400.00	332.00	317.00	
+Chol (mg/dL)	114.00	124.00	103.00	109.00	112.00	
+GGT (IU/L)	45.00	51.00	40.00	35.00	46.00	
+LD(LDH) (IU/L)	
+	
+	
+	
+	1997.00	
+Troponin (ng/mL)	
+	
+	
+	
+	19.10	
+Tacrolimus (ng/mL)	
+	<2.00	3.70	11.30	
+	
+WBC (×103 cells/uL)	10.54	9.63	11.34	10.70	12.97	
+RBC (×107 cells/uL)	5.18	5.00	4.33	4.10	3.82	
+Hb (g/dL)	12.10	11.80	10.00	9.40	8.90	
+Hct (%)	40.50	38.90	33.20	32.70	29.30	
+MCV (fL)	78.20	77.70	76.70	79.80	76.80	
+MCH (pg)	23.40	23.60	23.10	22.90	23.40	
+MCHC (g/dL)	29.90	30.40	30.10	28.70	30.50	
+RDW (%)	14.60	14.20	13.90	15.10	16.50	
+Platelet (×103 cells/uL)	457.00	488.00	439.00	516.00	258.00	
+PCT (%)	0.54	0.38	0.33	0.60	0.21	
+MPV (fL)	11.90	7.80	7.50	11.60	8.00	
+PDW	15.00	
+	
+	14.10	
+	
+Seg. neut. (%)	38.00	85.70	81.00	75.00	79.00	
+Lymphocyte (%)	54.00	6.20	3.00	9.00	2.00	
+Monocyte (%)	7.00	6.20	12.00	13.00	16.00	
+Eosinophil (%)	
+	0.40	1.00	
+	
+	
+Basophil (%)	1.00	0.20	
+	
+	
+	
+LUC (%)	
+	1.40	
+	
+	
+	
+ANC (uL)	4005.00	8245.00	9299.00	8025.00	10,246.00	
+PT-INR	0.85	0.76	0.83	0.78	0.82	
+PT (%)	133.00	166.00	139.00	154.00	142.00	
+PT (sec)	9.10	8.10	8.90	8.40	8.80	
+aPTT (sec)	20.70	18.90	19.40	18.10	21.30	
+Fibrinogen (mg/dL)	114.00	241.00	354.00	270.00	314.00	
+AT III (%)	108.00	128.00	98.00	94.00	99.00	
+Protein C (%)	151.00	149.00	164.00	169.00	154.00	
+POD, post-operation day. TCO2, total CO2. Hs-CRP, high-sensitivity C-reactive protein. AST, aspartate aminotransferase. ALT, alanine aminotransferase. TBIL, total bilirubin. Alk.Phos, alkaline phosphatase. Chol, Cholesterol. GGT, Gamma-glutamyl transferase. LD, lactate dehydrogenase. WBC, white blood cell. RBC, red blood cell. Hb, hemoglobin. Hct, hematocrit. MCV, mean corpuscular volume. MCH, mean corpuscular hemoglobin. MCHC, mean corpuscular hemoglobin concentration. RDW, red cell distribution width. PCT, plateletcrit. MPV, mean platelet volume. PDW, platelet distribution width. Seg. Neut., segmented neutrophils. LUC, large unstained cells. ANC, absolute neutrophil count. PT-INR, prothrombin time and international normalized ratio. PT, prothrombin. aPTT, activated partial thromboplastin time. AT III, antithrombin III. 
+
+ijms-22-00751-t002_Table 2Table 2 A summary of the KEGG pathway analysis for DEGs.
+
+Term	Category *	Genes	p Value	Fold Enrichment	
+ECM-receptor interaction	Up	IBSP, TNC, ITGA2, ITGA3, CHAD, HMMR, LAMA1, LAMC3, COMP, ITGA8, ITGB6, COL6A3, SV2B, TNN, COL1A1, SV2A, COL11A2, THBS1, SV2C, THBS2, COL11A1, THBS4, FN1, SPP1	1.386 × 10−8	3.9161	
+Cytokine-cytokine receptor interaction	Both	TNFRSF6B, CSF2, IL1R2, IL22RA1, CCL2, TNFRSF12A, CCR1, TNFSF14, FASLG, CXCR3, CX3CL1, TNFSF18, IL11, CXCL10, LIF, TNFRSF11B, IL12RB1, CCL20, CXCR5, CLCF1, CXCR6, XCR1, IL1A, IL6, IL18RAP, FLT3, IL25, INHBB, CCL11, OSM, INHBA, PRLR, CXCL14, CCR3, CCR2, CX3CR1, NGFR, XCL1	5.430 × 10−5	1.9879	
+Hematopoietic cell lineage	Down	CSF2, IL1R2, IL6, CD3G, CD3D, CD8A, FLT3, CD3E, ITGA2, ANPEP, ITGA3, IL11, CD38, DNTT, MS4A1, CD2, CD5, IL1A	1.170 × 10−4	2.8687	
+Neuroactive ligand-receptor interaction	Up	F2RL3, MCHR1, CCKAR, DRD1, GABRB3, GABRB2, CYSLTR2, DRD2, GABRB1, F2RL1, GRIK5, BDKRB1, HCRTR1, P2RY6, PTGIR, HRH3, NMUR1, CNR2, GABRD, PTGER3, GABRA1, GABRA4, GRIN1, GRIN2A, NTSR2, GRM4, P2RY10, CHRM4, ADRB1, PRLR, MLNR, ADRA1A, FSHB, HTR2C, HTR2A	3.664 × 10−4	1.8739	
+Focal adhesion	Up	IBSP, PGF, TNC, CHAD, COMP, ITGB6, COL6A3, TNN, THBS1, COL11A2, COL11A1, THBS2, THBS4, FN1, SPP1, MYLK3, ITGA2, IGF1, ITGA3, MAPK10, LAMA1, RASGRF1, LAMC3, ITGA8, COL1A1	1.030 × 10−2	1.7048	
+Hypertrophic cardiomyopathy	Down	ACE, ACTC1, IL6, ATP2A2, ITGA8, CACNG6, ITGB6, CACNG5, CACNB2, IGF1, ITGA2, ITGA3	4.275 × 10−2	1.935	
+Calcium signaling pathway	Down	SLC8A3, CCKAR, DRD1, PTGER3, ERBB4, CYSLTR2, MYLK3, GRIN1, CACNA1I, GRIN2A, BDKRB1, CD38, GNAL, ATP2B3, ADRB1, ATP2A2, ADRA1A, HTR2C, HTR2A, CACNA1B	5.215 × 10−2	1.5575	
+Cell cycle	Up	CDC6, PKMYT1, ESPL1, MCM2, MCM3, MCM4, MCM5, CCNB1, CDKN1A, CCNB3, CCNB2, PLK1, BUB1, BUB1B, MYC	6.859 × 10−2	1.6447	
+Dilated cardiomyopathy	Down	ACTC1, ADRB1, ATP2A2, ITGA8, CACNG6, ADCY6, ITGB6, CACNG5, CACNB2, IGF1, ITGA2, ITGA3	6.876 × 10−2	1.7878	
+Bladder cancer	Both	RPS6KA5, CDKN1A, PGF, MMP9, CDH1, THBS1, MYC	8.108 × 10−2	2.2844	
+Progesterone-mediated oocyte maturation	Up	CCNB1, CCNB3, CCNB2, PLK1, ADCY6, BUB1, PKMYT1, IGF1, MAPK11, MAPK10, CPEB1	9.290 × 10−2	1.7531	
+* Category indicates KEGG results based on gene regulation profiles of up, down, and both, respectively.
+
+ijms-22-00751-t003_Table 3Table 3 Top five enriched functional gene ontology (GO) of DEGs.
+
+Cluster	Enrichment Score	Category *	Term	Count	p-Value	Fold Enrichment	
+1	1.652	CC	cell-cell adherens junction	25	5.00 × 10−3	1.834	
+
+	
+	MF	cadherin binding involved in cell-cell adhesion	20	4.00 × 10−2	1.61	
+
+	
+	BP	cell-cell adhesion	19	5.00 × 10−2	1.622	
+2	1.522	MF	voltage-gated potassium channel activity	8	1.00 × 10−2	3.22	
+
+	
+	BP	potassium ion transmembrane transport	12	2.00 × 10−2	2.294	
+
+	
+	MF	delayed rectifier potassium channel activity	6	2.00 × 10−2	3.891	
+
+	
+	CC	voltage-gated potassium channel complex	9	3.00 × 10−2	2.424	
+
+	
+	BP	regulation of ion transmembrane transport	10	5.00 × 10−2	2.084	
+
+	
+	BP	potassium ion transport	7	1.00 × 10−1	1.974	
+3	1.413	BP	membrane repolarization during cardiac muscle cell action potential	4	8.00 × 10−3	9.252	
+
+	
+	BP	regulation of membrane repolarization	4	1.00 × 10−2	7.71	
+
+	
+	MF	voltage-gated potassium channel activity involved in cardiac muscle cell action potential repolarization	3	3.00 × 10−2	10.007	
+
+	
+	BP	positive regulation of potassium ion transmembrane transport	3	1.00 × 10−1	4.626	
+
+	
+	BP	regulation of heart rate by cardiac conduction	4	2.00 × 10−1	2.643	
+4	1.373	CC	spectrin	5	3.00 × 10−4	13.166	
+
+	
+	BP	actin filament capping	4	2.00 × 10−2	7.117	
+
+	
+	CC	spectrin-associated cytoskeleton	3	4.00 × 10−2	8.887	
+
+	
+	MF	structural constituent of cytoskeleton	9	1.00 × 10−1	1.91	
+
+	
+	MF	phospholipid binding	6	3.00 × 10−1	1.629	
+
+	
+	BP	ER to Golgi vesicle-mediated transport	6	8.00 × 10−1	0.867	
+5	1.333	MF	glutathione peroxidase activity	5	1.00 × 10−2	5.559	
+
+	
+	BP	response to reactive oxygen species	6	3.00 × 10−2	3.558	
+
+	
+	BP	cellular oxidant detoxification	5	4.00 × 10−1	1.652	
+* BP, Biological process. CC, Cellular component. MF, Molecular function.
+==== Refs
+References
+1. Halloran K.M.  Parkes M.D.  Chang J.  Timofte I.L.  Snell G.I.  Westall G.P.  Hachem R.  Kreisel D.  Trulock E.  Roux A.    Molecular assessment of rejection and injury in lung transplant biopsies J. Heart Lung Transpl. 2019 38 504 513 10.1016/j.healun.2019.01.1317 30773443 
+2. Nasr M.  Sigdel T.  Sarwal M.   Advances in diagnostics for transplant rejection Expert Rev. Mol. Diagn. 2016 16 1121 1132 10.1080/14737159.2016.1239530 27677432 
+3. Langin M.  Mayr T.  Reichart B.  Michel S.  Buchholz S.  Guethoff S.  Dashkevich A.  Baehr A.  Egerer S.  Bauer A.    Consistent success in life-supporting porcine cardiac xenotransplantation Nature 2018 564 430 433 10.1038/s41586-018-0765-z 30518863 
+4. Mohiuddin M.M.  Singh A.K.  Corcoran P.C.  Thomas M.L. III  Clark T.  Lewis B.G.  Hoyt R.F.  Eckhaus M.  Pierson R.N. III  Belli A.J.   Chimeric 2C10R4 anti-CD40 antibody therapy is critical for long-term survival of GTKO. hCD46. hTBM pig-to-primate cardiac xenograft Nat. Commun. 2016 7 11138 10.1038/ncomms11138 27045379 
+5. Van den Hoogen P.  Huibers M.M.  Sluijter J.P.  de Weger R.A.   Cardiac allograft vasculopathy: A donor or recipient induced pathology? J. Cardiovasc. Transl. Res. 2015 8 106 116 10.1007/s12265-015-9612-x 25652948 
+6. Sanchez-Fueyo A.  Strom T.B.   Immunologic basis of graft rejection and tolerance following transplantation of liver or other solid organs Gastroenterology 2011 140 51 64 10.1053/j.gastro.2010.10.059 21073873 
+7. Herrer I.  Rosello-Lleti E.  Ortega A.  Tarazon E.  Molina-Navarro M.M.  Trivino J.C.  Martinez-Dolz L.  Almenar L.  Lago F.  Sanchez-Lazaro I.    Gene expression network analysis reveals new transcriptional regulators as novel factors in human ischemic cardiomyopathy BMC Med. Genom. 2015 8 14 10.1186/s12920-015-0088-y 
+8. Sweet M.E.  Cocciolo A.  Slavov D.  Jones K.L.  Sweet J.R.  Graw S.L.  Reece T.B.  Ambardekar A.V.  Bristow M.R.  Mestroni L.    Transcriptome analysis of human heart failure reveals dysregulated cell adhesion in dilated cardiomyopathy and activated immune pathways in ischemic heart failure BMC Genom. 2018 19 812 10.1186/s12864-018-5213-9 30419824 
+9. Ahn K.S.  Kim Y.J.  Kim M.  Lee B.H.  Heo S.Y.  Kang M.J.  Kang Y.K.  Lee J.W.  Lee K.K.  Kim J.H.    Resurrection of an alpha-1,3-galactosyltransferase gene-targeted miniature pig by recloning using postmortem ear skin fibroblasts Theriogenology 2011 75 933 939 10.1016/j.theriogenology.2010.11.001 21196043 
+10. Van Gelder T.  Balk A.H.M.M.  Zondervan P.E.  Maat A.W.P.M.  Mochtar B.  van der Meer P.  Weimar W.   C-reactive protein in the monitoring of acute rejection after heart transplantation Transpl. Int. 1998 11 361 364 10.1007/s001470050158 9787412 
+11. Scozzi D.  Ibrahim M.  Menna C.  Krupnick A.S.  Kreisel D.  Gelman A.E.   The Role of Neutrophils in Transplanted Organs Am. J. Transpl. 2017 17 328 335 10.1111/ajt.13940 
+12. Sanchez-Soriano R.M.  Almenar L.  Martínez-Dolz L.  Reganon E.  Martínez-Sales V.  Chamorro C.I.  Vila V.  Martín-Pastor J.  Villa P.  Salvador A.   Diagnostic usefulness of inflammatory markers in acute cellular rejection after heart transplantation Transpl. Proc. 2006 38 2569 2571 10.1016/j.transproceed.2006.09.002 17098005 
+13. Liu Y.  Morley M.  Brandimarto J.  Hannenhalli S.  Hu Y.  Ashley E.A.  Tang W.H.  Moravec C.S.  Margulies K.B.  Cappola T.P.    RNA-Seq identifies novel myocardial gene expression signatures of heart failure Genomics 2015 105 83 89 10.1016/j.ygeno.2014.12.002 25528681 
+14. Li X.  Liu C.Y.  Li Y.S.  Xu J.  Li D.G.  Li X.  Han D.   Deep RNA sequencing elucidates microRNA-regulated molecular pathways in ischemic cardiomyopathy and nonischemic cardiomyopathy Genet. Mol. Res. 2016 15 10.4238/gmr.15027465 27173194 
+15. Spivey T.L.  Uccellini L.  Ascierto M.L.  Zoppoli G.  De Giorgi V.  Delogu L.G.  Engle A.M.  Thomas J.M.  Wang E.  Marincola F.M.    Gene expression profiling in acute allograft rejection: Challenging the immunologic constant of rejection hypothesis J. Transl. Med. 2011 9 174 10.1186/1479-5876-9-174 21992116 
+16. Giancotti F.G.  Ruoslahti E.   Integrin signaling Science 1999 285 1028 1032 10.1126/science.285.5430.1028 10446041 
+17. Howard C.M.  Baudino T.A.   Dynamic cell–cell and cell–ECM interactions in the heart J. Mol. Cell. Cardiol. 2014 70 19 26 10.1016/j.yjmcc.2013.10.006 24140801 
+18. Frangogiannis N.G.   The Extracellular Matrix in Ischemic and Nonischemic Heart Failure Circ. Res. 2019 125 117 146 10.1161/CIRCRESAHA.119.311148 31219741 
+19. Gil-Cayuela C.  Rivera M.  Ortega A.  Tarazón E.  Triviño J.C.  Lago F.  González-Juanatey J.R.  Almenar L.  Martínez-Dolz L.  Portolés M.   RNA sequencing analysis identifies new human collagen genes involved in cardiac remodeling J. Am. Coll. Cardiol. 2015 65 1265 1267 10.1016/j.jacc.2015.01.029 25814236 
+20. Roberts D.D.   Emerging functions of matricellular proteins Cell Mol. Life Sci. 2011 68 3133 3136 10.1007/s00018-011-0779-2 21833584 
+21. Xia Y.  Dobaczewski M.  Gonzalez-Quesada C.  Chen W.  Biernacka A.  Li N.  Lee D.-W.  Frangogiannis N.G.   Endogenous thrombospondin 1 protects the pressure-overloaded myocardium by modulating fibroblast phenotype and matrix metabolism Hypertension 2011 58 902 911 10.1161/HYPERTENSIONAHA.111.175323 21947471 
+22. Gonzalez-Quesada C.  Cavalera M.  Biernacka A.  Kong P.  Lee D.-W.  Saxena A.  Frunza O.  Dobaczewski M.  Shinde A.  Frangogiannis N.G.   Thrombospondin-1 induction in the diabetic myocardium stabilizes the cardiac matrix in addition to promoting vascular rarefaction through angiopoietin-2 upregulation Circ. Res. 2013 113 1331 1344 10.1161/CIRCRESAHA.113.302593 24081879 
+23. Sezaki S.  Hirohata S.  Iwabu A.  Nakamura K.  Toeda K.  Miyoshi T.  Yamawaki H.  Demircan K.  Kusachi S.  Shiratori Y.    Thrombospondin-1 is induced in rat myocardial infarction and its induction is accelerated by ischemia/reperfusion Exp. Biol. Med. 2005 230 621 630 10.1177/153537020523000904 16179730 
+24. Frolova E.G.  Sopko N.  Blech L.  Popović Z.B.  Li J.  Vasanji A.  Drumm C.  Krukovets I.  Jain M.K.  Penn M.S.   Thrombospondin-4 regulates fibrosis and remodeling of the myocardium in response to pressure overload FASEB J. 2012 26 2363 2373 10.1096/fj.11-190728 22362893 
+25. Lynch J.M.  Maillet M.  Vanhoutte D.  Schloemer A.  Sargent M.A.  Blair N.S.  Lynch K.A.  Okada T.  Aronow B.J.  Osinska H.   A thrombospondin-dependent pathway for a protective ER stress response Cell 2012 149 1257 1268 10.1016/j.cell.2012.03.050 22682248 
+26. Imanaka-Yoshida K.  Hiroe M.   Tenascin-C Regulates Fibrosis, Inflammation and Immunological Response J. Card. Fail. 2009 15 S143 10.1016/j.cardfail.2009.07.199 
+27. Nishioka T.  Onishi K.  Shimojo N.  Nagano Y.  Matsusaka H.  Ikeuchi M.  Ide T.  Tsutsui H.  Hiroe M.  Yoshida T.    Tenascin-C may aggravate left ventricular remodeling and function after myocardial infarction in mice Am. J. Physiol. Heart Circ. Physiol. 2010 298 H1072 H1078 10.1152/ajpheart.00255.2009 20081106 
+28. Imanaka-Yoshida K.  Aoki H.   Tenascin-C and mechanotransduction in the development and diseases of cardiovascular system Front. Physiol. 2014 5 283 10.3389/fphys.2014.00283 25120494 
+29. Lyon R.C.  Zanella F.  Omens J.H.  Sheikh F.   Mechanotransduction in cardiac hypertrophy and failure Circ. Res. 2015 116 1462 1476 10.1161/CIRCRESAHA.116.304937 25858069 
+30. Maron B.J.  Towbin J.A.  Thiene G.  Antzelevitch C.  Corrado D.  Arnett D.  Moss A.J.  Seidman C.E.  Young J.B.  American Heart A.    Contemporary definitions and classification of the cardiomyopathies: An American Heart Association Scientific Statement from the Council on Clinical Cardiology, Heart Failure and Transplantation Committee; Quality of Care and Outcomes Research and Functional Genomics and Translational Biology Interdisciplinary Working Groups; and Council on Epidemiology and Prevention Circulation 2006 113 1807 1816 10.1161/CIRCULATIONAHA.106.174287 16567565 
+31. Sisakian H.   Cardiomyopathies: Evolution of pathogenesis concepts and potential for new therapies World J. Cardiol. 2014 6 478 494 10.4330/wjc.v6.i6.478 24976920 
+32. Goodwin J.  Gordon H.  Hollman A.  Bishop M.   Clinical aspects of cardiomyopathy Br. Med. J. 1961 1 69 10.1136/bmj.1.5219.69 13707066 
+33. Luo M.  Anderson M.E.   Mechanisms of altered Ca2 ⁺ handling in heart failure Circ. Res. 2013 113 690 708 10.1161/CIRCRESAHA.113.301651 23989713 
+34. Wang J.  Gareri C.  Rockman H.A.   G-Protein-Coupled Receptors in Heart Disease Circ. Res. 2018 123 716 735 10.1161/CIRCRESAHA.118.311403 30355236 
+35. De Lucia C.  Eguchi A.  Koch W.J.   New Insights in Cardiac beta-Adrenergic Signaling During Heart Failure and Aging Front. Pharm. 2018 9 904 10.3389/fphar.2018.00904 30147654 
+36. O’Connell T.D.  Swigart P.M.  Rodrigo M.C.  Ishizaka S.  Joho S.  Turnbull L.  Tecott L.H.  Baker A.J.  Foster E.  Grossman W.    Alpha1-adrenergic receptors prevent a maladaptive cardiac response to pressure overload J. Clin. Invest. 2006 116 1005 1015 10.1172/JCI22811 16585965 
+37. Eisner D.A.  Caldwell J.L.  Kistamás K.  Trafford A.W.   Calcium and excitation-contraction coupling in the heart Circ. Res. 2017 121 181 195 10.1161/CIRCRESAHA.117.310230 28684623 
+38. Rahm A.-K.  Lugenbiel P.  Schweizer P.A.  Katus H.A.  Thomas D.   Role of ion channels in heart failure and channelopathies Biophys. Rev. 2018 10 1097 1106 10.1007/s12551-018-0442-3 30019205 
+39. Stewart S.  Winters G.L.  Fishbein M.C.  Tazelaar H.D.  Kobashigawa J.  Abrams J.  Andersen C.B.  Angelini A.  Berry G.J.  Burke M.M.    Revision of the 1990 working formulation for the standardization of nomenclature in the diagnosis of heart rejection J. Heart Lung Transpl. 2005 24 1710 1720 10.1016/j.healun.2005.03.019 
+40. Fenton M.  Simmonds J.  Shah V.  Brogan P.  Klein N.  Deanfield J.  Burch M.   Inflammatory Cytokines, Endothelial Function, and Chronic Allograft Vasculopathy in Children: An Investigation of the Donor and Recipient Vasculature After Heart Transplantation Am. J. Transpl. 2016 16 1559 1568 10.1111/ajt.13643 
+41. Horwitz P.A.  Tsai E.J.  Putt M.E.  Gilmore J.M.  Lepore J.J.  Parmacek M.S.  Kao A.C.  Desai S.S.  Goldberg L.R.  Brozena S.C.    Detection of cardiac allograft rejection and response to immunosuppressive therapy with peripheral blood gene expression Circulation 2004 110 3815 3821 10.1161/01.CIR.0000150539.72783.BF 15583081 
+42. Chih S.  Chruscinski A.  Ross H.J.  Tinckam K.  Butany J.  Rao V.   Antibody-Mediated Rejection: An Evolving Entity in Heart Transplantation J. Transpl. 2012 210210 10.1155/2012/210210 
+43. Tarazón E.  Ortega A.  Gil-Cayuela C.  Sánchez-Lacuesta E.  Marín P.  Lago F.  González-Juanatey J.R.  Martínez-Dolz L.  Portolés M.  Rivera M.    SERCA2a: A potential non-invasive biomarker of cardiac allograft rejection J. Heart Lung Transpl. 2017 36 1322 1328 10.1016/j.healun.2017.07.003 
+44. Dhar K.  Moulton A.M.  Rome E.  Qiu F.  Kittrell J.  Raichlin E.  Zolty R.  Um J.Y.  Moulton M.J.  Basma H.    Targeted myocardial gene expression in failing hearts by RNA sequencing J. Transl. Med. 2016 14 327 10.1186/s12967-016-1083-6 27884156 
+45. Yang H.S.  Chee H.K.  Kim J.S.  Kim W.S.  Park J.H.  Shin K.C.  Park K.S.  Lee S.W.  Cho K.H.  Park W.J.    Non-invasive myocardial strain imaging to evaluate graft rejection in the cardiac xenotransplantation J. Korean Soc. Transpl. 2017 31 25 33 10.4285/jkstn.2017.31.1.25 
+46. Andrews S.   FastQC: A Quality Control Tool for High Throughput Sequence Data Babraham Bioinformatics, Babraham Institute Cambridge, UK 2010 
+47. Bolger A.M.  Lohse M.  Usadel B.   Trimmomatic: A flexible trimmer for Illumina sequence data Bioinformatics 2014 30 2114 2120 10.1093/bioinformatics/btu170 24695404 
+48. Kim D.  Langmead B.  Salzberg S.L.   HISAT: A fast spliced aligner with low memory requirements Nat. Methods 2015 12 357 10.1038/nmeth.3317 25751142 
+49. Liao Y.  Smyth G.K.  Shi W.   featureCounts: An efficient general purpose program for assigning sequence reads to genomic features Bioinformatics 2013 30 923 930 10.1093/bioinformatics/btt656 24227677 
+50. Robinson M.D.  Oshlack A.   A scaling normalization method for differential expression analysis of RNA-seq data Genome Biol. 2010 11 R25 10.1186/gb-2010-11-3-r25 20196867 
+51. Huang D.W.  Sherman B.T.  Tan Q.  Kir J.  Liu D.  Bryant D.  Guo Y.  Stephens R.  Baseler M.W.  Lane H.C.   DAVID Bioinformatics Resources: Expanded annotation database and novel algorithms to better extract biology from large gene lists Nucleic Acids Res. 2007 35 W169 W175 10.1093/nar/gkm415 17576678 
+52. Consortium G.O.   The Gene Ontology (GO) database and informatics resource Nucleic Acids Res. 2004 32 D258 D261 10.1093/nar/gkh036 14681407 
+53. Kanehisa M.  Goto S.   KEGG: Kyoto encyclopedia of genes and genomes Nucleic Acids Res. 2000 28 27 30 10.1093/nar/28.1.27 10592173 
+54. Subramanian A.  Tamayo P.  Mootha V.K.  Mukherjee S.  Ebert B.L.  Gillette M.A.  Paulovich A.  Pomeroy S.L.  Golub T.R.  Lander E.S.   Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles Proc. Natl. Acad. Sci. USA 2005 102 15545 15550 10.1073/pnas.0506580102 16199517 
+55. Shannon P.  Markiel A.  Ozier O.  Baliga N.S.  Wang J.T.  Ramage D.  Amin N.  Schwikowski B.  Ideker T.   Cytoscape: A software environment for integrated models of biomolecular interaction networks Genome Res. 2003 13 2498 2504 10.1101/gr.1239303 14597658
+

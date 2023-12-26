@@ -1,0 +1,614 @@
+
+==== Front
+Evid Based Complement Alternat MedEvid Based Complement Alternat MedECAMEvidence-based Complementary and Alternative Medicine : eCAM1741-427X1741-4288Hindawi Publishing Corporation 10.1155/2013/938764Research ArticleA Systems-Pharmacology Analysis of Herbal Medicines Used in Health Improvement Treatment: Predicting Potential New Drugs and Targets Liu Jianling 
+1
+Pei Mengjie 
+1
+Zheng Chunli 
+1
+Li Yan 
+2
+Wang Yonghua 
+3
+*Lu Aiping 
+4
+Yang Ling 
+5
+1College of Life Science, Northwest University, Xi'an, Shaanxi 710000, China2Department of Materials Science and Chemical Engineering, Dalian University of Technology, Dalian, Liaoning 116000, China3Center of Bioinformatics, College of Life Science, Northwest A & F University, Yang ling, Shaanxi 712100, China4School of Chinese Medicine, Hong Kong Baptist University, Kowloon Tong 999077, Hong Kong5Lab of Pharmaceutical Resource Discovery, Dalian Institute of Chemical Physics, Chinese Academy of Sciences, Dalian, Liaoning 116000, China*Yonghua Wang: yh_wang@nwsuaf.edu.cnAcademic Editor: Y. Ohta
+
+2013 28 11 2013 2013 93876429 4 2013 23 9 2013 4 10 2013 Copyright © 2013 Jianling Liu et al.2013This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.For thousands of years, tonic herbs have been successfully used all around the world to improve health, energy, and vitality. However, their underlying mechanisms of action in molecular/systems levels are still a mystery. In this work, two sets of tonic herbs, so called Qi-enriching herbs (QEH) and Blood-tonifying herbs (BTH) in TCM, were selected to elucidate why they can restore proper balance and harmony inside body, organ and energy system. Firstly, a pattern recognition model based on artificial neural network and discriminant analysis for assessing the molecular difference between QEH and BTH was developed. It is indicated that QEH compounds have high lipophilicity while BTH compounds possess high chemical reactivity. Secondly, a systematic investigation integrating ADME (absorption, distribution, metabolism, and excretion) prediction, target fishing and network analysis was performed and validated on these herbs to obtain the compound-target associations for reconstructing the biologically-meaningful networks. The results suggest QEH enhance physical strength, immune system and normal well-being, acting as adjuvant therapy for chronic disorders while BTH stimulate hematopoiesis function in body. As an emerging approach, the systems pharmacology model might facilitate to understand the mechanisms of action of the tonic herbs, which brings about new development for complementary and alternative medicine.
+
+http://dx.doi.org/10.13039/501100001809 National Natural Science Foundation of China31170796
+==== Body
+1. Introduction
+Many diseases, particularly the chronic diseases such as rheumatoid arthritis, tuberculosis, or multiple myeloma, may lead to decreased immune system function, deficiency of vital energy and blood. Patients usually displayed pale complexion, spontaneous sweating, loss of appetite, shortness of breath and even hypothermy, cold limbs syndrome, dizziness, susceptible to more severe diseases. Throughout recent years, there are growing interests in Traditional Chinese Medicine (TCM) from natural sources as a feasible alternative therapeutic agent for the prevention of these chronic disorders or to improve health condition, boost immunity and keep the body in balance to lowers disease risk.
+
+In many Asian countries, two kinds of tonic Chinese herbs, so called Qi-enriching herbs (QEH) and Blood-tonifying herbs (BTH), are widely used in daily life to improve health for thousands of years. QEH enhance physical strength and endurance, strengthen the immune system and restore normal well-being. BTH are used to nourish the blood, invigorate circulation, regulate the menstrual cycle and are used for various patterns of blood deficiency. For QEH, Ginseng has been used medicinally in the Far East for several millennia and has been believed to enhance well-being as a representative qi tonic drug, it is beneficial for immune function, central nervous system function, cardio- and cerebro-vascular functions [1]. Other indicative herbs for the treatment of qi deficiency are Codonopsis pilosula, Panax quinquefolium, Radix pseudostellariae, Radix astragali, Rhizoma atractylodis macrocephalae, Dioscorea opposite, and Radix glycyrrhiz, which have always being prescribed in many herbal formulae. For example, Huang Qi Liu Yi Tang (HQLYT, composed of Radix
+glycyrrhiz and Radix astragali) is widely used in daily foods [2]. For BTH, Angelica sinensis is considered as a blood tonic. It is useful for replenishing and invigorating blood, and relieving pain, resulting in treatment of menstrual disorders, menorrhagia and hematopoiesis disorders [3]. Except for Angelica sinensis, other herbs which have effect of blood-tonifying are Radix paeoniae alba, Polygonum multiflorum, and Rehmannia glutinosa. Clinically, Si-Wu-Tang, including three blood-tonifying medical plants, that is, Radix paeoniae alba, Angelica sinensis and Rehmannia glutinosa, is one of the most widely used TCM formulae in China and Japan (Japanese name, Shimotsuto). It has been reported to possess anticoagulant activities and exhibit hematopoiesis, vasodilation and alleviate dysmenorrhea [4].
+
+Traditionally, qi-enriching herbs were used to treat weakness, loss of appetite, fever, fatigue and uterine prolapse [5]. Nowadays, the qi-enriching herbs are widely used in modern medicine as an immune enhancer [6–9], and to prevent the common cold, influenza, and chronic hepatitis. Emerging evidence further suggests that qi-enriching herbs are useful as an alternative treatment for patients whose immune systems have been compromised either by cancer [10] or AIDS [11]. Recently, it is also proposed that the qi-enriching herbs may act as a possible antioxidant in patients [11, 12] with severe heart and liver diseases, leading to symptom relief and improvement in organ function [13]. For blood-tonifying herbs, they have been reported to exhibit pharmacological actions such as replenishing and invigorating blood, augment blood of coronary artery, anti-acute myocardial ischemia [14], anti-platelet agglutination, anti-thrombogenesis [15], activation of fibrinolysis, decreased blood fat [16], improvement of the blood hypervisicosity syndrome, depressed blood pressure, anti-artherosclerosis, and heart or liver protection [17, 18]. However, owing to the complexity of the basic theory of TCM, the molecular basis of QEH and BTH and the mechanisms of action are still a mystery. Hence, the qi-enriching and blood-tonifying natures in health improvement treatment are far from sufficient, approximately a “black” box. Fortunately, the fast development in “omics” technology and systems biology has provided a chance to deep understand the mechanisms concerning with TCM. The systems-based analysis approach can allow for TCM drug action to be considered in the context of the whole system, thus acceleration the uncovering the molecular mechanisms related to the therapeutic efficacy from a systematic point of view [19]. In our previous work, we have successfully used the systems-based method to investigate the mechanisms of action of TCM with application to cardiovascular diseases [20–22].
+
+In the present work, for the first time we shed light on the mechanism of action of the QEH and BTH in health improvement treatment. The proposed model integrates the oral bioavailability screening, pattern recognition, discrimination analysis, drug targeting and network pharmacology analysis. The mechanisms of action of tonic herbs with a holistic way to improve health condition as well as treating disease were deeply uncovered. Taken together, this study extends our understanding of the molecular/systems mechanisms underlying tonic herbs activity observed in oriental medicine, and also be helpful to bring about a new opportunity to the development in the complementary and alternative medicine.
+
+2. Materials and Methods
+Our protocol includes four main steps: (1) obtainment of QEH and BTH and building the ingredient database; (2) screening the potential active compounds with Oral Bioavailability and Druglikeness analysis; (3) generation of the chemical and pharmacological features of the herbs; (4) building of drug-target networks; and (5) systems pharmacology analysis.  Figure 1 depicts the flowchart of the whole experimental procedure.
+
+2.1. Chemical Database and Descriptor Calculation
+Traditional Chinese Medicine has a history of 1000 years fighting against Qi Deficiency Syndromes (QDS) and Blood Deficiency Syndromes (BDS) and has accumulated numerous of prescriptions and clinical practices. In this work, a large-scale text mining approach [23] was applied to obtain the indicative herbs which were used for the treatment of QDS and BDS. Finally, a total of 12 herbs including 8 in QEH (Ginseng, Codonopsis pilosula, Panax quinquefolium, Radix pseudostellariae, Radix astragali, Rhizoma atractylodis macrocephalae, Dioscorea opposita, Radix glycyrrhiz resp.), 4 in BTH were collected (Radix paeoniae alba, Angelica sinensis, Polygonum multiflorum, Rehmannia glutinosa).
+
+All chemicals of each herb were retrieved from our in-house developed database: The Traditional Chinese Medicine Database and Systems Pharmacology Analysis Platform (http://tcmspnw.com/). This database involves about 500 herbals which have been registered in the Pharmacopoeia of People's Republic of China [24]. To the largest extent, 31,871 organic molecules have been collected in this database. In the present work, 1498 compounds were compiled into our data set, including 170 in Ginseng, 128 in Codonopsis pilosula, 140 in Panax quinquefolium, 98 in Radix pseudostellariae, 118 in Padix astragali, 66 Phizoma atractylodis macrocephalae, 69 in Dioscorea opposita, 279 in Radix glycyrrhiz, 86 in Rehmannia glutinosa, 111 in Radix paeoniae alba, 65 in Polygonum multiflorum, 168 in Angelica sinensis respectively. All the compounds were kept as mol2 format and their information was provided in Tables S1 and S2 (Supporting Information). See supplementary martial available online at http://dx.doi.org/10.1155/2013/938764.
+
+In the present work, the data set was preprocessed to remove the duplicate compounds in the BTH and QEH to reduce the redundancy of the data. The molecular descriptors were calculated using DRAGON 5.4 program (http://www.talete.mi.it/index.htm). As a result, 1664 descriptors were calculated for each compound from 20 molecular descriptor blocks: constitutional descriptors, topological descriptors, two-dimensional (2D) autocorrelations, molecular properties et al. Based on the multicollinearity correlation analysis [25] and mutual information method [26], the redundant descriptors were removed and 135 descriptors finally remained for further analysis.
+
+2.2. Active Compounds Screening
+Screening of the active compounds comprises Oral Bioavailability (OB) screening and Drug-likeness (DL) prediction. OB, represents the rate and extent to which the active ingredient or active moiety is absorbed from a drug product and becomes available at the site of action [27]. Here the OB screening was performed by an in-house system OBioavail1.1 [28] and the compounds with OB ≥ 30% were kept in the database. The threshold determination was based upon careful consideration of the followings: (1) Extract information from QEH and BTH as much as possible using the least number of chemicals. (2) keeping consistency with the reported pharmacological data. In addition, for the purpose of filtering out the drug-like molecules, we have developed a database-dependent model to discriminate between drug-like and nondrug-like chemicals using the Tanimoto coefficient [29]. In this work, the compounds with DL ≥ 0.2 were selected as the Drug-like Compounds and the threshold is the average DL for DrugBank database. Numerous studies have shown that although many compounds have low OB, but have strong pharmacodynamic effects at a very low dose [30, 31]. In order to get more comprehensive compounds for in-depth study, the compounds which exceed either OB or drug-likeness screening were regarded as the candidate compounds for BTH and QEH.
+
+2.3. Pattern Recognition
+In order to visualize the qi- and blood-relevant compounds in a 2D space representing the structural information encoded in the molecular descriptors, the self-organizing map (SOM) was used. SOM is a type of artificial neural network trained by unsupervised machine learning approach to produce a two-dimensional, discretized representation of the input space of the training samples [32]. By assigning each input vector to the neuron with the nearest feature vector, the SOM clustering algorithms attempt to organize unlabeled in-put vectors into clusters,therefore points within a cluster are more similar to each other than vectors belonging to different clusters [33]. that is, similar clusters are (usually) grouped together. And  U-matrix was used for visualization of data. The  U-matrix value of a particular node represent the average distance between the node and its closest neighbors [34].
+
+The self-organizing map simulations were carried out using internally developed C-language program. The SOM network of dimension  10 × 10  was applied, which enabled one to map objects into 100 positions. Similar objects were mapped into the same position (x, y  coordinate in a SOM).
+
+2.4. Discrimination Analysis
+In order to provide a formula which is simple to apply, easy to interpret and always gives good results for solving qi-blood compounds classification problem, a stepwise linear discriminant analysis (S-LDA) was applied to build model. In this work, the training sets were used to explore the most important variables related to the biological activities, while the test set was used to validate the performance of the model. The whole data set was randomly split into training and test sets in a ratio of about 75% : 25%. The structural applicability domain for the model was obtained by visualizing the SOM pattern to select the typical areas which represent the qi or blood compounds.
+
+2.5. Target Identification and Validation
+In order to obtain the targets for drugs, we have developed a robust in silico model [35] to identify potential targets for a given chemical molecule, and the criteria with SVM score ≥ 0.8 and RF score ≥ 0.7 was applied in this work. In addition, the targets were also predicted by the SEA method (http://sea.bkslab.org/), which is only limited to the human targets. Moreover, the targets also retrieved from TTD (http://bidd.nus.edu.sg/group/ttd/), STITCH (http://stitch.embl.de/) and HIT (http://lifecenter.sgst.cn/hit/welcome.html), all of them are resources to explore known and predicted interactions of chemicals and proteins. And all the obtained targets were retrieved from TTD (http://bidd.nus.edu.sg/group/ttd/) and Uniprot (http://www.uniprot.org/) to explore the interactions of chemicals and proteins.
+
+2.6. Compound-Target-Disease Networks Construction
+In order to explore the potential therapeutic effect of certain drugs and suggesting novel drug targets. The Candidate Compounds, Potential Targets and Diseases information were used to build the Compound-Target-Disease networks (C-T-D network). In the graphical network, each component such as compound, protein and disease is described by node, and the interactions are encoded by edges. The C-T-D network was produced through two steps: (1) the drug-target connections were generated by linking the candidate compounds with all their potential targets. (2) The potential targets were extracted from the TTD (http://bidd.nus.edu.sg/group/ttd/) and Uniprot (http://www.uniprot.org/) for their diseases information. All the networks were generated by Cytoscape 2.8.1 [36].
+
+3. Results and Discussion
+The complexity of the chemical components makes it extremely difficult to understand the mechanisms of action for herbal medicines from a molecular or systems level. How to understand the TCM system as a whole (i.e., the external signs) and the internal changes in the relevance has, thus, become the “bottleneck” of modern TCM study. Therefore, in addition to the specific focus on the issue of Qi-Blood, the present work also attempts to interpret the abstraction theory of TCM through relatively simple two kinds of botanical drugs. Here, we have constructed an integrated system combining ADME screening, pattern analysis, drug targeting, and network pharmacology to investigate the systems-level mechanisms of action for the QEH and BTH.
+
+3.1. Active Ingredients Identification
+In most cases, herbs are orally administered. It is believed that most compounds in the mixture fail to reach to the cellular targets as they lack appropriate pharmaceutical properties, such as favorable oral bioavailability [37]. Therefore, the OB screening together with the drug-likeness evaluation should be indispensable to determine whether a compound is pharmaceutically active in a complex herb mixture. We found that 849 compounds which account for 69% of all the 1068 chemicals in the BTH have satisfactory oral bioavailability (OB ≥ 30%) or favorable drug-likeness property (DL ≥ 0.2), and 361 accounting for 67% of all the 430 chemicals in the QEH have OB ≥ 30% or DL ≥ 0.2. The details are provided as following.
+
+3.1.1. Qi-Enriching Herbs
+
+Rhizoma atractylodis macrocephalae. 47 compounds were obtained with good OB or favorable DL from this herb. For example, atractylenolide II and atractylenolide III are the main pharmacologically active constituents with the ideal OB values (atractylenolideII: OB = 47.50%; atractylenolideIII: OB = 68.11%). In Radix astragali, 101 chemicals have good OB or DL features, among which tangshenoside I exhibits significant antibacterial activity and lowering blood sugar function. As for Codonopsis pilosula, 86 of 128 compounds with good OB or DL were collected, tangshenoside I, as one of the major component, has the OB of 68.77%. 108 compounds were filtered out from the total 170 chemicals from Ginseng. For example, ginsenoside Rg1 has been demonstrated possessing significant immunomodulatory activity and ginsenoside-Rb2 which can inhibit lung tumor metastasis. 61 compounds from Dioscorea opposite include ergosterol, one of major ingredients in this herb, were obtained. In Radix glycyrrhiz, 255 compounds possess desirable OB or DL properties. Interestingly, all the major components including isoliquiritigenin, licochalcone A, ononin were all screened out, which have been proved to have anti-microbial activity and anti-inflammatory activity. As for Radix pseudostellariae, 72 compounds are potential active components, and 86 compounds accounting for 87.7% of all the compounds in Panax quinquefolium also show ideal pharmacokinetic properties such as Papaverine (OB = 64.04% and DL = 0.38).
+
+3.1.2. Blood-Tonifying Herbs
+87 compounds were collected from Radix paeoniae alba, such as compound albiflorin, one of the major ingredients, has the ideal OB and DL properties (OB = 49.12% and DL = 0.79). As for Polygonum multiflorum, 59 compounds are potentially active. In Angelica sinensis, in the obtained 109 active molecules, ferulic acid (OB = 54.01%) is the main ingredient, which can promote hematopoietic progenitor cell proliferation and differentiation [38]. 69 compounds in Rehmannia glutinosa are potentially active, such as Rehmannioside A (OB = 25.94% and DL = 0.87).
+
+3.2. Clustering Analysis
+1210 candidate compounds (849 qi-enriching compounds and 361 blood-tonifying compounds) which meet either OB or DL screening criteria were used for further clustering analysis. The SOM method was applied here to place the prototype vectors (135 descriptors) on a regular low-dimensional grid by using the  U-matrix technique. A  10 × 10  map was obtained as shown in Figure 2. The green and red nodes represent qi-enriching compounds and blood-tonifying compounds, respectively. Surprisingly, these two kinds of compounds were well clustered in particular regions in the map. Figure 2 depicts that the qi-enriching compounds (in green color) distributed irregularly throughout the map in several subgroups, whereas the blood-tonifying compounds (in red color) mainly concentrated on the upper right and bottom left part of the map. The areas occupied by the qi-enriching compounds are relatively large and scattered compared to those of the blood-tonifying compounds, reflecting the broad molecular diversity and large chemical space for qi-enriching compounds. In addition, several overlaps were also observed as shown in mixed-up colors (the red-green), indicating that these nodes were occupied by qi-enriching compounds and blood-tonifying compounds. On the assumption that structurally similar drugs tend to bind similar proteins, drug chemical structure information is a good indicator for drug biological activity [39]. The herbal compounds with the similar structure can cluster together, as a consequence, the compounds in each well-separated region may have similar mechanisms of actions. Thus, we deduce that qi-enriching herbs have a huge potent to hit massive targets and treat a variety of ailments ultimately. Conversely, the region of the blood-tonifying compounds is relatively focused, which, to some extent, shows that the blood-tonifying compounds share more chemical and biological similarities with each other. Thus, we deduced that targets and curative effect of blood-tonifying herbs are relatively single/centralized compared to the qi-enriching herbs.
+
+3.3. Discrimination Model
+Information on molecular properties of qi and blood herbs is required in order to assess the category of chemical compounds from various herbs. However, the experimental determination of such a large quantity of molecules is time-consuming and expensive. There is a preference to establish rapid, sensitive and low-cost computational models rather than the traditional and expensive experimental approaches for predicting the qi or blood chemicals from the knowledge of molecular structures [40].
+
+LDA algorithm formulizes the relationship between variables and response in clear numbers or coefficients. This endows their usage and reliability, particularly for explanation of the mechanism. So, a model generated by LDA algorithm is beneficial and simple to be interpreted with inductive theoretical descriptors, as it allows interpreting individual descriptors into molecular activity, and each descriptor could be seen by the magnitude and sign of its discriminant coefficient.
+
+In this work, from the large training set of compounds, the stepwise LDA was applied as a variable selection strategy in order to select the best combination of those descriptors most relevant to activities. Thus the study outlines the details of the one well performed model to estimate the nature of qi-blood herbs which are reported in the following equation. Descriptors are written in decreasing order of the significance, based on the absolute size of their standardized regression coefficients.
+
+The best LDA model for the qi-enriching herbs and blood-tonifying hers were generated using a training set of 908 compounds and 302 external test compounds with 5 molecular descriptors. The average classification accuracies of the leave-one-out cross-validation are 83.3% (Q
+cv) for the training set and 82.2% (Q
+ex) for the testing date, indicating that the S-LDA model is highly reasonable
+ (1) D=0.622×MlogP−0.156×Mor27m+0.982 ×VEA1−0.046×H-046 −0.966×HATSOe−4.644,Ntr=908,   Nte=302,   Qcv=83.3%,Qex=82.2%, SEqi=82.5%,   SPqi=15.7%,SEblood=84.3%, SPblood=17.5%, 
+where Ntr and Nte are the number of compounds in the internal training and external test sets individually,  Q
+cv  and  Q
+ex  are the overall classification accuracy of internal LOOCV and external test sets respectively. And the model was subsequently validated by SE (sensitivity) and SP (specificity) [41] which further demonstrate the reasonability of the obtained model.
+
+For the optimal LDA equation, the standardized coefficient reveals that the most significant descriptor is MlogP, which indicates the penetration/lipophilicity of a compound to form non-covalent interactions with its environment, to dissolve and persist in water or in a lipidic environment, or to permeate the phase interfaces. Normally, larger MlogP indicates a stronger ability of the chemical to permeate cell membrane of an organism. In (1), the MlogP takes a positive weight, which indicates that for this function increasing values of MlogP correlate with increasing the possibility of qi-enriching action. Mor27m is, as the second most important descriptor, which is a 3-D MoRSE descriptor (3-D Molecular Representation of Structures based on Electron diffraction). Mor27m descriptor is calculated by summing up the atomic weights viewed by different angular scattering functions and weighted by atomic electronegativity. The reactivity descriptor indicates the compound's ability to interact with its surrounding molecules and to form chemical bonds. It takes a negative weight in the equation, indicating that increased values of Mor27m are correlated with increasing action rating of ablood-tonifying compound. Further analysis of the Mor27m values, we surprisingly found that a compound is very likely to be qi-enriching compounds when its Mor27m is less than −1, as indicated by the fact that 74.6% compounds in all the test qi-enriching 366 molecules have the Mor27m values less than 1. If Mor27m is larger than −1, the compound is likely belonging to blood-tonifying compounds (62.9% in the all the test 288 blood-tonifying compounds larger than −1).
+
+VEA1 indicates the eigenvalue coefficient sum from the adjacency matrix of a molecule. H-046 represents the number of hydrogen atoms attached to a sp3 carbon. The role of this descriptor is to basically show the composition features of the skeleton of a compound. It is interesting to find that there are 258 (70.49%) compounds which have larger than 5-valued SHCsats for qi compounds and 197 (68.4%) compounds which have less than 5-valued SHCsats for blood compounds. All this indicates that compounds with nonsaturated C are potentially qi-enriching compounds. HATS0e means leverage-weighted autocorrelation of lag 0, weighted by atomic Sanderson electronegativity. More electronegative and labile atoms will have larger positive field density, which indicates higher chemical reactivity of a molecule. The presence of this electronegativity in a molecule tends to indicate the role of the chemical reactivity on idenfication of qi-enriching and blood-tonifying compounds. Yet the three groups play totally different roles in affecting the qi-blood compounds, with H-046 and VEA1 contributing positively but HATS0e negatively to the structural model.
+
+Generally, this equation contains two types of descriptors: those describing molecular lipophilicity, shape, bulk properties and those reflecting chemical reactivity. This indicates the importance of taking lipophilicity and chemical reactivity into account for the prediction of qi-enriching and blood-tonifying compounds. In general, qi-enriching compounds have characteristics of high lipophilicity while blood-related compounds possess high chemical reactivity.
+
+3.4. Compound-Target-Disease Networks
+The active compounds applicability domain for the C-T-D Network was obtained by  (1)  visualizing the SOM pattern to select the typical areas which represent the qi-enriching or blood-tonifying compounds, (2) remaining the correct qi or blood classification of compounds after discrimination analysis and (3) picking out effective compounds in accordance with the literature.
+
+The availability of large phenotypic and molecular networks provides a new opportunity to study the association between compounds and proteomic datasets. Surprisingly, correlating the drug-target map with a target-disease map suggests that many drugs are not acting on a protein most directly implicated in a disease but rather acting at one or two degrees of separation, at proteins which are linked to the disease genes. Thus, we propose that the drug-target network associated with disease may be an effective strategy to explore the potential therapeutic effect of certain drugs and therefore suggests novel drug targets. After deleting the 8 compounds with no targets, the resultant “Candidate Compounds”, “Potential Targets” and all their “Disease” were applied to generate a graph of Compound-Target-Disease interactions, in which a compound and a target are connected to each other if the protein is a Candidate Target of the Compound, the disease is linked to the Candidate target if the target has relationships with the disease, giving rise to a “C-T-D Network” (Figures 3 and 4).
+
+3.4.1. QEH
+Constructing the target protein network for a specific disease or drug could help improve understanding the mechanism of certain drugs on specific diseases. In our study, there are 146 potential targets hit by 31 active compounds in all 202 targets, which have been annotated to have significant relationships with the pharmacologic effects of improving health. Detailed information is given in (Table 1).
+
+
+Anti-Inflammation. Inflammation is the body's attempt at self-protection; the aim being to remove harmful stimuli, which ultimately leads to the restoration of normal tissue structure and function. A normal inflammatory response is self-limiting and involves the down-regulation of pro-inflammatory protein expression, increased expression of anti-inflammatory proteins, and a reversal in the vascular changes that facilitated the initial immune cell recruitment process. Qi-enriching herb Radix astragali extracts have been known to have strong anti-inflammatory effects by increasing white blood cells, multinuclear leukocytes and IgM in mice [42]. Ginseng also has immune-enhancing effects, it increases the function of the reticuloendothelial system and the total amount of IgM [43].
+
+In this work, 15 targets have significant relationship with the inflammatory processes. For example, MIF (Macrophage migration inhibitory factor) participates in inflammation-mediated rheumatoid arthritis (RA) and systemic lupus erythematosus [44], which is hit by 3 active compounds in Radix astragali and liquorice. Interestingly, for these 3 compounds, It has been demonstrated that isoliquiritigenin (ISL, liquorice) induces HO-1 expression by activation of ERK1/2 MAPK and ISL-induced HO-1 expression which is considerably associated with the LPS-induced NO and TNF-a production in murine macrophages. Thus, ISL is an effective HO-1 inducer, capable of inhibiting macrophage-derived inflammation. Calycosin (Radix astragali) also has been reported to reduce AGEs-induced macrophage migration and adhesion to endothelial cells via estrogen receptor-ERK1/2-NF-κB pathway to achieve anti-inflammation effect [45]. Molecules atractylenolideI, II, III, ginsenoside, licochalcone A and ononin were found to target iNOS (Nitric oxide synthase, inducible), which is involved in the host defense in bronchial epithelium and acts as an inflammatory mediator in pathological states [46]. Furthermore, PTGS1 (prostaglandin G/H synthase 1) and PTGS2 participate in inflammation-mediated cytotoxicity and neuronal death [47], which is hit by atractylenolideI, ononin, licochalcone A, isoliquiritigenin, Diosgenin-3-O-beta-D-glucopyranoside and ginsenoside. Among these compounds, licochalcone A has been reported to inhibit prostaglandin biosynthesis in lipopolysaccharide (LPS)-induced mouse macrophage cells to achieve anti-inflammation effect [48]. Control of those targets related to inflammation will lead to the improvement of immunoreaction, inhibition of inflammatory process and prevention damage of the inflammatory factor. In addition, collaboration between anti-inflammatory and immunostimulatory effects may contribute to the best immune response, which might be the integrated actions of compound mixtures from various medicinal herbs [6, 10, 49].
+
+
+Cardiovascular System Diseases. Cardiovascular disease (CVD), a leading cause of deaths worldwide, refers to any disease that affects the cardiovascular system, principally cardiac disease, vascular diseases of the brain and kidney, and peripheral arterial disease [50]. The causes of cardiovascular disease are diverse but atherosclerosis and/or hypertension are the most common [51]. In traditional medicine, qi-enriching herbs have also been widely used for treatment of renovascular and cardiovascular diseases, and hence frequently constitute a major ingredient of polyherbal formulations for cardiovascular diseases [24]. Clinical studies have demonstrated that Ginseng has a positive inotropic effect on the hearts of dogs, rabbits and other animals. It increases the contractility of the heart, slightly increases blood pressure, and constricts blood vessels. It has shown beneficial effects in treatment of shock and arrhythmia [52]. Radix glycyrrhiz also has desirable pharmacological effects on preventing atherosclerosis, increasing resistance of low-density lipoprotein (LDL) to atherogenic modifications, reducing plasma lipid levels, and decreasing systolic blood pressure [53], and even showing certain impacts on antiarrhythmic, and brain ischemia, and so forth [54].
+
+Interestingly, inspection of the network identifies 28 proteins, which have significant relationships with the cardiovascular diseases. For example, HDAC1 (Histone deacetylase 1) plays a crucial, nonredundant role in cardiomyocyte differentiation and maturation and has been used in cardiovascular therapeutic applications [55]. TSP1 (thrombospondin-1) has been uncovered critical roles in acute regulation of cardiovascular dynamics, hemostasis, and immunity by interfering with the NO-mediated vasodilatory pathway [56]. And Ginseng-Re which interacts with TSP1 possesses many beneficial effects on cardiovascular system. G-Re has negative effects on cardiac contractility and autorhythmicity, which accounts for its antiarrhythmic effect. In addition, G-Re also exerts antiischemic effect and induces angiogenic regeneration [57]. Molecules ononin, ginsenoside-Rb, atractylenolide I, and diosgenin-3-O-beta-D-glucopyranoside were found to target the VEGF (vascular endothelial growth factor), which is the key regulator in vascular biology [58]. VEGFs have received much attention regarding their potential therapeutic use in cardiovascular medicine, especially for therapeutic vascular growth in myocardial and peripheral ischemia [59]. We found many isoflavonoids are connected to VEGFA. For example, ononin has markedly positive effect in prevention of cardiovascular diseases [60]. All these findings suggest that qi-enriching herbs might regulate the whole cardiovascular system by a complex protein-protein interaction network, and ultimately cure of the cardiovascular disease.
+
+
+Metabolic Process. The most common metabolic disorders include diabetes, obesity, adrenoleukodystrophy, glucose galactose malabsorption and phenylketonuria, and so forth. The goal of treatment is to reduce risk of heart disease and diabetes, some people may benefit from daily low-dose aspirin which can address symptom relief. It has been suggested herb Ginseng has anti-hyperglycemia, and anti-obesity effects. The mechanism of action is related to insulin sensitization, insulin secretion, β-cell protection, thermogenesis and antioxidantion, thus it is a promising herbal remedy in the treatment of metabolic syndrome [61].
+
+It was found that 13 active compounds connected 33 targets which are concerned with metabolic diseases, so through the modulation to these proteins, these compounds may relieve pathogenic risk, finally slow the progression of the disease condition and reduce the symptoms. For example, M(3) mAChR (Muscarinic acetylcholine receptor M3) plays a key role in regulating many important metabolic functions, M(3) mAChRs are essential for maintaining proper insulin release and glucose homeostasis, it also suggested that strategies aimed at enhancing signaling through beta-cell M(3) mAChRs might be beneficial for the treatment of type 2 diabetes [62]. Proteins PPAR-gamma (Peroxisome proliferator-activated receptor gamma) have been confirmed to be closely related to disordered glucose homeostasis, adipogenesis, lipid metabolism, and blood pressure regulation [63]. CALM (Calmodulin) may be involved in prostaglandin metabolism; it activates phospholipase A2, leading to the synthesis in platelets of PGHz and thromboxane. The influence of CALM on prostaglandin metabolism obviously has relevance to the role of platelets and the vascular endothelium in haemostasis [64, 65]. FAS (Fatty acid synthase), the sole mammalian enzyme capable of de novo fatty acid synthesis, is associated with poor prognosis in breast and prostate cancer, is elaborated into the blood of cancer patients, and its inhibition is selectively cytotoxic to human cancer cells [66]. Thus, the compounds interacting with these receptors may be key players in the relief of metabolic syndrome.
+
+
+Anticancer Process. Currently experiments have been shown that herbs play its anticancer role by inducing apoptosis and differentiation, enhancing the immune system, inhibiting angiogenesis, reversing multidrug resistance (MDR), and so forth. Clinical trials also demonstrated that TCM could improve survival, increase tumor response, improve quality of life, or reduce chemotherapy toxicity [67].
+
+An inspection of our network found that flavonoids (licochalcone A) saponins (ginsenoside, dioscin) and atractylenolide have strong interactions with 27 tumor-associated targets. In vitro/in vivo studies have established an association between flavonoid-induced modulation of protein kinase and MMP activities with apoptosis, cellular proliferation and tumor cell invasive behavior [67]. Ginsenoside binding to TNF (Tumor necrosis factor) has been demonstrated increasing effects of antiproliferative on two human colorectal cancer cell lines [68]. In addition, Cdk4 inhibition has been shown to induce potent G1 arrest in vitro and tumor regression in vivo [69]. So through the modulation to these proteins, the QEH may achieve the antineoplastic curative effect, thus improving the health conditions when combined with Western medicine for treating tumor diseases.
+
+
+Central Nervous System Diseases. Central Nervous System (CNS) diseases affect millions of human beings. Despite aggressive research, patients are still suffering from fatal and/or debilitating CNS diseases. The low toxicity, moderate cost and natural abundance make TCM an attractive substance for treatment of CNS.
+
+As can be seen from our network, proteins AChE (acetylcholinesterase) and GRIA (Glutamate receptors) have been confirmed to be closely related to chronic CNS disease. It is the target of drugs designed to treat myasthenia gravis, glaucoma, alzheimer's disease, and so forth [70]. GRIA are a heterogeneous family of G-protein-coupled receptors whose function is to modulate brain excitability via presynaptic, postsynaptic and glial mechanisms. Thus, Rhizoma atractylodis macrocephalae interacting with these receptors may exert a pharmacological effect on CNS diseases. In addition, KCNA3 (Voltage-gated potassium channel subunit Kv1.3) has been demonstrated that it plays a key role in phenotypes ranging from developmental disorders to adult-onset neurodegeneration [71]. Actually, molecule Isoliquiritigenin (ISL) has been demonstrated actively in the neurodegenerative diseases therapy by binding to KCNA3. ISL protects HT22 hippocampal neuronal cells from glutamate-induced oxidative stress by protect against glutamate-induced neuronal cell death. It is potentially useful in the prevention and treatment of neurodegenerative diseases [72].
+
+In summary, QEH could be a tonic herb to enhance physical strength and endurance, strengthen the immune system, lower blood pressure, promote excretion and enhance normal well-being. Interestingly, QEH cited above have always being prescribed in many frequently used herbal formulaes. For example, Huang Qi Liu Yi Tang (HQLYT, composed of Radix astragali and Radix glycyrrhiz) is a Chinese medicinal prescription widely used in daily foods to improve health [2]. Clinically, qi-enriching herbs could be adjuvant therapy for chronic phlegmatic disorders including cardiovascular disease, tumors and alzheimer's disease, and so forth.
+
+3.4.2. C-T Network: BTH
+In the blood-tonifying conpounds-targets network, there are 44 potential targets which hit by 8 active compounds in all 71 targets related to haematogenous mechanism and detailed information is given in (Table 2).
+
+
+Regulation on Hemopoietic Growth Factor. Hemopoietic growth factors play a key role in hematopoiesis not only by causing differentiation of stem cells toward a particular cell type, but also by inducing the proliferation of cells (i.e., increasing their numbers) and by favoring maturation of the cells (i.e., increasing their function) [79]. Production of these growth factors for clinical use has a significant impact on hematology, oncology and other fields by reducing the morbidity and mortality associated with diseases and treatments. Availability of these growth factors has also expanded the treatment options for many patients, particularly those with malignant neoplasms.
+
+The present work found that 15 targets are connected to induce or regulate hemopoietic growth factor, it has been reported IL-6 (Interleukin-6), TNF (tumor necrosis factor-alpha), SHP-2 (Protein-tyrosine phosphatase 2) and EP4 are responsible for these functions. IL-6 (Interleukin-6) acts synergistically with IL-3 to stimulate increased numbers of granulocyte/macrophage (GM) and multilineage colonies, IL-6 also interacts with all the factors, including M-CSF and GM-CSF, to stimulate an increase in colony size [80]. It has examined TNF (tumor necrosis factor) can promote the growth of erythroid progenitors CFU-E and BFU-E and the hematopoietic cell lines K562, HL60, and HEL cells [81]. In addition, SHP-2 (Protein-tyrosine phosphatase 2) is critical for hematopoietic cell development and function owing to its essential role in growth factor/cytokine signaling. More importantly, germline and somatic mutations in this phosphatase are associated with Noonan syndrome, Leopard syndrome, and childhood hematologic malignancies [82]. And administration of EP4 agonist facilitates the recovery of hematopoietic stem/progenitor cell from 5-fluorouracil (5-FU)-induced myelosuppression, indicating a role for EP4 signaling in this process [83]. Clearly, paeoniflorin which interacts with IL-6 and TNF could promote the proliferation of hematopoietic progenitor cell in bone marrow of radiated mice [4]. Ferulic acid which interacts with SHP-2 and EP4 treatment enhanced hematopoietic progenitor cell activity resulting in accelerated blood cell recovery. Ferulic acid administration can increase the levels of granulocyte-colony stimulating factor (G-CSF) and erythropoietin [84]. These hemopoietic growth factors-related proteins play an important role in promoting hematopoietic progenitor cell proliferation and differentiation into mature blood cells.
+
+
+Regulation on Bone Marrow Stromal Cell. Bone marrow stroma is composed of a variety of different stromal cell providing structural and functional support for hemopoiesis. These matrix components play an active role in control of cell adhesion and migration within the bone marrow, presentation of cytokines in proliferation processes. They act as adhesive substrate for hemopoietic progenitor cells which could help to strengthen the overall binding to the stroma [85].
+
+The present work found that 9 targets are connected to regulate the bone marrow stromal cell, such as ITG (integrin), ITGAV (vitronectin receptor alpha V) and CAMS (cell adhesion molecule). Pre-osteoblasts and their bone marrow stromal cells precursors may use matrix metalloproteinase 2/bone sialoprotein/ITG complexes to disrupt matrix barriers during migration to their final destinations in vivo [86]. Fibronectin binds to the ITGAV specifically with high affinity, and this interaction is biologically relevant in supporting cell adhesion to matrix proteins [87]. CAMS may be responsible for cell adhesion between hematopoietic cells and bone marrow stroma, thus, CAMS is important in maturation or differentiation of normal and neoplastic hematopoietic cell precursors [88]. Thus, we deduce that the functions of hematopoiesis are facilitated by this bone marrow stromal cell regulatory protein.
+
+
+Regulate Hematopoietic Stem Cell Apoptosis. Because most mature blood cells have a very short life span, the importance of haemopoietic stem cells (HSC) in sustaining the life of the mammal is very critical. Self-renewal and apoptosis of HSC represent major factors determine the size of the haemopoietic cell mass. In normal haemopoiesis, these factors are controlled so that steady-state kinetics are preserved. In contrast, in myeloid leukemias, myeloid expansion can be explained by an increase in self-renewal, and reduced apoptosis. Therefore regulating the apoptosis of hemopoietic system could effectively control the process of disease. Clinical studies demonstrated that Angelica sinensis extract promotes hematopoiesis and thrombopoiesis in the mouse model. This effect results from the anti-apoptosis activity of Angelica sinensis and is likely to involve the PI3K/AKT pathway [89].
+
+Inspecting of the network found that 6 molecules have strong interactions with 14 proteins. Some proteins have been confirmed that they are closely related to hematopoietic stem cell apoptosis. For instance, It has been reported that prostaglandin E2 (PGE2) receptors enhance HSC survival, associated with an increase in survivin mRNA and protein expression and reduction in intracellular active caspase-3 [90]. Bcl-2 family members involved in regulating apoptosis directly affect cell cycle progression. Anti-apoptotic family members, including Bcl-2, can cause exit from, and delay entry into the cell cycle, something that is apparent in hematopoietic stem cell overexpressing Bcl-2. Pro-apoptotic family members, including Bax, have the opposite effect [91]. In addition, Caspases (CASP) are crucial mediators of programmed cell death (apoptosis). Among them, CASP-3 is a frequently activated death protease, catalyzing the specific cleavage of many key cellular proteins [92]. Clearly, catalpol which interacts with Bcl-2 and CASP-3 could significantly inhibit ionizing radiation (IR)-induced human lymphocyte AHH-1 cells apoptosis and increase cells viability in vitro [93]. Moreover, MIF delayed cleavage of the proapoptotic members of the Bcl-2 family Bid and Bax in neutrophils, suggesting that MIF inhibits apoptosis pathways proximal to mitochondria activation [94]. All these are related to proliferation and apoptosis of Hematopoietic cell. Apoptosis of hematopoietic cell is an important component in the development of hemopoietic system, therefore the regulation of these proteins may inhibit the apoptosis of hemopoietic system and further control the process of hematopoiesis.
+
+Hematopoietic abnormality has been observed in patients with aplastic anemia, myeloproliferative diseases, leukemia, myeloma, anaphylactoid purpura, uremia, hemophilia and thrombus. In western medicine, androgen has been widely used as hematopoiesis reconstruction medicine in clinic [95], an increasing number of studies have indicated that androgen may be associated with undesired effects. Usual side effects have been reported mainly in adolescents, young men and women and are consist of flushing of the skin and acne, hirsutism, deepening and hoarseness of the voice, masculinization, amenorrhea and increase in libido [96]. We can disclose the action mechanisms from the network target viewpoint: BTH may regulate hemopoietic growth factor, bone marrow stromal cell and hematopoietic cell apoptosis process to against BDS-related hematopoietic abnormality processes. The present work creates valuable insight on the possible effects and utilization of BTH and its components as a feasible alternative therapeutic agent for patients with hematopoietic disorders or “androgen intolerance”. Interests in TCM from natural sources as a feasible alternative therapeutic agent for the prevention of hematopoietic disorder in patients are growing. For example, Si-Wu-Tang, comprising four medical plants, that is, Paeonia lactiflora, Ligusticum chuanxiong, Angelica acutiloba and Rehmannia glutinosa libosch, is one of the most widely used formulae of TCM. It has been used as the hematinic to treat BDS in clinic for hundreds of years in China and Japan (Japanese name, Shimotsuto) [97].
+
+The analysis mentioned above shows that QEH or BTH cannot be separated into independent clusters only according to the target profiles, suggesting that the features of target profiles of the ingredients from different herbs are overlapped. As consistent with the SOM clustering results, QEH have a huge potency to hit massive targets and treat a variety of ailments while targets and curative effect of BTH are relatively single/centralized. Thus, this new subject of TCM system pharmacology is updating the research paradigm from current “one target, one drug” to “network target, multicomponent therapeutics”, which refers to the comprehensive analysis for therapeutic effects of TCM on the basis of the identification of the network target underlying a given disease or TCM Syndrome as well as the target network of a given TCM.
+
+3.4.3. The Relationships between Multicomponents and Synergistic Effects
+Synergistic multitarget effects means that natural products affect not only one target, but several targets such as enzymes, substrates, metabolites, receptors, ion channels, transport proteins or DNA/RNA and can cooperate in an agonistic and synergistic way. Synergistic interactions are of vital importance in phytomedicines, to explain rational and efficient therapy form of combinational effects to be greater than the sum of the individual effects. They explain the efficacy of apparently low doses of active constituents in a herbal product [98]. In this regard, QEH and BTH may have the potential of addressing a relationship between multicomponents and drug synergistic effects, thereby increasing the likelihood of conquering complex diseases, such as QEH for cardiovascular diseases. Based on the analysis from the drug-target-disease network of cardiovascular system, the following mechanisms were elucidated:As shown in Figure 3, many potential targets are targeted by more than one candidate compounds. PTGS2, iNOS, MAOB, PTGS1 are examples of highly connected potential targets, whose numbers of candidate compounds are 12, 6, 5 and 5 respectively. The common targets shared by multi-compounds imply that the QEH might exert synergistic therapeutic effects on cardiovascular diseases, which are probably more effective than single compounds.
+
+It has been recognized that cardiovascular disease continuum begins with risk factors that initiate the process, leading to tissue damage. Inhibition of an individual target is insufficient to restore the cardiovascular system to the healthy state. In this case, multiple compounds contained in QEH could hit a series of targets, which have been annotated to have significant relationship with the pathological process of cardiovascular disease, and finally exert synergistic therapeutic efficacies. For example, PLA2G4A, MMP9, ALOX15 and TSP1 are closely concerned with atherosclerosis, while PIK3CG, PGF, VCAM1 and ITGA2B are related to myocardial infarction. Proteins ADRB1 and SCN5A may play important roles in arrhythmia. PGF and ADRB1 are concerned with vasoconstriction, the regulation of them may cause hemangiectasis, and then lower blood pressure. Therefore, it can be deduced that the action mechanism of this medical composition is that the QEH systematically controls the cardiovascular disease via potentially synergistic interactions of the active compounds.
+
+
+
+
+4. Conclusion 
+Traditional Chinese Medicine is a unique (independent) system of theory, diagnosis and treatment tools in terms of composition or from the pharmacodynamics. As we know, different from the western medicine, TCM aims to correct mal-adjustments and restore the self-regulatory ability of the body, and not to antagonize specific pathogenetic targets. TCM does not focus solely on the disease defined by specific pathological changes, but concentrate on the overall functional state of the patient. In TCM theory, disease status is considered as the unbalance of the whole body system, and concoctions of natural products are formulated to regain the balance of the system.
+
+In this work, we have proposed a new modeling system, combining oral bioavailability screening, pattern recognition, multiple drug targets prediction and validation, network pharmacology to investigate the material basis of representative TCM recipe qi-enriching and blood-tonifying Chinese herbs for the treatment of QDS and BDS. Our research not only makes a better understanding of the mechanisms of blood-tonifying and qi-enriching herbs, but also provides new insights into interpreting the theory of “qi and blood” of TCM. Our main findings are:A model for classification of qi-blood compounds was established, exhibiting proper reliability and high prediction accuracy. By an analysis of those statistically significant descriptors implicated in the model, the interpretation of the models in terms of the chemical features influencing the qi-enriching and blood-tonifying compounds were conducted. In summary, qi-enriching compounds have characteristics of high lipophilicity and C nonsaturated property while blood compounds possess high chemical reactivity.
+
+The pharmacodynamic components and the corresponding targets of these qi-enriching and blood-tonifying herbs have been predicted, which provides the desire to seek the mechanisms of action of qi-enriching and blood-tonifying herbs in curing QDS and BDS. Our results demonstrate why the qi-enriching herbs have effectiveness on cardiovascular disease, neoplasms, nervous system diseases, nutritional and metabolic diseases and other diseases while blood-tonifying herbs is works through promoting bone marrow hematopoietic. As a result, both qi-enriching herbs and blood-tonifying herbs could enhance human normal well-being and increase the overall quality of life.
+
+Our network-based TCM pharmacology provides a perspective for better understanding of the holistic, complementary and synergic essence of qi-enriching and blood-tonifying herbs which is efficient in treating QDS and BDS at a molecular level. TCM, in essence, is combination therapy by multiple active compounds (Figure 5).
+
+
+
+
+Despite these potentially interesting associations, cautious interpretation is warranted as these findings mainly relied on statistical analysis. Further experimental testing of these hypotheses will be required to support further assessments of potential clinical applications. Hopefully, our systems pharmacology method is extensible to other herbal medicines, which provides a reliable and practical strategy to identify the active herbal ingredients and potential synergistic correlativity, to reveal the mechanisms of botanic drugs, and to facilitate drug discovery as well.
+
+Supplementary Material
+Table S1: This table contains the information of all compounds belong to 8 qi-enriching herbs. It covers qi-enriching TCM name, compounds name in each TCM and their value of Oral Bioavailability and Drug-likeness.
+
+Table S2: This table contains the information of all compounds belong to 4 blood-tonifying herbs. It covers blood-tonifying TCM name, compounds name in each TCM and their value of Oral Bioavailability and Drug-likeness.
+
+Click here for additional data file.
+
+ Click here for additional data file.
+
+ Authors' Contribution
+Mengjie Pei and Chunli Zheng are equally contributed.
+
+Acknowledgment
+The authors' work is supported by the Fund of Northwest A & F University and is financially supported by the National Natural Science Foundation of China (Grant No. 31170796), as well as by the China Academy of Chinese Medical Sciences (Grant No. ZZ0608) and a National “973” Program of China (Grant No. 2013CB531805).
+
+Figure 1 Flowchart of the model building.
+
+Figure 2 Visualization of the  10 × 10  SOM of qi versus blood compounds using  U-matrix. Every square corresponds to a map neuron in the same position. The green and red colors represent qi, blood compounds, respectively.
+
+Figure 3 Target network and functional enrichment of the QEH. A target network of each herb was uniquely identified by mapping the possible targets of each herb into QEH-specific molecular network. The functions for the target networks were divided into 5 classifications. These enriched biological functions are associated with qi-enriching. Diagram frame labeled in pink color denote QEH, diagram frame labeled in green color denote the active compounds of the each QEH, diagram frame labeled in purple color represent targets of active compounds, and diagram frame labeled in blue color represent functions for the target networks. The effective molecules of Codonopsis pilosula and Radix pseudostellariae are contained in atractylodes and Ginseng, so target analysis no longer mentions Codonopsis pilosula and Radix pseudostellariae.
+
+Figure 4 Target network and functional enrichment of the BTH. The functions for the target networks were divided into 3 classifications. Diagram frame labeled in color pink, green, purple and blue denote BTH, active compounds of the each BTH, targets of active compound and functions for the target networks, respectively.
+
+Figure 5 Flowchart shows the process of QEH and BTH application in a simplified sequence. The flowchart suggests QEH enhances physical strength, immune system and normal well-being while BTH stimulates hematopoiesis function in body. As a result, both qi-enriching herbs and blood-tonifying herbs could enhance human normal well-being and increase the overall quality of life.
+
+Table 1 Active compounds of qi-enriching herbs in this work and their targets of different diseases.
+
+Disease types	TCM	Effective molecule	Target	Reference*	
+Anti-inflammation	
+Rhizoma atractylodis macrocephalae 
+	AtractylenolideI	IL1B, iNOS, PTGS1, PTGS2, SRC	 	
+
+Rhizoma atractylodis macrocephalae 
+	AtractylenolideIII	iNOS	 	
+
+Radix glycyrrhiza 
+	Isoliquiritigenin	MIF, PTGS2, 	[8]	
+
+Radix glycyrrhiza 
+	licochalcone A	iNOS, PTGS1, PTGS2, 	 	
+
+Radix glycyrrhiza 
+	Ononin	ALOX5, CD46, MIF, iNOS, PTGS1, PTGS2, RXRA	 	
+
+Rradix astragali 
+	Calycosin	ALOX5, MIF, HCK	[6, 7, 42, 73]	
+
+Rradix astragali 
+	Isoflavanone	IDO1, PTGS1,	 	
+
+Ginseng 
+	Ginsenoside-Rb1	IL1B, NFKBIA, PRKCB	[43]	
+
+Ginseng 
+	Ginsenoside-Re	iNOS	 	
+
+Ginseng 
+	Ginsenoside-Rf	IFNG, IL1B, IL4, PTGS2	 	
+
+Ginseng 
+	Ginsenoside-Rg1	IL2, IL4, PRKCB	 	
+
+Ginseng 
+	Ginsenoside-Rg3	IFNG, IL1B, IL4, iNOS, PTGS2	 	
+
+Dioscorea opposite 
+	Batatasin I	HCK	 	
+
+Dioscorea opposite 
+	Diosgenin-3-O-beta-D-glucopyranoside	PTGS2	 	
+
+Panax quinquefolium 
+	Pseudostellaria G	GRB2, ITGA4,	 	
+
+
+	
+CVD	
+Rhizoma atractylodis macrocephalae 
+	Atractylone	ADRB1, ADRA1A, ADRA1B, SCN5A	 	
+
+Rhizoma atractylodis macrocephalae 
+	AtractylenolideI	F13A1, ALAD, PGF, VEGFA	 	
+
+Radix glycyrrhiza 
+	Isoliquiritigenin	SELEa, F11Rb, JAK2c, VCAM1, PTGS1,	[53]	
+
+Radix glycyrrhiza 
+	licochalcone A	ADRA1B, FOSL2, SCN5A, HDAC5, HDAC9, CHRM1, 	 	
+
+Radix glycyrrhiza 
+	Ononin	KDR, PIK3CG, 	 	
+
+Rradix astragali 
+	Isoflavanone	ALOX15, 	 	
+
+Rradix astragali 
+	Calycosin	PI3K-beta, ABL1, PIK3CG, ALOX15, PIK3CG	 	
+
+Ginseng 
+	Ginsenoside-Ra1	PTPN2	[52]	
+
+Ginseng 
+	Ginsenoside-Rb1	PTPN2, VEGFA, VCAM1	 	
+
+Ginseng 
+	Ginsenoside-Rb2	PTPN2	 	
+
+Ginseng 
+	Ginsenoside-Rd	PTPN2	 	
+
+Ginseng 
+	Ginsenoside-Rg3	MMP9, 	 	
+
+Ginseng 
+	Ginsenoside-Re1	TSP1	 	
+
+Ginseng 
+	Ginsenoside-Rg1	ACTA2, PTPN2	 	
+
+Dioscorea opposite 
+	Batatasin I	PI3K-beta, ALOX15	 	
+
+Dioscorea opposite 
+	Diosgenin-3-O-beta-D-glucopyranoside	HIF1A, VEGFA, PLA2G4A	 	
+
+Panax quinquefolium 
+	Pseudostellaria G	FNRB, ITGA2B	[74]	
+
+
+	
+Metabolic process	
+Rhizoma atractylodis macrocephalae 
+	Atractylone	PDE3A	 	
+
+Rhizoma atractylodis macrocephalae 
+	AtractylenolideI	GPT, ADH1C, AR, ASS1, ASPC, GATM, PLA2G2E, IDH1, ME2, PTER, TPI1, PRSS1, PRSS3	 	
+
+Radix glycyrrhiza 
+	Isoliquiritigenin	PRKACA, PKIA, METAP1, PPAR-gamma	[75]	
+
+Radix glycyrrhiza 
+	licochalcone A	CALM, EIF6, GCGR, GSK3B, MAPK14, PPAR-gamma, PRSS1	 	
+
+Radix glycyrrhiza 
+	Ononin	CALM, PRKACA, PKIA, PDE3A, HSD17B3, GSK3B, GLO1, MCHR1, PPAR-gamma, PRSS1	 	
+
+Rradix astragali 
+	Calycosin	HSD17B3, GLO1, MCHR1	[76]	
+
+Ginseng 
+	Ginsenoside-Rb1	GSK3B	[61]	
+
+Ginseng 
+	Ginsenoside-Rg3	PRKAG2, PPAR-gamma	 	
+
+Dioscorea opposite 
+	Diosgenin-3-O-beta-D-glucopyranoside	HSD17B3, FAS, NR1I2, AKT1, MTOR
+AKT1, MTOR	[77]	
+
+Dioscorea opposite 
+	ergosterol	DHCR7b
+	 	
+
+Panax quinquefolium 
+	Pseudostellaria G	OPRM1	[78]	
+
+
+	
+Anticancer	
+Rhizoma atractylodis macrocephalae 
+	AtractylenolideI	CTSD, TNF, SRC, 	 	
+
+Rhizoma atractylodis macrocephalae 
+	AtractylenolideIII	TNF	 	
+
+Radix glycyrrhiza 
+	licochalcone A	CDK4, CCND1b, RB1, RELA, CHEK1, STAT3d, HDAC9	 	
+
+Radix glycyrrhiza 
+	Isoliquiritigenin	HDAC1, HDAC2, HDAC3, HDAC5, HDAC9, SLC2A1, FOSb
+	 	
+
+Radix glycyrrhiza 
+	Ononin	CHEK1, RET	 	
+
+Rradix astragali 
+	Calycosin	CDK4, TERT, RET, CHEK1 	[10]	
+
+Ginseng 
+	Ginsenoside-Rf	TNF	[68]	
+
+Ginseng 
+	Ginsenoside-Rg1	SMAD2, FN1, TGFB1	 	
+
+Ginseng 
+	Ginsenoside-Rc	FOS	 	
+
+Ginseng 
+	Ginsenoside-Re	FOS	 	
+
+Ginseng 
+	Ginsenoside-Rg3	TNF	 	
+
+Panax quinquefolium 
+	Pseudostellaria G	CXCR4, HDAC1, HDAC2, HDAC3, HDAC5, HDAC9, ITGA6	 	
+
+Dioscorea opposite 
+	Batatasin I	PDGFRA 	 	
+
+Dioscorea opposite 
+	Diosgenin-3-O-beta-D-glucopyranoside	CAT, TP53, SHH, RELA	 	
+
+
+	
+CNS diseases	
+Rhizoma atractylodis macrocephalae 
+	AtractylenolideI	AChE, BCHE, GABRA1, GLRA1, Nos1, ABAT, 	[71]	
+
+Rhizoma atractylodis macrocephalae 
+	AtractylenolideII	AChE, GABRA1, GABRA1, GABRA1, GRIA2, CHRNA7	 	
+
+Rhizoma atractylodis macrocephalae 
+	AtractylenolideIII	AChE, GABRA1, GABRA1, GRIA2, CHRNA7	 	
+
+Rhizoma atractylodis macrocephalae 
+	Atractylone	DRD1, HTR2A, CHRNA7, SLC6A3, SLC6A2, CHRM1, CHRM2, CHRM3, CHRM4	 	
+
+Radix glycyrrhiza 
+	Isoliquiritigenin	HSP90AA1, MAOB, KCNA3, APP, MAPK14, 	 	
+
+Radix glycyrrhiza 
+	licochalcone A	HSP90AA1, MAOB, SLC6A3, KCNA3, MPK1, APP, 	 	
+
+Radix glycyrrhiza 
+	Ononin	HSP90AA1, MAOA, MAOB, NQO1, SLC6A2, MAPK14, 	 	
+
+Rradix astragali 
+	Calycosin	MAOA, MAOB, NQO1, CD46	 	
+
+Rradix astragali 
+	isoflavanone	MAOA, MAOB, NQO1, SIGMAR1, CD46, MT-ND1, MT-ND2, MT-ND3, MT-ND4, MT-ND4L, MT-ND5, MT-ND6	 	
+
+Ginseng 
+	Ginsenoside-Rb1	PLAT, 	 	
+
+Ginseng 
+	Ginsenoside-Rg3	HTR3A	 	
+
+Panax quinquefolium 
+	Pseudostellaria G	OPRD1, OPRK1	 	
+*The corresponding efficacy of botanic drug has been supported by the literature.
+
+Superscript with targets: The functional activity of the components with regard to the targets.
+
+
+
+aDown-regulate gene. bDecrease expression or activity. cIncrease expression level or activity. dDirectly inhibit.
+
+Table 2 Active compounds of blood-tonifying herbs in this work and their targets of different diseases.
+
+Disease	TCM	Molecular	Target	Reference*	
+
+Regulate hemopoietic growth factor	
+Radix paeoniae alba 
+	Albiflorin	PKCα
+	 	
+
+Radix paeoniae alba 
+	Paeonioflorin	IL-6, LBP, PKCα, TNF	 	
+
+Angelica sinensis 
+	Ferulic acid	ADRA2A, PTGER4, SHP-2, F2, TUBB1	 	
+
+Angelica sinensis 
+	ligustilide	SOD1, TNFa
+	 	
+
+Polygonum multiflorum 
+	Stilbene glucoside	CALM, F7, F10, F2, NQO2, PTPN1	 	
+
+Rehmannia glutinosa 
+	Catalpol	NOS2b, F2, SOD1	 	
+
+Rehmannia glutinosa 
+	Verbascoside	PKCα, F2	 	
+
+
+	
+Regulate bone marrow stromal cell	
+Radix paeoniae alba 
+	Paeonioflorin	CD14	 	
+
+Angelica sinensis 
+	Ferulic acid	MAOA, MAOB, DPP-IV, ITGB3, ITGB5, MAOB, ITGAV	[15]	
+
+Angelica sinensis 
+	ligustilide	ACHEb
+	 	
+
+Polygonum multiflorum 
+	Stilbene glucoside	DPP-IV	 	
+
+Rehmannia glutinosa 
+	Catalpol	DPP-IV	 	
+
+Rehmannia glutinosa 
+	Verbascoside	CAM1	 	
+
+
+	
+Regulate hematopoietic stem cell apoptosis
+
+	
+Angelica sinensis 
+	Ferulic acid	APP, ADRB2, CDK2, DNA pol beta, MIF, PTGER2, PTGER3, RARG, PIM1, TBXAS1	 	
+
+Angelica sinensis 
+	ligustilide	BAXb, Bcl-2, CASP3b
+	 	
+
+Polygonum multiflorum 
+	Stilbene glucoside	CDK2, CCNA2, PIM1	 	
+
+Rehmannia glutinosa 
+	5-Hydroxymethyl-furoic acid	CDK2	[17]	
+
+Rehmannia glutinosa 
+	Catalpol	Bcl-2c, CASP3b
+	 	
+
+Rehmannia glutinosa 
+	Verbascoside	APP	 	
+*The corresponding efficacy of botanic drug has been supported by the literature.
+
+Superscript with targets: The functional activity of the components with regard to the targets.
+
+
+
+aDown-regulate gene. bDecrease expression or activity. cIncrease expression level or activity. dDirectly inhibit.
+==== Refs
+1 Lee N-H  Son C-G   Systematic review of randomized controlled trials evaluating the efficacy and safety of ginseng Journal of Acupuncture and Meridian Studies  2011 4 2 85 97 2-s2.0-79959537267 21704950 
+2 Huang G-C  Wu L-S  Chen L-G  Yang L-L  Wang C-C   Immuno-enhancement effects of Huang Qi Liu Yi Tang in a murine model of cyclophosphamide-induced leucopenia Journal of Ethnopharmacology  2007 109 2 229 235 2-s2.0-33845651295 16963213 
+3 Burke GL  Legault C  Anthony M    Soy protein and isoflavone effects on vasomotor symptoms in peri- and postmenopausal women: the soy estrogen alternative study Menopause  2003 10 2 147 153 2-s2.0-0037529061 12627040 
+4 Liang Q-D  Lu X-Q  Ma Z-C    Preliminary study on hematopoietic constituents of si-wu-tang Zhongguo Zhong Yao Za Zhi  2004 29 6 546 549 2-s2.0-23844548358 15706921 
+5 Kim C  Ha H  Kim JS   Induction of growth hormone by the roots of Astragalus membranaceus in pituitary cell culture Archives of Pharmacal Research  2003 26 1 34 39 2-s2.0-0041308170 12568355 
+6 Yesilada E  Bedir E  Çaliş I  Takaishi Y  Ohmoto Y   Effects of triterpene saponins from Astragalus species on in vitro cytokine release Journal of Ethnopharmacology  2005 96 1-2 71 77 2-s2.0-9644300893 15588652 
+7 Chen XJ  Bian ZP  Lu S    Cardiac protective effect of Astragalus on viral myocarditis mice: comparison with Perindopril The American Journal of Chinese Medicine  2006 34 3 493 502 2-s2.0-33646709613 16710898 
+8 Gu S  Yin N  Pei J  Lai L   Understanding traditional Chinese medicine anti-inflammatory herbal formulae by simulating their regulatory functions in the human arachidonic acid metabolic network Molecular BioSystems  2013 9 7 1931 1938 23612801 
+9 Wu L  Liu H  Xue P  Lu ZG  Du KF   Influence of a triplex superimposed treatment on HBV replication and mutation during treating chronic hepatitis B Zhonghua Shi Yan He Lin Chuang Bing Du Xue Za Zhi  2001 15 3 236 238 2-s2.0-0035469109 11986694 
+10 Chu D-T  Lepe-Zuniga J  Wong WL  LaPushin R  Mavligit GM   Fractionated extract of Astragalus membranaceus, a Chinese medicinal herb, potentiates LAK cell cytotoxicity generated by a low dose of recombinant Interleukin-2 Journal of Clinical and Laboratory Immunology  1988 26 4 183 187 2-s2.0-0023775455 3264344 
+11 Kusum M  Klinbuayaem V  Bunjob M  Sangkitporn S   Preliminary efficacy and safety of oral suspension SH, combination of five Chinese medicinal herbs, in people living with HIV/AIDS; the phase I/II study Journal of the Medical Association of Thailand  2004 87 9 1065 1070 2-s2.0-5444223756 15516007 
+12 Ng TB  Liu F  Wang HX   The antioxidant effects of aqueous and organic extracts of Panax quinquefolium, Panax notoginseng, Codonopsis pilosula, Pseudostellaria heterophylla and Glehnia littoralis Journal of Ethnopharmacology  2004 93 2-3 285 288 2-s2.0-3242702491 15234766 
+13 Ma L  Guan ZZ   Effect of astragalus injection on left ventricular remodeling and apoptotic gene caspase-3 in rats after myocardial infarction Zhongguo Zhong Xi Yi Jie He Za Zhi  2005 25 7 646 649 2-s2.0-32944469999 16089147 
+14 Yim TK  Wu WK  Pak WF    Myocardial protection against ischaemia-reperfusion injury by a Polygonum multiflorum extract supplemented “Dang-Gui decoction for enriching blood”, a compound formulation, ex vivo Phytotherapy Research  2000 14 3 195 199 10815014 
+15 Ye J  Duan H  Yang X  Yan W  Zheng X   Anti-thrombosis effect of paeoniflorin: evaluated in a photochemical reaction thrombosis model in vivo Planta Medica  2001 67 8 766 767 2-s2.0-0034757170 11731926 
+16 Gao X  Hu YJ  Fu LC   Blood lipid-regulation of stilbene glycoside from Polygonum multiflorum Zhongguo Zhong Yao Za Zhi  2007 32 4 323 326 2-s2.0-34247238839 17455469 
+17 Chao JC-J  Chiang S-W  Wang C-C  Tsai Y-H  Wu M-S   Hot water-extracted Lycium barbarum and Rehmannia glutinosa inhibit proliferation and induce apoptosis of hepatocellular carcinoma cells World Journal of Gastroenterology  2006 12 28 4478 4484 2-s2.0-33747516825 16874858 
+18 Park GJ-H  Mann SP  Ngu MC   Acute hepatitis induced by Shou-Wu-Pian, a herbal product derived from Polygonum multiflorum Journal of Gastroenterology and Hepatology  2001 16 1 115 117 2-s2.0-0035144824 11206309 
+19 Verpoorte R  Choi YH  Kim HK   Ethnopharmacology and systems biology: a perfect holistic match Journal of Ethnopharmacology  2005 100 1-2 53 56 2-s2.0-23044511375 16026949 
+20 Li X  Xu X  Wang J    A system-level investigation into the mechanisms of Chinese traditional medicine: compound Danshen formula for cardiovascular disease treatment PloS ONE  2012 7 9 e43918 
+21 Tao W  Xu X  Wang X    Network pharmacology-based prediction of the active ingredients and potential targets of Chinese herbal Radix Curcumae formula for application to cardiovascular disease Journal of Ethnopharmacology  2013 145 1 1 10 23142198 
+22 Li B  Xu X  Wang X    A systems biology approach to understanding the mechanisms of action of Chinese herbs for treatment of cardiovascular disease International Journal of Molecular Sciences  2012 13 10 13501 13520 23202964 
+23 Sun Y  Zhu R  Ye H    Towards a bioinformatics analysis of anti-Alzheimer’s herbal medicines from a target network perspective Briefings in Bioinformatics  2013 14 3 327 343 22887889 
+24 The Stationery Office Pharmacopoeia of People's Republic of China  2005 Renouf Publishing Company 
+25 Mager PP  Rothe H   Obscure phenomena in statistical analysis of quantitative structure-activity relationships. Part 1: multicollinearity of physicochemical descriptors Pharmazie  1990 45 10 758 764 2-s2.0-0025200855 2089387 
+26 Wells WM III  Viola P  Atsumi H  Nakajima S  Kikinis R   Multi-modal volume registration by maximization of mutual information Medical Image Analysis  1996 1 1 35 51 2-s2.0-0030088712 9873920 
+27 Chen M-L  Shah V  Patnaik R    Bioavailability and bioequivalence: an FDA regulatory overview Pharmaceutical Research  2001 18 12 1645 1650 2-s2.0-0035659563 11785681 
+28 Xu X  Zhang W  Huang C    A novel chemometric method for the prediction of human oral bioavailability International Journal of Molecular Sciences  2012 13 6 6964 6982 22837674 
+29 Willett P  Barnard JM  Downs GM   Chemical similarity searching Journal of Chemical Information and Computer Sciences  1998 38 6 983 996 2-s2.0-5344244908 
+30 Chen F  Eckman EA  Eckman CB   Reductions in levels of the Alzheimer’s amyloid beta peptide after oral administration of ginsenosides The FASEB Journal  2006 20 8 1269 1271 2-s2.0-33746028451 16636099 
+31 Hasegawa H  Sung JH  Benno Y   Role of human intestinal prevotella oris in hydrolyzing ginseng saponins Planta Medica  1997 63 5 436 440 2-s2.0-0030864673 9342949 
+32 Tavan P  Grubmuller H  Kuhnel H   Self-organization of associative memory and pattern classification: recurrent signal processing on topological feature maps Biological Cybernetics  1990 64 2 95 105 2-s2.0-0025609081 2291906 
+33 Pal NR  Bezdek JC  Tsao EC-K   Generalized clustering networks and Kohonen’s self-organizing scheme IEEE Transactions on Neural Networks  1993 4 4 549 557 2-s2.0-0027634778 18267756 
+34 Louzoun Y  Atlan H   The emergence of goals in a self-organizing network: a non-mentalist model of intentional actions Neural Networks  2007 20 2 156 171 2-s2.0-33847102215 16949253 
+35 Yu H  Chen J  Xu X   A systematic prediction of multiple drug-target interactions from chemical, genomic, and pharmacological data PloS ONE  2012 7 5 e37608 
+36 Smoot ME  Ono K  Ruscheinski J  Wang PL  Ideker T   Cytoscape 2.8: new features for data integration and network visualization Bioinformatics  2011 27 3 431 432 2-s2.0-79551587720 21149340 
+37 Yang LL  Ma H  Liu Y  Hao D   Application of systems biology to absorption, distribution, metabolism and excretion in traditional Chinese medicine World Science and Technology  2007 9 1 98 104 
+38 Chao W-W  Lin B-F   Bioactivities of major constituents isolated from Angelica sinensis (Danggui) Chinese Medicine  2011 6 1, article 29 1 7 2-s2.0-80051799860 21226952 
+39 Paolini GV  Shapland RH  van Hoorn WP  Mason JS  Hopkins AL   Global mapping of pharmacological space Nature Biotechnology  2006 24 7 805 815 2-s2.0-33746156959 
+40 Netzeva TI  Dearden JC  Edwards R  Worgan ADP  Cronin MTD   QSAR analysis of the toxicity of aromatic compounds to chlorella vulgaris in a novel short-term assay Journal of Chemical Information and Computer Sciences  2004 44 1 258 265 2-s2.0-1542635880 14741035 
+41 Sun X  Li Y  Liu X    Classification of bioaccumulative and non-bioaccumulative chemicals using statistical learning approaches Molecular Diversity  2008 12 3-4 157 169 2-s2.0-60549108789 18937041 
+42 Hoo RL  Wong JY  Qiao CF  Xu A  Xu HX  Lam KSL   The effective fraction isolated from Radix Astragali alleviates glucose intolerance, insulin resistance and hypertriglyceridemia in db/db diabetic mice through its anti-inflammatory activity Nutrition and Metabolism  2010 7 1, article 67 2-s2.0-77955793729 
+43 Jiang D   Ben cao tu jing (Illustrated Canon of Herbology) and the origin of modern identification of Chinese materia medica Zhonghua Yi Shi Za Zhi  1999 29 2 85 87 2-s2.0-0033113694 11623860 
+44 Hoi AY  Iskander MN  Morand EF   Macrophage migration inhibitory factor: a therapeutic target across inflammatory diseases Inflammation and Allergy  2007 6 3 183 190 2-s2.0-34648819347 
+45 Xu Y  Feng L  Wang S    Calycosin protects HUVECs from advanced glycation end products-induced macrophage infiltration Journal of Ethnopharmacology  2011 137 1 359 370 2-s2.0-80052035789 21669275 
+46 Korhonen R  Lahti A  Kankaanranta H  Moilanen E   Nitric oxide production and signaling in inflammation Current Drug Targets  2005 4 4 471 479 2-s2.0-22944457184 16101524 
+47 Xiang Z  Ho L  Valdellon J    Cyclooxygenase (COX)-2 and cell cycle activity in a transgenic mouse model of Alzheimer’s disease neuropathology Neurobiology of Aging  2002 23 3 327 334 2-s2.0-0036227488 11959394 
+48 Cui Y  Ao M  Li W  Hu J  Yu L   Anti-inflammatory activity of licochalcone a isolated from Glycyrrhiza inflata Zeitschrift fur Naturforschung C  2008 63 11 361 365 2-s2.0-48249142823 
+49 Yoshida Y  Wang MQ  Liu JN  Shan BE  Yamashita U   Immunomodulating activity of Chinese medicinal herbs and Oldenlandia diffusa in particular International Journal of Immunopharmacology  1997 19 7 359 370 2-s2.0-0031414682 9568540 
+50 Fuster V  Kelly BB   Promoting Cardiovascular Health in the Developing World: A Critical Challenge to Achieve Global Health  2010 National Academies Press 
+51 Dantas AP  Jiménez-Altayó F  Vila E   Vascular aging: facts and factors Frontiers in Physiology  2012 3 325 1 4 22275902 
+52 Rabito MJ  Kaye AD   Complementary and alternative medicine and cardiovascular disease: an evidence-based review Evidence-Based Complementary and Alternative Medicine  2013 2013 8 pages 672097 
+53 Fuhrman B  Volkova N  Kaplan M    Antiatherosclerotic effects of licorice extract supplementation on hypercholesterolemic patients: increased resistance of LDL to atherogenic modifications, reduced plasma lipid levels, and decreased systolic blood pressure Nutrition  2002 18 3 268 273 2-s2.0-0036193981 11882402 
+54 Zhan C  Yang J   Protective effects of isoliquiritigenin in transient middle cerebral artery occlusion-induced focal cerebral ischemia in rats Pharmacological Research  2006 53 3 303 309 2-s2.0-32644454395 16459097 
+55 Hoxha E  Lambers E  Xie H   Histone deacetylase 1 deficiency impairs differentiation and electrophysiological properties of cardiomyocytes derived from induced pluripotent cells Stem Cells  2012 30 11 2412 2422 22915496 
+56 Roberts DD  Miller TW  Rogers NM  Yao M  Isenberg JS   The matricellular protein thrombospondin-1 globally regulates cardiovascular function and responses to stress via CD47 Matrix Biology  2012 31 3 162 169 2-s2.0-84857787530 22266027 
+57 Peng L  Sun S  Xie LH  Wicks SM  Xie JT   Ginsenoside Re: pharmacological effects on cardiovascular system Cardiovascular Therapeutics  2012 30 4 e183 e188 21884006 
+58 Ferrara N   Vascular endothelial growth factor Trends in Cardiovascular Medicine  1993 3 6 244 250 2-s2.0-0027487087 21244915 
+59 Ylä-Herttuala S  Rissanen TT  Vajanto I  Hartikainen J   Vascular endothelial growth factors. Biology and current status of clinical applications in cardiovascular medicine Journal of the American College of Cardiology  2007 49 10 1015 1026 2-s2.0-33847421319 17349880 
+60 Ryu Y-G  Won B  Park HR  Ghafoor K  Park J   Effects of the β -glycosidase reaction on bio-conversion of isoflavones and quality during tofu processing Journal of the Science of Food and Agriculture  2010 90 5 843 849 2-s2.0-77649278617 20355121 
+61 Yin J  Zhang H  Ye J   Traditional Chinese medicine in treatment of metabolic syndrome Endocrine, Metabolic and Immune Disorders  2008 8 2 99 111 2-s2.0-47249158048 
+62 Gautam D  Jeon J  Li JH    Metabolic roles of the M3 muscarinic acetylcholine receptor studied with M3 receptor mutant mice: a review Journal of Receptor and Signal Transduction Research  2008 28 1-2 93 108 2-s2.0-42549119600 18437633 
+63 Rangwala SM  Lazar MA   Peroxisome proliferator-activated receptor γ  in diabetes and metabolism Trends in Pharmacological Sciences  2004 25 6 331 336 2-s2.0-2542491213 15165749 
+64 Brotherton AF  Hoak JC   Role of Ca2+ and cyclic AMP in the regulation of the production of prostacyclin by the vascular endothelium Proceedings of the National Academy of Sciences of the United States of America  1982 79 2 495 499 2-s2.0-0020021610 6281772 
+65 Wong PYK  Lee WH  Chao PHW  Cheung WY   The role of calmodulin in prostaglandin metabolism Annals of the New York Academy of Sciences  1980 356 179 189 2-s2.0-0019231648 6940495 
+66 Kuhajda FP   Fatty acid synthase and cancer: new application of an old pathway Cancer Research  2006 66 12 5977 5980 2-s2.0-33745728461 16778164 
+67 Ruan W-J  Lai M-D  Zhou J-G   Anticancer effects of Chinese herbal medicine, science or myth? Journal of Zhejiang University Science B  2006 7 12 1006 1014 2-s2.0-39049189495 17111471 
+68 Wang C-Z  Zhang B  Song W-X    Steamed American ginseng berry: ginsenoside analyses and anticancer activities Journal of Agricultural and Food Chemistry  2006 54 26 9936 9942 2-s2.0-33846469565 17177524 
+69 Shapiro GI   Cyclin-dependent kinase pathways as targets for cancer treatment Journal of Clinical Oncology  2006 24 11 1770 1783 2-s2.0-33645802169 16603719 
+70 Tripathi A  Srivastava U   Acetylcholinesterase: a versatile enzyme of nervous system Annals of Neurosciences  2010 15 4 106 111 
+71 Waters MF  Minassian NA  Stevanin G    Mutations in voltage-gated potassium channel KCNC3 cause degenerative and developmental central nervous system phenotypes Nature Genetics  2006 38 4 447 451 2-s2.0-33645421783 16501573 
+72 Yang E-J  Min JS  Ku H-Y    Isoliquiritigenin isolated from Glycyrrhiza uralensis protects neuronal cells against glutamate-induced mitochondrial dysfunction Biochemical and Biophysical Research Communications  2012 421 4 658 664 2-s2.0-84860561944 22538371 
+73 Liu ZQ  Li QZ  Qin GJ   Effect of Astragalus injection on platelet function and plasma endothelin in patients with early stage diabetic nephropathy Zhongguo Zhong Xi Yi Jie He Za Zhi  2001 21 4 274 276 2-s2.0-0038205323 12577356 
+74 Xu H  Yu X  Qu S    In vivo and in vitro cardioprotective effects of Panax quinquefolium 20 (S)-protopanaxadiol saponins (PQDS), isolated from Panax quinquefolium An International Journal of Pharmaceutical Sciences  2013 68 4 287 292 
+75 Alqahtani A  Hamid K  Kam A    The pentacyclic triterpenoids in herbal medicines and their pharmacological activities in diabetes and diabetic complications Current Medicinal Chemistry  2013 20 7 908 931 23210780 
+76 Wang Z  Wang J  Chan P   Treating type 2 diabetes mellitus with traditional Chinese and Indian medicinal herbs Evidence-Based Complementary and Alternative Medicine  2013 2013 17 pages 343597 
+77 Kim K-S  Yang HJ  Choi E-K    The effects of complex herbal medicine composed of Cornus fructus, Dioscoreae rhizoma, Aurantii fructus, and Mori folium in obese type-2 diabetes mice model Oriental Pharmacy and Experimental Medicine  2013 13 1 69 75 
+78 Chang CL  Lin Y  Bartolome AP  Chen YC  Chiu SC  Yang WC   Herbal therapies for type 2 diabetes mellitus: chemistry, biology, and potential application of selected plants and compounds Evidence-Based Complementary and Alternative Medicine  2013 2013 33 pages 378657 
+79 Fetscher S  Mertelsmann R   Supportive care in hematological malignancies: hematopoietic growth factors, infections, transfusion therapy Current Opinion in Hematology  1999 6 4 262 273 2-s2.0-0032814191 10400376 
+80 Rennick D  Jackson J  Yang G  Wideman J  Lee F  Hudak S   Interleukin-6 interacts with interleukin-4 and other hematopoietic growth factors to selectively enhance the growth of megakaryocytic, erythroid, myeloid, and multipotential progenitor cells Blood  1989 73 7 1828 1835 2-s2.0-0024327181 2469502 
+81 Roodman GD  Bird A  Hutzler D  Montgomery W   Tumor necrosis factor-alpha and hematopoietic progenitors: effects of tumor necrosis factor on the growth of erythroid progenitors CFU-E and BFU-E and the hematopoietic cell lines K562, HL60, and HEL cells Experimental Hematology  1987 15 9 928 935 2-s2.0-0023610252 2820776 
+82 Liu X  Qu C-K   Protein tyrosine phosphatase SHP-2 (PTPN11) in hematopoiesis and leukemogenesis Journal of Signal Transduction  2011 2011 8 pages 195239 
+83 Ikushima YM  Arai F  Hosokawa K    Prostaglandin E2 regulates murine hematopoietic stem/progenitor cells directly via EP4 receptor and indirectly through mesenchymal progenitor cells Blood  2013 121 11 1995 2007 23315170 
+84 Ma ZC  Hong Q  Wang YG    Effects of ferulic acid on hematopoietic cell recovery in whole-body gamma irradiated mice International Journal of Radiation Biology  2011 87 5 499 505 2-s2.0-79955641661 21254928 
+85 Quarto R  Bianchi G  Derubeis A    Bone marrow stromal cells: cell biology & clinical applications The European Cells and Materials  2002 4 supplement 1 p. 28 
+86 Karadag A  Fisher LW   Bone sialoprotein enhances migration of bone marrow stromal cells through matrices by bridging MMP-2 to α vβ 3-integrin Journal of Bone and Mineral Research  2006 21 10 1627 1636 2-s2.0-33749247085 16995818 
+87 Charo IF  Nannizzi L  Smith JW  Cheresh DA   The vitronectin receptor α (v)β 3 bind fibronectin and acts in concert with α 5β 1 in promoting cellular attachment and spreading on fibronectin Journal of Cell Biology  1990 111 6 2795 2800 2-s2.0-0025685453 1703545 
+88 Seshi B   Discovery of novel hematopoietic cell adhesion molecules from human bone marrow stromal cell membrane protein extracts by a new cell-blotting technique Blood  1994 83 9 2399 2409 2-s2.0-0028211848 7513196 
+89 Liu C  Li J  Meng FY    Polysaccharides from the root of Angelica sinensis promotes hematopoiesis and thrombopoiesis through the PI3K/AKT pathway BMC Complementary and Alternative Medicine  2010 10 1, article 79 2-s2.0-78650269544 
+90 Hoggatt J  Singh P  Sampath J  Pelus LM   Prostaglandin E2 enhances hematopoietic stem cell homing, survival, and proliferation Blood  2009 113 22 5444 5455 2-s2.0-67049134758 19324903 
+91 Domen J   The role of apoptosis in regulating hematopoietic stem cell numbers Apoptosis  2001 6 4 239 252 2-s2.0-0034901493 11445666 
+92 Porter AG  Jänicke RU   Emerging roles of caspase-3 in apoptosis Cell Death and Differentiation  1999 6 2 99 104 2-s2.0-0344142396 10200555 
+93 Chen C  Chen Z  Xu F   Radio-protective effect of catalpol in cultured cells and mice Journal of Radiation Research  2013 54 1 76 82 22984279 
+94 Baumann R  Casaulta C  Simon D  Conus S  Yousefi S  Simon H-U   Macrophage migration inhibitory factor delays apoptosis in neutrophils by inhibiting the mitochondria-dependent death pathway The FASEB Journal  2003 17 15 2221 2230 2-s2.0-0344667547 14656984 
+95 Calado RT  Yewdell WT  Wilkerson KL    Sex hormones, acting on the TERT gene, increase telomerase activity in human primary hematopoietic cells Blood  2009 114 11 2236 2243 2-s2.0-70349569075 19561322 
+96 Navarro JF  Mora C   Androgen therapy for anemia in elderly uremic patients International Urology and Nephrology  2001 32 4 549 557 2-s2.0-0035726908 11989543 
+97 Zhang H  Shen P  Cheng Y   Identification and determination of the major constituents in traditional Chinese medicine Si-Wu-Tang by HPLC coupled with DAD and ESI-MS Journal of Pharmaceutical and Biomedical Analysis  2004 34 3 705 713 2-s2.0-0842324684 15127827 
+98 Williamson EM   Synergy and other interactions in phytomedicines Phytomedicine  2001 8 5 401 409 2-s2.0-0034775480 11695885
+

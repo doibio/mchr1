@@ -1,0 +1,326 @@
+
+==== Front
+Front Plant Sci
+Front Plant Sci
+Front. Plant Sci.
+Frontiers in Plant Science
+1664-462X
+Frontiers Media S.A.
+
+10.3389/fpls.2021.726797
+Plant Science
+Original Research
+RhWRKY33 Positively Regulates Onset of Floral Senescence by Responding to Wounding- and Ethylene-Signaling in Rose Plants
+Jing Weikun 1 2 †
+Zhao Qingcui 1 2 †
+Zhang Shuai 1 2
+Zeng Daxing 3
+Xu Jiehua 3
+Zhou Hougao 4
+Wang Fenglan 4
+Liu Yang 3 *
+
+Li Yonghong 1 *
+1School of Food and Drug, Shenzhen Polytechnic, Shenzhen, China
+2Postdoctoral Innovation Practice Base, Shenzhen Polytechnic, Shenzhen, China
+3School of Construction Engineering, Shenzhen Polytechnic, Shenzhen, China
+4College of Horticulture and Landscape Architecture, Zhongkai University of Agriculture and Engineering, Guangzhou, China
+Edited by: Isabel Lara, Universitat de Lleida, Spain
+
+Reviewed by: Paul Larsen, University of California, Riverside, United States; Antonio Chalfun-Junior, Universidade Federal de Lavras, Brazil
+
+*Correspondence: Yonghong Li liuyang@szpt.edu.cn
+Yang Liu liyongh@szpt.edu.cn
+This article was submitted to Plant Abiotic Stress, a section of the journal Frontiers in Plant Science
+
+†These authors have contributed equally to this work
+
+05 11 2021
+2021
+12 72679717 6 2021
+06 9 2021
+Copyright © 2021 Jing, Zhao, Zhang, Zeng, Xu, Zhou, Wang, Liu and Li.
+2021
+Jing, Zhao, Zhang, Zeng, Xu, Zhou, Wang, Liu and Li
+https://creativecommons.org/licenses/by/4.0/ This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.
+Rose plants are one of the most important horticultural crops, whose commercial value mainly depends on long-distance transportation, and wounding and ethylene are the main factors leading to their quality decline and accelerated senescence in the process. However, underlying molecular mechanisms of crosstalk between wounding and ethylene in the regulation of flower senescence remain poorly understood. In relation to this, transcriptome analysis was performed on rose flowers subjected to various treatments, including control, wounding, ethylene, and wounding- and ethylene- (EW) dual treatment. A large number of differentially expressed genes (DEGs) were identified, ranging from 2,442 between the ethylene- and control-treated groups to 4,055 between the EW- and control-treated groups. Using weighted gene co-expression network analysis (WGCNA), we identified a hub gene RhWRKY33 (rchiobhmchr5g0071811), accumulated in the nucleus, where it may function as a transcription factor. Moreover, quantitative reverse transcription PCR (RT-qPCR) results showed that the expression of RhWRKY33 was higher in the wounding-, ethylene, and EW-treated petals than in the control-treated petals. We also functionally characterized the RhWRKY33 gene through virus-induced gene silencing (VIGS). The silencing of RhWRKY33 significantly delayed the senescence process in the different treatments (control, wounding, ethylene, and EW). Meanwhile, we found that the effect of RhWRKY33-silenced petals under ethylene and EW dual-treatment were stronger than those under wounding treatment in delaying the petal senescence process, implying that RhWRKY33 is closely involved with ethylene and wounding mediated petal senescence. Overall, the results indicate that RhWRKY33 positively regulates the onset of floral senescence mediated by both ethylene and wounding signaling, but relies heavily on ethylene signaling.
+
+rose
+senescence
+wound
+ethylene
+RhWRKY33
+==== Body
+pmcIntroduction
+
+Rose plants are one of the most important horticultural crops worldwide; their ornamental and economic value mainly depends on the full expansion and slow senescence of their petals (Lu et al., 2014). Most cut flowers are produced in developing countries, whereas their sales are mainly concentrated in developed countries. Therefore, long-distance transportation from the production region to the point of sale is the mainstream channel for cut rose trade. However, long-distance transportation, usually in darkness under, low temperature, and without water, can easily trigger a massive burst of exogenous ethylene production (Faragher et al., 1987; Mor et al., 1989; Reid et al., 1989; Noodén and Schneider, 2004). Furthermore, stress-induced exogenous ethylene accelerates flower opening and senescence and decreases the vase life of cut rose by coupling with the mechanical damage during postharvest treatment (Müller et al., 2000). Therefore, avoiding and reducing the negative effects of long-distance transportation is crucial in maintaining the postharvest quality of cut roses.
+
+As sessile organisms, plants have developed intricate mechanisms to defend themselves against external adversities, including wounding and hormones, and other biotic, and abiotic stresses. Plants are also able to sense injured tissues and protect themselves by regulating defense system-related genes. The endogenous signals released from wounded tissues may act to activate the plant defense system, and wounding-induced responses are distributed in both the site of damage (local response) and systemically (systemic response), mediated by hormone signaling, including jasmonic acid (JA), ethylene (Eth), brassinolide (BRs), salicylic acid (SA), and abscisic acid (ABA).
+
+Previous studies revealed that mechanical damage results in a large increase in the content (~25-fold) of endogenous JA and JA-isoleucine (JA-Ile) within 5 min of tissue injury (Chung et al., 2008; Glauser et al., 2008; Koo et al., 2009). The phytohormone, JA, is a well-characterized signaling molecule for its role in protection against wounding damage (Leon et al., 2001); it also plays a central role in activating the systemic defense in many vital processes, including flower development and senescence (Wasternack, 2007). The transcript levels of several JA biosynthesis-related genes, including LIPOXYGENASE 2 (LOX2), LIPOXYGENASE 3 (LOX3), and ALLENE OXIDE SYNTHASE (AOS), are upregulated together with the JA acceleration (Bell et al., 1995). Arabidopsis genes such as LOX2, AOS, and VEGETATIVE STORAGE PROTEIN (VSP) were found to be induced by IAA (Indoleacetic Acid), and endogenous auxin content also showed a decline after wounding, showing a significant cross-talk between the two hormone-dependent signaling pathways (Devoto and Turner, 2003). The rea1 (RAP2.6 expresser in shoot apex) mutants show a constitutive cell death phenotype, and early wounding response requires an intact JA signaling pathway (Zou et al., 2016); however, the application of methyl jasmonate (MeJA) has been shown to provide significant protection against cell death (Overmyer et al., 2000).
+
+Ethylene is another essential systemic signal of protection of plants against wounding damage. Ethylene released from wounded plant tissues and its participation in wounding response signaling has been extensively studied for decades. Upon wounding at harvest, ethylene was rapidly synthesized in the damaged stem tissue as a result of the marked increase in 1-aminocyclopropane-1-carboxylic acid (ACC) synthase activity and the increased abundance of its transcripts. In melons, the ACC oxidase gene (CmACO1), the encoding enzyme controlling the last step of ethylene biosynthesis in plants, was rapidly induced (within 10 min) by ethylene treatment or upon wounding in leaves. 1-methylcyclopropene (1-MCP), a powerful inhibitor of ethylene action, significantly inhibited the accumulation of ethylene-induced CmACO1 messenger RNA (mRNA) transcripts, while the findings did not apply to wounding-induced CmACO1 expression (Bouquin et al., 1997). Previous pieces of evidence indicated that the transcripts of several genes encoding ACC oxidase (ACO) and ACC synthase (ACS) were rapidly and transiently accumulated after mechanical injury (Kato et al., 2002). In some cases, the enrichment of ACS transcripts was detected within a few hours, even as quickly as 10 min after touching or mechanical wounding in mung bean or soybean plants, respectively (Liu et al., 1993; Botella et al., 1995). Similarly, 1-aminocyclopropane-1-carboxylic acid oxidase (ACO) mRNA levels were also induced within several hours, while some were generally induced at a shorter period (20 or 30 min) (Balague et al., 1993; Kim and Yang, 1994; Jones and Woodson, 1999).
+
+An increasing number of studies have shown that many members of the WRKY family are involved in multiple plant processes, such as stress defense responses, plant senescence, wounding, seed dormancy, and seed germination (Rushton et al., 2010; Birkenbihl et al., 2012; Rinerson et al., 2015; Zhao M. et al., 2020). Moreover, functional studies have shown that WRKY transcription factors (TFs) are involved in regulating senescence by interacting with JA, ABA, auxin, gibberellins (GAs), and SA-mediated signaling. In wheat, TaWRKY40-D positively regulated leaf senescence following JA and ABA treatment (Zhao L. et al., 2020). Another WRKY TF, TaWRKY42-B, interacted with and promoted the JA biosynthesis gene (AtLOX3, and its ortholog-TaLOX3), resulting in an increased JA content and an initiation of leaf senescence in Arabidopsis and wheat (Zhao M. et al., 2020). In Arabidopsis, AtWRKY54 and AtWRKY70 functioned redundantly in regulating leaf senescence, as revealed by single and double mutant studies (Besseau et al., 2012). Concerning the diverse roles of WRKY TFs, AtWRKY57 functioned as a repressor in the JA-induced senescence, which was downregulated by JA and upregulated by auxin (Jiang et al., 2014). AtWRKY45 played a positive role in the regulation of leaf senescence via GA-mediated signaling (Chen et al., 2017). Genetic analysis revealed that the crosstalk of AtWRKY75- SA/ROS functions correlatively in age-dependent leaf senescence (Guo et al., 2017). Finally, eight SlER-WRKYs-SlWRKY16, 17, 22, 25, 31, 33, 53, and 54 were reported to be responsive to ethylene during tomato fruit ripening (Wang et al., 2017). Taken together, WRKY proteins play critical roles in regulating plant senescence.
+
+Ethylene is required for the signal transduction pathway in injury. However, the components involved in the initial wounding signal perception and transmission leading to ethylene synthesis are not clear. In addition, the detailed molecular mechanisms of the action between ethylene and wounding to regulate the onset of floral senescence remain poorly understood. In relation to this, identifying the initial signal of wounding and signal crosstalk between wounding and the ethylene pathway are crucial steps in understanding the early onset of floral senescence. Here, we monitored the status of the flower opening and senescence after the wounding, ethylene gas, or dual treatment daily. Furthermore, we employed RNA-sequencing (RNA-seq) and weighted gene co-expression network analysis (WGCNA) assays to investigate the signal crosstalk involvement of wounding and the ethylene pathway in the senescence process of rose flowers, and screened a WRKY transcription factor, RhWRKY33, which closely responds to wounding- and ethylene signaling. A biological analysis revealed that RhWRKY33 plays a positive role in regulating petal senescence. In summary, our findings highlight that RhWRKY33 mediates petal senescence by integrating wounding and ethylene signaling (a leading role).
+
+Materials and Methods
+
+Plant Materials
+
+Cut roses (Rosa hybrida cv. Samantha) were grown in a greenhouse at the China Agricultural University (Beijing, China) and harvested at the second stage of a flower opening. The pretreatment methods and user definitions of flower opening stages were performed based on a previous description (Ma et al., 2006).
+
+For the ethylene treatment, the cut roses and petal discs were exposed to gaseous ethylene (10 ppm) in an airtight growth container for 24 h (Ma et al., 2006). An aqueous solution of sodium hydroxide (NaOH) (1 M) was also placed into the sealed container to absorb the accumulated carbon dioxide (CO2) as previously described (Ma et al., 2005; Wu et al., 2017). For the wounding treatment, the outermost layer petals of the cut rose were wounded with a dissecting needle across its surface, and the petal discs were wounded and slightly squeezed. Then, the gas-treated and wounded cut rose or discs were incubated under the following conditions: 22 ± 1°C, 16 h/8 h photoperiod, and ~60% relative humidity. Three whole outermost layer petals of the cut rose and petal discs were harvested for RNA extraction.
+
+Total RNA Extraction and RNA-Seq Library Preparation
+
+Total RNA was extracted from the rose petals as previously described (Tian et al., 2014; Wu et al., 2017), and removed from genomic DNA contamination using RNase-free DNase I (Promega); the quality and quantity were evaluated using a NanoPhotometer® spectrophotometer (Implen, California, USA) and an Agilent 2100 Bioanalyzer (Agilent Technologies, California, USA). The RNA integrity number (RIN) of all the samples (>8.0) was used for RNA-seq. The RNA-seq was performed by Beijing Novogene Bioinformatics Technology Co., Ltd. (Beijing, China). Three micrograms of the total RNA per sample were used as the input material for cDNA library construction and Illumina sequencing, and the RNA-seq data were processed, assembled, and annotated as previously described (Yang et al., 2015). Briefly, the clean RNA-seq reads were aligned to the reference genome (Rosa chinensis cv. Old Blush, GenBank ID 8255808) and analysis was performed using HISAT2 (version 2.0.4) (Acosta et al., 2005) for the reads derived from mRNA fragments using default parameters. The mapped reads of each sample were assembled using Stringtie (v2.1.5) (Pertea et al., 2015), and functional annotations were accomplished by searching against the National Center for Biotechnology Information (NCBI) non-redundant protein (Nr) database using the Basic Local Alignment Search Tool (BLAST)x with an E-value threshold of ≤ 10−5.
+
+Differential Expression Analysis
+
+Differentially expressed genes between mock and other treatment conditions were performed using the DESeq R package (version 1.10.1) (Anders and Huber, 2010). The DESeq provides statistical routines for determining differential expressions in digital gene expression data using a model based on a negative binomial distribution. The resulting p values were adjusted using Benjamini and Hochberg's approach to control the false discovery rate. The differentially expressed genes (DEGs) were identified by DESeq, with fold changes ≥ 2 and adjusted p-value ≤ 0.05. All raw data were deposited in the NCBI BioProject database under the accession number PRJNA550484 (https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA550484).
+
+Gene Ontology (GO) and Kyoto Encyclopedia of Genes and Genomes (KEGG) Enrichment Analysis of DEGs
+
+The Blast2GOsoftware package was used to identify the GO enriched terms (Conesa et al., 2005). The GO terms with a corrected FDR < 0.05 were considered significantly enriched in DEGs (Conesa et al., 2005). The KEGG Orthology-Based Annotation System (KOBAS) software was used to test the statistical pathway enrichment of DEGs among the KEGG pathways (http://www.genome.jp/kegg/) (Mao et al., 2005).
+
+MapMan Visualization
+
+To identify the gene functions that may play essential roles in regulating the onset of floral senescence, a MapMan visualization was performed as described previously (Thimm et al., 2004). Based on the Mercator with a blast cutoff of 50, contigs were classified into a set of hierarchical functional categories (BINs) (Lohse et al., 2014). Facing classification problems with one unigene that might have multiple contigs, the functional term of unigene was determined by the highest bit score (Nham et al., 2015). Enrichment analysis was performed using Fisher's test and Mefisto (http://www.usadellab.org/cms/index.php?page=mefisto) with Bonferroni correction. Gene expression changes were assessed using MapMan 3.5.1 R2.
+
+Ethylene Production Measurements
+
+The petals of each flower were collected and placed in an airtight container (13 ml). The containers were capped and incubated for 1 h at 25°C. Then, a gas sample of 1 ml was withdrawn, using a gas-tight hypodermic syringe, and injected into a gas chromatograph (GC 17A, Shimadzu, Kyoto, Japan) for the ethylene concentration measurement (Ma et al., 2006). All measurements were performed with three replicates.
+
+Co-expression Analysis of Protein-Coding Genes With RNA-Seq Data
+
+The WGCNA R software package (Langfelder and Horvath, 2008) was used to test whether the expression of protein-coding genes correlated with the senescence degree of rose flowers under the different treatments.
+
+Virus-Induced Gene Silencing (VIGS)
+
+The virus-induced gene silencing of RhWRKY33 in rose petal discs was performed as previously described (Zhang et al., 2019a). A specific fragment of RhWRKY33 (417 bp in length) was cloned and inserted into the pTRV2 vector using XbaI and KpnI sites. The recombined-TRV2 vector, pTRV2, and pTRV1 were transformed into Agrobacterium tumefaciens strain GV3101, and the transformed A. tumefaciens cells were cultured in an LB medium (supplemented with 50 μg/ml kanamycin and 50 μg/ml rifampicin) on a rocking platform (200 rpm) at 28°C for 18 h. Cells were harvested and resuspended in an infiltration buffer (10mM MgCl2, 200 mM acetosyringone, 10 mM MES, pH 5.6) to a final OD 600 of ~1.0. The culture mixtures contained pTRV1- and pTRV2-RhWRKY33 at a ratio of 1:1 (v/v) or pTRV1 and pTRV2 (negative control). The culture mixtures were incubated in the dark at room temperature for 3–4 h before infiltration. Discs (1 cm diameter) were submerged in the infiltration buffer and were exposed to a vacuum (−25 kPa) two times (each for 5 min), washed with deionized water, and then incubated in the dark at 8°C for 3 days. The phenotypes of the discs were observed and counted.
+
+RT-qPCR
+
+The genomic DNA of the total RNA samples was removed using RNase-free DNase I (Promega). Reverse transcription was performed with 1 μg of the total RNA using HiScript II Q Select RT SuperMix for qPCR (+gDNA wiper) (Vazyme, Nanjing, China). Together with 2 μl [20ng] cDNA used as a template, RT-qPCR was performed using a StepOne Real-Time PCR System (Applied Biosystems, California, USA) with a Kapa SYBR Fast Universal qPCR Kit (Kapa Biosystems, Boston, Massachusetts, USA). Rose RhUBI2 and RhActin5 were used as reference genes (Bustin et al., 2009; Meng et al., 2013; Pei et al., 2013; Gao et al., 2016; Wu et al., 2017; Zhang et al., 2019b, 2021), and the mean of reference genes was used in the following analysis to avoid discrepancies; Relative quantification of the transcript abundance of each gene was performed using the 2−ΔΔCt method (Livak and Schmittgen, 2001). All primers are listed in Supplementary Table 6.
+
+Statistical Analyses
+
+GraphPad Prism 8.0.2 software (http://www.graphpad.com/) was used to analyze the statistical differences in the data. Two groups of data were compared by using two-sided Student's t-tests (*p < 0.05, **p < 0.01, ***p < 0.001, ****p < 0.0001). The means of the multiple groups of data were compared via one-way ANOVA and Bonferroni's post-hoc test, with p < 0.05 considered significant.
+
+Results
+
+Wounding Accelerates Rose Floral Senescence Dependent on Ethylene Signaling
+
+The role of ethylene in the acceleration of floral senescence has been reported (Ma et al., 2018), but limited research has been conducted on the function of wounding in petal senescence. To determine the effects and signaling crosstalk between wounding and ethylene during floral senescence, we studied the lifespan of cut rose flowers under different treatments. Results showed that the wounded cut roses displayed a slight wilting until 7 days after treatment (DATs); their lifespan was 6.6 ± 0.6 days and there existed significant differences compared with the controls (7.4 ± 0.7 days) (Figures 1A,B). The rose flower that underwent ethylene treatment showed severe wilting after 6 days, and after the dual treatment with wounding and ethylene, the wilting started at 4 DAT, and nearly all flowers displayed complete wilting after 6 DAT. The life cycle of the cut rose that underwent the dual-treatment by wounding and ethylene was 4.7 ± 0.7 days, which showed more severe wilting than those that dealt with single treatments (Figures 1A,B). Furthermore, the expression level of senescence-associated gene RhSAG12, a molecular marker of rose floral senescence progression, was significantly higher in the dual-treated flowers compared with the control-treated flowers at 1, 3, and 6 DAT (Figure 1C). Moreover, we measured the ethylene production under different treatments, and we found that the ethylene production in the wound-treated petals (4.2 ± 0.7 C2H4 g−1 FW h−1) was higher than that in the control (2.2 ± 0.6 C2H4 g−1 FW h−1) but lower than that in the ethylene (4.5 ± 0.8 C2H4 g−1 FW h−1) or wounding- and ethylene- (EW) dual treatment (6.9 ± 0.9 C2H4 g−1 FW h−1) at 6 DAT (Supplementary Figure 1). Briefly, these results indicate that the single wounding or ethylene treatment could significantly accelerate the senescence process of rose flowers to some content; however, the role of the wounding was of a senescence-facilitating factor in ethylene signaling.
+
+Figure 1 Effects of wound and ethylene on the senescence of rose flowers. (A) The phenotypes of flowers were recorded and photographed every day after wound and ethylene treatment. (B,C) The flower longevity and relative expression of RhSAG12 by reverse transcription PCR (RT-qPCR) were determined. Values are means ± SD, RhUBI2 and RhActin5 were used as reference genes, and asterisks indicate statistically significant differences (*p < 0.05, **p < 0.01, ***p < 0.001, Student's t-test).
+
+Global Analysis of Transcriptome Data
+
+To determine the alteration in gene expression during the onset of flower senescence under the dual treatment with wounding and ethylene, we extracted RNA samples from the four different treatments with three biological replicates. The RNA sequencing produced 48,033,008; 55,887,823; 57,773,772; and 58,588,791 clean reads from the four different treatments, respectively. Sequences were mapped to the reference genome (Rosa chinensis cv. Old Blush, GenBank ID 8255808) for annotation, and the mapping rate reached over 83% for the samples from each treatment (Supplementary Table 1). Differentially expressed genes were screened by comparing three different treatments with the control treatment, and 6,771 unigenes that were differentially expressed across these treatments were generated (fold changes ≥ 2, p ≤ 0.05). The number of DEGs was counted as 274 from Group 1 (wounding vs. control), 2,442 from group 2 (ethylene vs. control), and 4,055 from group 3 (EW vs. control) (Supplementary Figure 2A). Results showed that the three groups that shared 96 DEGs attributed to the wounding, drawing few gene expression changes, which was consistent with the single wounding not accelerating the floral senescence process. In addition, Groups 2 and 3 shared 2,093 DEGs, and Group 3 specifically induced 1,903 DEGs (Supplementary Figure 2B), both of which had enriched functional categories related to protein degradation, hormone metabolism, and transcription regulation.
+
+Complex Hormone Biosynthesis and Signaling Pathways Involved in Wounding and Ethylene Signaling
+
+To further understand the detailed regulatory network during the onset of rose floral senescence under wounding and ethylene treatments, all DEGs related to hormone biosynthesis and signaling pathways across the three groups were analyzed using the MapMan software. The largest numbers of DEGs were related to biosynthesis and signal transduction of auxin and ethylene, followed by DEGs in the cytokinin pathway (Figure 2; Supplementary Table 2).
+
+Figure 2 Display of differentially expressed genes (DEGs) involved in hormone biosynthesis and signaling transduction pathway. Significant DEGs (fold changes ≥ 2 and adjusted p-value ≤ 0.05) were organized into functional categories (BINs) (Thimm et al., 2004) and visualized using the MapMan software (version 1.0). The color set scale was placed on the top right, and the gene expression increased is indicated in red and decreased in blue. Detailed information on gene expression is listed in Supplementary Table 2.
+
+For the auxin pathway, the vast majority of DEGs were downregulated after the wounding and ethylene treatments. For example, 76.4% of the DEGs (42/55) were downregulated in Group 2 and 74.3% (55/74) in Group 3. Among these genes, 52 DEGs were co-regulated by the ethylene and wounding- and ethylene- dual treatments, including 35 small auxin upregulated RNA (SAUR) and SAUR-like genes, two PIN-FORMED (PIN) family genes (rchiobhmchr2g0169101 and rchiobhmchr3g0448071), and four auxin-responsive GH3 family proteins (rchiobhmchr2g0107081, rchiobhmchr2g0107091, rchiobhmchr2g0162261, and rchiobhmchr4g0428671). There were 22 DEGs that responded specifically to EW treatment related to auxin biosynthesis and signal transduction. Most DEGs related to the ethylene pathway were upregulated in Groups 2 and 3, with the proportions of 68.2% (15/22) and 77.1% (27/35), respectively. In the ethylene biosynthesis pathway, including ACC oxidase (rchiobhmchr5g0001831 and rchiobhmchr3g0474401), two ethylene receptors (rchiobhmchr4g0391281 and rchiobhmchr6g0294491), and three ERF genes were upregulated, whereas eight ERF genes were downregulated in Groups 2. Among the genes related to the cytokinin signaling pathway, ~39.3% (11/28) and 51.3% (20/39) of DEGs were increased in groups 2 and 3, respectively. Cytokinin synthase IPT3/5 genes (rchiobhmchr5g0029421 and rchiobhmchr4g0418401) and cytokinin oxidase CKX6/7 genes (rchiobhmchr1g0319331 and rchiobhmchr6g0301781) were identified and upregulated in Groups 2 and 3, whereas the expression of cytokinin oxidase CKX3 was specifically enhanced in Group 3.
+
+Differentially expressed genes related to ABA, BRs, JA, SA, and GA were also identified. For the ABA pathway, a total of 11 genes, including the biosynthesis genes AAO3 (rchiobhmchr5g0049511), NCED (rchiobhmchr4g0397001 and rchiobhmchr5g0027901), and signal transduction genes PP2C (rchiobhmchr2g0094051), were regulated by the ethylene or EW treatments. A total of 27 DEGs were found in Group 3, referred to as brassinosteroid biosynthetic and signaling pathways, these included biosynthetic genes DEF4 (rchiobhmchr2g0101791), CYP90D1 (rchiobhmchr2g0142901), CAS1 (novel00019), and signaling transduction genes BEH4 (rchiobhmchr5g0011971) and BRH1 (rchiobhmchr7g0197001). Among the JA-related genes, the upregulated DEGs, including AOS2 (rchiobhmchr6g0261031, rchiobhmchr6g0261011, and rchiobhmchr6g0300221), OPR2 (rchiobhmchr2g0167371), and LOX1 (rchiobhmchr3g0455111), were related to biosynthesis and detected in Group 3. In the SA pathway, the expression of UDP-glucosyltransferase gene UGT74E2 (rchiobhmchr6g0248381, rchiobhmchr6g0248411, rchiobhmchr7g0179611, and rchiobhmchr6g0248381) was enhanced, whereas SABATH methyltransferase expression (novel01210 and rchiobhmchr6g0265391) was decreased in Group 3. The expression of eight GA biosynthetic and four signal transduction genes showed changes in Groups 2 and 3. Among those DEGs, the biosynthetic genes were GA2 (rchiobhmchr5g0023471), GA20ox1 (rchiobhmchr1g0351591 and rchiobhmchr1g0376161), GA3ox1/2 (rchiobhmchr7g0236321 and rchiobhmchr2g0137231), GA2ox1/2/6 (rchiobhmchr5g0027981, rchiobhmchr5g0014211, andrchiobhmchr4g0426161), and signaling pathway genes, including GAI (rchiobhmchr2g0089571), GID1B (rchiobhmchr6g0292241), and GASA6 (rchiobhmchr7g0181391). Briefly, we speculated that different hormone biosynthesis and signaling pathways may be involved in the senescence process induced by wounding and ethylene.
+
+Differential Gene Expression Related to Transcription Factors, Protein Modification, and Degradation
+
+In terms of transcription factors, a total of 1,123, and 222 DEGs encoding TFs were observed in Groups 1, 2, and 3, respectively (Figure 3; Supplementary Table 3). Major differentially expressed TF families included WRKY, MYB, bHLH, HB, bZIP, AP2-EREBP, and C2H2. The predominant family was AP2-EREBP TF, with 14/16 DEGs, including 11/13 upregulated genes in Groups 2 and 3, respectively, followed by MYB (12/12), C2H2 type-zinc finger protein (9/10), bHLH (8/10), WRKY (7/10), HB (7/8), and bZIP (3/5) families. These data suggest that the TFs above may be involved in EW signaling during flower senescence.
+
+Figure 3 Display of differentially expressed genes related to transcription factors. Significant DEGs (fold changes ≥ 2 and adjusted p-value ≤ 0.05) were organized into functional categories (BINs) (Thimm et al., 2004) and visualized by MapMan software (version 1.0). The color set scale was placed on the top right, and the gene expression increased is indicated in red and decreased in blue. Detailed information on gene expression is listed in Supplementary Table 3.
+
+Screening of Candidate Genes Based on Co-expression Network
+
+To further identify the major groups, we performed a WGCNA and obtained 13 distinct modules (Figure 4A). Focused on the rose senescence degree, we found that the “Yellow” module was the most significantly associated with rose senescence (Figure 4B). Moreover, we analyzed the expression profile of hub genes in the “Yellow” module and found that RchiOBHmChr5g0071811 was the most significantly upregulated gene when compared with control (Figure 4C).
+
+Figure 4 Co-expression network analysis of DEGs involved in wound and ethylene signaling. (A) Clustering dendrogram of genes across all samples, with dissimilarity based on the topological overlap, together with assigned merged colors and original module colors. (B) Heatmap of the eigengene expression in the “yellow” module in response to wound and ethylene signaling. (C) Expression profile of screened hub genes in different treatments.
+
+Phylogenetic and protein sequence analyses were performed (Supplementary Figures 3, 4), and RchiOBHmChr5g0071811 was closely related to AtWRKY33, which contains two WRKY domains. Furthermore, it was located in the nucleus by subcellular localization in Nicotiana benthamiana (Supplementary Figure 4B). Based on these results, RchiOBHmChr5g0071811 was named RhWRKY33. RhWRKY33 accumulates in the nucleus, where it may function as a transcription factor.
+
+To better understand its expression characteristics, the transcription level of RhWRKY33 was measured in different organs and petal stages through RT-qPCR. As shown in Supplementary Figure 4C, the expression level of RhWRKY33 was higher in the sepals, petals, and stamens, and lower in young leaves, receptacles, and pistils, whereas it significantly increased from stage 1 to stage 5 (Supplementary Figure 4D), implying that RhWRKY33 may function in rose petal senescence.
+
+RhWRKY33 Accelerates the Petal Senescence Depended on Wounding and Ethylene Signaling
+
+To evaluate whether RhWRKY33 was involved in regulating the senescence of rose petals, we silenced the RhWRKY33 transcripts in petal discs by VIGS and found that the color fading of TRV discs began after 6 days, whereas the TRV-WRKY33 discs, with WRKY33 silenced, did not display any significant color fading (Figure 5A); in contrast, the degree of the TRV disc fading was more serious after 9 and 12 days compared with the TRV-WRKY33 discs (Figure 5D). The expression of RhWRKY33 was significantly lower in the TRV-WRKY33 discs than in the TRV control discs (Figure 5B); Concurrently, we measured the expression of RhSAG12 and ion leakage in TRV and TRV-WRKY33 discs at 0, 6, 9, 12 days. Consistent with this, the WRKY33-silenced discs presented lower expression of RhSAG12 and less ion leakage than TRV control (Figures 5C,E). These data provide evidence that RhWRKY33 plays a positive regulatory role during rose petal senescence.
+
+Figure 5 Effect of TRV-RhWRKY33 on the senescence of rose petal discs. (A) Color fading phenotypes of TRV and TRV-RhWRKY33 petal discs. (B) RT-qPCR validation of expression level of RhWRKY33 in TRV and TRV-RhWRKY33 petal discs. (C) RhSAG12 expression levels were analyzed in RhWRKY33-silenced and TRV control petal discs. (D) Color fading rate. (E) Ion leakage rate. The error bars represent the means of three biological replicates ± SDs, RhUBI2, and RhActin5 were used as reference genes, and the asterisks indicate significant differences based on Student's t-test (*p < 0.05; **p < 0.01).
+
+further investigate whether RhWRKY33 was involved in EW signaling, we also performed ethylene, wounding, and EW treatments through the VIGS assay. As shown in Figures 6A–G, the fading color and ion leakage were significantly increased in the ethyne and EW treatment compared with wounding-treatment at 6, 9, and 12 DAT, either in TRV or in TRV-RhWRKY33, suggesting the stronger role of ethylene than wounding on petal senescence. Irrespective of the wounding, ethylene, or EW treatment, all RhWRKY33-silenced discs exhibited longer floral longevity, lower color fading rate, and ion leakage when compared with the TRV. In addition, the expression of RhSAG12 was significantly lower in RhWRKY33-silenced discs at 6 DAT than in TRV discs under the above treatments (Figure 6). These results indicate that RhWRKY33 can accelerate the senescence process of rose petals depending on the wounding and ethylene signaling, but mainly on ethylene signaling.
+
+Figure 6 Effect of wounding-, ethylene- and EW-treatment on the senescence of RhWRKY33-silenced rose petal discs. (A) The phenotypes of rose petal discs treated with 10 μl/L ethylene, wound, or EW. (B,D,F) Color fading rate. (C,E,G) Ion leakage rate. (H,I,J) Expression levels of RhSAG12 were analyzed in RhWRKY33-silenced and TRV control petal discs under different treatments. The error bars represent the means of three biological replicates ± SDs, RhUBI2, and RhActin5 were used as reference genes, and the asterisks indicate significant differences based on Student's t-test (*p < 0.05; **p < 0.01; ***p < 0.001).
+
+We previously found that JA and ethylene could promote senescence in rose flowers (Zhang et al., 2019b), and JA levels increased significantly in plants subjected to wounding (Chung et al., 2008; Glauser et al., 2008; Koo et al., 2009); whether RhWRKY33 was induced by JA remains unknown. To examine the relationship between JA and RhWRKY33, we measured the expression of RhWRKY33 in JA- and ethylene-induced petals and found that RhWRKY33 was upregulated by JA and ethylene treatment (Supplementary Figure 5). These results further indicate that RhWRKY33 accelerates the petal senescence process mediated by both ethylene and wounding signaling, but relies heavily on ethylene signaling.
+
+Discussion
+
+Ethylene Is a Senescence-Promoter Hormone in Rose Petals
+
+Phytohormones possess pivotal roles in initiating and modulating floral senescence programs and finally influence the quality and long vase life of fully open petals. Among those hormones, ethylene and ABA function as the senescence-accelerating factors, while auxin, CTKs, SA, and GA act the inhibited function in floral senescence (Lu et al., 2014; Trivellini et al., 2015; Wu et al., 2017; Shabanian et al., 2018). Particularly, ethylene has been considered as a major endogenous regulator of fruit ripening, leaf- and petal-senescence, and floral organ abscission (Li et al., 2013; Han et al., 2016; Shabanian et al., 2018). Once the senescence process of leaves and flowers was initiated, the expression of ethylene biosynthesis genes ACS1/2 was strongly increased, accompanied by a massive burst of ethylene production (Ma et al., 2005). In this study, two ethylene biosynthesis genes, ACS (rchiobhmchr6g0310191) and ACO (rchiobhmchr3g0474401, rchiobhmchr5g0001831), had higher levels of expression in all the ethylene treatment flowers (group 2 and 3) (Figure 2; Supplementary Table 2). Meanwhile, we also found that the expression of eight ERF genes (rchiobhmchr4g0392451, rchiobhmchr4g0392501, rchiobhmchr5g0008991, rchiobhmchr5g0009711, rchiobhmchr5g0032721, rchiobhmchr6g0288231, rchiobhmchr6g0299771, and rchiobhmchr7g0204641) were increased, and three ERF genes (rchiobhmchr2g0135921, rchiobhmchr6g0298011, and rchiobhmchr7g0230931) were decreased in response to the ethylene signal, and RhERF1 (rchiobhmchr2g0135921) and RhERF4 (rchiobhmchr6g0298011) have been proved to function in petal abscission mediated by ethylene pathway (Gao et al., 2019).
+
+The exogenous application of ethylene also triggers the gene expression change related to the biosynthesis and signaling pathway of other hormones. During the leaf senescence and abscission process, the massive production of ethylene could inhibit auxin synthesis and transport, enhance auxin degradation, and lower diffusible auxin levels (Burg, 1968). Here, up to 55 DEGs associated with the auxin pathway were induced and 76.4% of those genes (42/55) were downregulated by exogenous ethylene applying, including auxin polar transport PIN family genes (PIN5, rchiobhmchr3g0448071; PIN8, rchiobhmchr2g0169101), auxin-responsive SAUR, and the genes of GH3 family (Figure 2; Supplementary Table 2). We speculate that ethylene may directly or indirectly regulate the expression of auxin-related genes to affect flower senescence. Meanwhile, the exogenous application of ethylene further enhanced senescence-promoting hormone responses, such as ABA, and while declined the genes expression associated with synthesis and signaling transduction of cytokinin, which functions in delaying senescence.
+
+Wounding Function in Acceleration Floral Senescence Depend on Ethylene Signaling
+
+Numerous studies have revealed that wounding is implicated in multiple signaling pathways, such as JA, auxin, and ethylene. Wounding is considered one of the early triggers of plant regeneration (Chen et al., 2016), and the content of JA and auxin accumulates within seconds to minutes after wounding, making them candidates for early wounding signal. Further analysis indicated that cell damage leads to JA accumulation, and tissue integrity loss leads to local auxin accumulation by impeding polar auxin transport (Glauser et al., 2009; Larrieu et al., 2015; Zhou et al., 2019). Endogenous JA levels acceleration in response to mechanical wounding and herbivore damage have been extensively reported (Creelman and Mullet, 1997; Rao et al., 2000). JA signal marker genes, namely, LOX2, AOS, and VSP, were found to be induced, whereas endogenous levels of auxins were also shown to decline after wounding, showing a significant cross-talk between the hormone and damage signaling pathways (Devoto and Turner, 2003; Zou et al., 2016). Previous studies confirmed that the damage signal is one of the primary factors in the induction of the senescence phenotype in detached leaves or petals, whereas ethylene is implicated as a regulator of the rate of the process (Philosophhadas et al., 1991). Additional evidence has revealed that ethylene content is generally induced by various environmental stresses, such as damage signaling, exposure to low temperatures, and water stress, in plants (Hyodo et al., 1991).
+
+Our previous study revealed that RhMYB108 could accelerate rose petal senescence by mediating JA and ethylene signaling (Zhang et al., 2019b; Fan et al., 2020). In this study, we found that the rate of petal senescence was not significantly accelerated or delayed in the single wounding treatment. However, the senescence rate of EW-treated petals was faster than those treated by wounding or ethylene, which suggested that wounding could strengthen ethylene signaling, which was consistent with those of a study by Hyodo (Hyodo et al., 1991). In conclusion, further research is needed to reveal the mechanisms underlying the wound-ethylene crosstalk in petal senescence. In addition, our study suggested that RhWRKY33 could accelerate the floral senescence process of cut roses by mediating EW-signaling (Figures 1, 6).
+
+RhWRKY33 Mediates Ethylene and Wounding Signaling During Senescence
+
+A complex network of transcription factors is involved in senescence. In terms of transcription factors, a total of 1,123, and 222 DEGs encoding TFs were observed in Groups 1, 2, and 3, respectively (Figure 3; Supplementary Table 3). Among the differentially expressed TFs, 119 DEGs responded to both Groups 2 and 3 (Supplementary Table 4), whereas 102 genes were expressed in response to Group 3 (Supplementary Table 5). Major differentially expressed TF families included WRKY, MYB, bHLH, HB, bZIP, AP2-EREBP, and C2H2. Here, AP2-EREBP TF was the predominant family with 14/16 DEGs, including 11/13 upregulated genes in Groups 2 and 3, respectively, followed by MYB (12/12), C2H2 type-zinc finger protein (9/10), bHLH (8/10), WRKY (7/10), HB (7/8), and bZIP (3/5) families.
+
+Up to date, increasing studies have shown that many WRKY family members are involved in stress-defense responses, plant senescence, wounding, seed dormancy, and seed germination (Rushton et al., 2010; Rinerson et al., 2015; Zhao M. et al., 2020). In addition, a complex regulatory network consisting of WRKY TFs and plant hormone functions is involved in plant senescence. In our study, the expression of RhWRKY33 was significantly upregulated more than 9 and 6 times, when induced by JA and ethylene, respectively. However, it was significantly repressed by 1-MCP (Supplementary Figure 5). We speculate that RhWRKY33 may be induced by wounds by increasing the JA content. However, in this study, we discovered that the expression of RhWRKY33 was upregulated more than two times under wounding treatment, and less than nine times under JA treatment. Whether there are other factors involved in the regulation of rose petal senescence requires further study.
+
+Overall, using RNA-seq analysis and WGCNA, we identified the RhWRKY33, which is closely related to AtWRKY33 from Arabidopsis thaliana and is located in the nucleus. The silencing of RhWRKY33 (TRV-RhWRKY33) significantly delayed the rose petal senescence process either on the control or on other treatments (ethylene, wounding, and EW). Ethylene plays a major role in petal senescence. From the above results, we conclude that RhWRKY33 is involved in regulating rose petal senescence by mediating wound- and ethylene-signaling.
+
+Data Availability Statement
+
+The original contributions presented in the study are publicly available. This data can be found here: National Center for Biotechnology Information (NCBI) BioProject database under accession number PRJNA550484 (https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA550484).
+
+Author Contributions
+
+WJ and QZ performed the experiments and analyzed the data. YLi and YLiu designed the study. SZ, DZ, JX, HZ, and FW provided technical support and conceptual advice. WJ, QZ, SZ, and YLi wrote the manuscript. All authors read and approved the final manuscript.
+
+Funding
+
+This study was supported by the General Project of Shenzhen Science and Technology and Innovation Commission (21K270360620) and the National Natural Science Foundation of China (Grant No. 31902054).
+
+Conflict of Interest
+
+The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
+
+Publisher's Note
+
+All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher.
+
+We thank Editage (https://app.editage.com/) for the careful editing of this article.
+
+Supplementary Material
+
+The Supplementary Material for this article can be found online at: https://www.frontiersin.org/articles/10.3389/fpls.2021.726797/full#supplementary-material
+
+Supplementary Figure 1 The ethylene production of different treatments was determined at 0, 1, 3, and 6 days. Values are means ± SD, and asterisks indicate statistically significant differences (*p < 0.05, **p < 0.01, Student's t-test).
+
+Click here for additional data file.
+
+Supplementary Figure 2 Identification of differentially expressed genes among all treatments during the onset of floral senescence.
+
+Click here for additional data file.
+
+Supplementary Figure 3 Biochemical characteristics and spatiotemporal expression analysis of RhWRKY33.
+
+Click here for additional data file.
+
+Supplementary Figure 4 Display of DEGs relating to transcription factors, protein modification, protein degradation (A), and hormone signaling (B) was specifically regulated by Group 3.
+
+Click here for additional data file.
+
+Supplementary Figure 5 Effects of different hormone treatments on the expression of RhWRKY33.
+
+Click here for additional data file.
+
+Supplementary Table 1 Statistics of annotation results for rose unigenes.
+
+Click here for additional data file.
+
+Supplementary Table 2 Detailed information of DEGs involved in hormone biosynthesis and signaling transduction pathway.
+
+Click here for additional data file.
+
+Supplementary Table 3 Detailed information of DEGs related to transcription factors.
+
+Click here for additional data file.
+
+Supplementary Table 4 Detailed information of DEGs relating to transcription factors, protein modification, protein degradation (A), and hormone signaling (B) was co-regulated between Groups 2 and 3.
+
+Click here for additional data file.
+
+Supplementary Table 5 Detailed information of DEGs relating to transcription factors, protein modification, protein degradation (A), and hormone signaling (B) was specifically regulated by group 3.
+
+Click here for additional data file.
+
+Supplementary Table 6 List of primers used.
+
+Click here for additional data file.
+==== Refs
+References
+
+Acosta M. B. R. Ferreira R. C. C. Ferreira L. C. S. Costa S. O. P. (2005). Intracellular polyamine pools, oligopeptide-binding protein A expression, and resistance to aminoglycosides in Escherichia coli. Mem I Oswaldo Cruz. 100 , 789–793. 10.1590/S0074-02762005000700020 16410970
+Anders S. Huber W. (2010). Differential expression analysis for sequence count data. Genome Biol. 11 :R106. 10.1186/gb-2010-11-10-r106 20979621
+Balague C. Watson C. F. Turner A. J. Rouge P. Picton S. Pech J. C. . (1993). Isolation of a Ripening and wound-induced cdna from cucumis-melo l encoding a protein with homology to the ethylene-forming enzyme. Eur. J. Biochem. 212 , 27–34. 10.1111/j.1432-1033.1993.tb17628.x 8444161
+Bell E. Creelman R. A. Mullet J. E. (1995). A chloroplast lipoxygenase is required for wound-induced jasmonic acid accumulation in arabidopsis. P Natl. Acad. Sci. USA. 92 , 8675–8679. 10.1073/pnas.92.19.8675 7567995
+Besseau S. Li J. Palva E. T. (2012). WRKY54 and WRKY70 co-operate as negative regulators of leaf senescence in Arabidopsis thaliana. J. Exp. Bot. 63 , 2667–2679. 10.1093/jxb/err450 22268143
+Birkenbihl R. P. Diezel C. Somssich I. E. (2012). Arabidopsis WRKY33 is a key transcriptional regulator of hormonal and metabolic responses toward botrytis cinerea infection. Plant Physiol. 159 , 266–285, 10.1104/pp.111.192641 22392279
+Botella J. R. Arteca R. N. Frangos J. A. (1995). A mechanical strain-induced 1-aminocyclopropane-1-carboxylic acid synthase gene. P Natl. Acad. Sci. USA 92 , 1595–1598. 10.1073/pnas.92.5.1595 7878024
+Bouquin T. Lasserre E. Pradier J. Pech J. C. Balague C. (1997). Wound and ethylene induction of the ACC oxidase melon gene CM-ACO1 occurs via two direct and independent transduction pathways. Plant Mol. Biol. 35 , 1029–1035. 10.1023/A:1005902226054 9426625
+Burg S. P. (1968). Ethylene, plant senescence and abscission. Plant Physiol. 43 , 1503–1511.16657016
+Bustin S. A. Benes V. Garson J. A. Hellemans J. Huggett J. Kubista M. . (2009). The MIQE guidelines: minimum information for publication of quantitative real-time PCR experiments. Clin. Chem. 55 , 611–622. 10.1373/clinchem.2008.112797 19246619
+Chen L. Sun B. Xu L. Liu W. (2016). Wound signaling: the missing link in plant regeneration. Plant Signal. Behav. 11 :e1238548. 10.1080/15592324.2016.1238548 27662421
+Chen L. G. Xiang S. Y. Chen Y. L. Li D. B. Yu D. Q. (2017). Arabidopsis WRKY45 interacts with the DELLA protein RGL1 to positively regulate age-triggered leaf senescence. Mol. Plant. 10 , 1174–1189. 10.1016/j.molp.2017.07.008 28735023
+Chung H. S. Koo A. J. Gao X. Jayanty S. Thines B. Jones A. D. . (2008). Regulation and function of Arabidopsis JASMONATE ZIM-domain genes in response to wounding and herbivory. Plant Physiol. 146 , 952–964. 10.1104/pp.107.115691 18223147
+Conesa A. Götz S. García-Gómez J. M. Terol J. Talón M. Robles M. (2005). Blast2GO: a universal tool for annotation, visualization and analysis in functional genomics research. Bioinformatics 21 , 3674–3676. 10.1093/bioinformatics/bti610 16081474
+Creelman R. A. Mullet J. E. (1997). Biosynthesis and action of jasmonates in plants. Annu. Rev. Plant Physiol. Plant Mol. Biol. 48 , 355–381. 10.1146/annurev.arplant.48.1.355 15012267
+Devoto A. Turner J. G. (2003). Regulation of jasmonate-mediated plant responses in arabidopsis. Ann. Bot. 92 , 329–337. 10.1093/aob/mcg151 12871847
+Fan Y. Liu J. T. Zou J. Zhang X. Y. Liu K. Lv P. T. . (2020). The RhHB1/RhLOX4 module affects the dehydration tolerance of rose flowers (Rosa hybrida) by fine-tuning jasmonic acid levels. Hortic Res. 7 , 74–87. 10.1038/s41438-020-0299-z 33934106
+Faragher J. D. Mor Y. Johnson F. (1987). Role of 1-aminocyclopropane-1-carboxylic acid (ACC) in control of ethylene production in fresh and cold-stored rose flowers. J. Exp. Bot. 38 , 1839–1847. 10.1093/oxfordjournals.aob.a086774
+Gao Y. Liu C. Li X. Xu H. Liang Y. Ma N. (2016). Transcriptome profiling of petal abscission zone and functional analysis of an Aux/IAA family gene RhIAA16 involved in petal shedding in rose. Front. Plant Sci. 7 , 1375–1388. 10.3389/fpls.2016.01375 27695465
+Gao Y. Liu Y. Liang Y. Lu J. Jiang C. Fei Z. . (2019). Rosa hybrida RhERF1 and RhERF4 mediate ethylene- and auxin-regulated petal abscission by influencing pectin degradation. Plant J. 99 , 1159–1171. 10.1111/tpj.14412 31111587
+Glauser G. Dubugnon L. Mousavi S. A. Rudaz S. Wolfender J. L. Farmer E. E. (2009). Velocity estimates for signal propagation leading to systemic jasmonic acid accumulation in wounded Arabidopsis. J. Biol. Chem. 284 , 34506–34513. 10.1074/jbc.M109.061432 19846562
+Glauser G. Grata E. Dubugnon L. Rudaz S. Farmer E. E. Wolfender J. L. (2008). Spatial and temporal dynamics of jasmonate synthesis and accumulation in Arabidopsis in response to wounding. J. Biol. Chem. 283 , 16400–16407. 10.1074/jbc.M801760200 18400744
+Guo P. R. Li Z. H. Huang P. X. Li B. S. Fang S. Chu J. F. . (2017). A tripartite amplification loop involving the transcription factor wrky75, salicylic acid, and reactive oxygen species accelerates leaf senescence. Plant Cell. 29 , 2854–2870. 10.1105/tpc.17.00438 29061866
+Han Y. C. Kuang J. F. Chen J. Y. Liu X. C. Xiao Y. Y. Fu C. C. . (2016). Banana transcription factor MaERF11 recruits histone deacetylase MaHDA1 and represses the expression of MaACO1 and expansins during fruit ripening. Plant Physiol. 171 , 1070–1084. 10.1104/pp.16.00301 27208241
+Hyodo H. Tanaka K. Suzuki T. (1991). Wound-induced ethylene synthesis and its involvement in enzyme induction in mesocarp tissue of Cucurbita maxima. Postharvest Biol Tec. 1 , 127–136. 10.1016/0925-5214(91)90004-U
+Jiang Y. J. Liang G. Yang S. Z. Yu D. Q. (2014). Arabidopsis WRKY57 Functions as a Node of Convergence for Jasmonic Acid- and Auxin-Mediated Signaling in Jasmonic Acid-Induced Leaf Senescence. Plant Cell 26 , 230–245. 10.1105/tpc.113.117838 24424094
+Jones M. L. Woodson W. R. (1999). Differential expression of three members of the 1-aminocyclopropane-1-carboxylate synthase gene family in carnation. Plant Physiol. 119 , 755–764. 10.1104/pp.119.2.755 9952472
+Kato M. Kamo T. Wang R. Nishikawa F. Hyodo H. Ikoma Y. . (2002). Wound-induced ethylene synthesis in stem tissue of harvested broccoli and its effect on senescence and ethylene synthesis in broccoli florets. Postharvest Biol. Technol. 24 , 69–78. 10.1016/S0925-5214(01)00111-9
+Kim W. T. Yang S. F. (1994). Structure and expression of cdnas encoding 1-aminocyclopropane-1-carboxylate oxidase homologs isolated from excised mung bean hypocotyls. Planta 194 , 223–229. 10.1007/BF01101681 7765118
+Koo A. J. K. Gao X. L. Jones A. D. Howe G. A. (2009). A rapid wound signal activates the systemic synthesis of bioactive jasmonates in Arabidopsis. Plant J. 59 , 974–986. 10.1111/j.1365-313X.2009.03924.x 19473329
+Langfelder P. Horvath S. (2008). WGCNA: an R package for weighted correlation network analysis. BMC Bioinform. 9 , 559–572. 10.1186/1471-2105-9-559 19114008
+Larrieu A. Champion A. Legrand J. Lavenus J. Mast D. Brunoud G. . (2015). A fluorescent hormone biosensor reveals the dynamics of jasmonate signalling in plants. Nat. Commun. 6 :6043. 10.1038/ncomms7043 25592181
+Leon J. Rojo E. Sanchez-Serrano J. J. (2001). Wound signalling in plants. J. Exp. Bot. 52 , 1–9. 10.1093/jexbot/52.354.1 11181708
+Li Z. H. Peng J. Y. Wen X. Guo H. W. (2013). ETHYLENE-INSENSITIVE3 is a senescence-associated gene that accelerates age-dependent leaf senescence by directly repressing miR164 transcription in arabidopsis. Plant Cell. 25 , 3311–3328. 10.1105/tpc.113.113340 24064769
+Liu D. R. Li N. Dube S. Kalinski A. Herman E. Mattoo A. K. (1993). Molecular characterization of a rapidly and transiently wound-induced soybean (Glycine-Max L) gene encoding 1-Aminocyclopropane-1-Carboxylate synthase. Plant Cell Physiol. 34 , 1151–1157.
+Livak K. J. Schmittgen T. D. (2001). Analysis of relative gene expression data using real-time quantitative PCR and the 2(-Delta Delta C(T)). Methods 25 , 402–408. 10.1006/meth.2001.1262 11846609
+Lohse M. Nagel A. Herter T. May P. Schroda M. Zrenner R. . (2014). Mercator: a fast and simple web server for genome scale functional annotation of plant sequence data. Plant Cell Environ. 37 , 1250–1258. 10.1111/pce.12231 24237261
+Lu P. T. Zhang C. Q. Liu J. T. Liu X. W. Jiang G. M. Jiang X. Q. . (2014). RhHB1 mediates the antagonism of gibberellins to ABA and ethylene during rose (Rosa hybrida) petal senescence. Plant J. 78 , 578–590. 10.1111/tpj.12494 24589134
+Ma N. Cai L. Lu W. J. Tan H. Gao J. P. (2005). Exogenous ethylene influences flower opening of cut roses (Rosa hybrida) by regulating the genes encoding ethylene biosynthesis enzymes. Sci. China Ser. C. 48 , 434. 10.1360/062004-37 16315594
+Ma N. Ma C. Liu Y. Shahid M. O. Wang C. P. Gao J. P. (2018). Petal senescence: a hormone view. J. Exp. Bot. 69 , 719–732. 10.1093/jxb/ery009 29425359
+Ma N. Tan H. Xue J. H. Li Y. Q. Gao J. P. (2006). Transcriptional regulation of ethylene receptor and CTR genes involved in ethylene-induced flower opening in cut rose (Rosa hybrida) cv. Samantha. J. Exp. Bot. 57 , 2763–2773. 10.1093/jxb/erl033 16844735
+Mao X. Cai T. Olyarchuk J. G. Wei L. (2005). Automated genome annotation and pathway identification using the KEGG Orthology (KO) as a controlled vocabulary. Bioinformatics 21 , 3787–3793. 10.1093/bioinformatics/bti430 15817693
+Meng Y. L. Li N. Tian J. Gao J. P. Zhang C. (2013). Identification and validation of reference genes for gene expression studies in postharvest rose flower (Rosa hybrida). Sci. Hortic. 158 , 16–21. 10.1016/j.scienta.2013.04.019
+Mor Y. Johnsen F. Faragher J. D. (1989). Preserving the quality of cold-stored rose flowers with ethylene antagonists. HortScience 24 , 436–440.
+Müller R. Sisler E. C. Serek M. (2000). Stress induced ethylene production, ethylene binding, and the response to the ethylene action inhibitor 1-MCP in miniature roses. Sci. Hortic. 83 :51–59. 10.1016/S0304-4238(99)00099-0
+Nham N. T. de Freitas S. T. Macnish A. J. Carr K. M. Kietikul T. Guilatco A. J. . (2015). A transcriptome approach towards understanding the development of ripening capacity in 'Bartlett' pears (Pyrus communis L.). BMC Genomics 16 :762. 10.1186/s12864-015-1939-9 26452470
+Noodén L. D. Schneider M. J. (2004). 26—light control of senescence. Plant cell Death Process. 1 , 375–383. 10.1016/B978-012520915-1/50029-1
+Overmyer K. Tuominen H. Kettunen R. Betz C. Langebartels C. Sandermann H. . (2000). Ozone-sensitive Arabidopsis rcd1 mutant reveals opposite roles for ethylene and jasmonate signaling pathways in regulating superoxide-dependent cell death. Plant Cell 12 , 1849–1862. 10.1105/tpc.12.10.1849 11041881
+Pei H. Ma N. Tian J. Luo J. Chen J. Li J. . (2013). An NAC transcription factor controls ethylene-regulated cell expansion in flower petals. Plant Physiol. 163 , 775–791. 10.1104/pp.113.223388 23933991
+Pertea M. Pertea G. M. Antonescu C. M. Chang T. C. Mendell J. T. Salzberg S. L. (2015). StringTie enables improved reconstruction of a transcriptome from RNAseq reads. Nat Biotechnol. 33 , 290–295. 10.1038/nbt.3122 25690850
+Philosophhadas S. Meir S. Aharoni N. (1991). Effect of wounding on ethylene biosynthesis and senescence of detached spinach leaves. Physiol. Plant. 83 , 241–246. 10.1111/j.1399-3054.1991.tb02148.x
+Rao M. V. Lee H. Creelman R. A. Mullet J. E. Davis K. R. (2000). Jasmonic acid signaling modulates ozone-induced hypersensitive cell death. Plant Cell. 12 , 1633–1646. 10.1105/tpc.12.9.1633 11006337
+Reid M. S. Evans R. Y. Dodge L. L. Mor Y. (1989). Ethylene and silver thiosulfate influence opening of cut rose flowers. J. Amer. Soc. Hort Sci. 114 , 436–440.
+Rinerson C. I. Scully E. D. Palmer N. A. Donze-Reiner T. Rabara R. C. Tripathi P. . (2015). The WRKY transcription factor family and senescence in switchgrass. BMC Genomics 16 , 912–928. 10.1186/s12864-015-2057-4 26552372
+Rushton P. J. Somssich I. E. Ringler P. Shen Q. J. (2010). WRKY transcription factors. Trends Plant Sci. 15 , 247–258. 10.1016/j.tplants.2010.02.006 20304701
+Shabanian S. Nasr E. M. Karamian R. Tran L. S . (2018). Salicylic acid modulates cutting-induced physiological and biochemical responses to delay senescence in two gerbera cultivars. Plant Growth Regul. 87 , 245–256. 10.1007/s10725-018-0466-5
+Thimm O. Blasing O. Gibon Y. Nagel A. Meyer S. Kruger P. . (2004). MAPMAN: a user-driven tool to display genomics data sets onto diagrams of metabolic pathways and other biological processes. Plant J. 37 , 914–939. 10.1111/j.1365-313X.2004.02016.x 14996223
+Tian J. Pei H. X. Zhang S. Chen J. W. Chen W. Yang R. Y. . (2014). TRVGFP: a modified Tobacco rattle virus vector for efficient and visualizable analysis of gene function. J. Exp. Bot. 65 , 311–322. 10.1093/jxb/ert381 24218330
+Trivellini A. Cocetta G. Vernieri P. Mensuali-Sodi A. Ferrante A. (2015). Effect of cytokinins on delaying petunia flower senescence: a transcriptome study approach. Plant Mol. Bio. 87 , 169–180. 10.1007/s11103-014-0268-8 25425166
+Wang L. Zhang X. L. Wang L. Tian Y. A. Jia N. Chen S. Z. . (2017). Regulation of ethylene-responsive SlWRKYs involved in color change during tomato fruit ripening. Sci. Res. 7 :16674. 10.1038/s41598-017-16851-y 29192231
+Wasternack C. (2007). Jasmonates: An update on biosynthesis, signal transduction and action in plant stress response, growth and development. Ann. Bot. 100 , 681–697. 10.1093/aob/mcm079 17513307
+Wu L. Ma N. Jia Y. C. Zhang Y. Feng M. Jiang C. Z. . (2017). An ethylene-induced regulatory module delays flower senescence by regulating cytokinin content. Plant Physiol. 173 , 853–862. 10.1104/pp.16.01064 27879388
+Yang M. Zhu L. P. Pan C. Xu L. M. Liu Y. L. Ke W. D. . (2015). Transcriptomic analysis of the regulation of rhizome formation in temperate and tropical lotus (Nelumbo nucifera). Sci. Res. 5 :13059. 10.1038/srep13059 26279185
+Zhang S. Feng M. Chen W. Zhou X. F. Lu J. Y. Wang Y. R. . (2019a). In rose, transcription factor PTM balances growth and drought survival via PIP2;1 aquaporin. Nat. Plants. 5 , 290–299. 10.1038/s41477-019-0376-1 30833710
+Zhang S. Zhao Q. C. Zeng D. X. Xu J. H. Zhou H. G. Wang F. L. . (2019b). RhMYB108, an R2R3-MYB transcription factor, is involved in ethylene- and JA-induced petal senescence in rose plants. Horti Res. 6 , 131–143. 10.1038/s41438-019-0221-8 33361758
+Zhang Y. Wu Z. C. Feng M. Chen J. Qin M. Wang W. . (2021). The circadian-controlled PIF8-BBX28 module regulates petal senescence in rose flowers by governing mitochondrial ROS homeostasis at night. Plant cell 11 :152. 10.1093/plcell/koab152 34043798
+Zhao L. Zhang W. Song Q. Xuan Y. Li K. Cheng L. . (2020). A WRKY transcription factor, TaWRKY40-D, promotes leaf senescence associated with jasmonic acid and abscisic acid pathways in wheat. Plant Biol. 22 , 1072–1085. 10.1111/plb.13155 32609938
+Zhao M. M. Zhang X. W. Liu Y. W. Li K. Tan Q. Zhou S. . (2020). A WRKY transcription factor, TaWRKY42-B, facilitates initiation of leaf senescence by promoting jasmonic acid biosynthesis. BMC Plant Biol. 20 :444. 10.1186/s12870-020-02650-7 32993508
+Zhou W. K. Lozano-Torres J. L. Blilou I. Zhang X. Y. Zhai Q. Z. Smant G. . (2019). A jasmonate signaling network activates root stem cells and promotes regeneration. Cell 177 , 942–956. 10.1016/j.cell.2019.03.006 30955889
+Zou Y. Chintamanani S. He P. Fukushige H. Yu L. P. Shao M. Y. . (2016). A gain-of-function mutation in Msl10 triggers cell death and wound-induced hyperaccumulation of jasmonic acid in Arabidopsis. J. Integr. Plant Biol. 58 , 600–609. 10.1111/jipb.12427 26356550
+

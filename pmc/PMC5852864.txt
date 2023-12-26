@@ -1,0 +1,258 @@
+
+==== Front
+Parkinsons DisParkinsons DisPDParkinson's Disease2090-80832042-0080Hindawi 10.1155/2018/1590465Research ArticleMicroarray Analysis of the Molecular Mechanism Involved in Parkinson's Disease Tan Cheng Liu Xiaoyang http://orcid.org/0000-0003-1065-9952Chen Jiajun cjj@jlu.edu.cnDepartment of Neurology, China-Japan Union Hospital of Jilin University, Changchun, Jilin 130033, ChinaAcademic Editor: Amnon Sintov
+
+2018 1 3 2018 2018 159046524 5 2017 21 8 2017 18 10 2017 Copyright © 2018 Cheng Tan et al.2018This is an open access article distributed under the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.Purpose
+ This study aimed to investigate the underlying molecular mechanisms of Parkinson's disease (PD) by bioinformatics. 
+
+Methods
+ Using the microarray dataset GSE72267 from the Gene Expression Omnibus database, which included 40 blood samples from PD patients and 19 matched controls, differentially expressed genes (DEGs) were identified after data preprocessing, followed by Gene Ontology (GO) and Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway enrichment analyses. Protein-protein interaction (PPI) network, microRNA- (miRNA-) target regulatory network, and transcription factor- (TF-) target regulatory networks were constructed. 
+
+Results
+ Of 819 DEGs obtained, 359 were upregulated and 460 were downregulated. Two GO terms, “rRNA processing” and “cytoplasm,” and two KEGG pathways, “metabolic pathways” and “TNF signaling pathway,” played roles in PD development. Intercellular adhesion molecule 1 (ICAM1) was the hub node in the PPI network; hsa-miR-7-5p, hsa-miR-433-3p, and hsa-miR-133b participated in PD pathogenesis. Six TFs, including zinc finger and BTB domain-containing 7A, ovo-like transcriptional repressor 1, GATA-binding protein 3, transcription factor dp-1, SMAD family member 1, and quiescin sulfhydryl oxidase 1, were related to PD. 
+
+Conclusions
+ “rRNA processing,” “cytoplasm,” “metabolic pathways,” and “TNF signaling pathway” were key pathways involved in PD. ICAM1, hsa-miR-7-5p, hsa-miR-433-3p, hsa-miR-133b, and the abovementioned six TFs might play important roles in PD development.
+
+Construction of Accurate Technology Innovation Centers of Nervous System Disease20170623006TC
+==== Body
+1. Introduction
+Parkinson's disease (PD) is one of the most common age-related neurodegenerative diseases [1]. The age at PD onset is approximately 55 years, and the incidence in the population aged > 65 years is approximately 1% [1–3]. PD mainly occurs because of the death of dopaminergic neurons in the substantia nigra [4]. Patients with PD present with symptoms such as bradykinesia, resting tremor, rigidity, and postural instability [5]. The current therapy for PD is targeted at its symptoms rather than at dopaminergic neuron degeneration [1]. The diagnosis of PD at the early stage is challenging, and successfully managing PD is difficult at its later stages [4]. To date, the cause of PD remains unknown; however, it appears to involve the intricate interplay of environmental and genetic factors [1, 4].
+
+Much effort has been spent in investigating PD pathogenesis, and the misfolding, aggregation, and aberrance of proteins are considered to be some of the main causes [1, 4, 5]. Some key genes such as hydrogen sulfide, chromobox 5 (CBX5), and transcription factor 3 (TCF3) are related to PD [6, 7]. Several pathways have also been identified to be related to PD. Activation of the protein kinase B (Akt)/glycogen synthase kinase 3 beta/(GSK3β) pathway by urate reportedly protects dopaminergic neurons in a rat model of PD [8]. In addition, the E2-related factor 2 (Nrf2)/antioxidant response element pathway reportedly counteracts mitochondrial dysfunction, which is a prominent PD feature [9]. The ubiquitin, lipid, nigrostriatal, autophagy-lysosome, and endosomal pathways are also involved in PD [10–15]. Furthermore, a recent study revealed several microRNAs (miRNAs) associated with PD; miR-205 suppresses LRRK2 expression and miR-205 expression levels in the brains of patients with PD decreases [16]. Furthermore, miR-34b and miR-34c are downregulated in the brains of patients with PD, which is related to the reduction in the expression of DJ-1 and PARKIN [17], and miR-133 and miR-7 are also associated with PD [18–20]. Numerous reports that have described the roles of transcription factors (TFs) in PD have also been published. The TF paired-like homeodomain 3 has roles in developing and maintaining dopaminergic neurons [21, 22], and engrailed l, which is downregulated in the rat models, plays a role in the apoptosis of dopaminergic neurons and the symptoms of PD [23]. Moreover, Nrf2, nuclear factor kappa B (NF-κB), GATA2, and PHD finger protein 10 are TFs involved in PD [24–27]. However, understanding the key mechanisms underlying the development of PD remains unclear.
+
+In a previous study, the microarray dataset GSE72267 generated by Calligaris et al. [7] was used to identify key differentially expressed genes (DEGs) such as CBX5, TCF3, dedicator of cytokinesis 10, and mannosidase alpha class 1C in the blood of patients with PD compared with those of healthy controls. Moreover, crucial pathways related to chromatin remodeling and methylation were revealed. In the current study, we downloaded this microarray dataset to comprehensively analyze DEGs in patients with PD compared with those in matched controls by bioinformatics approaches and to describe their functional annotations. Compared with the previous analysis conducted by Calligaris et al. [7], we performed additional analyses, including those for the protein-protein interaction (PPI), miRNA-target regulatory, and TF-target regulatory networks, to further elucidate the key mechanisms underlying PD. Our results may provide useful data for diagnosing and treating PD.
+
+2. Materials and Methods
+2.1. Affymetrix Microarray Data
+Gene expression profile data GSE72267 was extracted from the Gene Expression Omnibus database (https://www.ncbi.nlm.nih.gov/geo/) [28]. The GSE72267 dataset was deposited by Calligaris et al. [7], including blood samples from 40 PD patients and 19 healthy matched controls and was based on the platform of the GPL571 (HG-U133A-2) Affymetrix Human Genome U133A 2.0 Array (Affymetrix Inc., Santa Clara, California, USA). This dataset was downloaded and analyzed on October 2016.
+
+2.2. Data Preprocessing and DEG Screening
+The downloaded data in CEL files were preprocessed using the Affy package (version 1.50.0) [29] in R language, including background correction, normalization, and expression calculation. Annotations to the probes were performed, and probes that were not matched to the gene symbol were excluded. The average expression values were taken if different probes mapped to the same gene. DEGs in patients with PD compared with those in healthy matched controls were analyzed using the limma package (version 3.10.3) [30] in R language. The cutoff threshold was set to a p value of <0.05.
+
+2.3. Pathway Enrichment Analysis
+Gene ontology (GO) (http://www.geneontology.org/) analysis is commonly used for functional studies of large-scale genomic or transcriptomic data and classifies functions with respect to three aspects: molecular function (MF), cellular component (CC), and biological process (BP) [31, 32]. The Kyoto Encyclopedia of Genes and Genomes (KEGG; http://www.kegg.jp/) pathway database [33] is widely used for systematic analysis of gene functions, linking genomic data with higher order functional data. The database for annotation, visualization, and integrated discovery (DAVID) is an integrated biological knowledgebase with analytical tools used for systematic and integrative analysis of large gene lists [34]. In this study, GO terms and KEGG pathway enrichment analyses for up- and downregulated DEGs were performed using DAVID (version 6.8). The cutoff thresholds were as follows: an enrichment gene number count of ≥2 and a super geometry inspection significance threshold p value of <0.05.
+
+2.4. PPI Network Analysis
+Search Tool for the Retrieval of Interacting Genes/Proteins (STRING; http://www.string-db.org/) [35] is an online database that assesses and integrates PPIs. In this study, DEGs were mapped into the STRING database for PPI analysis, with a PPI score of 0.4 as the parameter setting. The PPI network established by DEGs was constructed using the Cytoscape software (version 3.2.0) [36], and the topology scores of the nodes, including node degree in the PPI network, were analyzed using the CytoNCA plugin (version 2.1.6; http://apps.cytoscape.org/apps/cytonca) [37] (parameter setting: without weight). Degree was used for describing importance of protein nodes in network. The higher the degree was, the more important the nodes were in network. In addition, subnetworks were identified using the MCODE plugin [38] in the Cytoscape software, and subnetworks with a score of >5 were identified as key subnetworks. Finally, KEGG pathway enrichment analyses for the genes in the key subnetworks were performed.
+
+2.5. miRNA-Target Regulatory Network Analysis
+The miR2disease (http://www.mir2disease.org/) database [39] is a manually curated database that provides a comprehensive resource of miRNA deregulation in various human diseases. miRWalk2.0 (http://zmf.umm.uni-heidelberg.de/apps/zmf/mirwalk2/) [40] is a comprehensive database that presents predicted and validated data, regarding miRNA targets in human, mouse, and rats. In this study, miRNAs related to PD were extracted from the miR2disease database, and experimentally verified miRNA-gene regulatory pairs were obtained by searching miRWalk2.0. Finally, a miRNA-target regulatory network was constructed by comparing DEGs with obtained miRNA-gene regulatory pairs using the Cytoscape software.
+
+2.6. TF-Target Regulatory Network Analysis
+The genes in the PPI network described above were further analyzed to identify TF-target interaction pairs that were then used to construct a TF-target regulatory network. The iRegulon plugin (version 1.3; http://apps.cytoscape.org/apps/iRegulon) [41] in the Cytoscape software collects multiple human TF-target interaction databases such as Transfac, Jaspar, and Encode using two computational methods: Motif and Track. In this study, we analyzed the TF-target pairs using the iRegulon plugin and compared them with TFs with DEGs in the PPI network, followed by a TF-target regulatory network construction. The parameter settings were as follows: minimum identity between orthologous genes, 0.05 and maximum false discovery rate on motif similarity, 0.001. The normalized enrichment score (NES) indicates the reliability of the results, and the cutoff threshold was NES of >3.
+
+3. Results
+3.1. Analysis of DEGs
+The boxplot of the preprocessed data indicated good normalization (Figure 1). In total, 22,277 probes were obtained, among which 971 probes were differentially expressed. After annotation, 819 DEGs in patients with PD compared with those in healthy matched controls were identified (Supplementary Table 1), including 359 upregulated DEGs and 460 downregulated DEGs.
+
+3.2. Pathway Enrichment Analysis
+GO and KEGG pathway enrichment analyses for the up- and downregulated DEGs were performed (Supplementary Table 2). The significant GO terms and KEGG pathways are shown in Figure 2. The upregulated DEGs were significantly enriched in four KEGG pathways, namely, metabolic pathways, inositol phosphate metabolism, mRNA surveillance pathway, and RNA degradation, and GO terms such as transcription, DNA-template processing, and rRNA processing (Figure 2). The downregulated DEGs were enriched in pathways such as those of influenza A, viral myocarditis, and TNF signaling and GO terms such as cytoplasm, cell surface, and interferon gamma-mediated signaling pathway (Figure 2).
+
+3.3. PPI Network Analysis
+The PPI network, including 605 nodes and 1937 PPI pairs, is shown in Figure 3. The top 10 DEGs with the highest degree included five upregulated DEGs such as estrogen receptor 1 (ESR1), mechanistic target of rapamycin (MTOR), ATM serine/threonine kinase (ATM), CD40 molecule (CD40) and thymidine kinase 2, mitochondrial (TK2), and five downregulated DEGs such as mitogen-activated protein kinase 14 (MAPK14), phosphatase and tensin homolog (PTEN), intercellular adhesion molecule 1 (ICAM1), aurora kinase A (AURKA), and protein kinase, DNA-activated, catalytic polypeptide (PRKDC) (Table 1). Three subnetworks were identified (subnetworks a–c). Subnetwork a (Figure 4) included nine nodes and 36 PPI pairs, and these genes were significantly enriched in three KEGG pathways (Table 2), including neuroactive ligand-receptor interaction, chemokine signaling pathway, and cytokine-cytokine receptor interaction. Subnetwork b (Figure 4) included seven nodes and 21 PPI pairs, and these genes were not enriched in any KEGG pathway. Subnetwork c (Figure 4) included 27 nodes and 81 PPI pairs, and these genes were enriched in 12 KEGG pathways (Table 2), such as cell cycle, herpes simplex infection, and NF-κB signaling pathways. In addition, ICAM1 was involved in six KEGG pathways of subnetwork c, such as viral myocarditis, cell adhesion molecules (CAMs), and NF-κB signaling pathways (Table 2). The detailed information existed in PPI network, and three subnetworks are shown in Supplementary Table 3.
+
+3.4. miRNA-Target Regulatory Network Analysis
+According to the data from the miR2disease database, six miRNAs were identified to be associated with PD and 698 miRNA-gene pairs were obtained by searching miRWalk2.0. A total of 40 miRNA-target interaction pairs were obtained by comparing miRNA-gene pairs with DEGs, and subsequently, the miRNA-target regulatory network was constructed. The network (Figure 5) contained 40 miRNA-target interaction pairs and 43 nodes (Supplementary Table 4), among which three miRNAs (hsa-miR-7-5p, hsa-miR-433-3p, and hsa-miR-133b) were included.
+
+3.5. TF-Target Regulatory Network Analysis
+According the information of TF-target interaction databases such as Transfac, Jaspar, and Encode in the Cytoscape software, a total of 83 TFs were identified from the PPI network, forming 5371 TF-gene pairs. Among the 83 TFs, six were differentially expressed: three upregulated ones, that is, zinc finger and BTB domain-containing 7A (ZBTB7A), ovo-like transcriptional repressor 1 (OVOL1), and GATA-binding protein 3, and three downregulated ones, that is, transcription factor dp-1 (TFDP1), SMAD family member 1 (SMAD1), and quiescin sulfhydryl oxidase 1 (QSOX1). The TF-target regulatory network (Figure 6) was constructed and included 166 nodes and 288 interaction pairs (Supplementary Table 5). The top 20 nodes with the highest degree are listed in Table 3, including the six TFs described above and 14 other DEGs, such as ectodermal-neural cortex 1, fibronectin type III domain-containing 3A, and midline 1, which were coregulated by the six TFs.
+
+4. Discussion
+PD is the second most common age-related neurodegenerative disease. However, the pathogenesis and genes involved in PD are not well known [42]. In this study, we performed a comprehensive bioinformatics analysis of the blood gene expression profile using the GSE72267 dataset. The results suggested that four key pathways (metabolic pathways, TNF signaling pathway, rRNA processing, and cytoplasm), the key gene ICAM1, three miRNAs (hsa-miR-7-5p, hsa-miR-433-3p, and hsa-miR-133b), and six TFs (ZBTB7A, OVOL1, GATA3, TFDP1, SMAD1, and QSOX) might play important roles in PD development.
+
+Our results revealed that the upregulated DEGs were enriched in the KEGG pathway “metabolic pathways” and the GO term “rRNA processing,” and the downregulated DEGs were enriched in the KEGG pathway “TNF signaling pathway” and the GO term “cytoplasm.” A previous study [43] demonstrated that some metabolic patterns were altered in patients with advanced PD. Multiple metabolic pathways are also involved in PD [44], which supports our study results. Cytoplasmic inclusions are a pathological hallmark of PD [45]. Lewy body pathology is involved [46, 47], and glial cytoplasmic inclusions are associated with Lewy bodies [48]. Thus, the GO term “cytoplasm” may play a role in PD. Furthermore, TNF receptor-associated protein is excluded from the nucleolus and is sequestered to the cytoplasm by TNF receptor-associated factor 6, thereby altering ribosomal RNA (rRNA) biogenesis [49]. The TNF signaling pathway is also involved in PD [50], and rRNA transcription is repressed in patients with PD [51]. Therefore, the GO term “rRNA processing” and the KEGG pathway “TNF signaling pathway” may play important roles in PD. Altogether, the metabolic pathways, TNF signaling pathway, rRNA processing, and cytoplasm are essentially involved in PD pathogenesis.
+
+
+ICAM1 was among the top 10 DEGs in the PPI network. Moreover, ICAM1 gene was involved in six KEGG pathways for subnetwork c. ICAM1 is involved in the adhesion and transmigration of leukocytes across the endothelium, promoting brain inflammation and resulting in brain diseases [52]. T helper 17 cells can exert a neurotoxic effect in the brain parenchyma of patients with PD by interacting with ICAM1 and leukocyte function-associated antigen 1 [53]. In addition, ICAM1 is involved in persistent inflammation in PD [54]. Our results from the KEGG pathway analysis for genes in subnetworks revealed that ICAM1 might play roles in viral myocarditis and CAMs and thus contributed to PD.
+
+The miRNA-target regulatory network analysis identified three miRNAs involved in PD, namely, hsa-miR-7-5p, hsa-miR-433-3p, and hsa-miR-133b. A study described miR-7-2 dysregulation (the stem loop of hsa-miR-7-5p) in Parkinson's patient's leukocytes [55] and revealed that hsa-miR-7-5p expression decreased in PD, possibly upregulating α-SYN, a PD-related gene [56]. The variation of the hsa-miR-433- (the stem loop of hsa-miR-433-3p-) binding site of fibroblast growth factor 20 can lead to α-SYN overexpression, increasing the risk for PD [57]. hsa-miR-133b expression is increased in the cerebrospinal fluid of patients with PD [58]; however, its expression levels in serum is decreased, which is related to low serum ceruloplasmin levels [59]. hsa-miR-133b is also deficient in the midbrain tissue of patients with PD and is associated with the maturation and function of midbrain dopaminergic neurons [60]. Notably, reduced circulating levels of miR-433 and miR-133b are considered as promising biomarkers for PD [61]. Therefore, we speculate that the three miRNAs, including hsa-miR-7-5p, hsa-miR-433-3p, and hsa-miR-133b may play important roles in PD.
+
+TFs are important regulators of target gene expressions [53, 62]. In this study, we analyzed DEGs in the PPI network to screen TFs involved in PD. Among the 83 TFs identified in the PPI network, six were found to be differentially expressed. ZBTB7A, OVOL1, and GATA3 were upregulated in patients with PD compared with those in healthy matched controls, whereas TFDP1, SMAD1, and QSOX1 were downregulated. ZBTB7A is a tumor suppressor, which is involved in several cancers such as prostate and nonsmall cell lung cancers [63–65]. OVOL1, encoding a zinc finger protein, is expressed in embryonic epidermal progenitor cells and is an inducer of mesenchymal-to-epithelial transition in human cancers [66, 67]. GATA3, a member of the GATA family, is a regulator of T-cell development and plays roles in endothelial cells [68, 69]. TFDP1 is involved in the cell cycle and contributes to hepatocellular carcinomas [70, 71], SMAD1 is involved in multiple pathways [72, 73], and QSOX1 plays roles in some cancers such as breast cancer and neuroblastoma [74–76]. However, there are few reports regarding the involvement of these TFs in PD. Hence, further studies regarding the associations between the TFs identified in this study and PD are warranted.
+
+In conclusion, our data demonstrated that the metabolic pathways, TNF signaling pathway, rRNA processing, and cytoplasm play important roles in PD pathogenesis; ICAM1 might also play a vital role. Besides six TFs, three miRNAs, including hsa-miR-7-5p, hsa-miR-433-3p, and hsa-miR-133b, may be involved in PD. However, because of the study limitations, further investigation remains to be performed in the future.
+
+Acknowledgments
+This study was supported by the Construction of Accurate Technology Innovation Centers of Nervous System Disease, Jilin Province (no. 20170623006TC), and Study on the Mechanism of the Parkinson lncrna, Jilin Provincial Department of Finance Project.
+
+Conflicts of Interest
+The authors declare that there are no conflicts of interest regarding the publication of this article.
+
+Supplementary Materials
+Supplementary 1 Table 1: all up- and downregulated differentially expressed genes.
+
+Click here for additional data file.
+
+ Supplementary 2 Table 2: GO and KEGG pathway enrichment analyses for the up- and downregulated differentially expressed genes. GO, Gene Ontology; KEGG, Kyoto Encyclopedia of Genes and Genomes.
+
+Click here for additional data file.
+
+ Supplementary 3 Table 3: the detailed information existing in protein-protein interaction (PPI) network and three subnetworks.
+
+Click here for additional data file.
+
+ Supplementary 4 Table 4: the detailed information about the miRNA-target regulatory network.
+
+Click here for additional data file.
+
+ Supplementary 5 Table 5: the detailed information about transcription factor- (TF-) target regulatory network.
+
+Click here for additional data file.
+
+ Figure 1 Boxplots for normalized gene expression data. Red represents the blood samples of patients with Parkinson's disease, and white represents the healthy matched control samples.
+
+Figure 2 Functional enrichment analyses of differentially expressed genes (DEGs). (a) Gene Ontology (GO) terms and the Kyoto Encyclopedia of Genes and Genomes (KEGG) pathways of upregulated DEGs and (b) GO terms and KEGG pathways of downregulated DEGs. The numbers on the x-axis were the ID of pathways or GO terms. The numbers on the y-axis were gene counts.
+
+Figure 3 The protein-protein interaction (PPI) network of differentially expressed genes (DEGs). Red circles represent upregulated DEGs, and green diamonds represent downregulated DEGs.
+
+Figure 4 Subnetworks of differentially expressed genes (DEGs). (a) Subnetwork a; (b) subnetwork b; (c) subnetwork c. Red circles represent upregulated DEGs, and green diamonds represent downregulated DEGs.
+
+Figure 5 MicroRNA- (miRNA-) target regulatory networks of differentially expressed genes (DEGs). Triangles represent miRNAs, red circles represent upregulated DEGs, and green diamonds represent downregulated DEGs.
+
+Figure 6 The TF-target regulatory network of differentially expressed genes (DEGs). Blue boxed figures represent TFs, red circles represent upregulated genes, and green diamonds represent downregulated genes. TF, transcription factor.
+
+Table 1 List of top 10 differentially expressed genes with higher degrees in protein-protein interaction network.
+
+Gene	Full name	Description	Degree	
+MAPK14	Mitogen-activated protein kinase 14	Down	68	
+ESR1	Estrogen receptor 1	Up	54	
+PTEN	Phosphatase and tensin homolog	Down	52	
+MTOR	Mechanistic target of rapamycin	Up	40	
+ATM	ATM serine/threonine kinase	Up	35	
+ICAM1	Intercellular adhesion molecule 1	Down	33	
+CD40	CD40 molecule	Up	32	
+AURKA	Aurora kinase A	Down	31	
+PRKDC	Protein kinase, DNA-activated, catalytic polypeptide	Down	29	
+TK2	Thymidine kinase 2, mitochondrial	Up	29	
+Degree was used for describing the importance of protein nodes in network. The higher the degree was, the more important the nodes were in network.
+
+Table 2 List of KEGG pathways of subnetworks.
+
+Subnetwork	Pathway ID	Pathway name	Count	
+p value	Genes	
+Subnetwork a	hsa04080	Neuroactive ligand-receptor interaction	5	1.40E−04	MCHR1, PTGER3, S1PR5, FPR3, NPY1R	
+hsa04062	Chemokine signaling pathway	3	1.80E−02	CCR9, CCR6, CCR4	
+hsa04060	Cytokine-cytokine receptor interaction	3	2.74E−02	CCR9, CCR6, CCR4	
+Subnetwork c	hsa04110	Cell cycle	6	1.31E−04	CCNB1, CDC14A, PRKDC, CCNA2, MCM4, TFDP1	
+hsa05416	Viral myocarditis	4	1.62E−03	ICAM1, CASP8, HLA-C, CD40	
+hsa05168	Herpes simplex infection	5	6.03E−03	SP100, CASP8, OAS3, PML, HLA-C	
+hsa04514	Cell adhesion molecules	4	1.70E−02	VCAM1, ICAM1, HLA-C, CD40	
+hsa05144	Malaria	3	1.78E−02	VCAM1, ICAM1, CD40	
+hsa04621	NOD-like receptor signaling pathway	3	2.00E−02	CASP8, RIPK2, CASP1	
+hsa04115	p53 signaling pathway	3	2.93E−02	CCNB1, RRM2, CASP8	
+hsa05164	Influenza A	4	3.32E−02	ICAM1, OAS3, PML, CASP1	
+hsa04914	Progesterone-mediated oocyte maturation	3	4.30E−02	CCNB1, GNAI2, CCNA2	
+hsa05169	Epstein–Barr virus infection	4	4.42E−02	ICAM1, HLA-C, CD40, CCNA2	
+hsa05203	Viral carcinogenesis	4	4.60E−02	SP100, CASP8, HLA-C, CCNA2	
+hsa04064	NF-kappa B signaling pathway	3	4.84E−02	VCAM1, ICAM1, CD40	
+KEGG, Kyoto Encyclopedia of Genes and Genomes.
+
+Table 3 List of top 20 nodes with higher degree in transcription factor-target regulatory network.
+
+Gene	Full name	Description	Degree	
+TFDP1∗
+	Transcription factor Dp-1	Down	62	
+ZBTB7A∗
+	Zinc finger and BTB domain-containing 7A	Up	55	
+OVOL1∗
+	Ovo-like transcriptional repressor 1	Up	46	
+SMAD1∗
+	SMAD family member 1	Down	45	
+QSOX1∗
+	Quiescin sulfhydryl oxidase 1	Down	44	
+GATA3∗
+	GATA-binding protein 3	Up	38	
+ENC1	Ectodermal-neural cortex 1	Down	6	
+FNDC3A	Fibronectin type III domain-containing 3A	Up	6	
+MID1	Midline 1	Down	6	
+PDE4D	Phosphodiesterase 4D	Down	5	
+ZNF362	Zinc finger protein 362	Up	5	
+CBLB	Cbl proto-oncogene B	Down	4	
+LARGE	LARGE xylosyl- and glucuronyltransferase	Up	4	
+TRPC4	Transient receptor potential cation channel subfamily C member 4	Down	4	
+CTBP2	C-terminal binding protein 2	Up	4	
+GLI3	GLI family zinc finger 3	Down	4	
+SCN3A	Sodium voltage-gated channel alpha subunit 3	Up	4	
+TAL1	TAL BHLH transcription factor 1, erythroid differentiation factor	Down	4	
+LRRN3	Leucine rich repeat neuronal 3	Up	3	
+MAST4	Microtubule-associated serine/threonine kinase family member 4	Up	3	
+
+∗Transcription factor.
+==== Refs
+1 Dauer W.  Przedborski S.   Parkinson’s disease: mechanisms and models Neuron  2003 39 6 889 909 10.1016/s0896-6273(03)00568-3 2-s2.0-0141741347 12971891 
+2 Lang A. E.  Lozano A. M.   Parkinson’s disease. Second of two parts New England Journal of Medicine  1998 339 16 1130 1143 10.1056/nejm199810153391607 2-s2.0-0032531924 9770561 
+3 Lang A. E.  Lozano A. M.   Parkinson’s disease New England Journal of Medicine  1998 37 p. 198 
+4 Kalia L. V.  Lang A. E.   Parkinson’s disease Lancet  2015 386 9996 896 912 10.1016/s0140-6736(14)61393-3 2-s2.0-84940956493 25904081 
+5 Moore D. J.  West A. B.  Dawson V. L.  Dawson T. M.   Molecular pathophysiology of Parkinson’s disease Annual Review of Neuroscience  2005 28 1 57 87 10.1146/annurev.neuro.28.061604.135718 2-s2.0-20744435383 
+6 Bae S. K.  Heo C. H.  Choi D. J.    A ratiometric two-photon fluorescent probe reveals reduction in mitochondrial H2S production in Parkinson’s disease gene knockout astrocytes Journal of the American Chemical Society  2013 135 26 9915 9923 10.1021/ja404004v 2-s2.0-84879768453 23745510 
+7 Calligaris R.  Banica M.  Roncaglia P.    Blood transcriptomics of drug-naïve sporadic Parkinson’s disease patients BMC Genomics  2015 16 1 1 14 10.1186/s12864-015-2058-3 2-s2.0-84945581797 25553907 
+8 Gong L.  Zhang Q. L.  Zhang N.    Neuroprotection by urate on 6-OHDA-lesioned rat model of Parkinson’s disease: linking to Akt/GSK3β signaling pathway Journal of Neurochemistry  2012 123 5 876 885 10.1111/jnc.12038 2-s2.0-84868654616 23094836 
+9 Tufekci K. U.  Bayin E. C.  Genc S.  Genc K.   The Nrf2/ARE pathway: a promising target to counteract mitochondrial dysfunction in Parkinson’s disease Parkinson’s Disease  2011 2011 14 314082 10.4061/2011/314082 2-s2.0-79955057180 
+10 Cheng D.  Jenner A. M.  Shui G.    Lipid pathway alterations in Parkinson’s disease primary visual cortex PLoS One  2011 6 e17299 10.1371/journal.pone.0017299 2-s2.0-79952237910 
+11 Deumens R.  Blokland A.  Prickaerts J.   Modeling Parkinson’s disease in rats: an evaluation of 6-OHDA lesions of the nigrostriatal pathway Experimental Neurology  2002 175 2 303 317 10.1006/exnr.2002.7891 2-s2.0-0036283426 12061862 
+12 Leroy E.  Boyer R.  Auburger G.    The ubiquitin pathway in Parkinson’s disease Nature  1998 395 6701 451 452 10.1038/26652 2-s2.0-0032190090 9774100 
+13 Pan T.  Kondo S.  Le W.  Jankovic J.   The role of autophagy-lysosome pathway in neurodegeneration associated with Parkinson’s disease Brain  2008 131 8 1969 1978 10.1093/brain/awm318 2-s2.0-41549114279 18187492 
+14 Perrett R. M.  Alexopoulou Z.  Tofaris G. K.   The endosomal pathway in Parkinson’s disease Molecular & Cellular Neurosciences  2015 66 21 28 10.1016/j.mcn.2015.02.009 2-s2.0-84929705678 25701813 
+15 Whone A. L.  Moore R. Y.  Piccini P. P.  Brooks D. J.   Plasticity of the nigropallidal pathway in Parkinson’s disease Annals of Neurology  2003 53 2 206 213 10.1002/ana.10427 2-s2.0-0037307956 12557287 
+16 Cholewa B. D.  Liu X.  Ahmad N.   The role of polo-like kinase 1 in carcinogenesis: cause or consequence? Cancer Research  2013 73 23 6848 6855 10.1158/0008-5472.can-13-2197 2-s2.0-84890278751 24265276 
+17 Miñonesmoyano E.  Porta S.  Escaramís G.    MicroRNA profiling of Parkinson’s disease brains identifies early downregulation of miR-34b/c which modulate mitochondrial function Human Molecular Genetics  2011 20 15 p. 3067 10.1093/hmg/ddr210 2-s2.0-79960135400 
+18 De M. L.  Coto E.  Cardo L. F.    Analysis of the Micro-RNA-133 and PITX3 genes in Parkinson’s disease American Journal of Medical Genetics Part B Neuropsychiatric genetics: The Official Publication of the International Society of Psychiatric Genetics  2010 153B 6 1234 1239 10.1002/ajmg.b.31086 2-s2.0-77956122651 
+19 Li S.  Lv X.  Zhai K.    MicroRNA-7 inhibits neuronal apoptosis in a cellular Parkinson’s disease model by targeting Bax and Sirt2 American Journal of Translational Research  2016 8 2 993 1004 27158385 
+20 Zhou Y.  Lu M.  Du R. H.    MicroRNA-7 targets Nod-like receptor protein 3 inflammasome to modulate neuroinflammation in the pathogenesis of Parkinson’s disease Molecular Neurodegeneration  2016 11 1 p. 28 10.1186/s13024-016-0094-3 2-s2.0-84966292082 
+21 Le W.  Nguyen D.  Lin X. W.    Transcription factor PITX3 gene in Parkinson’s disease Neurobiology of Aging  2011 32 4 750 753 10.1016/j.neurobiolaging.2009.03.015 2-s2.0-79953049313 19394114 
+22 Li J.  Dani J. A.  Le W.   The role of transcription factor Pitx3 in dopamine neuron development and Parkinson’s disease Current Topics in Medicinal Chemistry  2009 9 10 855 859 19754401 
+23 Xie X.  Liu H.  Gao Y.   Expression changes of transcription factor EN1 in the midbrain of mice model of Parkinson’s disease Chinese Journal of Rehabilitation Medicine  2012 27 197 200 
+24 Cuadrado A.  Morenomurciano P.  Pedrazachaverri J.   The transcription factor Nrf2 as a new therapeutic target in Parkinson’s disease Expert Opinion on Therapeutic Targets  2009 13 3 319 329 10.1517/13543780802716501 2-s2.0-65549095883 19236154 
+25 Flood P. M.  Qian L.  Peterson L. J.    Transcriptional factor NF-κB as a target for therapy in Parkinson’s disease Parkinson’s Disease  2011 2011 8 216298 10.4061/2011/216298 2-s2.0-79959272144 
+26 Kurzawski M.  Białecka M.  Sławek J.  Kłodowskaduda G.  Droździk M.   Association study of GATA-2 transcription factor gene (GATA2) polymorphism and Parkinson’s disease Parkinsonism & Related Disorders  2009 16 4 284 287 10.1016/j.parkreldis.2009.10.006 2-s2.0-77952885057 19864173 
+27 Soshnikova N. V.  Vorob’Eva N. E.  Kolacheva A. A.    Ratio of transcription factor PHF10 splice variants in lymphocytes as a molecular marker of Parkinson’s disease Molecular Biology  2016 50 4 695 702 10.1134/s0026893316040130 2-s2.0-84983628477 
+28 Barrett T.  Suzek T. O.  Troup D. B.    NCBI GEO: mining millions of expression profiles—database and tools Nucleic Acids Research  2005 33 D562 D566 15608262 
+29 Gautier L.  Cope L.  Bolstad B. M.  Irizarry R. A.   affy—analysis of Affymetrix GeneChip data at the probe level Bioinformatics  2004 20 3 307 315 10.1093/bioinformatics/btg405 2-s2.0-1342288026 14960456 
+30 Smyth G.  Smyth G. K.   Limma: linear models for microarray data Bioinformatics and Computational Biology Solution Using R and Bioconductor  2005 Berlin, Germany Springer 
+31 Hulsegge I.  Kommadath A.  Smits M. A.   Globaltest and GOEAST: two different approaches for Gene Ontology analysis BMC Proceedings  2009 3 4 p. S10 10.1186/1753-6561-3-s4-s10 19278536 
+32 Consortium T. G. O.  Ashburner M.  Ball C. A.    Gene ontology: tool for the unification of biology Nature Genetics  2000 25 1 25 29 10.1038/75556 2-s2.0-0034069495 10802651 
+33 Kanehisa M.  Goto S.   KEGG: Kyoto Encyclopedia of Genes and Genomes Nucleic Acids Research  1999 27 1 27 30 
+34 Huang D. W.  Sherman B. T.  Lempicki R. A.   Systematic and integrative analysis of large gene lists using DAVID bioinformatics resources Nature Protocol  2009 4 1 44 57 10.1038/nprot.2008.211 2-s2.0-61449172037 
+35 Szklarczyk D.  Franceschini A.  Wyder S.    STRING v10: protein-protein interaction networks, integrated over the tree of life Nucleic Acids Research  2015 43 D1 D447 10.1093/nar/gku1003 2-s2.0-84941051170 25593347 
+36 Shannon P.  Markiel A.  Ozier O.    Cytoscape: a software environment for integrated models of biomolecular interaction networks Genome Research  2003 13 11 2498 2504 10.1101/gr.1239303 2-s2.0-0242490780 14597658 
+37 Tang Y.  Li M.  Wang J.  Pan Y.  Wu F. X.   CytoNCA: a cytoscape plugin for centrality analysis and evaluation of protein interaction networks Bio Systems  2014 127 67 72 10.1016/j.biosystems.2014.11.005 2-s2.0-84912080804 
+38 Bandettini W. P.  Kellman P.  Mancini C.    MultiContrast Delayed Enhancement (MCODE) improves detection of subendocardial myocardial infarction by late gadolinium enhancement cardiovascular magnetic resonance: a clinical validation study Journal of Cardiovascular Magnetic Resonance  2012 14 1 p. 83 10.1186/1532-429x-14-83 2-s2.0-84870170302 23199362 
+39 Jiang Q.  Wang Y.  Hao Y.    miR2Disease: a manually curated database for microRNA deregulation in human disease Nucleic Acids Research  2009 37 D98 104 10.1093/nar/gkn714 2-s2.0-58149179989 18927107 
+40 Dweep H.  Gretz N.   miRWalk2.0: a comprehensive atlas of microRNA-target interactions Nature Methods  2015 12 8 p. 697 10.1038/nmeth.3485 2-s2.0-84938384133 
+41 Janky R.  Verfaillie A.  Imrichová H.    iRegulon: from a gene list to a gene regulatory network using large motif and track collections Plos Computational Biology  2014 10 7 p. e1003731 10.1371/journal.pcbi.1003731 2-s2.0-84905457386 
+42 Feng Y.  Jankovic J.  Wu Y. C.   Epigenetic mechanisms in Parkinson’s disease Journal of the Neurological Sciences  2015 349 1-2 3 9 10.1016/j.jns.2014.12.017 2-s2.0-84923842291 25553963 
+43 Moreno M. G.  Sánchez C.  Vazquez G.  Altamirano J.  Avilarodriguez M.   Metabolic mismatch patterns in patients with advanced Parkinson’s disease on 18 F-FDOPA, 11 C-Raclopride and 11 C-DTBZ PET/CT Journal of Nuclear Medicine  2015 56 3 p. 1890 
+44 Bonin M.  Poths S.  Osaka H.  Wang YL.  Wada K.  Riess O.   Microarray expression analysis of gad mice implicates involvement of Parkinson’s disease associated UCH-L1 in multiple metabolic pathways Molecular Brain Research  2004 126 1 88 97 10.1016/j.molbrainres.2004.03.025 2-s2.0-2942635265 15207921 
+45 Ihara M.  Tomimoto H.  Kitayama H.    Association of the cytoskeletal GTP-binding protein Sept4/H5 with cytoplasmic inclusions found in Parkinson’s disease and other synucleinopathies Journal of Biological Chemistry  2003 278 26 24095 24102 12695511 
+46 Mills K. A.  Mari Z.  Bakker C.    Gait function and locus coeruleus Lewy body pathology in 51 Parkinson’s disease patients Parkinsonism & Related Disorders  2016 33 102 106 10.1016/j.parkreldis.2016.09.024 2-s2.0-85000360808 27693194 
+47 Saito Y.  Shioya A.  Sano T.  Sumikura H.  Murata M.  Murayama S.   Lewy body pathology involves the olfactory cells in Parkinson’s disease and related disorders Movement Disorders Official Journal of the Movement Disorder Society  2016 31 1 135 138 10.1002/mds.26463 2-s2.0-84956757922 26748832 
+48 Mochizuki A.  Komatsuzaki Y.  Shoji S. I.   Association of Lewy bodies and glial cytoplasmic inclusions in the brain of Parkinson’s disease Acta Neuropathologica  2002 104 534 537 12410401 
+49 Vilotti S.  Codrich M.  Ferro M. D.    Parkinson’s disease DJ-1 L166P alters rRNA biogenesis by exclusion of TTRAP from the nucleolus and sequestration into cytoplasmic aggregates via TRAF6 PLoS One  2012 7 4 e35051 10.1371/journal.pone.0035051 2-s2.0-84859965734 
+50 Martinez T. N.   Neuroinflammation, TNF, and ceramide signaling: putative pathways for neurotoxicity in Parkinson’s disease Diss.  2010 
+51 Kang H.  Shin J. H.   Repression of rRNA transcription by PARIS contributes to Parkinson’s disease Neurobiology of Disease  2015 73 220 228 10.1016/j.nbd.2014.10.003 2-s2.0-84908519127 25315684 
+52 Choi J. Y.  Jo S. A.   KDM7A histone demethylase mediates TNF-α-induced ICAM1 protein upregulation by modulating lysosomal activity Biochemical & Biophysical Research Communications  2016 478 3 1355 1362 10.1016/j.bbrc.2016.08.128 2-s2.0-84993953569 27565733 
+53 Zhao Q.  Liu H.  Yao C.  Shuai J.  Sun X.   Effect of dynamic interaction between microRNA and transcription factor on gene expression Biomed Research International  2016 2016 10 2676282 10.1155/2016/2676282 2-s2.0-84998816266 
+54 Miklossy J.  Doudet D. D.  Schwab C.  Yu S.  Mcgeer E. G.  Mcgeer P. L.   Role of ICAM-1 in persisting inflammation in Parkinson disease and MPTP monkeys Experimental Neurology  2006 197 2 275 283 10.1016/j.expneurol.2005.10.034 2-s2.0-30444443297 16336966 
+55 Soreq L.  Bronstein M.  Greenberg D. S.    Small RNA sequencing-microarray analyses in Parkinson leukocytes reveal deep brain stimulation-induced splicing changes that classify brain region transcriptomes Frontiers in Molecular Neuroscience  2013 6 p. 10 10.3389/fnmol.2013.00010 2-s2.0-84876435649 
+56 Junn E.  Lee K. W.  Jeong B. S.  Chan T. W.  Im J. Y.  Mouradian M. M.   Repression of alpha-synuclein expression and toxicity by microRNA-7 Proceedings of the National Academy of Sciences of the United States of America  2009 106 31 13052 13507 10.1073/pnas.0906277106 2-s2.0-69149102628 19628698 
+57 Wang G.  van der Walt J.  Li Y.    Variation in the miRNA-433 binding site of FGF20 confers risk for Parkinson disease by overexpression of alpha-synuclein American Journal of Human Genetics  2008 82 2 283 289 10.1016/j.ajhg.2007.09.021 2-s2.0-40749145370 18252210 
+58 Ma X.  Ren J.  Jiao Y.  Yang J.  Xu F.  Song Y.   Expression of miR-133b and its clinical significance in cerebrospinal fluid of patients with Parkinson’s disease Modern Journal of Integrated Traditional Chinese & Western Medicine  2014 23 24 2656 2658 
+59 Zhao N.  Jin L.  Fei G.  Zheng Z.  Zhong C.   Serum microRNA-133b is associated with low ceruloplasmin levels in Parkinson’s disease Parkinsonism & Related Disorders  2014 20 11 1177 1180 10.1016/j.parkreldis.2014.08.016 2-s2.0-84908567249 25218846 
+60 Kim J.  Inoue K.  Ishii J.    A MicroRNA feedback circuit in midbrain dopamine neurons Science  2007 317 5842 1220 1224 10.1126/science.1140481 2-s2.0-34548537573 17761882 
+61 Zhang X.  Yang R.  Hu B. L.    Reduced circulating levels of miR-433 and miR-133b are potential biomarkers for Parkinson’s disease Frontiers in Cellular Neuroscience  2017 11 p. 170 10.3389/fncel.2017.00170 2-s2.0-85021679130 28690499 
+62 Martinez N. J.  Walhout A. J.   The interplay between transcription factors and microRNAs in genome-scale regulatory networks Bioessays  2009 31 4 435 445 10.1002/bies.200800212 2-s2.0-65449151411 19274664 
+63 Apostolopoulou K.  Pateras I. S.  Evangelou K.    Gene amplification is a relatively frequent event leading to ZBTB7A (Pokemon) overexpression in non-small cell lung cancer Journal of Pathology  2007 213 3 294 302 10.1002/path.2222 2-s2.0-35948984773 17907153 
+64 Liu X. S.  Haines J. E.  Mehanna E. K.    ZBTB7A acts as a tumor suppressor through the transcriptional repression of glycolysis Genes & Development  2014 28 17 1917 1928 10.1101/gad.245910.114 2-s2.0-84906857361 25184678 
+65 Wang G.  Lunardi A.  Zhang J.    Zbtb7a suppresses prostate cancer through repression of a Sox9-dependent pathway for cellular senescence bypass and tumor invasion Nature Genetics  2013 45 7 739 746 10.1038/ng.2654 2-s2.0-84879645484 23727861 
+66 Nair M.  Teng A.  Bilanchone V.  Agrawal A.  Li B.  Dai X.   Ovol1 regulates the growth arrest of embryonic epidermal progenitor cells and represses c-myc transcription Journal of Cell Biology  2006 173 2 253 264 10.1083/jcb.200508196 2-s2.0-33646076202 16636146 
+67 Roca H.  Hernandez J.  Weidner S.    Transcription factors OVOL1 and OVOL2 induce the mesenchymal to epithelial transition in human cancer PLoS One  2013 8 10 e76773 10.1371/journal.pone.0076773 2-s2.0-84885079783 
+68 Ho I. C.  Tai T. S.  Pai S. Y.   GATA3 and the T-cell lineage: essential functions before and after T-helper-2-cell differentiation Nature Reviews Immunology  2009 9 2 125 135 10.1038/nri2476 2-s2.0-58849104422 
+69 Song H.  Suehiro J.  Kanki Y.    Critical role for GATA3 in mediating Tie2 expression and function in large vessel endothelial cells Journal of Biological Chemistry  2009 284 42 29109 29124 10.1074/jbc.m109.041145 2-s2.0-70350399490 19674970 
+70 Lu X.  Lv X. D.  Ren Y. H.    Dysregulation of TFDP1 and of the cell cycle pathway in high-grade glioblastoma multiforme: a bioinformatic analysis Genetics & Molecular Research  2016 15 2 10.4238/gmr.15027646 2-s2.0-84975282587 
+71 Yasui K.  Okamoto H.  Arii S.  Inazawa J.   Association of over-expressed TFDP1 with progression of hepatocellular carcinomas Journal of Human Genetics  2003 48 12 609 613 10.1007/s10038-003-0086-3 2-s2.0-0346158245 14618416 
+72 Fuentealba LC.  Eivers E.  Ikeda A.    Integrating patterning signals: Wnt/GSK3 regulates the duration of the BMP/Smad1 signal Cell  2007 131 5 980 993 10.1016/j.cell.2007.09.027 2-s2.0-36248995245 18045539 
+73 MacíAssilva M.  Hoodless P. A.  Tang S. J.  Buchwald M.  Wrana J. L.   Specific activation of Smad1 signaling pathways by the BMP7 type I receptor, ALK2 Journal of Biological Chemistry  1998 273 40 25628 25636 10.1074/jbc.273.40.25628 2-s2.0-0032475884 9748228 
+74 Araújo D.  Nakao L.   Expression level of quiescin sulfhydryl oxidase 1 (QSOX1) in neuroblastomas European Journal of Histochemistry  2014 58 1 p. 2228 10.4081/ejh.2014.2228 2-s2.0-84896034352 24704990 
+75 Lake D. F.  Faigel D. O.   The emerging role of QSOX1 in cancer Antioxid Redox Signal  2014 21 3 485 496 10.1089/ars.2013.5572 2-s2.0-84900513040 24359107 
+76 Pernodet N.  Hermetet F.  Adami P.    High expression of QSOX1 reduces tumorogenesis, and is associated with a better outcome for breast cancer patients Breast Cancer Research  2012 14 5 p. R136 10.1186/bcr3341 2-s2.0-84867744188
+

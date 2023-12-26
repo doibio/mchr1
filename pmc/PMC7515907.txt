@@ -1,0 +1,456 @@
+
+==== Front
+Sci Rep
+Sci Rep
+Scientific Reports
+2045-2322 Nature Publishing Group UK London 
+
+72024
+10.1038/s41598-020-72024-4
+Article
+Cilia interactome with predicted protein–protein interactions reveals connections to Alzheimer’s disease, aging and other neuropsychiatric processes
+Karunakaran Kalyani B. 1 Chaparala Srilakshmi 23 Lo Cecilia W. 4 Ganapathiraju Madhavi K. madhavi@pitt.edu 25 1 grid.34980.360000 0001 0482 5067Supercomputer Education and Research Centre, Indian Institute of Science, Bangalore, India 
+2 grid.21925.3d0000 0004 1936 9000Department of Biomedical Informatics, University of Pittsburgh, Pittsburgh, PA USA 
+3 grid.21925.3d0000 0004 1936 9000Health Sciences Library System, University of Pittsburgh, Pittsburgh, PA USA 
+4 grid.21925.3d0000 0004 1936 9000Department of Developmental Biology, School of Medicine, University of Pittsburgh, Pittsburgh, PA USA 
+5 grid.21925.3d0000 0004 1936 9000Intelligent Systems Program, School of Computing and Information, University of Pittsburgh, Pittsburgh, PA USA 
+24 9 2020 
+24 9 2020 
+2020 
+10 1562917 1 2020 10 8 2020 © The Author(s) 2020Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.Cilia are dynamic microtubule-based organelles present on the surface of many eukaryotic cell types and can be motile or non-motile primary cilia. Cilia defects underlie a growing list of human disorders, collectively called ciliopathies, with overlapping phenotypes such as developmental delays and cognitive and memory deficits. Consistent with this, cilia play an important role in brain development, particularly in neurogenesis and neuronal migration. These findings suggest that a deeper systems-level understanding of how ciliary proteins function together may provide new mechanistic insights into the molecular etiologies of nervous system defects. Towards this end, we performed a protein–protein interaction (PPI) network analysis of known intraflagellar transport, BBSome, transition zone, ciliary membrane and motile cilia proteins. Known PPIs of ciliary proteins were assembled from online databases. Novel PPIs were predicted for each ciliary protein using a computational method we developed, called High-precision PPI Prediction (HiPPIP) model. The resulting cilia “interactome” consists of 165 ciliary proteins, 1,011 known PPIs, and 765 novel PPIs. The cilia interactome revealed interconnections between ciliary proteins, and their relation to several pathways related to neuropsychiatric processes, and to drug targets. Approximately 184 genes in the cilia interactome are targeted by 548 currently approved drugs, of which 103 are used to treat various diseases of nervous system origin. Taken together, the cilia interactome presented here provides novel insights into the relationship between ciliary protein dysfunction and neuropsychiatric disorders, for e.g. interconnections of Alzheimer’s disease, aging and cilia genes. These results provide the framework for the rational design of new therapeutic agents for treatment of ciliopathies and neuropsychiatric disorders.
+
+Subject terms
+Developmental biologyMolecular neuroscienceNational Institute of Mental HealthR01MH094564R01MH094564Chaparala Srilakshmi Ganapathiraju Madhavi K. issue-copyright-statement© The Author(s) 2020
+==== Body
+Introduction
+Cilia are dynamic organelles projecting from the surface of many types of eukaryotic cells. They detect changes in the extracellular environment and transduce signals into the cell to regulate a wide variety of physiological and developmental processes. They can be either motile or non-motile, and exhibit a microtubule organization of 9 + 2 or 9 + 0, respectively1. Primary cilia are sensory organelles modulating several core signaling and cellular polarity pathways that are fundamental for tissue homeostasis and embryonic development2. Motile cilia drive the flow of bodily fluids including mucus and cerebrospinal fluid3,4. Defects involving the primary cilia are observed in various human ciliopathies such as Bardet-Biedl syndrome (BBS), Joubert syndrome and Meckel–Gruber syndrome. Motile cilia defects are seen in primary ciliary dyskinesia (PCD), male infertility and laterality defects5.
+
+The cilium is a complex organelle comprising over 600 proteins1. Underscoring their functional importance, many of these ciliary proteins are highly evolutionarily conserved including the intraflagellar transport (IFT) complexes located within the axoneme involved in bidirectional protein transport between the ciliary base and the tip, complexes localizing to the transition zone (TZ) at the ciliary base acting as a ‘ciliary gate’ regulating protein trafficking into and out of the cilia and BBSomes mediating cilia assembly6–8.
+
+Primary cilium is increasingly viewed as a hub for neuronal signalling. A large body of evidence has emerged demonstrating the role of cilia in the development and function of the central nervous system (CNS)9–11. Gene knockdown of BBS proteins such as BBS1, BBS4-5, BBS7, and BBS9-12 lead to cortical defects and improper neuronal migration, highlighting the significance of cilia genes in brain development12. Additionally, neural tube defects are observed in the brain with the disruption of cilia-transduced sonic hedgehog signaling (Shh) and Wnt signaling13,14. Indeed, many ciliopathies are known to be associated with neurological deficits such as developmental delays, cognitive impairment and neuropsychiatric disorders including ataxia, autism spectrum disorders and schizophrenia10,12. Importantly, the ciliary proteins AHI1, ARL13b, CDKL5 and EFHC1 have been implicated in autism spectrum disorder, epilepsy, and schizophrenia15–18. A recent study identified neuropsychiatric risk genes (NEK4, SDCCAG8, FEZ1, CEP63, PDE4B and SYNE1) to be linked to cilia assembly and function15. In addition, several ciliary proteins interact with proteins that are known to play a role in neuropsychiatric disorders: PCM1, BBS4 with DISC1 in schizophrenia, bipolar disorder and depression19,20, KIF3A, PCNT with DCDC2 in dyslexia21,22, and PCM, AHI1 with HTT in Huntington disease12,23,24. Hydrocephalus, a phenotype observed frequently in BBS and other ciliopathies, may reflect the role of motile cilia in the flow of cerebrospinal fluid in the brain10. Ciliopathies have also been associated with obesity, suggesting a role for cilia in the neural circuitry responsible for monitoring food intake and satiety25. The obesity-related genes MC4R and ADCY3 co-localize to primary cilia of hypothalamic neurons, and impairing this localization or blocking their signalling in primary cilia led to gain in body weight in mice26.
+
+Given the importance of large multi-protein complexes in its assembly and function, knowledge of the protein–protein interactions (PPIs) of ciliary proteins would help to elucidate the potential role of cilia biology in neuropsychiatric diseases. Studies based on PPI networks have significantly advanced our knowledge of specific proteins or the diseases that they are associated with, such as DISC1 in schizophrenia, or the NPHP-JBTS-MKS protein complex in ciliopathies27. DISC1 was a novel protein with well-characterized domains but of unknown function with no known human homolog, when it was identified as being associated with schizophrenia28,29. To understand the function of DISC1, its PPIs were determined using yeast 2-hybrid technology30,31. This led to a large number of studies, which connected DISC1 to cAMP signaling, axon elongation and neuronal migration. A study revealed that the role played by DISC1 in dopamine signaling, which is implicated in schizophrenia, may also involve primary cilia on neurons19. DISC1 localized to primary cilia on rat striatal neurons and was found to be involved in the formation and maintenance of cilia with certain dopamine receptors19. The PPI network of ciliary proteins CEP290 and RPGR revealed their connection to photoreceptors, and disruption of this network has been shown to cause blindness on rapid degeneration of photoreceptors, a finding associated with several ciliopathies32.
+
+Large-scale proteomic and protein interactome analyses have significantly advanced our understanding of its role in developmental biology and disease33–37. Multidimensional protein identification technology (MudPIT) was used to identify 195 candidate primary cilia proteins localizing to sensory cilia, or linked to known ciliopathies33. 850 interactors of nine NPHP/JBTS/MKS proteins (i.e. Nephronophthisis/Joubert/Meckel-Gruber syndromes) were identified using the G-LAP-Flp purification strategy, and several cilia-specific modules, namely ‘NPHP1-4-8’ functioning at the apical surface, ‘NPHP5-6’ at centrosomes and ‘MKS’ linked to hedgehog signaling were uncovered34. In another study, in vivo proximity-dependent biotinylation (BioID) was used to identify more than 7,000 interactions of 58 centriole, satellite and ciliary transition zone proteins, which revealed protein modules involved in cilia and centrosome biogenesis35. The interactome of CPLANE (ciliogenesis and planar polarity effector) proteins, namely that of Inturned (INTU), Fuzzy (FUZ) and Wdpcp (WDPCP), consisting of ~ 250 interactions, was identified using LAP-tagged immunoprecipitation, and it was shown that the CPLANE proteins govern IFT-A/B trafficking36. Systematic tandem affinity purifications coupled to mass spectrometry was employed to identify 4,905 interactions and 52 complexes for 217 proteins with known or suspected involvement in ciliary function or disease, and this study linked vesicle transport, the cytoskeleton and ubiquitination to ciliary signaling and proteostasis37. None of these experimental methods are single handedly capable of identifying all the possible interactions of ciliary genes. In fact, it is the ability of an experimental method to discover interactions not detected by another method that makes it truly valuable. Machine learning methods can computationally predict new interactions that other high throughput detection methods may fail to capture and serve as hypotheses-generation methods that may be validated by other experimental methods. Here, we applied computational method that we developed previously to discover novel PPIs of 165 ciliary proteins and analyzed the resulting ciliary PPI interactome for novel associations and potential connections to neuropsychiatric diseases.
+
+Experimental procedures
+Dataset
+Compilation of Cilia Gene List: We obtained a list of 165 cilia genes that were curated from literature by prioritizing the genes based on their association with cilia from Dr. Gregory Pazour’s lab building upon their prior work38. This list includes IFT proteins, BBS proteins, TZ proteins, ciliary membrane proteins, and proteins restricted to motile cilia. Known PPIs were collected from Human Protein Reference Database (HPRD)39 and Biological General Repository for Interaction Datasets (BioGRID)40. Gene-drug associations and ATC classifications were collected from DrugBank41, while neuropsychiatric gene-disease associations were collected from the GWAS catalog (www.ebi.ac.uk/gwas/). Random gene sets used in shortest path comparisons were sampled from about twenty thousand human proteins listed in the Ensembl database (www.ensembl.org).
+
+Novel PPIs were predicted using the HiPPIP model that we developed42. Each ciliary protein (say C1) was paired with each of the other human genes say, (G1, G2, … Gn), and each pair was evaluated with the HiPPIP model. The predicted interactions of each of the cilia genes were extracted, which resulted in 620 newly discovered PPIs of cilia genes. The average shortest path distance was computed using the Networkx package in python. Pathway associations were computed using Ingenuity Pathway Analysis suite. GO term enrichment was carried out using BinGO43; for each C1, a list of its known and predicted interacting partners (i.e. B1, B2, … Bn) are given as input to BinGO, which extracts the GO terms of all these genes and finds which of the GO terms are statistically enriched in comparison to the background distribution of GO terms of all human proteins. All statistically significant terms are assigned as network-based enriched GO terms of C1.
+
+Gene expression datasets in Gene Expression Omnibus were used to compute the overlap of the cilia interactome with genes differentially expressed in various neuropsychiatric disorders: major depressive disorder (GSE5398744), schizophrenia (GSE1761245), bipolar disorder (GSE1267946), autism spectrum disorder (GSE1812347), Alzheimer’s disease (GSE2937848 and GSE2814649), Parkinson’s disease (GSE28894) and non-syndromic intellectual disability (GSE3932650). Genes with fold change > 2 or < ½ were considered as significantly overexpressed and underexpressed respectively at p value < 0.05. A gene with transcripts per million ≥ 2 was considered to be ‘expressed’ while analyzing the overlap of the interactome with genes expressed in the amygdala, anterior cingulate cortex, caudate, cerebellum, frontal cortex, hippocampus, hypothalamus, nucleus accumbens, putamen, spinal cord and substantia nigra extracted from GTEx51. Time-dependent gene expression variation in the hippocampal region was extracted from BrainSpan Atlas containing RNA-Seq data from post-conceptional weeks to middle adulthood52. 78 genes associated with Alzheimer’s disease were extracted from DisGeNET53 (with score > 0.2 to include only expert-curated disease-gene associations). Then, to construct the Alzheimer’s disease interactome, whose overlap was to be checked with the cilia interactome, 4,742 known PPIs extracted from HPRD54 and BioGRID55, and 490 computationally predicted PPIs of these 78 genes were assembled. The biological validity of the interactome was shown by the fact that 676 genes out of the 3,944 genes in the AD interactome are differentially expressed in CA1 hippocampal gray matter from patients with severe Alzheimer's disease versus healthy controls (GSE2814649), out of which 71 were novel interactors (p value = 1.138e−20).
+
+Results
+We assembled a list of 165 genes encoding proteins known to be associated with primary and/or motile cilia, including IFT, BBS, TZ, and ciliary membrane proteins, as well as proteins restricted to motile cilia. Known PPIs of ciliary proteins were assembled from HPRD and BioGRID40,56. Novel PPIs were predicted for each of the cilia genes using our High-precision Protein–Protein Interaction Prediction (HiPPIP) model42. In this manner, a ciliary protein interactome was assembled comprising 165 ciliary proteins (red color square shaped nodes) with 1,011 known PPIs (blue edges) and 765 novel PPIs (red edges) that connect to 800 previously known interactors (light blue nodes) and 705 novel interactors (red nodes) (Fig. 1 and Table 1). We predicted 216 new interactions for 50 out of the 56 cilia genes that had no known PPIs. For example, GPR83 has 12 novel PPIs, LRRC48 has 10, PKD1L1 has 10, and SPEF has 10 novel PPIs. The number of known and novel PPIs of cilia genes are given in Supplementary File 1, and the lists of all genes and PPIs is given in Supplementary File 2.Figure 1 Cilia interactome. Cilia genes are shown as small dark-blue colored nodes and interactor genes are larger round nodes; the interactors are colored in light blue if they are previously known interactors and in red if they are found only through novel PPIs. PPIs are shown as edges, where blue color edges are known PPIs and red color edges are novel predicted PPIs. Most genes at the bottom of the figure have had zero known PPIs, and have multiple novel predicted PPIs.
+
+Table 1 Novel interactors of each of the cilia genes.
+
+Cilia gene	K	N	Novel interactors	
+AHI1	1	2	ARFGEF3, IFNGR1	
+AK7	0	3	BEGAIN, C14orf177, SLC25A29	
+ARL13B	1	4	MINA, CRYBG3, ARL6, DHFRL1	
+ARMC4	3	3	ARHGAP21, OTUD1, PIP4K2A	
+ATP8A2	1	3	C1QTNF9B-AS1, WASF3, SACS	
+ATXN10	9	9	TTLL12, RIBC2, SMC1B, GGA1, KCNH3, PIK3R2, KIAA0930, SAMM50, CERK	
+B9D1	7	3	TNFRSF13B, USP22, GIT1	
+B9D2	2	7	PLEKHG2, YIF1B, CCDC97, CNFN, CEACAM21, ZNF574, CNTD2	
+BBIP1	0	0	None	
+BBS1	13	6	ACTN3, BAK1, BAD, ATP6AP2, PEPD, POLR2G	
+BBS2	11	10	APOC2, WRNIP1, CETP, GOT2, SPTSSA, CES1, CNOT1, HSF4, MAP2K5, KCNK17	
+BBS4	13	5	ANP32A, AAGAB, MRPL28, SEMA7A, IGDCC3	
+BBS5	5	11	SLC6A15, CCDC173, KLHL41, CTSK, COTL1, EIF4EBP3, UBR3, KLHL23, ORM2, PRDM2, HRH1	
+BBS7	5	8	ANXA5, PDE8B, MSH6, MAD2L1, TRPC3, NDNF, QRFPR, CNGA1	
+BBS9	0	6	NME8, CD33, EHMT2, TRGV9, FGF2, CAPN1	
+CASC1	1	2	GOLT1B, PYROXD1	
+CBY1	8	3	APOL2, BCR, SPTLC3	
+CC2D2A	0	3	CPEB2, NCAPG, RAB28	
+CCDC114	8	4	CGB8, EXOC3L2, CGB7, CGB1	
+CCDC135	6	0	None	
+CCDC39	0	1	TTC14	
+CCDC40	1	3	NARF, RPTOR, WDR45B	
+CCDC63	0	2	ALKBH2, C12orf76	
+CCDC65	0	3	FAM186B, DNAJC22, RHEBL1	
+CCNA1	32	7	VDR, RFC3, GJB2, ZNF385A, PSMB9, SLC7A1, EDEM1	
+CDK3	17	10	CCDC47, CA4, ALG1, TLK2, ITIH4, PRKCA, PECAM1, NAP1L1, FOXJ1, TBX2	
+CEP290	2	0	None	
+CETN1	4	10	ALDH7A1, CCNH, GABRE, MUL1, YES1, LGALS3, PTPRM, USP14, TPD52L2, PTAFR	
+CETN2	9	12	ATP6AP1, C14orf166, ATP2B3, NUCB1, DKC1, PTPRN, CLIC2, DNASE1L1, TEX28, IL2RG, DDX3X, CORIN	
+CETN3	6	11	ATP6AP1L, HSP90AB1, HOXD10, SGOL1, FABP4, HAPLN1, TNNT1, P3H1, DNAJC19, POLR3G, PRKD3	
+CHMP5	14	6	NUP98, UBAP1, DYNLL2, TMEM8B, DOPEY2, GPX3	
+DAW1	2	1	RAB25	
+DDI2	0	3	AADACL3, CELA2A, PRAMEF1	
+DNAAF1	0	2	LINC00311, KCNG4	
+DNAAF2	1	4	ATL1, TRIM9, L2HGDH, TMX1	
+DNAAF3	0	7	ACPT, BRSK1, SIGLEC14, SIGLEC12, LENG9, LILRA5, ZNF606	
+DNAH1	0	7	ABHD14A, SEPSECS, LIN7B, POC1A, RPP30, GNL3, G3BP1	
+DNAH10	0	3	GATC, RILPL2, TMEM120B	
+DNAH11	0	3	CPVL, GGCT, IL6	
+DNAH12	0	1	PDE12	
+DNAH14	1	6	ACBD3, CNIH3, ENAH, TMEM63A, SDE2, MIXL1	
+DNAH17	0	0	None	
+DNAH2	0	6	CDK18, CCDC42, KCTD11, ODF4, PIK3R6, KRBA2	
+DNAH3	0	7	ERI2, TCIRG1, SOD1, THUMPD1, NPIPB3, LOC81691, IVL	
+DNAH5	0	13	CTNND2, CKB, CDH6, DAP, LARGE, MYO10, TLE1, MVP, RAN, TRIO, MARCH6, MICAL1, RBFOX2	
+DNAH6	0	1	PLGLB1	
+DNAH7	2	9	CSTF3, SHC1, STK17B, STAT4, METTL21A, TMEFF2, NABP1, TMEM194B, MIB2	
+DNAH8	0	3	TOMM6, RAB44, RASGRP1	
+DNAH9	0	3	YBX2, NLGN2, STX8	
+DNAI1	2	6	ATG10, CDKN2A, ZIC3, NPR2, METTL21B, GLDC	
+DNAI2	0	1	MFSD11	
+DNAJB1	28	10	CYP4F3, ARR3, CEP72, ADGRL3, ELAVL3, DNM2, ILF3, LYL1, SH3BP1, SSTR2	
+DNAJB13	0	4	BDKRB1, ARFRP1, KLHL35, WISP1	
+DNAL1	0	3	CIPC, LIN52, SLIRP	
+DNAL4	9	9	DDX17, CACNA1I, UBA7, TRIOBP, TOM1, GTPBP1, RHOT2, JOSD1, HMGXB4	
+DNALI1	5	3	GJA4, GJB5, TMEM200B	
+DRC1	1	4	C2orf44, CENPO, C2orf16, TCF23	
+DRC7	6	8	CCDC102A, ADGRG5, CPNE2, C16orf70, ZNF319, USB1, NDUFB9, MT4	
+DRD1	11	5	AP3M1, PLCD1, RARS, PPP4C, KCNMB1	
+DRD2	20	13	CASP1, CCNA2, CD3G, CD3E, GPC6, SGSH, VWA5A, INPPL1, IL10RA, PSG7, NQO2, RBM22, E2F6	
+DRD5	5	2	NKX3-2, FGFBP2	
+DYNLL1	76	5	RFC5, SUDS3, GABRQ, WSB2, VSIG10	
+DYNLL2	47	9	C17orf67, CHMP5, C17orf47, HSF5, STXBP4, F13A1, KIF2B, PRKD3, MSI2	
+DYNLRB1	6	2	CBFB, PDRG1	
+DYNLRB2	4	8	WWOX, SDR42E1, TGFBI, ZNF134, SLC38A8, NECAB2, IRF2BPL, MPHOSPH6	
+DYNLT1	28	7	CRHBP, ACAT2, SYNJ2, RPS6KA2, TMEM143, PARK2, ERO1L	
+DYNLT3	7	4	CYBB, IFITM1, UIMC1, FOS	
+DYX1C1	4	3	GCOM1, PRTG, WDR72	
+DZIP1L	4	3	PRR23B, NME9, PRR23C	
+EFHC1	6	2	CENPQ, ADGRF4	
+ESYT3	0	2	FAIM, SLC35G2	
+GALR2	1	1	EIF4A3	
+GALR3	0	4	EIF3D, CEP72, ENTHD1, SUV420H1	
+GAS8	0	7	FANCA, COX7B, DPEP1, MYLIP, MVD, MC1R, TAF1C	
+GPR161	0	3	C1orf112, TOR1AIP1, TBX19	
+GPR83	0	12	FUT4, CST1, CDK2AP1, AQP3, FGF13, PLSCR3, TYR, TPBG, JRKL, MRE11A, NINJ1, SPR	
+HEPH	0	1	MSN	
+HSPB11	2	4	C1orf168, C1orf87, RPS26P15, PARS2	
+HYDIN	1	2	FAM96B, CFDP1	
+IFT122	1	2	ZNF148, SLCO2A1	
+IFT140	4	7	DNAJA3, ZNF263, SLC9A3R2, RAB11FIP3, TELO2, IL32, TRAP1	
+IFT172	2	4	EFR3B, DNAJC27, RAB10, TMEM214	
+IFT20	28	7	ABHD15, COASY, HLCS, RALGPS2, RICTOR, TP53I13, RAB11FIP4	
+IFT22	0	5	C7orf43, NFE4, ORAI2, KMT2E, ZNF655	
+IFT27	2	5	DDX17, TNRC6B, KDELR3, TRIOBP, TAB1	
+IFT43	2	3	ELMSAN1, LIN52, NEK9	
+IFT46	0	6	NLRX1, TMPRSS4, SCN3B, TRAPPC4, SIDT2, PDZD3	
+IFT52	1	2	SPINT3, TOMM34	
+IFT57	4	6	CLTA, CASP8, CBLB, HTT, SLC25A3, TERT	
+IFT74	0	0	None	
+IFT80	1	5	FGFR4, OTOL1, SLITRK3, NMD3, ZBBX	
+IFT81	1	6	ERP29, NAA25, TPCN1, SLC8B1, SDS, RPH3A	
+IFT88	6	6	C1QTNF9B-AS1, ALDH8A1, MAP4K5, PDX1, TRIM24, SAP18	
+INVS	5	2	ABCA1, TMEM245	
+IQCB1	1	6	CD80, UPK1B, TRH, LMOD1, PVRL3, TBL1X	
+LCA5	3	1	FILIP1	
+LOXHD1	0	4	HDHD2, HAUS1, C18orf25, SKA1	
+LRRC48	0	10	ELAC2, GID4, EIF3E, FUNDC2, SMCR8, ZNF287, SPECC1, PLAGL1, ZNF624, SOD2	
+LRRC56	0	2	KRTAP5-1, MOB2	
+LRRC6	2	1	ST3GAL1	
+MCHR1	2	8	GRAP2, EP300, APOBEC3A, MASP2, EFCAB6, TCIRG1, MRPS18A, ST13	
+MKS1	2	5	ABCC3, DGKE, CACNA1G, RNF43, SMG8	
+NEK8	4	0	None	
+NME5	2	8	HBEGF, APTX, MKRN1, IFITM1, VDAC1, SPOCK1, VIPR1, P4HA2	
+NME8	1	2	BBS9, SUGCT	
+NPHP1	15	2	BCL2L11, COX5B	
+NPHP3	2	15	CCDC50, ANAPC13, COL7A1, ASTE1, NAA50, DPP7, EPC1, DDX3Y, CDV3, DNAJC13, PIK3R4, TOPBP1, PARP14, PPP2R3A, RAB6B	
+NPHP4	1	6	FBXO44, EDIL3, C1orf127, TMEM201, SCRG1, RBP7	
+NPY2R	4	3	APOC3, ABCE1, SMAD1	
+NPY5R	4	2	MDH2, KIF23	
+PDCD6IP	37	5	ATG7, CLASP2, FBXL2, CRTAP, STAC	
+PIH1D1	31	5	CABP5, C19orf73, RCN3, RASIP1, PRKG2	
+PKD1	24	9	NTHL1, NADSYN1, PDPK1, OR1F1, DDX58, NTN3, RPL3L, SOX17, PPL	
+PKD1L1	0	10	C7orf69, ABCC3, C7orf65, ACAA2, C7orf57, MGAT2, ABCA13, RPL6, PLCB2, PSME3	
+PKD2	14	6	KIF11, ADH1C, MTAP, ADH1A, PPP3CA, UCHL3	
+PKD2L1	3	6	MYOF, HNRNPA2B1, LGI1, CAB39, GBF1, PRPS2	
+PKHD1	1	7	ORM1, CSTF2T, ILK, ATXN2, EML4, BAG2, PTGIS	
+PPIL6	0	2	AK9, CEP57L1	
+PPP1CB	26	9	NRBP1, DHX57, GCKR, NCOA1, MATN1, SRD5A2, UPK2, SH3KBP1, ZNF512	
+PTCH1	65	5	CORO2A, ECM2, DPP3, TMOD1, UFM1	
+QRFPR	0	9	BBS12, BBS7, NDNF, EXOSC9, ADAD1, KIAA1109, TRPC3, TNIP3, TMEM155	
+RABL5	0	0	None	
+ROPN1L	3	4	FAM173B, 42435, CMBL, CCT5	
+RPGR	11	5	NUDT12, ATP6AP2, USP9X, SLC9A7, TSPAN7	
+RPGRIP1	23	1	SLC6A2	
+RPGRIP1L	3	2	CES1P1,SLC6A2	
+RSPH1	1	7	LINC01547, OSMR, COL18A1, LINC00313, LINC00334, LRRC3, UMODL1	
+RSPH10B	0	7	DAGLB, CCZ1B, FOXK1, MMD2, RBAKDN, GRID2IP, SLC29A4	
+RSPH3	5	6	PNLDC1, MRPL18, RGS17, TAGAP, SERAC1, SYTL3	
+RSPH4A	0	6	LACE1, HS3ST5, FAM26F, FLJ34503, FAM26E, ZUFSP	
+RSPH6A	0	1	SLC1A5	
+RSPH9	2	9	C6orf223, LRRC73, OARD1, KLHDC3, ADCY10P1, TSPO2, TCTE1, TAF8, SPATS1	
+RTDR1	13	0	None	
+SMO	8	1	LINC-PINT	
+SPAG1	3	7	MME, NIPAL2, CPQ, POLR2K, RGS22, COL4A1, STK3	
+SPAG16	2	1	IKZF2	
+SPAG17	0	2	GDAP2, FAM46C	
+SPAG6	2	2	OTUD1, PIP4K2A	
+SPEF2	0	10	C5orf42, BRIX1, NIPBL, LMBRD2, DNAJC21, CAPSL, NADK2, UGT3A1, TARS, WDR70	
+TCTE1	1	7	KLC4, C6orf223, LRRC73, KLHDC3, SPATS1, TAF8, RSPH9	
+TCTE3	1	4	TCP10, LINC01558, RPS6KA2, RNASET2	
+TCTN1	0	3	GLTP, SVOP, FAM222A	
+TCTN2	0	3	COQ5, KDM2B, CCDC92	
+TCTN3	0	0	None	
+TMEM17	0	3	FAM161A, COMMD1, C2orf74	
+TMEM216	1	9	TEX40, SAC3D1, ATL3, EFEMP2, CABP2, CCDC87, SSH3, POLA2, TRMT112	
+TMEM231	3	4	TMEM170A, CNTNAP4, ADAT1, VAT1L	
+TMEM237	2	2	ATP6V1C2, SFXN5	
+TMEM30B	0	4	BCAR1, SLC38A6, C14orf37, NAA30	
+TMEM67	1	4	NDUFAF6, INTS8, FAM92A1, LAPTM4B	
+TRAF3IP1	27	3	ATG4B, ANO7, SNED1	
+TSG101	86	10	PILRA, RPS13, MYLPF, DNAJB11, CALML5, ST5, PPP2R5D, MAPK15, ZNF160, ZNF419	
+TTC21B	0	4	COBLL1, G6PC2, CSRNP3, CERS6	
+TTC28	3	4	GATSL3, TPST2, PES1, PITPNB	
+TTC30B	0	7	FKBP7, CCDC141, PLEKHA3, RBM45, HNRNPA3, SESTD1, TTC30A	
+TTC8	1	1	PTPN21	
+VPS28	27	7	THEM6, CCNB1, OXCT1, OPLAH, RPL37A, SCRIB, CACNA1I	
+VPS37A	7	4	MICU3, CCAR2, COL11A2, KIAA1456	
+VPS4B	7	2	SPHAR, PHLPP1	
+WDR19	0	3	NWD2, TLR10, CHRNA9	
+WDR35	0	0	None	
+WDR63	0	2	RPL17P5, RPF1	
+WDR78	0	1	GNG12	
+ZMYND10	10	2	ACTR3, RALGDS	
+ZMYND12	0	3	ERMAP, C1orf50, CABIN1	
+The table shows the number of known and computationally predicted novel PPIs for each of the 165 cilia genes, and lists their corresponding novel interactors.
+
+
+
+For each of the ciliary proteins, we computed the enrichment of gene ontology (GO) terms among its interacting partners in order to aid in the discovery of its function using BinGO (Biological Networks Gene Ontology tool)43. This information is especially useful for those ciliary proteins that have either no known or very few known GO biological process terms. For example, there are 11 genes that have no known GO terms, and we predicted new GO terms for each of those genes, for e.g. 27 novel GO terms for ARMC4, 11 for CCDC63, and 30 for DNAAF2.
+
+We computed the pathway associations of genes in the interactome, using the Ingenuity Pathway Analysis (IPA) suite (Ingenuity Systems, www.ingenuity.com). This showed a significant overlap of neuronal pathways with the cilia interactome (see selected pathways in Table 2). The complete list of all pathways, their p values and the genes from the interactome that are associated with these pathways, are given in Supplementary File 3. We also extracted information about drugs targeting the genes in the interactome. This analysis showed that there are several genes that are targets to drugs belonging to the Anatomic category of “nervous system”, highlighting the connection between cilia and the nervous system as shown in Fig. 2 and Supplementary File 4.Table 2 Overlap of neuronal pathways in cilia interactome.
+
+Neuronal pathways in cilia interactome	p value	Number of proteins	Proteins	
+Huntington's disease signaling	1.00E−13	15	PLCB2,SHC1,CASP1,GNG12,PIK3R6,POLR2G,PIK3R4,CLTA,PIK3R2,CAPN1,PDPK1,RPH3A,CASP8,POLR2K,PRKD3	
+Dopamine-DARPP32 feedback in cAMP Signaling	2.00E−08	8	PLCB2,PPP2R3A,PRKG2,CALML5,PLCD1,PPP2R5D,PPP3CA,PRKD3	
+CREB signaling in neurons	3.02E−08	11	CALML5,PLCB2,SHC1,GNG12,PIK3R6,POLR2G,PIK3R4,PIK3R2,PLCD1,POLR2K,PRKD3	
+nNOS signaling in neurons	8.13E−06	4	PPP3CA,CAPN1,CALML5,PRKD3	
+nNOS signaling in neurons	8.13E−06	4	PPP3CA,CAPN1,CALML5,PRKD3	
+Axonal guidance signaling	8.91E−06	15	PLCB2,GIT1,SHC1,PIK3R6,ACTR3,NTN3,GNG12,MICAL1,PIK3R4,MYLPF,PLCD1,PPP3CA,PRKD3,SEMA7A,PIK3R2	
+eNOS signaling	1.17E−05	13	BDKRB1,CALML5,AQP3,CNGA1,CASP8,SLC7A1,HSP90AB1,PIK3R6,PIK3R4,PIK3R2,PDPK1,CHRNA9,PRKD3	
+Synaptic long term potentiation	1.26E−05	5	PPP3CA,PLCB2,PRKD3,CALML5,PLCD1	
+Wnt/Beta-catenin signaling	1.62E−05	6	CDKN2A,TLE1,PPP2R3A,ILK,SOX17,PPP2R5D	
+Neuregulin signaling	3.63E−05	8	SHC1,TMEFF2,HSP90AB1,HBEGF,BAD,PIK3R2,PDPK1,PRKD3	
+Neuropathic pain signaling in dorsal horn neurons	0.000224	7	PLCB2,FOS,PIK3R6,PIK3R4,PIK3R2,PLCD1,PRKD3	
+Calcium signaling	0.000603	8	TNNT1,SLC8B1,CABIN1,CALML5,TRPC3,PPP3CA,ATP2B3,CHRNA9	
+Dopamine receptor signaling	0.00251	3	PPP2R5D,SPR,PPP2R3A	
+Glutamate receptor signaling	0.00398	1	CALML5	
+Synaptic long term depression	0.00676	7	PLCB2,PPP2R3A,NPR2,PLCD1,PRKG2,PPP2R5D,PRKD3	
+Wnt/Ca + pathway	0.0102	3	PPP3CA,PLCB2,PLCD1	
+Dendritic cell maturation	0.0102	12	PLCB2,STAT4,COL11A2,COL18A1,CD80,TRGV9,IL6,PIK3R6,PIK3R4,IL32,PIK3R2,PLCD1	
+Reelin signaling in neurons	0.0407	3	PIK3R6,PIK3R4,PIK3R2	
+Neuronal pathways which were present in cilia interactome with number of novel interactors.
+
+Figure 2 Number of drugs targeting genes in the cilia interactome. The numbers are shown separated by the anatomic category of the drugs (anatomic, therapeutic and chemical classification) and also separated by whether they target known interactors (blue) or novel interactors (red) or both (cream-colored).
+
+
+
+Experimental Validation of novel cilia PPIs in independent studies
+Four of the novels PPIs that we predicted for cilia genes were independently recovered by other groups. TMEM237-SFXN5 and DYNLL2-c17orf47 were recovered by yeast two-hybrid experiments in the recent release of the human protein interactome map57. We also predicted two PPIs of IFT140 that were discovered as part of the CPLANE interactome using affinity purification-mass spectrometry, but were not deposited in BioGRID or HPRD: IFT140-TELO2 and IFT140-TRAP136. It is also worth noting that 8 novel interactors in the interactome appeared among the proteins isolated from the primary cilia of mouse kidney cells using a method called MudPIT (multidimensional protein identification technology)33: ABCE1, CCDC47, CCT5, G3BP1, GBF1, RAB10, RAN and USP14. 94 genes in the cilia interactome, including 44 cilia genes, 36 known and 14 novel interactors, were also recovered as regulators of the ciliary sonic hedgehog pathway in a CRISPR genetic screen (p value = 2.28e−19)58. The interactome was also significantly enriched with genes differentially expressed in bronchial biopsies of primary ciliary dyskinesia patients (p value = 2.64e−02)59.
+
+Functional interactions of cilia genes with predicted novel interactors
+We used ReactomeFIViz60, a Cytoscape plugin, to extract known functional interactions between cilia genes and their novel interactors. Five novel PPIs had such functional interactions, namely, IFT57-CLTA, DYNLL2-KIF2B, IFT57-HTT, CHMP5-UBAP1 (‘part of the same complex’, ‘bound by the same set of ligands’) and IFT57 → CASP8 (‘activation’).
+
+Discussion
+We developed the interactome of ciliary proteins that included IFT, BBS, TZ, ciliary membrane proteins and proteins in motile cilia. The interactome includes novel computationally predicted PPIs for multiple proteins, including proteins with few or no previously known PPIs.
+
+Both analysis of individual novel PPIs and the cilia interactome as a whole has the potential to highlight connections to specific neurological disorders and lead to biologically insightful and clinically translatable results. We interpreted the functions of individual novel PPIs using literature-based evidence and top pathways obtained from IPA (See Supplementary File 5 for testable hypotheses on novel PPIs involved in neuropsychiatric disorders, primary ciliary dyskinesia, hydrocephalus and in biological processes such as ciliogenesis and trafficking of membrane receptors in cilia). The following is a demonstrative example of a systems-level analysis.
+
+Cilia, Alzheimer’s disease and aging
+Alzheimer’s disease (AD) is a progressive neurodegenerative disease with an estimated prevalence of 10–30% in the population aged 65 years and more, characterized by memory loss (dementia), behavioral changes, impaired cognition and language61. Around two-thirds of dementia cases is attributed to AD61. Hippocampus, a region in the brain critical to memory and learning, exhibits signs of neurodegeneration in the early stages of AD62. It has been speculated that memory and learning deficits in AD may be associated with aging and reduced neurogenesis in the hippocampus62–64. It is interesting to note that primary cilia have been shown to mediate sonic hedgehog signaling (Shh) to regulate hippocampal neurogenesis65,66. So, we explored interconnections of AD, aging and cilia in the PPI network (the ‘interactome’), while asking the following questions: Are genes associated with AD, aging and cilia closely connected in the interactome? Will such a network also include genes involved in Shh signaling and neurogenesis, and genes expressed in the hippocampus? What specific biological processes may underlie the connections of AD to aging, and will they interact with the Shh pathway?
+
+Significant overlap was found between cilia and the AD interactomes (p value = 0.022). The AD interactome was highly significantly enriched in ‘human aging-related genes’ (p value = 1.77e−37), compiled from the GenAge database67. 51 aging genes co-occurred in AD and cilia interactomes. The subnetwork of these 51 genes and their AD and cilia interactors is shown in Fig. 3. In this subnetwork, aging genes connected cilia genes with/without Shh involvement to AD genes (Fig. 3).The next question we asked was: do any of the 51 genes directly interact with a ciliary gene involved in the Shh pathway? 15 cilia genes in the network were also recovered as regulators of the Shh pathway in a CRISPR genetic screen: ARL13B, BBS1-2, BBS4-5, BBS7, CBY1, DYNLL1, IFT140, IFT20, IFT52, IFT81, PTCH1, STUB1 and TRAF3IP158. These 15 genes had direct interactions with 14 aging genes, 6 AD genes and 2 cilia genes. This included 13 novel predicted interactions connecting aging genes to cilia genes including 4 Shh genes (in italics): BAK1-BBS1, CDKN2A-DNAI1, TRAP1-IFT140, PDPK1-PKD1, SOD1-DNAH3, CCNA2-DRD2, TERT-IFT57, HTT-IFT57, FOS-DYNLT3, EP300-MCHR1, SHC1-DNAH7, PRKCA-CDK3 and RICTOR-IFT20. The network was significantly enriched in the GO term ‘neurogenesis’ (p value = 5.66e−12) and in genes expressed in the hippocampus (transcripts per million ≥ 2) (p value = 2.54e−09). The cilia genes DYNLT1 and PKD1 were associated with neurogenesis, and IFT20, IFT140, PTCH1 and BBS4 were Shh regulators also associated with neurogenesis. Reduced size of hippocampus was noted in mutant mouse models of 5 cilia genes, namely BBS1, BBS2, BBS4, BBS7 and PDCD6IP (Mammalian Phenotype Ontology term: small hippocampus)68–70. We next identified the biological processes that may be specifically affected in AD in relation to its links with aging. 75 genes in the network were differentially expressed in the hippocampus of AD patients compared with non-AD subjects (GSE4835071, GSE3698072, GSE129773, GSE2814649, GSE2937848). We then examined the fold change in the normal expression of these 75 genes in the hippocampus at 40 years compared with 8 post-conceptional weeks. For this, we used the 'developmental transcriptome' from the BrainSpan Atlas containing RNA-Seq data of up to 16 brain regions from post-conceptional weeks (number of weeks elapsed from the first day of the last menstrual period and the day of the delivery) to middle adulthood (up to 40 years)52. The genes were grouped based on the specific direction in which their expression varied in AD versus aging (i.e. fold change in same/opposite directions in AD versus non-AD hippocampal samples compared with expression at 40 years versus 8 post-conceptional weeks) (Fig. 4). 42 genes showed an expression change in the opposite direction in AD versus aging. Out of this, 18 genes were underexpressed in AD but overexpressed in aging; they were enriched in the GO term ‘calcium-mediated signaling’ (p value = 8.72e−09). It has been postulated that calcium signaling pathways involved in cognition may be remodeled by an activated amyloidogenic pathway in AD, resulting in elevated levels of calcium and a constant erasure of new memories through enhancement of mechanisms involved in long term depression74. It is also worth noting that Shh signaling requires calcium mobilization75. The 18 genes included the cilia genes DYNLL1, DYNLT3, PKD1 and MCHR1, and the ciliary Shh regulator BBS7. 24 genes were overexpressed in AD but underexpressed in aging; they were enriched in ‘circulatory system development’ (p value = 3.04e−07). Loss of hippocampal blood vessel density accompanied by ultrastructural changes in the blood vessels have been observed in a senescence-accelerated rat model of AD76. It is interesting to note that circulatory system processes were found to be upregulated in early stages of AD-like pathology in this model, while they were found to be downregulated with age, similar to our observations76. It is also interesting to note that neovascularization requires Shh signaling77. The 24 genes included the cilia genes CCDC40, SPAG6, ZMYND10, DNALI1 and SPAG1, BBS2 and CBY1 which are ciliary Shh regulators, DYNLT1, a cilia gene involved in neurogenesis and PTCH1 which is an Shh ligand also involved in neurogenesis. 25 genes showed an expression change in the same direction (either under/overexpression) in AD versus aging including the cilia genes VPS4B, CCNA1, DYNLRB2, NPHP1, DNAH7 and the ciliary Shh regulator BBS5; ‘negative regulation of cell death’ was enriched in this group (p value = 1.59e−09). Shh maintains neural stem cells in the hippocampus by inhibiting cell death78.Figure 3 Interconnections between cilia, aging and Alzheimer’s disease genes. Cilia genes are shown as red nodes; AD genes are colored in cyan and aging genes in green. PPIs are shown as edges, where grey edges are known PPIs and red color edges are novel predicted PPIs. Genes with bold labels are involved in the sonic hedgehog (Shh) pathway and those with blue labels are involved in neurogenesis. Note that, in this case, a bold blue-labeled gene indicates a cilia gene with Shh involvement, which is also involved in neurogenesis.
+
+Figure 4 Direction of fold change of gene expression levels in AD vs. non-AD hippocampal samples compared with expression at 40 years vs. 8 post-conceptional weeks. The X-axis shows the 67 genes that are differentially expressed in the hippocampus of Alzheimer’s disease patients compared with the hippocampus of healthy subjects. The red bars on the Y-axis show the fold change of the differential expression of these genes in AD vs. non-AD hippocampal samples. The blue bars on the Y-axis show the fold change in the expression level of these genes in normal hippocampus at 40 years after birth (middle adulthood) compared with 8 weeks after conception (fetal life) in healthy humans.
+
+
+
+In summary, our analysis demonstrates that aging and AD genes directly interact with ciliary Shh regulators in the interactome. This network is enriched in genes associated with neurogenesis and expressed in the hippocampus. Genes involved in calcium-mediated signaling and circulatory system development are differentially expressed in the opposite direction in AD versus aging, whereas genes involved in regulation of cell death are differentially expressed in the same direction.
+
+Cilia and neuronal pathways and functions
+Our pathways enrichment analysis of the cilia interactome revealed several neuronal pathways with high statistical significance (see Table 2 and Supplementary File 3). This included axonal guidance signaling pathway with 15 novel cilia interactors, Huntington disease signaling with 15 novel interactors, eNOS signaling pathway with 13, Wnt signaling with 6, DARPP32 feedback in cAMP signaling with 8, dopamine receptor signaling with 3, synaptic long-term depression with 7, and synaptic long-term potentiation with 5 novel interactors. Dopamine receptors are localized in the membrane of neuronal cilia19, suggesting that these novel cilia interacting partners may have a role in neurotransmission. Dopamine signaling, eNOS signaling, and synaptic long term potentiation pathways are also known to be associated with neuropsychiatric disorders such as schizophrenia79,80. The identification of Huntington’s disease (HD) pathway in the cilia interactome is also notable given that the protein huntingtin (HTT) localizes to the centrosome and plays an important role in ciliogenesis. The HD mutant mouse model exhibits abnormal cilia motility and cerebrospinal fluid flow23. Recovery of Wnt signaling thought to be involved in schizophrenia etiology is also of interest81,82.
+
+Analysis of the known and novel PPIs and GO term associations identified a role for cilia in neuronal disease pathogenesis. While consistent with the known role of cilia in several key processes in the nervous system such as the neuronal signaling and development, these findings reveal novel connections between cilia and these functional modules. The defects in neuronal migration and differentiation are the underlying cause of abnormal neural circuitry in psychiatric disorders12. This is further supported by the reported linkage of neuropsychiatric risk genes to cilia15,19 and the finding of neuropsychiatric phenotypes and brain abnormalities in ciliopathies5,12. Our interactome analysis shows that TCTN2, cilia gene with known role in neuronal development and migration12 has 3 novel interactors and neuronal GO terms such as initiation of neural tube closure, midbrain morphogenesis and mid brain development are enriched among the interacting partners. The GO terms that are enriched for interacting partners of ARMC4 include sympathetic neuron projection guidance, axonogenesis, axon extension, and axon fasciculation. Dynein gene, DNAAF2 has only one known but 4 predicted interactions. Two of those novel interactors, ATL1 and TRIM9 are shown to be associated with cognitive performance and psychosis respectively through GWAS. The GO terms such as axonogenesis, neuron maturation, synaptic growth at neuromuscular junction are enriched among the interacting partners. Ciliary membrane genes DRD1 and DRD2 that are implicated in neurotransmission and linked to mental illnesses such as schizophrenia83 were identified with 4 and 12 novel interactors, respectively; the associated GO terms were neuronal action potential and synaptic plasticity regulation. We also observed 4 novel interactors for the cilia protein TMEM67, including two proteins associated with cilia assembly, LAPTM4B and NDUFAF6, with NDUFAF6 also known to be associated with Alzheimer’s disease84. Both ATG7, a novel interactor of the ciliary protein PDCD6IP, and SPR, a novel interactor of GPR83 have been associated with Parkinson’s disease85,86. GIT1, a novel interactor of B9D1 is associated with attention deficit hyperactivity disorder and MME, a novel interactor of SPAG1with Alzheimer’s disease87. On inspecting mammalian phenotype ontology (MPO) terms (www.informatics.jax.org/), 42 novel interactors were found to be associated with various morphological or physiological aspects of brain in mice. For example, the novel interactor ITSN1 was associated with decreased brain size, abnormal corpus callosum, hippocampal fimbria, hippocampal fornix, brain white matter and anterior commissure morphology. These findings support the role of these novel interactions and the GO terms in understanding the crucial role played by cilia biology in neuropsychiatric disorders.
+
+Overlap of cilia and neuropsychiatric disorder interactomes
+To examine the connection between cilia and neuropsychiatric disorders, we computed the overlap between their interactomes. We considered 7 neuropsychiatric disorders (NPDs), namely Attention Deficit Hyperactivity Disorder (ADHD), Major Depressive Disorder (MDD), schizophrenia, bipolar disorder, autism spectrum disorder, Alzheimer’s disease and Parkinson’s disease. We extracted the genes associated with each disorder from the GWAS catalog (www.ebi.ac.uk/gwas/) and then assembled disorder-specific interactomes with known PPIs from HPRD and BioGRID. We then computed how closely connected the cilia genes are to NPD genes by computing how many genes or interactors were shared between the cilia interactome and each NPD interactome. This analysis showed the overlap to be statistically significant (Table 3). For example, cilia interactome has an overlap of 88 genes with ADHD interactome (p value = 1.2E−16) of which 17 are novel interactors of cilia. Similar comparisons with other NPDs also showed overlaps as shown in Table 3.Table 3 Overlap of neuropsychiatric disease (NPD) interactomes and genes differentially expressed in NPDs with the cilia interactome.
+
+NPD	NPD interactome size	p value of overlap	# Genes common to both interactomes	# Novel interactors common to both	# Genes differentially expressed in the disorder	# Genes differentially expressed in the cilia interactome	p value of overlap	# Differentially expressed novel genes	
+ADHD	406	1.20E−16	88	17	n/a	n/a	n/a	n/a	
+Alzheimer's disease	417	2.20E−24	104	19	1,103	106	4.70E−05	46	
+Autism spectrum disorder	53	2.20E−05	15	5	3,692	314	2.40E−04	119	
+Bipolar disorder	764	3.10E−29	163	31	1,188	101	3.40E−02	38	
+Major depressive disorder	974	3.70E−23	177	32	187	21	2.50E−02	8	
+Parkinson's disease	520	1.20E−20	112	18	2,487	258	6.20E−03	104	
+Schizophrenia	688	1.50E−16	125	26	1,320	118	5.60E−03	40	
+Intellectual disability	n/a	n/a	n/a	n/a	706	75	6.50E−03	32	
+The significance of the overlap along with the number of genes common to the NPD interactome/expression datasets and the cilia interactome are shown.
+
+
+
+Overlap of cilia interactome with genes differentially expressed in neuropsychiatric disorders
+965 genes in the cilia interactome were found to be expressed (transcripts per million ≥ 2) in several brain regions including amygdala, anterior cingulate cortex, caudate, cerebellum, frontal cortex, hippocampus, hypothalamus, nucleus accumbens, putamen, spinal cord and substantia nigra, from GTEx RNA-Seq data51 (p value = 3.93E−58). Novel interactors of cilia genes were found to be highly statistically enriched among these genes expressed in the human brain (p value = 8.14E−09).
+
+We then computed the overlap of genes differentially expressed in neuropsychiatric disorders with the genes in the cilia interactome. We analyzed gene expression datasets of MDD (GSE53987)44, schizophrenia (GSE17612)45, bipolar disorder (GSE12679)46, autism spectrum disorder (GSE18123)47, Alzheimer’s disease (GSE29378)48, Parkinson’s disease (GSE28894) and non-syndromic intellectual disability (GSE39326)50. The analysis showed the overlap to be statistically significant (Table 3). For example, the cilia interactome has an overlap of 106 genes with genes differentially in the Alzheimer’s disease dataset (p value = 4.7E−05) of which 46 are novel interactors of cilia.
+
+Cilia and nervous system drug targets
+Given the strong connection between the cilia interactome and neuronal pathways, we tested the possibility of repurposing drugs targeting proteins in the cilia interactome for treating neurological disorders. Identifying new uses for drugs shortens the time of drug discovery and approval88. For example, the drug amantadine which is used to treat influenza infection was successfully repurposed to treat dyskinesia and Parkinson’s disease88. This analysis identified 548 drugs targeting 184 genes in the cilia interactome. These fall into 3 major Anatomic Therapeutic Chemical (ATC) classification system categories, nervous system with 99 drugs, 102 drugs in the respiratory system, and 98 drugs in the cardiovascular system (Fig. 2, Supplementary File 4). This finding points at therapeutics targeting the cilia proteins which may provide a novel strategy for treating neurological disorders.
+
+Overall, 76 nervous system drugs targeted 7 novel interactors: HRH1, SLC6A2, CHRNA9, NQO2, ORM1, CACNA1I and CACNA1G. 57 drugs targeting 22 genes in the interactome are used in the treatment of at least one among the following neurological disorders- Parkinson’s disease, Alzheimer’s disease, attention deficit hyperactivity disorder (ADHD), major depressive disorder (MDD), autism spectrum disorder, schizophrenia and bipolar disorder- out of which 35 drugs target 6 novel interactors, namely CACNA1G, CACNA1I, CHRNA9, HRH1, SLC6A2 and ORM1. 10 out of these 57 drugs targeted cilia genes as well as known and novel interactors of cilia genes: asenapine, chlorpromazine, clozapine, loxapine and paliperidone are schizophrenia drugs, olanzapine is used in the treatment of Alzheimer’s disease and schizophrenia, amphetamine in ADHD, imipramine in ADHD and MDD, mirtazapine in MDD and nortriptyline in schizophrenia, ADHD, MDD and bipolar disorder.
+
+Among other novel interactors targeted by nervous system drugs is SLC6A2 which is involved in neurotransmission and is associated with ADHD89,90. SLC6A2 interacts with RPGRIP1L, a ciliary protein known to cause Joubert syndrome, MKS and bipolar disorder91,92. The novel interactors CACNA1I and CACNA1G targeted by nervous system drugs are calcium channels that are known to be associated with Alzheimer’s disease and schizophrenia, respectively93,94. These novel interactors which are drug targets may have significant impact on the nervous system, and the pathogenesis of neurological disorders.
+
+In an independent study, we proposed that the drug acetazolamide which targets the genes CA2 and CA4, having known interactions with the cilia genes, DYNLL1 and CDK3 respectively, may be repurposed for schizophrenia based on negative correlation of drug-induced versus disease-associated gene expression profiles and other biological evidences95. Acetazolamide is currently under consideration for funding for clinical trial. Several cancer drugs with reported effects on ciliogenesis target known and novel interactors in the cilia interactome. Vinblastine targeting JUNN, a known interactor of BBS7 and TSG101, and TUBB, a known interactor of NPHP1 and DYNLL1, inhibits cilia regeneration in partially deciliated Tetrahymena (a unicellular ciliate)96. Valproic acid targeting HDAC9, a known interactor of PKD1, restores ciliogenesis in pancreatic ductal adenocarcinoma cells97. Gefitinib targeting EGFR, a known interactor of PDCD6IP, inhibits the smoking-induced loss of ciliated cells in the airway98. Gefitinib also increases the percentage of ciliated cells in human pancreatic cancer cell lines99. Geldanamycin targeting HSP90AB1, a novel interactor of CETN3, induces lengthening of cilia in 3T3-L1, a fibroblast cell line100.
+
+Conclusion
+We identified novel PPIs of cilia proteins and their associated pathways, their enriched Gene Ontology term associations, and drugs that target the interactors. This cilia interactome analysis reveals a link between cilia function, neuronal function and neurological disorders. We also demonstrated the interconnections of Alzheimer’s disease, cilia and aging genes. The predicted interactions will have to be validated at the level of network perturbations in the disease state by comparing neuropsychiatric patients with healthy controls. However, one has to be aware of a few caveats while studying the role of ciliary genes in neuropsychiatric disorders (NPDs). Association of a ciliary gene with a NPD can be unequivocally ascertained only if this association is discovered within the ciliary compartment in the context of the particular NPD, i.e. a mechanistic link between ciliary function and the disorder has to be demonstrated. It may not be a true association if a ciliary gene was shown to be associated with a NPD in a cellular context not connected with cilia; a protein may perform its function at different subcellular locations. Mapping the interactome of cilia genes would be useful in carrying out network-based systems biology studies, which will help elucidate the contribution of these novel PPIs to nervous system disease pathology as well as to develop novel therapeutics for these disorders.
+
+Supplementary information
+
+Supplementary Information 1.
+
+ Supplementary Information2.
+
+ Supplementary Information 3.
+
+ Supplementary Information 4.
+
+ Supplementary Information 5.
+
+ Supplementary Information 6.
+
+ Supplementary Information 7.
+
+ 
+
+Abbreviations
+PPIProtein–protein interaction
+
+GOGene ontology
+
+HiPPIPHigh-confidence protein–protein interaction prediction model
+
+Publisher's note
+
+Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+These authors contributed equally: Kalyani B. Karunakaran and Srilakshmi Chaparala.
+
+Supplementary information
+is available for this paper at 10.1038/s41598-020-72024-4.
+
+Acknowledgements
+This work is funded by the Biobehavioral Research Awards for Innovative New Scientists (BRAINS) Grant (R01MH094564) awarded to MKG by National Institute of Mental Health (NIMH) of National Institutes of Health (NIH) of USA.
+
+Author contributions
+M.K.G.: Conceptualization, design, interactome construction and computational analysis. K.B.K. and S.C.: Study of functional enrichment and pathway associations, and literature review. Also, K.B.K.: Study of association to Alzheimer’s Disease and Aging. C.W.L.: Inputs related to cilia biology. Manuscript preparation: K.B.K., S.C., M.K.G. and C.W.L.
+
+Data availability
+We will make the cilia interactome publicly available on our web application Wiki-Pi101. Novel PPIs will be highlighted in yellow on the website. The number of novel and known PPIs of the cilia genes are given in Supplementary File 1. Interactome network diagram that is shown in Fig. 1 is also being made available in PDF format and in Cytoscape file format as Supplementary File 6 and Supplementary File 7 respectively. PDF file would be suitable for printing in high resolution and for electronically searching for specific genes, and Cytoscape would allow further processing and data analysis. Wiki-Pi allows users to search for interactions by specifying biomedical associations of one or both proteins involved. Thus, queries can be customized to include/exclude gene symbol, gene name, GO annotations, diseases, drugs, and/or pathways for either gene involved in an interaction. For example, researchers can search for interactions by giving at least one cilia gene and a pathway of interest, say “IFT20 interactions where the interactor is involved in immunity”; this query would match 5 PPIs out of a total of 19 PPIs of IFT20. Another example is the search “find interactions where one protein’s annotation contains the word ciliary and the other protein’s annotation contain the word neuronal”. The search returns 353 PPIs, out of which 13 are novel PPIs.
+
+Competing interests
+The authors declare no competing interests.
+==== Refs
+References
+1. Satir P  Christensen ST   Structure and function of mammalian cilia Histochem. Cell Biol. 2008 129 687 693 10.1007/s00418-008-0416-9 18365235 
+2. Gerdes JM  Davis EE  Katsanis N   The vertebrate primary cilium in development, homeostasis, and disease Cell 2009 137 32 45 10.1016/j.cell.2009.03.023 19345185 
+3. Enuka Y  Hanukoglu I  Edelheit O  Vaknine H  Hanukoglu A   Epithelial sodium channels (ENaC) are uniformly distributed on motile cilia in the oviduct and the respiratory airways Histochem. Cell Biol. 2012 137 339 353 10.1007/s00418-011-0904-1 22207244 
+4. Banizs B    Dysfunctional cilia lead to altered ependyma and choroid plexus function, and result in the formation of hydrocephalus Development 2005 132 5329 5339 10.1242/dev.02153 16284123 
+5. Waters AM  Beales PL   Ciliopathies: an expanding disease spectrum Pediatric Nephrol. 2011 26 1039 1056 10.1007/s00467-010-1731-7 
+6. Pedersen LB  Rosenbaum JL   Intraflagellar transport (IFT) role in ciliary assembly, resorption and signalling Curr. Top. Dev. Biol. 2008 85 23 61 10.1016/S0070-2153(08)00802-8 19147001 
+7. Jin H    The conserved Bardet–Biedl syndrome proteins assemble a coat that traffics membrane proteins to cilia Cell 2010 141 1208 1219 10.1016/j.cell.2010.05.015 20603001 
+8. Barker AR  Renzaglia KS  Fry K  Dawe HR   Bioinformatic analysis of ciliary transition zone proteins reveals insights into the evolution of ciliopathy networks BMC Genom. 2014 15 531 10.1186/1471-2164-15-531 
+9. Lee JE  Gleeson JG   Cilia in the nervous system: linking cilia function and neurodevelopmental disorders Curr. Opin. Neurol. 2011 24 98 105 10.1097/WCO.0b013e3283444d05 21386674 
+10. Louvi A  Grove EA   Cilia in the CNS: the quiet organelle claims center stage Neuron 2011 69 1046 1060 10.1016/j.neuron.2011.03.002 21435552 
+11. Guemez-Gamboa A  Coufal NG  Gleeson JG   Primary cilia in the developing and mature brain Neuron 2014 82 511 521 10.1016/j.neuron.2014.04.024 24811376 
+12. Guo J    Developmental disruptions underlying brain abnormalities in ciliopathies Nat. Commun. 2015 6 7857 10.1038/ncomms8857 26206566 
+13. Gazea M    Primary cilia are critical for Sonic hedgehog-mediated dopaminergic neurogenesis in the embryonic midbrain Dev. Biol. 2016 409 55 71 10.1016/j.ydbio.2015.10.033 26542012 
+14. Murdoch JN  Copp AJ   The relationship between sonic Hedgehog signaling, cilia, and neural tube defects Birth Defects Res. Part A Clin. Mol. Teratol. 2010 88 633 652 10.1002/bdra.20686 20544799 
+15. Marley A  von Zastrow M   A simple cell-based assay reveals that diverse neuropsychiatric risk genes converge on primary cilia PLoS ONE 2012 7 e46647 10.1371/journal.pone.0046647 23056384 
+16. Alvarez Retuerto AI    Association of common variants in the Joubert syndrome gene (AHI1) with autism Hum. Mol. Genet. 2008 17 3887 3896 10.1093/hmg/ddn291 18782849 
+17. Higginbotham H    Arl13b in primary cilia regulates the migration and placement of interneurons in the developing cerebral cortex Dev. Cell 2012 23 925 938 10.1016/j.devcel.2012.09.019 23153492 
+18. Torri F    Fine mapping of AHI1 as a schizophrenia susceptibility gene: from association to evolutionary evidence FASEB J. 2010 24 3066 3082 10.1096/fj.09-152611 20371615 
+19. Marley A  von Zastrow M   DISC1 regulates primary cilia that display specific dopamine receptors PLoS ONE 2010 5 e10902 10.1371/journal.pone.0010902 20531939 
+20. Kamiya A    Recruitment of PCM1 to the centrosome by the cooperative action of DISC1 and BBS4: a candidate for psychiatric illnesses Arch. Gen. Psychiatry 2008 65 996 1006 10.1001/archpsyc.65.9.996 18762586 
+21. Poelmans G    Identification of novel dyslexia candidate genes through the analysis of a chromosomal deletion Am. J. Med. Genet. Part B Neuropsychiatr. Genet. 2009 150 140 147 10.1002/ajmg.b.30787 
+22. Massinen S    Increased expression of the dyslexia candidate gene DCDC2 affects length and signaling of primary cilia in neurons PLoS ONE 2011 6 e20580 10.1371/journal.pone.0020580 21698230 
+23. Keryer G    Ciliogenesis is regulated by a huntingtin-HAP1-PCM1 pathway and is altered in Huntington disease J. Clin. Investig. 2011 121 4372 4382 10.1172/JCI57552 21985783 
+24. Dietrich P  Shanmugasundaram R  Shuyu E  Dragatsis I   Congenital hydrocephalus associated with abnormal subcommissural organ in mice lacking huntingtin in Wnt1 cell lineages Hum. Mol. Genet. 2009 18 142 150 10.1093/hmg/ddn324 18838463 
+25. Mukhopadhyay S  Jackson PK   Cilia, tubby mice, and obesity Cilia 2013 2 1 10.1186/2046-2530-2-1 23351214 
+26. Siljee JE    Subcellular localization of MC4R with ADCY3 at neuronal primary cilia underlies a common pathway for genetic predisposition to obesity Nat. Genet. 2018 10.1038/s41588-017-0020-9 29311635 
+27. Sang L    Mapping the NPHP-JBTS-MKS protein network reveals ciliopathy disease genes and pathways Cell 2011 145 513 528 10.1016/j.cell.2011.04.019 21565611 
+28. Harrison PJ  Weinberger DR   Schizophrenia genes, gene expression, and neuropathology: on the matter of their convergence Mol. Psychiatry 2005 10 40 68 10.1038/sj.mp.4001558 15263907 
+29. Millar JK    Genomic structure and localisation within a linkage hotspot of Disrupted In Schizophrenia 1, a gene disrupted by a translocation segregating with schizophrenia Mol. Psychiatry 2001 6 173 178 10.1038/sj.mp.4000784 11317219 
+30. Camargo LM    Disrupted in Schizophrenia 1 Interactome: evidence for the close connectivity of risk genes and a potential synaptic basis for schizophrenia Mol. Psychiatry 2007 12 74 86 10.1038/sj.mp.4001880 17043677 
+31. Wang Q  Jaaro-Peled H  Sawa A  Brandon NJ   How has DISC1 enabled drug discovery? Mol. Cell. Neurosci. 2008 37 187 195 10.1016/j.mcn.2007.10.006 18055216 
+32. Rachel RA  Li T  Swaroop A   Photoreceptor sensory cilia and ciliopathies: focus on CEP290, RPGR and their interacting proteins Cilia 2012 1 22 10.1186/2046-2530-1-22 23351659 
+33. Ishikawa H  Thompson J  Yates JR  Marshall WF   Proteomic analysis of mammalian primary cilia Curr. Biol. 2012 22 414 419 10.1016/j.cub.2012.01.031 22326026 
+34. Sang L    Mapping the NPHP-JBTS-MKS protein network reveals ciliopathy disease genes and pathways Cell 2011 145 513 528 10.1016/j.cell.2011.04.019 21565611 
+35. Gupta GD    A dynamic protein interaction landscape of the human centrosome-cilium interface Cell 2015 163 1484 1499 10.1016/j.cell.2015.10.065 26638075 
+36. Toriyama M    The ciliopathy-associated CPLANE proteins direct basal body recruitment of intraflagellar transport machinery Nat. Genet. 2016 48 648 10.1038/ng.3558 27158779 
+37. Boldt K    An organelle-specific protein landscape identifies novel diseases and molecular mechanisms Nat. Commun. 2016 7 11491 10.1038/ncomms11491 27173435 
+38. Pazour GJ  Agrin N  Leszyk J  Witman GB   Proteomic analysis of a eukaryotic cilium J. Cell Biol. 2005 170 103 113 10.1083/jcb.200504008 15998802 
+39. Peri S    Human protein reference database as a discovery resource for proteomics Nucleic Acids Res. 2004 32 D497 501 10.1093/nar/gkh070 14681466 
+40. Stark C    BioGRID: a general repository for interaction datasets Nucleic Acids Res. 2006 34 D535 539 10.1093/nar/gkj109 16381927 
+41. Knox C    DrugBank 3.0: a comprehensive resource for 'omics' research on drugs Nucleic Acids Res. 2011 39 D1035 1041 10.1093/nar/gkq1126 21059682 
+42. Ganapathiraju MK    Schizophrenia interactome with 504 novel protein–protein interactions NPJ Schizophrenia 2016 2 16012 10.1038/npjschz.2016.12 27336055 
+43. Maere S  Heymans K  Kuiper M   BiNGO: a cytoscape plugin to assess overrepresentation of gene ontology categories in biological networks Bioinformatics 2005 21 3448 3449 10.1093/bioinformatics/bti551 15972284 
+44. Lanz TA    STEP levels are unchanged in pre-frontal cortex and associative striatum in post-mortem human brain samples from subjects with schizophrenia, bipolar disorder and major depressive disorder PLoS ONE 2015 10 e0121744 10.1371/journal.pone.0121744 25786133 
+45. Maycox PR    Analysis of gene expression in two large schizophrenia cohorts identifies multiple changes associated with nerve terminal function Mol. Psychiatry 2009 14 1083 10.1038/mp.2009.18 19255580 
+46. Harris LW    The cerebral microvasculature in schizophrenia: a laser capture microdissection study PLoS ONE 2008 3 e3964 10.1371/journal.pone.0003964 19088852 
+47. Kong SW    Characteristics and predictive value of blood transcriptome signature in males with autism spectrum disorders PLoS ONE 2012 7 e49475 10.1371/journal.pone.0049475 23227143 
+48. Miller JA  Woltjer RL  Goodenbour JM  Horvath S  Geschwind DH   Genes and pathways underlying regional and cell type changes in Alzheimer's disease Genome Med. 2013 5 48 10.1186/gm452 23705665 
+49. Blalock EM  Buechel HM  Popovic J  Geddes JW  Landfield PW   Microarray analyses of laser-captured hippocampus reveal distinct gray and white matter signatures associated with incipient Alzheimer's disease J. Chem. Neuroanat. 2011 42 118 126 10.1016/j.jchemneu.2011.06.007 21756998 
+50. Huang L    A noncoding, regulatory mutation implicates HCFC1 in nonsyndromic intellectual disability Am. J. Hum. Genet. 2012 91 694 702 10.1016/j.ajhg.2012.08.011 23000143 
+51. Consortium, G  The genotype-tissue expression (GTEx) pilot analysis: multitissue gene regulation in humans Science 2015 348 648 660 10.1126/science.1262110 25954001 
+52. Sunkin SM    Allen Brain Atlas: an integrated spatio-temporal portal for exploring the central nervous system Nucleic Acids Res. 2012 41 D996 D1008 10.1093/nar/gks1042 23193282 
+53. Piñero, J. et al. DisGeNET: a discovery platform for the dynamical exploration of human diseases and their genes. Database 2015. 10.1093/database/bav028 (2015).
+54. Keshava Prasad T    Human protein reference database—2009 update Nucleic Acids Res. 2008 37 D767 D772 10.1093/nar/gkn892 18988627 
+55. Stark C    BioGRID: a general repository for interaction datasets Nucleic Acids Res. 2006 34 D535 D539 10.1093/nar/gkj109 16381927 
+56. Keshava Prasad TS    human protein reference database—2009 update Nucleic Acids Res. 2009 37 D767 772 10.1093/nar/gkn892 18988627 
+57. Luck, K. et al. A reference map of the human protein interactome. bioRxiv, 605451 (2019).
+58. Breslow DK    A CRISPR-based screen for Hedgehog signaling provides insights into ciliary function and ciliopathies Nat. Genet. 2018 50 460 10.1038/s41588-018-0054-7 29459677 
+59. Geremek M    Ciliary genes are down-regulated in bronchial tissue of primary ciliary dyskinesia patients PLoS ONE 2014 9 e88216 10.1371/journal.pone.0088216 24516614 
+60. Wu, G., Dawson, E., Duong, A., Haw, R. & Stein, L. ReactomeFIViz: a Cytoscape app for pathway and network-based data analysis [version 2; peer review: 2 approved]. F1000Research3. 10.12688/f1000research.4431.2 (2014).
+61. Masters CL    Alzheimer's disease Nat. Rev. Dis. Prim. 2015 1 15056 10.1038/nrdp.2015.56 27188934 
+62. Mufson EJ    Hippocampal plasticity during the progression of Alzheimer’s disease Neuroscience 2015 309 51 67 10.1016/j.neuroscience.2015.03.006 25772787 
+63. Smith TD  Adams MM  Gallagher M  Morrison JH  Rapp PR   Circuit-specific alterations in hippocampal synaptophysin immunoreactivity predict spatial learning impairment in aged rats J. Neurosci. 2000 20 6587 6593 10.1523/JNEUROSCI.20-17-06587.2000 10964964 
+64. Jessberger S    Dentate gyrus-specific knockdown of adult neurogenesis impairs spatial and object recognition memory in adult rats Learn. Mem. 2009 16 147 154 10.1101/lm.1172609 19181621 
+65. Breunig JJ    Primary cilia regulate hippocampal neurogenesis by mediating sonic hedgehog signaling Proc. Natl. Acad. Sci. 2008 105 13127 13132 10.1073/pnas.0804558105 18728187 
+66. Whitfield JF  Chakravarthy BR   The neuronal primary cilium: driver of neurogenesis and memory formation in the hippocampal dentate gyrus? Cell. Signal. 2009 21 1351 1355 10.1016/j.cellsig.2009.02.013 19249355 
+67. De Magalhães JP  Curado J  Church GM   Meta-analysis of age-related gene expression profiles identifies common signatures of aging Bioinformatics 2009 25 875 881 10.1093/bioinformatics/btp073 19189975 
+68. Davis RE    A knockin mouse model of the Bardet–Biedl syndrome 1 M390R mutation has cilia defects, ventriculomegaly, retinopathy, and obesity Proc. Natl. Acad. Sci. 2007 104 19422 19427 10.1073/pnas.0708571104 18032602 
+69. Zhang Q    BBS7 is required for BBSome formation and its absence in mice results in Bardet–Biedl syndrome phenotypes and selective abnormalities in membrane protein trafficking J. Cell. Sci. 2013 126 2372 2380 10.1242/jcs.111740 23572516 
+70. Campos Y    Alix-mediated assembly of the actomyosin–tight junction polarity complex preserves epithelial polarity and epithelial barrier Nat. Commun. 2016 7 11876 10.1038/ncomms11876 27336173 
+71. Berchtold NC    Gene expression changes in the course of normal brain aging are sexually dimorphic Proc. Natl. Acad. Sci. 2008 105 15605 15610 10.1073/pnas.0806883105 18832152 
+72. Hokama M    Altered expression of diabetes-related genes in Alzheimer's disease brains: the Hisayama study Cereb. Cortex 2013 24 2476 2488 10.1093/cercor/bht101 23595620 
+73. Blalock EM    Incipient Alzheimer's disease: microarray correlation analyses reveal major transcriptional and tumor suppressor responses Proc. Natl. Acad. Sci. 2004 101 2173 2178 10.1073/pnas.0308512100 14769913 
+74. Berridge MJ   Calcium signalling and Alzheimer’s disease Neurochem. Res. 2011 36 1149 1156 10.1007/s11064-010-0371-4 21184278 
+75. Shaw DK    Intracellular calcium mobilization is required for sonic hedgehog signaling Dev. Cell 2018 45 512 525 10.1016/j.devcel.2018.04.013 29754802 
+76. Stefanova NA  Maksimova KY  Rudnitskaya EA  Muraleva NA  Kolosova NG   Association of cerebrovascular dysfunction with the development of Alzheimer’s disease-like pathology in OXYS rats BMC Genom. 2018 19 75 10.1186/s12864-018-4480-9 
+77. Renault M-A    Sonic hedgehog induces angiogenesis via Rho kinase-dependent signaling in endothelial cells J. Mol. Cell. Cardiol. 2010 49 490 498 10.1016/j.yjmcc.2010.05.003 20478312 
+78. Lai K  Kaspar BK  Gage FH  Schaffer DV   Sonic hedgehog regulates adult neural progenitor proliferation in vitro and in vivo Nat. Neurosci. 2003 6 21 10.1038/nn983 12469128 
+79. Schultz W   Multiple dopamine functions at different time courses Annu. Rev. Neurosci. 2007 30 259 288 10.1146/annurev.neuro.28.061604.135722 17600522 
+80. Karam CS    Signaling pathways in schizophrenia: emerging targets and therapeutic strategies Trends Pharmacol. Sci. 2010 31 381 390 10.1016/j.tips.2010.05.004 20579747 
+81. Panaccione I    Neurodevelopment in schizophrenia: the role of the wnt pathways Curr. Neuropharmacol. 2013 11 535 558 10.2174/1570159X113119990037 24403877 
+82. De A   Wnt/Ca2+ signaling pathway: a brief overview Acta Biochim. Biophys. Sin. 2011 43 745 756 10.1093/abbs/gmr079 21903638 
+83. Kaalund SS    Contrasting changes in DRD1 and DRD2 splice variant expression in schizophrenia and affective disorders, and associations with SNPs in postmortem brain Mol. Psychiatry 2014 19 1258 1266 10.1038/mp.2013.165 24322206 
+84. Lambert JC    Meta-analysis of 74,046 individuals identifies 11 new susceptibility loci for Alzheimer's disease Nat. Genet. 2013 45 1452 1458 10.1038/ng.2802 24162737 
+85. Chen D    Genetic analysis of the ATG7 gene promoter in sporadic Parkinson's disease Neurosci. Lett. 2013 534 193 198 10.1016/j.neulet.2012.12.039 23295909 
+86. Sharma M    The sepiapterin reductase gene region reveals association in the PARK3 locus: analysis of familial and sporadic Parkinson’s disease in European populations J. Med. Genet. 2006 43 557 562 10.1136/jmg.2005.039149 16443856 
+87. Won H    GIT1 is associated with ADHD in humans and ADHD-like behaviors in mice Nat. Med. 2011 17 566 10.1038/nm.2330 21499268 
+88. Hubsher G  Haider M  Okun MS   Amantadine: the journey from fighting flu to treating Parkinson disease Neurology 2012 78 1096 1099 10.1212/WNL.0b013e31824e8f0d 22474298 
+89. Tellioglu T  Robertson D   Genetic or acquired deficits in the norepinephrine transporter: current understanding of clinical implications Expert Rev. Mol. Med. 2001 2001 1 10 10.1017/S1462399401003878 14987367 
+90. Pacholczyk T  Blakely RD  Amara SG   Expression cloning of a cocaine- and antidepressant-sensitive human noradrenaline transporter Nature 1991 350 350 354 10.1038/350350a0 2008212 
+91. Jiang Y  Zhang H   Propensity score-based nonparametric test revealing genetic variants underlying bipolar disorder Genet. Epidemiol. 2011 35 125 132 10.1002/gepi.20558 21254220 
+92. Delous M    The ciliary gene RPGRIP1L is mutated in cerebello-oculo-renal syndrome (Joubert syndrome type B) and Meckel syndrome Nat. Genet. 2007 39 875 881 10.1038/ng2039 17558409 
+93. Sherva R    Genome-wide association study of the rate of cognitive decline in Alzheimer's disease Alzheimer's Dement. 2014 10 45 52 10.1016/j.jalz.2013.01.008 23535033 
+94. Irish Schizophrenia Genomics, C. & the Wellcome Trust Case Control, C. Genome-wide association study implicates HLA-C*01:02 as a risk factor at the major histocompatibility complex locus in schizophrenia. Biol. Psychiatry 72, 620–628. 10.1016/j.biopsych.2012.05.035 (2012).
+95. Karunakaran, K. B., Chaparala, S. & Ganapathiraju, M. K. Potentially repurposable drugs for schizophrenia identified from its interactome. bioRxiv, 442640 (2018).
+96. Rannestad J   The regeneration of cilia in partially deciliated Tetrahymena J. Cell Biol. 1974 63 1009 1017 10.1083/jcb.63.3.1009 4215818 
+97. Kobayashi T    HDAC2 promotes loss of primary cilia in pancreatic ductal adenocarcinoma EMBO Rep. 2017 18 334 343 10.15252/embr.201541922 28028031 
+98. Valencia-Gattas M  Conner GE  Fregien NL   Gefitinib, an EGFR tyrosine kinase inhibitor, prevents smoke-mediated ciliated airway epithelial cell loss and promotes their recovery PLoS ONE 2016 11 e0160216 10.1371/journal.pone.0160216 27532261 
+99. Khan NA    Identification of drugs that restore primary cilium expression in cancer cells Oncotarget 2016 7 9975 10.18632/oncotarget.7198 26862738 
+100. Wang H    Hsp90α forms a stable complex at the cilium neck for the interaction of signalling molecules in IGF-1 receptor signalling J. Cell. Sci. 2015 128 100 108 10.1242/jcs.155101 25359884 
+101. Orii N  Ganapathiraju MK   Wiki-pi: a web-server of annotated human protein-protein interactions to aid in discovery of protein function PLoS ONE 2012 7 e49029 10.1371/journal.pone.0049029 23209562
+

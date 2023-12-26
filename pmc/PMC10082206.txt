@@ -1,0 +1,250 @@
+
+==== Front
+Schizophrenia (Heidelb)
+Schizophrenia (Heidelb)
+Schizophrenia
+2754-6993
+Nature Publishing Group UK London
+
+348
+10.1038/s41537-023-00348-x
+Article
+Shared genetic loci and causal relations between schizophrenia and obsessive-compulsive disorder
+Chen Yu 1
+Guo Hua guohua16699@163.com
+
+2
+http://orcid.org/0000-0002-1201-8465
+Yue Weihua dryue@bjmu.edu.cn
+
+3456
+1 grid.412990.7 0000 0004 1808 322X Department of Psychiatry, The Second Affiliated Hospital of Xinxiang Medical University, Xinxiang, Henan 453002 China
+2 Zhumadian second people’s hospital, Henan, 463899 China
+3 grid.459847.3 0000 0004 1798 0615 Institute of Mental Health, Peking University Sixth Hospital, Beijing, 100191 China
+4 grid.459847.3 0000 0004 1798 0615 NHC Key Laboratory of Mental Health (Peking University), National Clinical Research Center for Mental Disorders (Peking University Sixth Hospital), Beijing, 100191 China
+5 grid.11135.37 0000 0001 2256 9319 PKU-IDG/McGovern Institute for Brain Research, Peking University, Beijing, 100871 China
+6 grid.506261.6 0000 0001 0706 7839 Research Unit of Diagnosis and Treatment of Mood Cognitive Disorder (2018RU006), Chinese Academy of Medical Sciences, Beijing, 100191 China
+7 4 2023
+7 4 2023
+2023
+9 1 208 2 2023
+15 3 2023
+© The Author(s) 2023
+https://creativecommons.org/licenses/by/4.0/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+Based on the clinical overlap between schizophrenia (SCZ) and obsessive-compulsive disorder (OCD), both disorders may share neurobiological substrates. In this study, we first analyzed recent large genome-wide associations studies (GWAS) on SCZ (n = 53,386, Psychiatric Genomics Consortium Wave 3) and OCD (n = 2688, the International Obsessive-Compulsive Disorder Foundation Genetics Collaborative (IOCDF-GC) and the OCD Collaborative Genetics Association Study (OCGAS)) using a conjunctional false discovery rate (FDR) approach to evaluate overlap in common genetic variants of European descent. Using a variety of biological resources, we functionally characterized the identified genomic loci. Then we used two-sample Mendelian randomization (MR) to estimate the bidirectional causal association between SCZ and OCD. Results showed that there is a positive genetic correlation between SCZ and OCD (rg = 0.36, P = 0.02). We identified that one genetic locus (lead SNP rs5757717 in an intergenic region at CACNA1I) was jointly associated with SCZ and OCD (conjFDR = 2.12 × 10−2). Mendelian randomization results showed that variants associated with increased risk for SCZ also increased the risk of OCD. This study broadens our understanding of the genetic architectures underpinning SCZ and OCD and suggests that the same molecular genetic processes may be responsible for shared pathophysiological and clinical characteristics between the two disorders.
+
+Subject terms
+
+Schizophrenia
+Biomarkers
+Target identification
+Genetics of the nervous system
+https://doi.org/10.13039/501100001809 National Natural Science Foundation of China (National Science Foundation of China) 81825009 Yue Weihua issue-copyright-statement© The Author(s) 2023
+==== Body
+pmcIntroduction
+
+Despite schizophrenia (SCZ) and obsessive-compulsive disorder (OCD) being regarded as separate and rarely overlapping diagnostic entities, these disorders apparently share high comorbidity: the rate of SCZ with obsessive-compulsive symptoms comorbidity was up to 30%1, SCZ with OCD (schizo-obsessive comorbidity, SOC) 12–14%2, schizotypal personality with OCD 12–14%3. A prior diagnosis of OCD was associated with higher rates of schizophrenia and schizophrenia spectrum disorders later in life, after adjusting for a family history of psychiatric disorders and the patient’s psychiatric history4. Adolescent, adult, and elderly patients with schizophrenia all displayed obsessive-compulsive symptoms (OCS), providing more evidence that OCD and schizophrenia may be related5,6. OCS first appeared while taking atypical antipsychotic medications to treat schizophrenia, which raised the possibility that comorbid OCD was a side effect of medication. But comparable comorbidity rates of OCS were reported among individuals at ultrahigh risk for psychosis7–9, in prodromal phases of schizophrenia10–12, and in drug-naive patients with first-episode schizophrenia8,13. Therefore, OCS in schizophrenia cannot be a result of antipsychotic medication or a chronic illness. More studies are needed to explore the temporal relationship between two disorders in a longitudinal design.
+
+Additionally, an increasing number of translational, neurophysiological, and neuroimaging studies suggest a substantial overlap in the pathophysiology of SCZ and OCD. Both SCZ and OCD showed dissociable source-monitoring impairments and oculomotor function deficits; only in SCZ does a specific deficiency in the motor control of saccades, smooth eye pursuit, and reality monitoring and OCD patients showed impairment in the maintenance of active fixation, suggesting that SCZ and OCD have shared and specific neurobiological substrates14,15. The shared polygenic risk between SCZ and OCD was detected in a cross-disorder polygenic risk score analysis16. A similar pattern of accelerated white matter decline with age and greater white matter deficit in females in OCD and SCZ: small fractional anisotropy (FA) reductions in the corpus callosum and accelerated reductions in FA with age while OCD having specifically in the left superior longitudinal fasciculus and SCZ showing a more widespread pattern of FA reduction17. A key neurological defect of mental diseases has been postulated to be aberrant functional integration within the default mode network (DMN) in SCZ and OCD18. Functional connectivity (FC) between the subregions of DMN increased in SCZ, SOC, and OCD compared with the healthy control group, while SOC and SCZ showed significantly increased FC between DMN subregions and middle temporal gyrus but OCD exhibited decreased FC19. Taken together, the previous findings suggest that SCZ and OCD share neurological foundations for them.
+
+More recently, genome-wide association studies (GWAS) have demonstrated that schizophrenia is a polygenic psychiatric disorder, the SNP-based heritability was estimated to be 0.24 (s.e. = 0.007)20. The common SNP heritability in the largest single OCD genome-wide study (combined OCGAS and IOCDF-GC) was estimated to be 0.28 (s.e. = 0.04)21. Still no evidence for genes underline the genetic correlation between SCZ and OCD, there was some clues for genetic disposition. The gene SLC1A1 (solute carrier family) on chromosome 9p24 was associated with OCS in schizophrenia but not with vulnerability to schizophrenia22. While other studies found the gene DLGAP3 (disks large associated protein 3)23 and GRIN2B (the type 2B subunit of the N-methyl-D-aspartate receptor)24 may interact with SLC1A1 for OCS in schizophrenia. Besides, Val66Met polymorphism in brain-derived neurotrophic factor (BDNF) was associated with OCS in schizophrenia25. Although there are many studies investigating the relationships between SCZ and OCD, the relationship between the two is complex and unclear. We hypothesize that SCZ and OCD have a common genetic basis. Here, we applied MiXeR26 and conjFDR analysis27–29 to the latest GWASs to assess the shared genetic basis between SCZ and OCD in European populations. MiXeR was used to quantify polygenic overlap beyond genetic correlation. Further, we investigate if there are genetic loci jointly associated with SCZ and OCD using the cond/conjFDR method. We also conducted a Mendelian randomization (MR) approach to estimate the bidirectional association between SCZ and OCD.
+
+Results
+
+Genetic correlation
+
+We found a positive genetic correlation between SCZ and OCD (rg = 0.36, P = 0.02) (Fig. 1A).Fig. 1 Polygenic overlap between SCZ and OCD.
+
+A The polygenic overlap between SCZ (blue) and OCD (orange). Venn diagrams of causal shared and unique variants. The numbers is the quantity of causal variants with standard errors in parentheses (numbers in thousand). Conditional Q-Q plots of nominal versus empirical −log10 p values (corrected for inflation) in B SCZ below the standard GWAS threshold of P < 5 × 10−8 as a function of significance of association with OCD, and C vice versa at the level of P < 0.1, P < 0.01, P < 0.001, respectively. The blue lines indicate all SNPs. SCZ schizophrenia, OCD obsessive-compulsive disorder rg; genetic correlation.
+
+Polygenic overlap
+
+Univariate MiXeR estimated that 9600 trait-variants influenced SCZ and 2300 variants influenced OCD. Bivariate MiXeR analysis revealed a substantial polygenic overlap of SCZ-influencing variants OCD. Of the 9600 SCZ-influencing variants, 2100 (SD = 500) were also predicted to influence OCD (Fig. 1A). In Conditional Q-Q plots, We observed a pronounced successive leftward deflection for SCZ | OCD (Fig. 1B), but not for OCD | SCZ (Fig. 1C), indicating polygenic enrichment and a potential causal relationship.
+
+SCZ/OCD-associated loci
+
+Using condFDR we identified 256 (Table S1) LD-independent loci to be significantly (condFDR < 0.01) associated with SCZ after conditioning on association with OCD. No loci were found for OCD after conditioning on SCZ, indicating a unidirectional causality.
+
+Shared loci
+
+To identify the genetic loci jointly associated with both SCZ and OCD we used conjFDR. We found only one genetic locus jointly associated with SCZ and OCD in an intergenic region at CACNA1I (lead SNP rs5757717, chromosome 22: 39942234, P value SCZ = 3.38 × 10−5, P value OCD = 2.58 × 10−5, conjFDR = 2.12 × 10−2, Fig. 2). As denoted by the sign of the effect sizes, this loci has consistent effect directions in SCZ and OCD, indicating that the respective risk alleles are linked to higher susceptibility to both SCZ and OCD (Table 1).Fig. 2 ConjFDR Manhattan plot.
+
+Common genetic variants both associated with SCZ and OCD at conjunctional false discovery rate (conjFDR) < 0.05. Manhattan plot showing the −log10 transformed conjFDR values for each SNP on the y axis and the chromosomal positions along the x axis. The dotted horizontal line represents the threshold for significant shared associations (conjFDR < 0.01, i.e. −log10(conjFDR) > 2.0). Independent lead SNPs are encircled in black, and labeled by its nearest gene. SCZ schizophrenia, OCD obsessive-compulsive disorder.
+
+Table 1 Genomic loci jointly associated with SCZ and OCD at conjunctional FDR < 0.05.
+
+Locus	CHR	Lead SNP	A1/A2	Nearest Gene	Functional category	P value OCD	Z-score
+OCD	P value SCZ	Z-score SCZ	conjFDR	
+1	22	rs5757717	T/C	CACNA1I	Intergenic	2.58E-05	−4.21	3.38E-05	−4.15	2.12E-02	
+The most strongly associated SNPs in independent genomic loci shared between SCZ and OCD at conjFDR<0.05 after merging regions < 250 kb apart into a single locus. The table presents chromosomal position (CHR), nearest gene and functional category, as well as p-values and z-scores from the original summary statistics on SCZ and OCD. The effect sizes are given with reference to allele 1 (A1).
+
+We applied FUMA to candidate SNPs (r2 ≥ 0.6 with lead SNP, see Fig. 3, Supplemental Table 2) to 11 protein-coding genes (see Supplemental Table 3). Positional mapping aligned 2 SNPs to CACNA1I, cis-eQTL mapping implicated 2 genes (CBX7 and MGAT3), and chromatin interaction mapping implicated 8 genes (APOBEC3C, TAB1, MIEF1, ADSL, SGSM3, MCHR1,PHF5A and ACO2). A gene-set analysis identified no biological process significantly associated with the 11 genes, but these genes are involved in IgG glycosylation (TAB1, MGAT3, and CACNA1I) and Response to methotrexate in juvenile idiopathic arthritis (CACNA1I and APOBEC3C) reported by GWAS catalog (see Fig. 4).Fig. 3 Comprehensive panel displaying LD of query variant (rs5757717).
+
+LD information was showed from the 1000 Genomes Phase 3 for European-ancestry haplotype reference panel using an R2 cutoff of 0.6 within 250 kb.
+
+Fig. 4 Gene sets associated with the reported genes from the GWAS-catalog.
+
+Hypergeometric tests are performed to test if genes of interest are overrepresented in any of the pre-defined gene sets. Multiple test correction is performed.
+
+Mendelian randomization
+
+The inverse-variance weighted method showed that SCZ was associated with an approximately 21% increased risk of developing OCD (IVW OR = 1.25; 95% CI, 1.06 to 1.38; P = 0.005; see Table 2, Fig. 5). The MR-Egger regression revealed that horizontal pleiotropy was unlikely to bias the result (Egger_intercept = 0.01, P = 0.48). The Cochran’s Q test indicated some heterogeneity among the IVs (PIVW = 1.62 × 10−6). After removing the outliers (rs10861176 and rs12877581) detected by MR-PRESSO (βraw = 0.20, S.D. = 0.06, P = 0.001), robust evidence genetically yielded consistent directions and similar effect estimates (βOutlier-corrected = 0.20, S.D. = 0.06, P < 0.001). The statistical power is sufficient (0.91) assuming the true causal OR of SCZ on OCD is 1.21, given the involved sample size and the significance level α as 0.05.Table 2 MR results for the relationship between SCZ and OCD.
+
+Method	Number of SNPs	OR (95% CI)a	P	
+SCZ on OCD				
+MR Egger	128	1.00 (0.59 to 1.72)	0.99	
+Weighted median	1.01 (0.87 to 1.19)	0.85	
+Inverse variance weighted	1.21 (1.06 to 1.38)	0.004	
+Simple mode	0.83 (0.51 to 1.36)	0.47	
+Weighted mode	0.83 (0.52 to 1.33)	0.44	
+OCD on SCZ				
+MR Egger	19	1.04 (0.98 to 1.11)	0.19	
+Weighted median	1.01 (0.98 to 1.04)	0.65	
+Inverse variance weighted	1.02 (0.99 to 1.04)	0.13	
+Simple mode	1.00 (0.95 to 1.06)	0.97	
+Weighted mode	1.00 (0.96 to 1.05)	0.87	
+Indicates the odds for SCZ per one-s.d. increase in OCD. All statistical tests were two-sided. P < 0.05 was considered significant.
+
+Bold values denote statistically significant results.
+
+Fig. 5 MR plots for the relationship between SCZ and OCD.
+
+A Scatter plot of SNP effects on SCZ versus OCD, B Scatter plot of SNP effects on OCD versus SCZ, with the slope of each line corresponding to the estimated MR effect per method. The data are expressed as raw β values with 95% CIs.
+
+The univariable MR estimates were not statistically significant for the effect of OCD (IVW OR = 1.02; 95% CI, 0.99 to 1.04; P = 0.13) on SCZ. While the statistical power is insufficient (0.07) assuming the true causal OR of SCZ on OCD is 1.02, given the low sample size. MR-Egger intercept analysis found no evidence of directional pleiotropy (P = 0.39). The Cochran’s Q statistic indicated no evidence for pleiotropy (PIVW = 0.87) across instrument effect. MR-PRESSO analysis did not identify significant horizontal pleiotropic variants and the causal association between serum OCD and SCZ was still observed.
+
+Discussion
+
+This study provided that there was a large number of trait-influencing variants between SCZ and OCD, as revealed by the MiXeR analyses. while condFDR methods found that no loci were found for OCD after conditioning on SCZ, this could be due to the small sample size of the OCD GWAS dataset.MR analyses suggested that higher genetically-predicted SCZ was associated with the risk of OCD. We added evidence of shared genetic architecture between SCZ and OCD and one shared genetic loci showed a consistent pattern of effect direction for both traits. A gene-set analysis indicated that IgG glycosylation (TAB1, MGAT3, and CACNA1I) and Response to methotrexate in juvenile idiopathic arthritis (CACNA1I and APOBEC3C) may engage common underlying genetic vulnerabilities. These findings provide new knowledge about the relationship and shared genetic mechanisms between SCZ and OCD.
+
+In the present study, we first discovered a genetic overlap between SCZ and OCD, a positive genetic correlation. A meta-analysis of 43 studies with 3978 subjects reported the mean prevalence of OCD to be 12.3%1. A clinical study reported that 19% of 200 hospitalized patients with schizophrenia meet the Diagnostic and Statistical Manual of Mental Disorders-IV (DSM-IV) for OCD30. Most opinions believe that antipsychotics induced OCS or OCD. Secondary OCS can occur in up to 70% of schizophrenia patients taking second-generation antipsychotics (SGA) like clozapine, olanzapine, or risperidone31. Furthermore, a longer duration of treatment with SGAs was related to a higher prevalence of denovo OCS32. However, there have been mixed findings regarding atypical antipsychotics and the risk of OCD. In contrast to the above findings, people with schizophrenia spectrum disorders have also reported some positive effects of olanzapine or risperidone on OCS33,34. Additionally, there is strong data demonstrating that augmentation of serotonin reuptake inhibitors, olanzapine or risperidone, can lessen OCS in individuals with treatment-resistant OCD35,36. These paradoxical effects on OCS may be partially explained by the common genetic factors for both mental disorders. The solute carrier family 1 member 1 (SLC1A1) gene has been consistently associated with primary OCD patients and the presence of the same SNP has been shown to increase the risk of OCS/OCD in schizophrenia with antipsychotic medications37,38. Recent studies have found that the incidence in patients with FEP was noted to range from 9.1% to 10.6% for OCD39. Overall, an affinity between OCD and schizophrenia is supported by many studies, future studies should recruit unmedicated patients with schizophrenia and OCD to uncover the potential pathogenesis of the comorbidity.
+
+Second, we found that lead SNP rs5757717 in an intergenic region at CACNA1I was jointly associated with SCZ and OCD. The CACNA1I gene, involved in calcium signaling in neurons, is a member of a subfamily of calcium channels referred to as a low voltage-activated, T-type, calcium channel. Many large-scale genetic association studies reported that CACNA1I was implicated in the susceptibility to schizophrenia40,41. CACNA1I was considerably up-regulated in the hippocampus of SCZ patients compared to controls, according to RNA-seq analysis, suggesting that dysregulation of CACNA1I may play a role in the etiology of schizophrenia42. And unfortunately, the GWAS study for OCD did not yield significant results for the sample size was relatively low compared to many GWAS and replication studies. Evidence from earlier studies indicated that an escalating dose regimen of a Ca channel blocker (CCB) significantly worsened the OCD while cutting back on the CCB dosage improve OCD symptoms43. Animal studies suggest that calcium-channel antagonists (flunarizine, amlodipine, etc.) significantly inhibited marble-burying behavior (an animal model of obsessive-compulsive disorder) in mice44 and Citalopram, a long-term antidepressant, disinhibited the serotonergic spontaneous firing activity by decreasing the gamma-aminobutyric acid B receptor-mediated regulation of L-type voltage-dependent Ca2+ channels in serotonergic neurons45. In a word, there is no evidence supporting the direct connection between CACNA1I and OCD, but Calcium Signaling Pathway may be involved in the pathogenesis and treatment of OCD. We also found that the genes mapped by candidate SNPs were involved in IgG glycosylation reported by GWAS catalog. There are relatively few studies on this area. Many studies showed patients with schizophrenia had a significant increase in circulating IgG levels and a pro-inflammatory IgG receptor in the midbrain46,47 while serum toxoplasma IgG positivity was correlated with a greater risk of OCD48. This points that the alteration of IgG glycosylation could be a signature of a comorbid phenotype shared by SCZ and OCD, possibly due to genetic basis.
+
+Last, Mendelian randomization results showed that SCZ is a causal risk factor for OCD. Most opinions believe that a diagnosis of OCD confers a risk for later development of schizophrenia and schizophrenia spectrum disorders4. But drugs with predominant anti-serotonergic profile (clozapine and risperidone) not predominant dopaminergic blockade (amisulpride and aripiprazole) were responsible for inducing OCS in SCZ49 and chronic use of clozapine is also known to downregulate hypersensitive 5-HT2C receptors50. Moreover, polymorphisms and interactions between SLC1A1, DLGAP3, GRIN2B and BDNF were associated with antipsychotic-induced OCS in SCZ, suggesting genetic vulnerabilities to both SCZ and OCD. The MR results of present study could be due to the small sample size of OCD GWAS and limited statistical power. On the other hand, only a small portion of the population had schizo-obsessive comorbidity (SOC), similar to OCD and SCZ, indicating a distinct brain disorder. Based on imaging evidence, SOC showed the highest rsFC strength within subregions of the DMN and the lowest rsFC strength between the Default Mode Network (DMN)19, changed connection probability of white matter in the DMN, and the Visual Network, the Somatosensory Network51 and altered grey matter volume and cortical thickness compared with SCZ, OCD, and healthy control52. In real clinical practice, there exist a set of patients having both SCZ and OCD, partially regulated by genetic factors.
+
+The present study uses the conjFDR statistical framework to boost statistical power and uncover polygenic overlap between SCZ and OCD, which may be useful for elucidating the mechanism of comorbidity from genetic and phenotypic perspectives. Limitations include that the sample size of the OCD GWAS study is relatively low and many loci may have been missed for limited statistical power.
+
+Conclusion
+
+The present study identified shared genetic architecture beyond the genetic correlation between SCZ and OCD. Mendelian randomization results showed that SCZ is a causal risk factor for OCD. We also revealed that CACNA1I gene shared the genetic basis of two disorders, suggesting that genetic factors cause some of the comorbidity for SCZ and OCD.
+
+Methods
+
+GWAS summary data sets
+
+The GWAS data on SCZ was obtained from the Psychiatric Genomics Consortium (PGC). Because of potential genetic differences, we included 53,386 cases and 77,258 controls in the European population. Summary statistics for OCD were acquired from the two consortia, the International Obsessive-Compulsive Disorder Foundation Genetics Collaborative (IOCDF-GC) and the OCD Collaborative Genetics Association Study (OCGAS), yielding a total of 2688 individuals of European ancestry with OCD and 7037 matched controls. The relevant ethics committees have approved all of the GWAS data sets used in this investigation, and all subjects gave their informed consent. The original publications provide more details on the requirements for inclusion.
+
+Genetic correlation
+
+We used LD score regression to estimate genetic correlations (rg) between SCZ and OCD. The sign of a genetic connection, which ranges from 1 to +1, denotes whether the same genetic variants are driving variation in the same or opposing directions.
+
+Polygenic overlap analysis
+
+MiXeR was used to quantify polygenic overlap between SCZ and OCD irrespective of the effect directions and coefficients. We performed 20 iterations using 2 million randomly selected SNPs for each iteration after random pruning at a linkage disequilibrium threshold of r2 = 0.8. The Venn diagram was displayed to count the number of shared and trait-unique causal variants between two traits. The presence of pleiotropic enrichment was determined by an increasing leftward divergence from the null line on modeled versus observed conditional quantile-quantile (Q-Q) plots.
+
+To improve the discovery of genetic variants associated with SCZ and OCD, respectively, we used the condFDR method that incorporates genetic association summary statistics from the primary trait of interest together with a secondary phenotype. We then conducted conjFDR, an extension of the condFDR, to identify SNPs jointly associated with SCZ and OCD. Manhattan plots were constructed based on the conjFDR value to show the genetic risk loci shared between SCZ and OCD. Before the conjFDR analyses, SNPs in the complex LD region (extended MHC region: chr6:25119106-33854733; 8p23.1: chr8:7200000-12500000; MAPT region: chr17:40000000–47000000; apolipoprotein E region: chr19:44909039–45912650) were excluded53. We used 1000 Genomes Project Phase 354 European sample as the LD reference (https://www.internationalgenome.org/data) and set a condFDR level of 0.01 and a conjFDR of 0.05 for comparison.
+
+Loci definition and functional annotation
+
+We identified independent significant SNPs independent of each other at r2 < 0.6 and that reached a conjFDR<0.05 according to the FUMA protocol. Lead SNPs were selected using linkage equilibrium with each other at r2 < 0.1 were then as. We merged all loci which were less than 250 kb apart to define distinct genomic loci and selected the most significant P-value as a lead SNP of the merged locus.
+
+We functionally annotated all candidate SNPs that were in LD (r2 ≥ 0.6) with one of the independent significant SNPs in the locus with Combined Annotation Dependent Depletion (CADD) scores55, RegulomeDB scores56, and Chromatin states scores57,58. We also linked candidate SNPs to genes using three gene-mapping strategies: positional mapping, expression quantitative trait locus (eQTL) mapping and chromatin interaction mapping. Then we conduct Gene Ontology (GO) to analyze gene-set enrichment for the mapped genes. All analyses were corrected for multiple comparisons. All LD information was calculated from the 1000 Genomes Project European-ancestry haplotype reference panel59.
+
+Mendelian randomization
+
+We used two-sample Mendelian randomization (MR) to estimate the bidirectional causal association between SCZ and OCD.
+
+Genetic instrumental variable (IV) was identified (r2 < 0.01 within a 10,000 kb window, P < 5 × 10−8). Fewer IVs were associated with OCD with genome-wide significance, so we relaxed the significance threshold (P < 1 × 10−5). Exposure IVs were extracted from the outcome GWAS. When a IV was missing in the outcome GWAS, we identified proxy variants using the LDLink online tool (r2 < 0.01 within a 10,000 kb window). We removed the weak IVs, defined as F-statistic < 10. Each SNP was detected in Phenoscanner (http://www.phenoscanner.medschl.cam.ac.uk/) to determine whether the estimate was violated by potential confounders. The inverse variance weighted (IVW) method was performed as the main analysis when valid IVs are valid or no pleiotropy. Moreover, simple mode, weighted mode, weighted median, and MR-Egger regression methods were used as sensitivity analyses. And we used MR Egger intercept and pleiotropy residual sum and outlier (MR-PRESSO) test60 to identify horizontal pleiotropic outliers. The statistical power of Mendelian randomization61 was calculated at http://cnsgenomics.com/shiny/mRnd/. The main statistical analyses were conducted using TwoSampleMR62 (Version: 0.4.22) and MR-PRESSO (Version: 1.0).
+
+Supplementary information
+
+SUPPLEMENTAL MATERIAL
+
+Supplementary information
+
+The online version contains supplementary material available at 10.1038/s41537-023-00348-x.
+
+Acknowledgements
+
+This work was supported by the National Key R&D Program of China (2021YFF1201103; 2016YFC1307000), National Natural Science Foundation of China (81825009), Major science and technology projects of Henan Province (201300310200), Collaborative Research Fund of Chinese Institute for Brain Research Beijing (2020-NKX-XM-12), CAMS Innovation Fund for Medical Sciences (2021-I2M-C&T-B-099; 2019-I2M-5-006), PKUHSC-KCL Joint Medical Research (BMU2020KCL001). The technical support group from the National Supercomputing Center in Zhengzhou is gratefully acknowledged. The authors thank the Psychiatric Genetics Consortium (PGC) for access to GWAS data.
+
+Author contributions
+
+Y.C. performed statistical analyses and wrote the paper. H.G. revised the paper critically for important intellectual content. W.H.Y. designed the work and assisted with data interpretation. All authors approved the ­final version to be published and can certify that no other individuals not listed as authors have made substantial contributions to the paper.
+
+Data availability
+
+All GWAS summary data sets used in the study areare publicly available (https://pgc.unc.edu/for-researchers/download-results/).
+
+Competing interests
+
+The authors declare no competing interests.
+
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+==== Refs
+References
+
+1. Swets M The obsessive compulsive spectrum in schizophrenia, a meta-analysis and meta-regression exploring prevalence rates Schizophr. Res. 2014 152 458 468 10.1016/j.schres.2013.10.033 24361303
+2. Achim AM How prevalent are anxiety disorders in schizophrenia? A meta-analysis and critical review on a significant association Schizophr. Bull. 2011 37 811 821 10.1093/schbul/sbp148 19959704
+3. Poyurovsky M Koran LM Obsessive-compulsive disorder (OCD) with schizotypy vs. schizophrenia with OCD: diagnostic dilemmas and therapeutic implications J. Psychiatr. Res. 2005 39 399 408 10.1016/j.jpsychires.2004.09.004 15804390
+4. Meier SM Obsessive-compulsive disorder as a risk factor for schizophrenia: a nationwide study JAMA Psychiatry. 2014 71 1215 1221 10.1001/jamapsychiatry.2014.1011 25188738
+5. Nechmad A Obsessive-compulsive disorder in adolescent schizophrenia patients Am. J. Psychiatry. 2003 160 1002 1004 10.1176/appi.ajp.160.5.1002 12727709
+6. Poyurovsky M Bergman J Weizman R Obsessive-compulsive disorder in elderly schizophrenia patients J. Psychiatr. Res. 2006 40 189 191 10.1016/j.jpsychires.2005.03.009 15913654
+7. Fontenelle LF A longitudinal study of obsessive-compulsive disorder in individuals at ultra-high risk for psychosis J. Psychiatr. Res. 2011 45 1140 1145 10.1016/j.jpsychires.2011.03.005 21440906
+8. Sterk B Lankreijer K Linszen DH de Haan L Obsessive-compulsive symptoms in first episode psychosis and in subjects at ultra high risk for developing psychosis; onset and relationship to psychotic symptoms Aust. N Z J Psychiatry. 2011 45 400 406 10.3109/00048674.2010.533363 21087087
+9. DeVylder JE Obsessive compulsive symptoms in individuals at clinical risk for psychosis: association with depressive symptoms and suicidal ideation Schizophr. Res. 2012 140 110 113 10.1016/j.schres.2012.07.009 22846651
+10. Devulapalli KK Welge JA Nasrallah HA Temporal sequence of clinical manifestation in schizophrenia with co-morbid OCD: review and meta-analysis Psychiatry Res. 2008 161 105 108 10.1016/j.psychres.2008.01.013 18718674
+11. Niendam TA Berzak J Cannon TD Bearden CE Obsessive compulsive symptoms in the psychosis prodrome: correlates of clinical and functional outcome Schizophr Res. 2009 108 170 175 10.1016/j.schres.2008.11.023 19097751
+12. Faragian S Age-of-onset of schizophrenic and obsessive-compulsive symptoms in patients with schizo-obsessive disorder Psychiatry Res. 2012 197 19 22 10.1016/j.psychres.2012.02.024 22436351
+13. Poyurovsky M Faragian S Shabeta A Kosov A Comparison of clinical characteristics, co-morbidity and pharmacotherapy in adolescent schizophrenia patients with and without obsessive-compulsive disorder Psychiatry Res. 2008 159 133 139 10.1016/j.psychres.2007.06.010 18406469
+14. Damilou A Apostolakis S Thrapsanioti E Theleritis C Smyrnis N Shared and distinct oculomotor function deficits in schizophrenia and obsessive compulsive disorder Psychophysiology 2016 53 796 805 10.1111/psyp.12630 26914941
+15. Lavallé L Bation R Dondé C Mondino M Brunelin J Dissociable source-monitoring impairments in obsessive-compulsive disorder and schizophrenia Eur. Psychiatry 2020 63 e54 10.1192/j.eurpsy.2020.48 32406366
+16. Costas J Exon-focused genome-wide association study of obsessive-compulsive disorder and shared polygenic risk with schizophrenia Transl. Psychiatry 2016 6 e768 10.1038/tp.2016.34 27023174
+17. Hawco C Age and gender interactions in white matter of schizophrenia and obsessive compulsive disorder compared to non-psychiatric controls: commonalities across disorders Brain Imaging Behav. 2017 11 1836 1848 10.1007/s11682-016-9657-8 27915397
+18. Littow H Aberrant Functional Connectivity in the Default Mode and Central Executive Networks in Subjects with Schizophrenia - A Whole-Brain Resting-State ICA Study Front. Psychiatry 2015 6 26 10.3389/fpsyt.2015.00026 25767449
+19. Wang YM Altered Functional Connectivity of the Default Mode Network in Patients With Schizo-obsessive Comorbidity: A Comparison Between Schizophrenia and Obsessive-compulsive Disorder Schizophr Bull. 2019 45 199 210 10.1093/schbul/sbx194 29365198
+20. Trubetskoy V Mapping genomic loci implicates genes and synaptic biology in schizophrenia Nature 2022 604 502 508 10.1038/s41586-022-04434-5 35396580
+21. Revealing the complex genetic architecture of obsessive-compulsive disorder using meta-analysis. Mol. Psychiatry 23, 1181-1188, 10.1038/mp.2017.154 (2018).
+22. Schirmbeck F Zink M Comorbid obsessive-compulsive symptoms in schizophrenia: contributions of pharmacological and genetic factors Front. Pharmacol. 2013 4 99 10.3389/fphar.2013.00099 23950745
+23. Ryu S Interaction between genetic variants of DLGAP3 and SLC1A1 affecting the risk of atypical antipsychotics-induced obsessive-compulsive symptoms Am. J. Med. Genet. B Neuropsychiatr. Genet. 2011 156b 949 959 10.1002/ajmg.b.31242 21990008
+24. Cai J Influence of polymorphisms in genes SLC1A1, GRIN2B, and GRIK2 on clozapine-induced obsessive-compulsive symptoms Psychopharmacology (Berl) 2013 230 49 55 10.1007/s00213-013-3137-2 23660601
+25. Hashim HM Fawzy N Fawzi MM Karam RA Brain-derived neurotrophic factor Val66Met polymorphism and obsessive-compulsive symptoms in Egyptian schizophrenia patients J. Psychiatr. Res. 2012 46 762 766 10.1016/j.jpsychires.2012.03.007 22521161
+26. Frei O Bivariate causal mixture model quantifies polygenic overlap between complex traits beyond genetic correlation Nat. Commun. 2019 10 2417 10.1038/s41467-019-10310-0 31160569
+27. Andreassen OA Improved detection of common variants associated with schizophrenia by leveraging pleiotropy with cardiovascular-disease risk factors Am. J. Hum. Genet. 2013 92 197 209 10.1016/j.ajhg.2013.01.001 23375658
+28. Andreassen OA Thompson WK Dale AM Boosting the power of schizophrenia genetics by leveraging new statistical tools Schizophr Bull. 2014 40 13 17 10.1093/schbul/sbt168 24319118
+29. Smeland OB Frei O Dale AM Andreassen OA The polygenic architecture of schizophrenia - rethinking pathogenesis and nosology Nat. Rev. Neurol. 2020 16 366 379 10.1038/s41582-020-0364-0 32528109
+30. Devi S Rao NP Badamath S Chandrashekhar CR Janardhan Reddy YC Prevalence and clinical correlates of obsessive-compulsive disorder in schizophrenia Compr. Psychiatry 2015 56 141 148 10.1016/j.comppsych.2014.09.015 25308405
+31. Poyurovsky M Comparison of clinical characteristics and comorbidity in schizophrenia patients with and without obsessive-compulsive disorder: schizophrenic and OC symptoms in schizophrenia J. Clin. Psychiatry 2003 64 1300 1307 10.4088/jcp.v64n1104 14658943
+32. Lykouras L Alevizos B Michalopoulou P Rabavilas A Obsessive-compulsive symptoms induced by atypical antipsychotics. A review of the reported cases Prog. Neuropsychopharmacol. Biol. Psychiatry 2003 27 333 346 10.1016/s0278-5846(03)00039-3 12691768
+33. Poyurovsky M Beneficial effect of olanzapine in schizophrenic patients with obsessive-compulsive symptoms Int. Clin. Psychopharmacol. 2000 15 169 173 10.1097/00004850-200015030-00006 10870875
+34. Veznedaroglu B Ercan ES Kayahan B Varan A Bayraktar E Reduced short-term obsessive-compulsive symptoms in schizophrenic patients treated with risperidone: a single-blind prospective study Hum. Psychopharmacol. 2003 18 635 640 10.1002/hup.536 14696023
+35. Koran LM Ringold AL Elliott MA Olanzapine augmentation for treatment-resistant obsessive-compulsive disorder J. Clin. Psychiatry 2000 61 514 517 10.4088/jcp.v61n0709 10937610
+36. Dold, M., Aigner, M., Lanzenberger, R. & Kasper, S. Antipsychotic Augmentation of Serotonin Reuptake Inhibitors in Treatment-Resistant Obsessive-Compulsive Disorder: An Update Meta-Analysis of Double-Blind, Randomized, Placebo-Controlled Trials. Int. J. Neuropsychopharmacol. 18, 10.1093/ijnp/pyv047 (2015).
+37. Stewart SE Association of the SLC1A1 glutamate transporter gene and obsessive-compulsive disorder Am. J. Med. Genet. B Neuropsychiatr. Genet. 2007 144b 1027 1033 10.1002/ajmg.b.30533 17894418
+38. Veenstra-VanderWeele J Genomic organization of the SLC1A1/EAAC1 gene and mutation screening in early-onset obsessive-compulsive disorder Mol. Psychiatry 2001 6 160 167 10.1038/sj.mp.4000806 11317217
+39. Poyurovsky M Awareness of illness and insight into obsessive-compulsive symptoms in schizophrenia patients with obsessive-compulsive disorder J. Nerv. Ment. Dis. 2007 195 765 768 10.1097/NMD.0b013e318142ce67 17984777
+40. Xu W Genetic risk between the CACNA1I gene and schizophrenia in Chinese Uygur population Hereditas 2018 155 5 10.1186/s41065-017-0037-1 28725167
+41. Baez-Nieto D Analysing an allelic series of rare missense variants of CACNA1I in a Swedish schizophrenia cohort Brain 2022 145 1839 1853 10.1093/brain/awab443 34919654
+42. Xie Y Huang D Wei L Luo XJ Further evidence for the genetic association between CACNA1I and schizophrenia Hereditas 2018 155 16 10.1186/s41065-017-0054-0 29308060
+43. Oken RJ Obsessive-compulsive disorder: cerebral calcium deficiency as a possible etiologic/pathogenetic factor–a case study Med. Hypotheses 1997 49 513 514 10.1016/s0306-9877(97)90071-2 9466376
+44. Egashira N Calcium-channel antagonists inhibit marble-burying behavior in mice J. Pharmacol. Sci. 2008 108 140 143 10.1254/jphs.08160sc 18758134
+45. Asaoka N Chronic antidepressant potentiates spontaneous activity of dorsal raphe serotonergic neurons by decreasing GABA(B) receptor-mediated inhibition of L-type calcium channels Sci. Rep. 2017 7 13609 10.1038/s41598-017-13599-3 29051549
+46. Petty A Increased levels of a pro-inflammatory IgG receptor in the midbrain of people with schizophrenia J Neuroinflammation 2022 19 188 10.1186/s12974-022-02541-8 35841099
+47. Eaton WW Immunologic profiling in schizophrenia and rheumatoid arthritis Psychiatry Res. 2022 317 114812 10.1016/j.psychres.2022.114812 36058039
+48. Akaltun İ Kara SS Kara T The relationship between Toxoplasma gondii IgG antibodies and generalized anxiety disorder and obsessive-compulsive disorder in children and adolescents: a new approach Nord. J. Psychiatry. 2018 72 57 62 10.1080/08039488.2017.1385850 28990850
+49. Sharma LP Reddy YCJ Obsessive-compulsive disorder comorbid with schizophrenia and bipolar disorder Indian J. Psychiatry 2019 61 S140 s148 10.4103/psychiatry.IndianJPsychiatry_527_18 30745688
+50. De Berardis D Safety of antipsychotics for the treatment of schizophrenia: a focus on the adverse effects of clozapine Ther. Adv. Drug Saf. 2018 9 237 256 10.1177/2042098618756261 29796248
+51. Wang YM Identifying Schizo-Obsessive Comorbidity by Tract-Based Spatial Statistics and Probabilistic Tractography Schizophr Bull. 2020 46 442 453 10.1093/schbul/sbz073 31355879
+52. Wang YM Altered grey matter volume and cortical thickness in patients with schizo-obsessive comorbidity Psychiatry Res. Neuroimaging 2018 276 65 72 10.1016/j.pscychresns.2018.03.009 29628272
+53. Schwartzman A Lin X The effect of correlation in false discovery rate estimation Biometrika 2011 98 199 214 10.1093/biomet/asq075 23049127
+54. Auton A A global reference for human genetic variation Nature 2015 526 68 74 10.1038/nature15393 26432245
+55. Kircher M A general framework for estimating the relative pathogenicity of human genetic variants Nat. Genet. 2014 46 310 + 10.1038/ng.2892 24487276
+56. Boyle AP Annotation of functional variation in personal genomes using RegulomeDB Genome Res. 2012 22 1790 1797 10.1101/gr.137323.112 22955989
+57. Kundaje A Integrative analysis of 111 reference human epigenomes Nature 2015 518 317 330 10.1038/nature14248 25693563
+58. Zhu Z Integration of summary data from GWAS and eQTL studies predicts complex trait gene targets Nat. Genet. 2016 48 481 10.1038/ng.3538 27019110
+59. Auton A A global reference for human genetic variation Nature 2015 526 68 74 10.1038/nature15393 26432245
+60. Verbanck M Chen CY Neale B Do R Detection of widespread horizontal pleiotropy in causal relationships inferred from Mendelian randomization between complex traits and diseases Nat. Genet. 2018 50 693 698 10.1038/s41588-018-0099-7 29686387
+61. Brion MJ Shakhbazov K Visscher PM Calculating statistical power in Mendelian randomization studies Int. J. Epidemiol. 2013 42 1497 1501 10.1093/ije/dyt179 24159078
+62. Hemani, G. et al. The MR-Base platform supports systematic causal inference across the human phenome. Elife 7, 10.7554/eLife.34408 (2018).
+
