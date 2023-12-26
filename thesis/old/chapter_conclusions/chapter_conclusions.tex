@@ -1,0 +1,111 @@
+\startchapter{Conclusions}
+\label{chapter:conclusion}
+
+conclusions
+
+
+
+\section{Old}
+
+
+\section{Future work}
+
+
+There remains considerable work to be done in regards to the Orchive
+as a whole.  The first is to find more examples of clear, nearby,
+isolated orca vocalizations and background noise.  There are 12,000
+annotations, about half of which are orca vocalizations.  A rough
+estimate would be that about 1 in 20 of these would be a loud,
+isolated vocalization, so one task we are working on is developing
+tools to quickly let us go through the existing annotations and to
+make training sets for Machine Learning algorithms.  In combination
+with this is the task to better trim the ends of orca calls to
+eliminate the silences that confound our Machine Learning algorithms.
+We are developing HTML5 based tools to help us to manually do this,
+and are also refining existing and developing new algorithms to
+automatically do this.
+
+The most exciting directly applicable future work to the current work
+involves doing large scale clustering and vector quantization (VQ) on
+the loud, isolated, orca vocalizations found in this study.  The VQ
+algorithm will give us as output an alphabet with an arbitrary sized
+dictionary.  With this one dimensional quantized and clustered
+representation of the audio, we plan to use tools and techniques from
+Bioinformatics \cite{sarkar2002} and Symbolic Aggregate Approximation
+\cite{lin07} to extract information from this archive at a large scale.
+Although this project concentrated on classification, it is the
+clustering capabilities of Mahout that would be useful for this task,
+and would be even more appropriate for doing large scale clustering
+than for doing classification.
+
+\section{Conclusions}
+
+We set out to do two things, first, to assign audio features to the
+entire Orchive, and further to classify all the audio in it into the
+classes of ``orca'' and ``background''.  We achieved this by using the
+Westgrid cluster and the bextract and sfplugin programs that are part
+of Marsyas.  For the bextract part it took approximately 3 hours of
+wall clock time, run on 37 computers to calculate all the features of
+the Orchive.  For the sfplugin part, which classified the audio, we
+ran on 42 nodes and it took 15 hours to annotate the entire archive.
+This is an amazing speedup in itself, we had always considered that
+calculating the features would take such a long time that we would at
+least have to cache the intermediate features, but this assumption now
+needs to be challenged.
+
+The second thing we set out to do was to compare a variety of
+distributed computing systems for both their performance and their
+ease of use.  The simple Weka system on PBS was shockingly good, and
+was extremely simple to setup and use.  With Weka, one is able to do a
+wide variety of algorithms and to compare their results.  
+
+Mahout is an excellent system, with many powerful capabilities and
+with deep integration into Hadoop.  In our tests, we found the most
+difficult thing as a student was to get the resources to run a
+reasonably large (10-20 node) Hadoop cluster.  As we described in the
+report, it is no small feat to get the Hadoop cluster installed and
+running, especially on unknown hardware, but once this is done, Mahout
+is simple to use and allows the storage of results on HDFS, the use of
+which is almost essential, given the quantity of final and
+intermediate results that need to be stored for a typical experimental
+setup.  
+
+Bextract in it's hybrid mode is perhaps the most useful system of this
+entire group.  Because it does not need to generate intermediate
+feature files that take huge amounts of disk space and often need to
+be transferred to other computers to do the Machine Learning, it can
+lead to a huge savings in time.  It is almost like having a mini
+cluster within your one job, one where you do the feature extraction
+and Machine Learning in one process.  All of the final classification
+results that we ran were with this hybrid system.
+
+
+
+\section{Future work}
+
+There remains considerable work to be done in regards to the Orchive
+as a whole.  The first is to find more examples of clear, nearby,
+isolated orca vocalizations and background noise.  There are 12,000
+annotations, about half of which are orca vocalizations.  A rough
+estimate would be that about 1 in 20 of these would be a loud,
+isolated vocalization, so one task we are working on is developing
+tools to quickly let us go through the existing annotations and to
+make training sets for Machine Learning algorithms.  In combination
+with this is the task to better trim the ends of orca calls to
+eliminate the silences that confound our Machine Learning algorithms.
+We are developing HTML5 based tools to help us to manually do this,
+and are also refining existing and developing new algorithms to
+automatically do this.
+
+The most exciting directly applicable future work to the current work
+involves doing large scale clustering and vector quantization (VQ) on
+the loud, isolated, orca vocalizations found in this study.  The VQ
+algorithm will give us as output an alphabet with an arbitrary sized
+dictionary.  With this one dimensional quantized and clustered
+representation of the audio, we plan to use tools and techniques from
+Bioinformatics \cite{sarkar2002} and Symbolic Aggregate Approximation
+\cite{lin07} to extract information from this archive at a large scale.
+Although this project concentrated on classification, it is the
+clustering capabilities of Mahout that would be useful for this task,
+and would be even more appropriate for doing large scale clustering
+than for doing classification.

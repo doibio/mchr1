@@ -1,0 +1,966 @@
+\startchapter{Chants}
+\label{chapter:chants}
+
+The field of Ethnomusicology is a sub-discipline of Musicology that
+focuses on the study of the socio-cultural aspects of music in
+societies around the world.  Computational Ethnomusicology \cite{} is
+a new field that uses the computational techniques commonly used in
+Music Information Retrieval (MIR) to analyse music and audio from
+social and cultural traditions from around the world.  In the present
+work we are interested in applying the tools of MIR to the analysis of
+partially annotated chant traditions from around the world, including
+Torah cantillation, Koran recitation, St. Gallen plainchant and
+Hungarian laments.
+
+These partially annotated chant traditions pose many challenges 
+
+
+
+\section{Overview}
+
+During the development of musical notation, the evolving relationship
+between textual syntax and musical semiotics were inherently connected
+to the transformation of a culture based on oral transmission and
+ritual to one based on writing and hermeneutic interpretation.
+
+Along this historical continuum, notation functioned either to
+reconstruct a previous, remembered melody or to construct a newly
+composed melody.
+
+For the chant scholar the question arises as to when and under
+what conditions melodic formulae became solidified as musical
+material. 
+
+In the present study we examine examples from improvised, partially
+improvised, partially notated and gesture-based notational chant
+traditions: Hungarian siratók (laments), Torah cantillation, tenth
+century St. Gallen plainchant, and Koran recitation. 
+
+We explore examples from these various traditions through
+computational tools for paradigmatic analysis of melodic formulae and
+gesture.
+
+Exploring the functionality of melodic gesture, musical syntax and
+musical semiotics in the specific contexts of speaking, singing,
+reading and writing enhances the comprehension of the relationship
+between melodic formula and textual syntax within these divergent
+forms of religious chant.
+
+\subsection*{Formula, Gesture and Syntax }
+
+These various types of chant employ melodic formulae, figures that
+define certain melodic identities that help to define syntax,
+pronunciation, and expression. Each tradition’s melodic framework is
+governed by the particular religious context for performance.
+
+The sirató is a lament ritual from Hungary that goes back at least to
+the Middle Ages.1 This improvised song type is integral for our study,
+as it exemplifies inherent relationships between speech and singing
+while demonstrating stable melodic formulae within an oral/aural
+ritual context.
+
+Jewish Torah trope is “read” using the twenty-two cantillation signs
+of the te’amei hamikra,2 developed by the Masorete rabbis3 between the
+sixth to the ninth centuries. The melodic formulae of Torah trope
+govern syntax, pronuciation and meaning. While the written te’amim
+have not changed since the tenth century C.E., their corresponding
+melodic formulae are determined not only by Jewish tradition of
+cantillation but also by the melodic framework of their surrounding
+musical environment.
+
+The performance framework for Koran recitation is not determined by
+text or by notation but by rules of recitation that are primarily
+handed down orally (Zimmermann 2000, p. 128).4 Here the hierarchy of
+spoken syntax, expression and pronunciation play a major role in
+determining the vocal styles of Tajwīd5 and Tartīl6. The resulting
+melodic phrases, performed not as “song” but “recitation” are, like
+those of Torah trope, determined by both the religious and larger
+musical cultural contexts.
+
+The early plainchant neumes came from a logogenic culture that was
+based on textual memorization; the singing of memorized chants was
+central to the preservation of a tradition that developed over
+centuries (Treitler 1982). Already in the ninth century the technology
+of writing was advanced enough to allow for new degrees of textual
+nuance. Here the ability for formulae to transcend textual syntax is
+at hand, pointing to the possibility for melodic autonomy from text. 7
+
+Chant scholars have investigated historical and phenomenological
+aspects of chant formulae to discover how improvised melodies might
+have developed to become stable melodic entities, paving the way for
+the development of notation.8 A main aspect of such investigations has
+been to explore the ways in which melodic contour defines melodic
+identities (Karp 1998). We hope that our computational tools will
+allow for new possibilities for paradigmatic and syntagmatic chant
+analysis in both culturally defined and cross-cultural contexts. This
+might give us a better sense of the role of melodic gesture in melodic
+formulae and possibly a new understanding of the evolution from
+improvised to notation-based singing in and amongst these divergent
+chant traditions.
+
+Melodic Contour Analysis Tool
+
+Our tool takes in a (digitized) monophonic or heterophonic recording
+and produces a series of successively more refined and abstract
+representations of the melodic contours.
+
+It first estimates the fundamental frequency (“F0,” in this case
+equivalent to pitch) and signal energy (related to loudness) as
+functions of time. We use the SWIPEP fundamental frequency estimator
+(Camacho 2007) with all default parameters except for upper and lower
+frequency bounds hand-tuned for each example. For signal energy we
+simply take the sum of squares of signal values in each
+non-overlapping 10-ms rectangular window.
+
+The next step is to identify pauses between phrases, so as to
+eliminate the meaningless and wildly varying F0 estimates during these
+noisy regions. We define an energy threshold, generally 40 decibels
+below each recording’s maximum. If the signal energy stays below this
+threshold for at least 100 ms then the quiet region is treated as
+silence and its F0 estimates are ignored. Figure 1 shows an excerpt of
+the F0 and energy curves for an excerpt from the Koran sura
+(“section”) Al-Qadr (“destiny”) recited by the renowned Sheikh Mahmûd
+Khalîl al-Husarî from Egypt.
+
+Figure 1: Pitch (top, MIDI units) and Energy (bottom, decibels) Contours
+
+Figure 2: Recording-specific scale derivation
+
+The next step is pitch quantization. Rather than externally imposing a
+particular set of pitches such as an equal-tempered chromatic or
+diatonic scale, we have developed a novel method for extracting a
+scale from an F0 envelope that is continuous (or at least very densely
+sampled) in both time and pitch. Our method is inspired by Krumhansl’s
+time-on-pitch histograms adding up the total amount of time spent on
+each pitch (Krumhanl 1990). We demand a pitch resolution of one cent9,
+so we cannot use a simple histogram.10 Instead we use a statistical
+technique known as nonparametric kernel density estimation, with a
+Gaussian kernel.11 The resulting curve is our density estimate; like a
+histogram, it can be interpreted as the relative probability of each
+pitch appearing at any given point in time. Figure 2 shows this
+method’s density estimate given the F0 curve from Figure 1.
+
+We interpret each peak in the density estimate as a note of the
+scale. We restrict the minimum interval between scale pitches
+(currently 80 cents by default) by choosing only the higher peak when
+there are two or more very close peaks. This method’s free parameter
+is the standard deviation of the Gaussian kernel, which provides an
+adjustable level of smoothness to our density estimate; we have
+obtained good results with a standard deviation of 30 cents. Note that
+this method has no knowledge of octaves.
+
+Once we have determined the scale, pitch quantization is the trivial
+task of converting each F0 estimate to the nearest note of the scale.
+
+In our opinion these derived scales are more true to the actual nature
+of pitch-contour relationships within oral/aural and semi-notated
+musical traditions. Instead of viewing these pitches to be deviations
+of pre-existing “normalized” scales our method defines a more
+differentiated scale from the outset. With our approach the scale
+tones do not require “normalization” and thereby exist in an
+autonomous microtonal environment defined solely on statistical
+occurrence of pitch within a temporal unfolding of the given melodic
+context.
+
+Interactive Web-Based Visualization and Exploration of Melodic Contours
+
+We have developed a browsing interface that allows researchers to
+organize and analyze chant segments in a variety of ways. The user
+manually segments each recording into the appropriate units for each
+chant type (such as trope sign, neumes, semantic units, or words). The
+pitch contours of these segments can be viewed at different levels of
+detail and smoothness using a histogram-based method. The segments can
+also be rearranged in a variety of ways both manually and
+automatically. That way one can compare the beginning and ending
+pitches of any trope sign, neume or word or compare the relationships
+of one neume or trope sign to its neighbors.
+
+Figure 3: Screen-shot of interface
+
+Our eventual goal is to explore the stability of melodic gesture and
+pitch content in a variety of contexts both within a given chant style
+and across chant styles. In addition we want to explore how the
+stability related to the chant texts and textual syntax. There are
+hard questions without clear answers. The user interface has been
+design to assist and support the analysis conducted by expert
+musicologists without trying to impose a specific approach. Being able
+to categorize melodic formulae in a variety of ways allows for a
+larger database of their gestural identities, their functionality to
+parse syntax, and their regional traits and relations. A better
+understanding of how pitch and contour helps to create gesture in
+chant might allow for a more comprehensive view of the role of gesture
+in improvised, semi-improvised and notated chant examples.
+
+We have chosen to implement the interface as a web-based Flash
+program, which can be accessed at «http://cantillation.sness.net». Web
+interfaces can increase the accessibility and usability of a program,
+make it easier to provide updates, and can enhance collaboration
+between colleagues by providing functionality that lets researchers
+more easily communicate their results to each other. The interface
+(shown in Figure 3) has four main sections: a sound player, a main
+window to display the pitch contours, a control window, and a
+histogram window.
+
+The sound player window displays a spectrogram representation of the
+sound file with shuttle controls to let the user choose the current
+playback position in the sound file. It also provides controls to
+start and pause playback of the sound, to change the volume.
+
+The main window shows all the pitch contours for the song as icons
+that can be repositioned automatically based on a variety of sorting
+criteria, or alternatively can be manually positioned by the user. The
+name of each segment (from the initial segmentation step) appears
+above its F0 contour. The shuttle control of the main sound player is
+linked to the shuttle controls in each of these icons, allowing the
+user to set the current playback state either by clicking on the sound
+player window, or directly in the icon of interest. When the user
+mouses over these icons, some salient data about the sign is displayed
+at the bottom of the screen.
+
+The control window has a variety of buttons that control the sorting
+order of the icons in the main F0 display window. A user can sort the
+icons in playback order, alphabetical order, length order, and also by
+the beginning, ending, highest and lowest F0. The user can also
+display the sounds in an X-Y graph, with the x-axis representing
+highest F0 minus lowest F0, and the y-axis showing the ending F0 pitch
+minus the beginning F0 pitch. Also in this section are controls to
+toggle a mode to hear individual sounds when they are clicking on, and
+controls to hide the pitch contour window leaving just the
+label. There are also buttons allowing the user to choose to hear the
+original sound file, the F0 curve applied to a sine wave, or the
+quantized F0 curve applied to a sine wave.12
+
+When an icon in the main F0 display window is clicked, the histogram
+window shows a histogram of the distribution of quantized pitches in
+the selected sign. Below this histogram is a slider to choose how many
+of the largest histogram bins will be used to generate a simplified
+contour representation of the F0 curve. In the limiting case of
+selecting all histogram bins, the reduced curve is exactly the
+quantized F0 curve. At lower values, only the histogram bins with the
+most items are used to draw the reduced curve, which has the effect of
+reducing the impact of outlier values and providing a smoother
+“abstract” contour.
+
+Shift-clicking selects multiple signs; in this case the histogram
+window includes the data from all the selected signs. We often select
+all segments with the same word, trope sign, or neume; this causes the
+simplified contour representation to be calculated using the sum of
+all the pitches found in that particular sign, enhancing the quality
+of the simplified contour representation.
+
+Below the histogram window is a window that shows a zoomed-in graph of
+the selected F0 contours. When more than one F0 contour is selected,
+the lines in the graph are color coded to make it possible to easily
+distinguish the different selected signs.
+
+Discussion and Future Work 
+
+The identity of chant formulae in oral/aural chant traditions is to a
+large extent determined by gesture/contour rather than by discrete
+pitches. Computational approaches assist with the analysis of these
+gestures/contours and enables the juxtaposition of multiple views at
+different levels of detail in a variety of analytical (paradigmatic
+and syntagmatic) contexts.
+
+
+The possibilities for such complex analysis methods would be difficult
+if not impossible without such computer-assisted analysis. Employing
+these tools we hope to better understand the role of and interchange
+between melodic formulae in oral/aural and written chant
+cultures. While our present analysis investigates melodic formulae
+primarily in terms of their gestural content and semantic
+functionality, we hope that these methods might allow scholars to
+reach a better understanding of the historical development of melodic
+formulae within various chant traditions.
+
+REFERENCES 
+
+Camacho, Arturo, 2007. SWIPE: A Sawtooth Waveform Inspired Pitch
+Estimator for Speech and Music. PhD Dissertation, University of
+Florida.
+
+Karp, Theodore, 1998. Aspects of Orality and Formularity in Gregorian
+Chant. Evanston: Northwestern University Press.
+
+Kodály, Zoltán, 1960. Folk Music of Hungary. Budapest: Corvina Press.
+
+Krumhansl, Carol L. 1990 Cognitive Foundations of Musical
+Pitch. Oxford: Oxford University Press.
+
+Levy, Kenneth, 1998. Gregorian Chant and the Carolingians Princeton:
+Princeton University Press.
+
+Nelson, Kristina, 1985. The Art of Reciting the Koran, Austin,
+University of Texas Press.
+
+Neubaurer, Eckhard and Veronica Doubleday: 'Qur'anic recitation,’
+Grove Music Online ed. L. Macy (Accessed 6 June 2008),
+«http://www.grovemusic.com»
+
+Treitler, Leo, 1982. “The Early History of Music Writing in the West,
+Journal of the American Musicological Society, Volume 35, Chicago:
+University of Chicago Press.
+
+Wigoder Geoffrey, ed., et al., 1989. “Masora,” The Encyclopedia of
+Judaism. New York: MacMillan Publishing Company.
+
+Zimmermann, Heidi Tora und Shira: Untersuchungen zur Musikauffassung
+des rabbinischen Judentums. Bern: Peter Lang, 2000, 128.
+
+1 Lamenting by women was common already in Biblical times: “Mourning
+songs for the dead also go back to primitive times. Although every
+religion and secular form of legislation… has endeavored to control
+mourning practices, they are still customary even today” (Kodály 1960,
+p. 76).
+
+2 The term “ta’amei hamikra” means literally “the meaning of the
+reading.”
+
+3 “Originally, the biblical books were written as continuous strings
+of letters, without breaks between words. This led to great confusion
+in the understanding of the text. To ensure the accuracy of the text,
+there arose a number of scholars known as the Masoretes in the sixth
+century CE, and continuing into the tenth century” (Wigoder 1989,
+p. 468).
+
+4 “Like the Hebrew miqra’ the primary name ‘Koran’ derives from the
+root q-r, i.e., ‘reading’: the visual implication of text is not
+implied with this root. Rather the concepts ‘pronounce, calling,
+reciting’ are expressed with the word, so that an adequate translation
+of Koran (Qur’ ãn) could be ‘the recited’” (Zimmerman 2000, p. 27,
+translation by Biró).
+
+5 “Tajwīd [is] the system of rules regulating the correct oral
+rendition of the Qur’an. The importance of Tajwīd to any study of the
+Qur’an cannot be overestimated: Tajwīd, preserves the nature of a
+revelation whose meaning is expressed as much as by its sound as by it
+content and expression, and guards it from distortion by a
+comprehensive set of regulations which govern many of the parameters
+of the sound production, such as duration of syllable, vocal timbre
+and pronunciation” (Nelson 1985,
+p. 14). «http://www.grovemusic.com.ezproxy.library.uvic.ca»
+
+6 “Tartīl, another term for recitation, especially implies slow
+deliberate attention to meaning, for contemplation.” (Neubaurer and
+Doublday).
+
+7 “The Gregorian Chant tradition was, in its early centuries, an oral
+performance practice… The oral tradition was translated after the
+ninth century into writing. But the evolution from a performance
+practice represented in writing, to a tradition of composing,
+transmission, and reading, took place over a span of centuries”
+(Treitler 1982, p. 237).
+
+8 “The church musicians who opted for the inexact aides-mémoire of
+staffless neumes – for skeletal notations that ignored exact
+pitch-heights and bypassed many nuances – were content with incomplete
+representations of musical substance because the full substance seemed
+safely logged in memory” (Levy 1998, p. 137).
+
+9 One cent is 1/100 of a semitone, corresponding to a frequency
+difference of about 0.06%.
+
+10 F0 envelopes of singing generally vary by much more than one cent
+even within a steadily held note, even if there is “no vibrato.”
+Another way of thinking about the problem is that there isn’t enough
+data for so many histogram bins: if a 10-second phrase spans an octave
+(1200 cents) and our F0 envelope is sampled at 100 Hz then we have an
+average of less than one item per histogram bin.
+
+11 Thinking statistically, our scale is related to a distribution
+giving the relative probability of each possible pitch. We can think
+of each F0 estimate (i.e., each sampled value of the F0 envelope) as a
+sample drawn from this unknown distribution, so our problem becomes
+one of estimating the unknown distribution given the observations.
+
+12 The sine waves also follow the computed energy curves.
+
+\subsection{Another paper}
+
+Our work in developing tools to assist with chant research is a
+collaboration with Dr. Daniel Biro, a professor in the School of Music
+at the University of Victoria. He has been collecting and studying
+recordings of chant with specific focus on how music transmission
+based on oral transmission and ritual was gradually changed to one
+based on writing and music notation. The examples studied come from
+improvised, partially notated, and gesture-based \cite{krumhansl90}
+notational chant traditions: Hungarian siratok
+(laments) \footnote{Archived Examples from Hungarian Academy of
+  Science (1968-1973)}, Torah cantillation
+\cite{zimmerman00} \footnote{Archived Examples from Hungary and
+  Morocco from the Feher Music Center at the Bet Hatfatsut, Tel Aviv,
+  Israel}, tenth century St. Gallen plainchant
+\cite{treitler82} \footnote{Godehard Joppich and Singphoniker:
+  Gregorian Chant from St. Gallen (GorgmarienhÃ¼tte: CPO 999267-2,
+  1994)}, and Koran recitation
+\footnote{Examples from Indonesia and Egypt: in Approaching the Koran
+(Ashland: White Cloud, 1999)}. This work falls under the more
+general area of Computational Ethnomusicology \cite{ce2008}. 
+
+Although Dr. Biro has been studying these recordings for some time and
+has considerable computer expertise for a professor in music, the
+design and development of our tools has been challenging. This is
+partly due to difficulties in communication and terminology as well as
+the fact that the work is exploratory in nature and there are no
+easily defined objectives. The tool has been developed through
+extensive interactions with Dr. Biro with frequent frustration on both
+sides. At the same time, a wonderful thing about expert users like
+Dr. Biro is that they are willing to spend considerable time preparing
+and annotating data as well as testing the system and user interface
+which is not the case in more traditional broad application domains.
+
+Our tool takes in a (digitized) monophonic or heterophonic recording
+and produces a series of successively more refined and abstract
+representations of the segments it contains as well as the
+corresponding melodic contours. More specifically the following
+analysis stages are performed:
+
+\begin{itemize} 
+\item{Hand Labeling of Audio Segments}
+\item{First Order Markov Model of Sign Sequences}
+\item{F0 Estimation}
+\item{F0 Pruning}
+\item{Scale Derivation: Kernel Density Estimation}
+\item{Quantization in Pitch}
+\item{Scale-Degree Histogram}
+\item{Histogram-Based Contour Abstraction}
+\item{Dynamic Time Warping for Contour Similarity} 
+\item{Plotting and Recombining the Segments}
+\end{itemize} 
+
+\subsection*{Hand Labeling of Audio Segments}
+
+The recordings are manually segmented and annotated by the
+expert. Even though we considered the possibility of creating an
+automatic segmentation tool, it was decided that the task was too
+subjective and critical to automate. Each segment is annotated with a
+word/symbol that is related to the corresponding text or performance
+symbols (for example cantillation marks) used during the recitation.
+
+
+\begin{figure}[htb]
+\includegraphics[width=120mm]{chapter_chants/transition_matrix}
+\caption{
+	Syntagmatic analysis with a first-order Markov model of the
+ sequence of Torah trope signs for the text Shir Ha Shirim (``Song of
+ Songs'').} 
+ \label{fig:transitions} 
+ \end{figure} 
+ 
+\subsection*{ First Order Markov Model of Sign Sequences}
+ 
+In order to study the transitions between signs/symbols we calculate a
+first order Markov model of the sign sequence for each recording. We
+were asked to perform this type of syntagmatic analysis by
+Dr. Biro. Although it is completely straightforward to perform
+automatically using the annotation, it would be hard, if not
+impossible, to calculate manually. Figure ~\ref{fig:transitions} shows
+an example transition matrix. For a given trope sign (a row) it shows
+how many total times does it appear in the example (numeral after row
+label), and in what fraction of those appearances is it followed by
+each of the other trope signs. The darkness of each cell corresponds
+to the fraction of times that the trope sign in the given row is
+followed by the trope sign in the given column.  (NB: Cell shading is
+relative to the total number of occurrences of the trope sign in the
+row, so, e.g., the black square saying that ``darga'' always precedes
+``revia'' represents 1/1, while the black square saying that ``zakef''
+always precedes ``katon'' represents 9/9.) This type of analysis can
+help identify the syntactic role that different signs have.
+ 
+\subsection*{F0 Estimation}
+ 
+After the segments have been identified, the fundamental frequency
+(``F0'' in this case equivalent to pitch) and signal energy (related
+to loudness) are calculated for each segment as functions of time. We
+use the SWIPEP fundamental frequency estimator \cite{camachophd} with
+all default parameters except for upper and lower frequency bounds
+that are hand-tuned for each example. For signal energy we simply take
+the sum of squares of signal values in each non-overlapping 10-ms
+rectangular window.
+ 
+The SWIPEP algorithm \cite{camachophd} uses an algorithm that is
+related to autocorrelation, and using a cosine as the kernel, performs
+an integral transform of the spectrum.  Unlike autocorrelation, which
+uses the square of the magnitude of the spectrum, SWIPEP uses the
+square root of the magnitude of the spectrum.  SWIPEP also modifies
+the cosine kernel in order to avoid some of the problems associated
+with autocorrelation.  These involve first zeroing the first quarter
+of the first cycle of the cosine, this allows it to avoid the maximum
+value at zero lag that occurs when using autocorrelation.  It then
+avoids the periodicity that autocorrelation experiences when analyzing
+periodic signals by multiplying the kernel by a 1/f envelope.  To
+force the width of the main spectral lobes to match the width of the
+positive cosine lobes, it also normalizes the cosine kernel and
+applies a pitch-dependant window size.
+ 
+\begin{figure}[t]
+\includegraphics[width=120mm]{chapter_chants/f0contour}
+\caption{F0 contour} 
+\label{fig:contour}
+\end{figure} 
+ 
+\subsection*{F0 Pruning}
+ 
+The next step is to identify pauses between phrases, so as to
+eliminate the meaningless and wildly varying F0 estimates during these
+noisy regions. We define an energy threshold, generally 40 decibels
+below each recording's maximum. If the signal energy stays below this
+threshold for at least 100 ms then the quiet region is treated as
+silence and its F0 estimates are ignored. Figure~\ref{fig:contour}
+shows an excerpt of the F0 and energy curves for an excerpt from the
+Koran sura (``section'') Al-Qadr (``destiny'') recited by the renowned
+Sheikh Mahmud Khalil al-Husari from Egypt.
+ 
+\begin{figure}[t] 
+\includegraphics[width=120mm]{chapter_chants/scalehistogram}
+\caption{Recording-specific scale derivation} 
+\label{fig:scale}
+\end{figure} 
+ 
+\subsection*{Quantization in Pitch}
+ 
+Following the pitch contour extraction is pitch quantization, which is
+the discretization of the continuous pitch contour into discrete notes
+of a scale. Rather than externally imposing a particular set of
+pitches, such as an equal-tempered chromatic (the piano keys) or
+diatonic scale, we have developed a novel method for extracting a
+scale from an F0 envelope that is continuous (or at least very densely
+sampled) in both time and pitch. Our method is inspired by Krumhansl's
+time-on-pitch histograms adding up the total amount of time spent on
+each pitch \cite{krumhansl90}. We demand a pitch resolution of one
+cent \footnote{One cent is 1/100 of a semitone, corresponding to a
+  frequency difference of about 0.06\%}, so we cannot use a simple
+histogram. Instead we use a statistical technique known as
+non-parametric kernel density estimation, with a Gaussian
+kernel \footnote{Thinking statistically, our scale is related to a
+  distribution given the relative probability of each possible
+  pitch. We can think of each F0 estimate (i.e each sampled value of
+  the F0 envelope) as a sample drawn from this unknown distribution so
+  our problem becomes one of estimation the unknown distribution given
+  the samples}. More specifically a Gaussian (with standard deviation
+of 33 cents) is centered on each sample of the frequency estimate and
+the Gaussians of all the samples are added to form the kernel density
+estimate. The resulting curve is our density estimate; like a
+histogram, it can be interpreted as the relative probability of each
+pitch appearing at any given point in time. Figure ~\ref{fig:scale}
+shows this method's density estimate given the F0 curve from Figure
+~\ref{fig:contour}.
+ 
+\subsection*{Scale-Degree Histogram}
+ 
+We interpret each peak in the density estimate as a note of the
+scale. We restrict the minimum interval between scale pitches
+(currently 80 cents by default) by choosing only the higher peak when
+there are two or more very close peaks. This method's free parameter
+is the standard deviation of the Gaussian kernel, which provides an
+adjustable level of smoothness to our density estimate; we have
+obtained good results with a standard deviation of 30 cents. Note that
+this method has no knowledge of octaves.
+ 
+ 
+Once we have determined the scale, pitch quantization is the trivial
+task of converting each F0 estimate to the nearest note of the scale.
+In our opinion these derived scales are more true to the actual nature
+of pitch-contour relationships within oral/aural and semi-notated
+musical traditions. Instead of viewing these pitches to be deviations
+of pre-existing ``normalized'' scales our method defines a more
+differentiated scale from the outset. With our approach the scale
+tones do not require ``normalization'' and thereby exist in an
+autonomous microtonal environment defined solely on statistical
+occurrence of pitch within a temporal unfolding of the given melodic
+context. Once the pitch contour is quantized into the
+recording-specific scale calculated using Kernel density estimation,
+we can calculate how many times a particular scale degree appears
+during an excerpt. The resulting data is a scale-degree histogram
+which is used create simplified abstract visual contour
+representations.
+ 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=60mm]{chapter_chants/cantillion-30pashta-histogramlevels}
+\caption{Melodic contours at different levels of abstraction (top:
+original, middle: quantized, bottom: simplified using 3 most
+prominent scale degrees}
+\label{fig:contours_histogram} 
+\end{figure} 
+ 
+\subsection*{Histogram-Based Contour Abstraction}
+ 
+The basic idea of histogram-based contour abstraction is to only use
+the most salient discrete scale degrees (the histogram bins with the
+highest magnitude) as significant points to simplify the
+representation of the contour. By adjusting the number of prominent
+scale degrees used to represent the simplified representation the
+researchers can view/listen to the melodic contour at different levels
+of abstraction and detail. Figure ~\ref{fig:contours_histogram} shows
+an original continuous contour, the quantized representation using the
+recording-specific derived scale and the abstracted representation
+using only the 3 most prominent scale degrees.
+ 
+ 
+ 
+\begin{figure*}[t]
+\centering
+\caption{
+    F0 contours of 4 different gestures from a Torah recitation from
+ Hungary.  The first two show different versions of the pashta gesture
+ and the third shows the gesture for sof pasuq.  The last is a version
+ of the first pashta gesture with each sample doubled, effectively
+ stretching the contour by a factor of two.
+}
+%% \subfigure[F0 Contour of 11 Pashta]
+%% {
+%%     \label{fig:sub:contour-11pashta}
+%%     \includegraphics[width=2cm,height=2cm]{chapter_chants/contour-11pashta.ps}
+%% }
+%% \hspace{1cm}
+%% \subfigure[F0 Contour of 42 Pashta]
+%% {
+%%     \label{fig:sub:contour-42pashta}
+%%     \includegraphics[width=2cm,height=2cm]{chapter_chants/contour-42pashta.ps}
+%% }
+%% \hspace{1cm}
+%% \subfigure[F0 Contour of 18 Sof Pasuq] 
+%% {
+%%     \label{fig:sub:contour-18sofpasuq}
+%%     \includegraphics[width=2cm,height=2cm]{chapter_chants/contour-18sofpasuq.ps}
+%% }
+%% \hspace{1cm}
+%% \subfigure[F0 Contour of 11 Pashta Doubled]
+%% {
+%%     \label{fig:sub:contour-11pashta-doubled}
+%%     \includegraphics[width=4cm,height=2cm]{chapter_chants/contour-11pashta-doubled.ps}
+%% }
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\caption{
+	Shown above are Similarity Matrices of the above four gestures
+ compared with the first pashta gesture.  Superimposed on the figures
+ is the Dynamic Time Warping curve showing the optimally matching path
+ between the two songs.
+}
+%% \subfigure[DTW of 11 Pashta vs 11 Pashta]
+%% {
+%%     \label{fig:sub:dtw-11pashta-11pashta}
+%%     \includegraphics[width=2cm,height=2cm]{chapter_chants/dtw-11pashta-11pashta.ps}
+%% }
+%% \hspace{1cm}
+%% \subfigure[DTW of 11 Pashta vs 42 Pashta]
+%% {
+%%     \label{fig:sub:dtw-11pashta-42pashta}
+%%     \includegraphics[width=2cm,height=2cm]{chapter_chants/dtw-11pashta-42pashta.ps}
+%% }
+%% \hspace{1cm}
+%% \subfigure[DTW of 11 Pashta vs 18 Sof Pasuq] 
+%% {
+%%     \label{fig:sub:dtw-11pashta-18sofpasuq}
+%%     \includegraphics[width=2cm,height=2cm]{chapter_chants/dtw-11pashta-18sofpasuq.ps}
+%% }
+%% \hspace{1cm}
+%% \subfigure[DTW of 11 Pashta vs 11 Pashta Doubled]
+%% {
+%%     \label{fig:sub:dtw-11pashta-11pashta-doubled}
+%%     \includegraphics[width=4cm,height=2cm]{chapter_chants/dtw-11pashta-11pashta-doubled.ps}
+%% }
+\end{figure*}
+
+In the next section we show that these simplified abstract contour
+representations result in better retrieval performance than the
+original ``continuous'' pitch contours.
+
+
+One of the main aspects in the studying of signs in the context of
+chant and recitation is to what extent they convey gesture information
+that is invariant with respect to the underlying text. To study this
+question it was necessary to develop a method to compare the pitch
+contours of different realizations from different parts of the audio
+recording of the same sign.
+
+\subsection*{Dynamic Time Warping for Contour Similarity Calculation}
+
+Dynamic Time Warping (DTW) is a technique by which the similarity
+between two different time sequences can be measured. It allows a
+computer to find an optimal match between two sequences by performing
+a non-linear warping of one sequence to the other. The technique of
+dynamic programming is used for efficient implementation. An example
+of DTW in Music Information Retrieval is to compare the tempo
+variations between two different performances of a classical
+symphony. The DTW algorithm would identify the parts of the two
+symphonies that were played at the same tempo as a diagonal line, with
+the line varying above and below the diagonal when the tempo was
+different between the two pieces.
+
+First the similarity matrix between the two pitch contours we are
+comparing is calculated.  Based on the calculated similarity matrix
+the DTW algorithm finds the optimal alignment path of the two sequences
+and calculates the cost of that alignment.  When the contours are
+similar the alignment cost will be small compared to when the contours
+are dissimilar. The matching process is pitch shift invariant and
+allows variations and tempo stretching. That way for any particular
+sign (pitch contour) we can sort the sign (pitch contours) by
+similarity.
+
+\subsection*{Plotting and Recombining the Segments}
+
+To illustrate the technique we use the gestures of two separate
+annotated recordings of a section of the Torah. One of these was
+recorded in Morocco, and the other was recorded in Hungary. Figures
+~\ref{fig:sub:contour-11pashta}, ~\ref{fig:sub:contour-42pashta},
+~\ref{fig:sub:contour-18sofpasuq} and
+~\ref{fig:sub:contour-11pashta-doubled} show the F0 contour of the
+sections of the audio file from a Torah recording from Hungary.
+Figure ~\ref{fig:sub:contour-11pashta} shows a pashta sign, Figure
+~\ref{fig:sub:contour-42pashta} shows another pashta sign from
+further along in the audio file.  Figure
+~\ref{fig:sub:contour-18sofpasuq} shows a sof pasuq gesture and Figure
+~\ref{fig:sub:contour-11pashta-doubled} shows the first pashta
+gesture, but with the sample stretched by a factor of two.
+
+The figures
+\ref{fig:sub:dtw-11pashta-11pashta},\ref{fig:sub:dtw-11pashta-42pashta}
+, \ref{fig:sub:dtw-11pashta-18sofpasuq} and
+\ref{fig:sub:dtw-11pashta-11pashta-doubled} show Similarity Matricies
+and the alignment paths computed using DTW for these four gestures
+compared to the first pashta gesture. White areas are highly similar
+and black areas have low similarity. In Figure
+\ref{fig:sub:dtw-11pashta-11pashta} the first pashta gesture is
+compared to itself.  The DTW curve is overlaid in black and is
+basically a straight diagonal line from one corner to the opposite
+corner, showing that the optimal path between the start and the end of
+the file is a direct alignment of one file to the other.  Figure
+\ref{fig:sub:dtw-11pashta-11pashta-doubled} shows a similar behavior,
+except that the slope of the line is shallower.  Figure
+\ref{fig:sub:dtw-11pashta-42pashta} shows the comparison of one pashta
+gesture to another.  This path had a DTW cost of 23.8442.  Figure
+\ref{fig:sub:dtw-11pashta-18sofpasuq} shows an alignment between the
+pashta gesture and a sof pasuq gesture.  One can see that the line is
+not only not diagonal, but that the line is often on dark areas which
+denote high alignment cost.
+
+
+
+\begin{table} 
+\begin{center}
+\begin{tabular}{|lr|lr|}
+\hline
+Gesture   &  Average  &  Gesture   &   Average   \\
+(Hungary)   &  Precision   & (Morocco)   &   Precision       \\
+&   (Hungary)  &    &   (Morocco)       \\
+\hline
+tipha     &    0.662  &  katon     &  0.453  \\
+pashta    &    0.647  &  mapah     &  0.347  \\
+mapah     &    0.641  &  tipha     &  0.303  \\
+katon     &    0.604  &  sofpasuq  &  0.285  \\
+etnachta  &    0.601  &  pashta    &  0.242  \\
+sofpasuq  &    0.591  &  merha     &  0.251  \\
+merha     &    0.537  &  etnachta  &  0.150  \\
+revia     &    0.372  &  zakef     &  0.125  \\
+zakef     &    0.201  &  revia     &  0.091  \\
+kadma     &    0.200  &  kadma     &  0.043  \\
+\hline
+\end{tabular}
+\caption{Average precision for different signs}
+\label{table:precisions}
+\end{center}
+\end{table}
+
+Table ~\ref{table:precisions} shows the average precision for
+particular signs for two recordings of the same excerpt from the Torah
+- one from Hungary and one from Morocco. Each recordings contains
+approximately 130 realizations of each sign with a total of 12 unique
+signs. Two pitch contours are considered relevant to each other if
+they are annotated by the same sign. For each ``query'' contour we
+return a list of results which are the pitch contours sorted by the
+alignment cost of the DTW. Average precision emphasizes returning more
+relevant contours earlier. It is the average of precisions computed
+after truncating the list of returned results after each of the
+relevant documents in turn. Unlike traditional retrieval systems where
+the mean average precision can be used to characterize the overall
+system performance in our cases we are more interested in the
+individual difference in precision among different signs. These
+differences show which signs have well-defined gestural
+characteristics and which signs are not interpreted
+consistently. Ultimately the numbers are only meaningful after careful
+interpretation by an expert. For example based on Table
+~\ref{table:precisions} one can infer that the performer in the
+Hungarian version had more consistent interpretations of the signs
+than the performer in the Moroccan version.
+
+We have also investigated the retrieval effectiveness of quantized
+contour representations at different levels of abstraction using the
+approach described above. In this case it makes sense to use Mean
+Average Precision across queries to explore what is the best level of
+abstraction for this task.
+
+This first DTW analysis was conducted using the continuous pitch
+values determined by the SWIPEP algorithm.  We then extended this
+analysis by quantizing the pitch contours, calculating the pairwise
+score between each contour and then calculating the mean average
+precision recall.  We did this for all possible number of histogram
+bins, from the maximum number of scale degrees of 13, down to only the
+most popular histogram bin.  We then repeated this analysis with notes
+from a western equal-tempered scale.  The total range of notes was
+from the A2\# (the A\# two octaves below middle C) to C4 (middle C).
+This gave a total of 16 semitones, of which we used the most common 13
+scale degrees.  For all of these possible histogram bin numbers, we
+converted all notes to these quantized values and did a pairwise DTW
+comparison between all of them.  We then calculated the mean average
+precision recall for each histogram bin quantization level.  These
+results are presented in Figure \ref{fig:histogram-equal-continuous}.
+
+From this graph and Table ~\ref{table:simplify}, we can see that the
+optimal number of histogram bins is 2 when notes are quantized to our
+derived scale.  The mean average precision recall at this level is
+0.493.  After this, the curve quickly drops, and then remains at a
+steady state level of approximately 0.41. This is significantly better
+than using the ``continuous'' contour mean average precision of
+0.2951.  When we quantize the notes to the equal-tempered scale, the
+maximum value of 0.443 is also obtained with 2 histogram bins.  It is
+important to note that the value of 0.493 that is derived when the
+data-driven approach of using the notes that are actual chanted is
+higher than the value derived from using the equal-tempered scale, and
+this can be easily understood by realizing that the singers do not
+tune themselves to a western scale.  This shows the fundamental
+utility of our method of deriving the quantized scale from the notes
+that are actually sung.
+
+These results are shown in a more intuitive way in Figure
+\ref{fig:simplify-cont}.  In this figure three ``sof pasuq'' and three
+``pashta'' contours were chosen, and were quantized to the derived,
+data-driven scale using the optimal value of 2 histogram bins.  One
+can see that the ``sof pasuq'' contours have quite a different shape.
+This visualization shows the utility of our approach.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=80mm,angle=270]{chapter_chants/results-histogram-equal-continuous}
+\end{center}
+\caption{ Mean average precision recall when quantizing the notes
+before DTW analysis.  Shown are the results for quantizing to a
+song specific scale versus an equal tempered scale versus the mean
+average precision recall in the continuous case.}
+\label{fig:histogram-equal-continuous} 
+\end{figure} 
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=100mm]{chapter_chants/simplify-cont}
+\end{center}
+\caption{Comparison of contour quantized to the two most prevalent
+scale degrees in a data-driven approach to the original continuous
+contour.  Shown are three examples of the signs ``sof pasuq'' and
+``pashta''}
+\label{fig:simplify-cont} 
+\end{figure} 
+
+\begin{table} 
+\begin{center}
+\begin{tabular}{|r|r|r|} \hline
+Number &  Data   & Equal \\
+of Bins & Driven & Temperment \\  \hline
+1  &  0.1931  &  0.26581  \\
+2  &  0.4932  &  0.44356  \\
+3  &  0.4479  &  0.35044  \\
+4  &  0.4057  &  0.37572  \\
+5  &  0.4097  &  0.39797  \\
+6  &  0.4061  &  0.41386  \\
+7  &  0.4026  &  0.41350  \\
+8  &  0.3941  &  0.41791  \\
+9  &  0.3953  &  0.41655  \\
+10  &  0.3947  &  0.41931  \\
+11  &  0.3948  &  0.41584  \\
+12  &  0.3948  &  0.41594  \\
+13  &  0.3948  &  0.41617  \\ \hline
+\end{tabular}
+\caption{Table of mean average precision values when quantizing the
+notes before DTW analysis.  Shows the calculated values for the
+Data-driven and Equal-temperment approaches.}
+\label{table:simplify}
+\end{center}
+\end{table}
+
+
+\subsection*{Cantillion interface}
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=120mm]{chapter_chants/cbmi2009-cantillion}
+\end{center}
+\caption{
+	Web-based \emph{Flash} interface to allow users to listen to audio, and to
+ enable interactive querying of gesture contour diagrams.}
+ \label{fig:cantillion} 
+ \end{figure} 
+ 
+We have developed a browsing interface that allows researchers to
+organize and analyze chant segments in a variety of ways
+(\url{http://cantillation.sness.net}). Each recording is manually
+segmented into the appropriate units for each chant type (such as
+trope sign, neumes, semantic units, or words). The pitch contours of
+these segments can be viewed at different levels of detail and
+smoothness using a histogram-based method. The segments can also be
+rearranged in a variety of ways both manually and automatically. The
+audio analysis (pitch extraction and dynamic time warping) are
+performed using the Marsyas audio processing framework
+ \footnote{\url{http://marsyas.sourceforge.net}} \cite{Marsyas}.  
+
+The interface (Figure 7) has four main sections: a sound player, a
+main window to display the pitch contours, a control window, and a
+histogram window.  The sound player window displays a spectrogram
+representation of the sound file with shuttle controls to let the user
+choose the current playback position in the sound file. The main
+window shows all the pitch contours for the song as icons that can be
+repositioned automatically based on a variety of sorting criteria, or
+alternatively can be manually positioned by the user. The name of each
+segment (from the initial segmentation step) appears above its F0
+contour. The shuttle control of the main sound player is linked to the
+shuttle controls in each of these icons, allowing the user to set the
+current playback state either way.
+ 
+When an icon in the main F0 display window is clicked, the histogram
+window shows a histogram of the distribution of quantized pitches in
+the selected sign. Below this histogram is a slider to choose how many
+of the largest histogram bins will be used to generate a simplified
+contour representation of the F0 curve. In the limiting case of
+selecting all histogram bins, the reduced curve is exactly the
+quantized F0 curve. At lower values, only the histogram bins with the
+most items are used to draw the reduced curve, which has the effect of
+reducing the impact of outliers and providing a smoother ``abstract''
+contour.  Shift-clicking selects multiple signs; in this case the
+histogram window includes the data from all the selected signs. We
+often select all segments with the same word, trope sign, or neume;
+this causes the simplified contour representation to be calculated
+using the sum of all the pitches found in that particular sign,
+enhancing the quality of the simplified contour representation.
+Figure 7 shows a screenshot of the browsing interface.
+ 
+ In the current work we implemented a mode that allows the researcher
+ to sort the samples based on the Dynamic Time Warping cost from one
+ sample to the other.  The interface allows the user to select an
+ arbitrary gesture from the interface, and then perform a sorting of
+ all other gestures to it.  In the example shown in Figure
+ ~\ref{fig:cantillion} the user has chosen a ``revia'', and has sorted
+ all the other gestures based on their DTW-based alignment distance
+ from this first revia.  One can see that the gesture closest to this
+ revia is another revia gesture from a different section of the audio
+ file.
+ 
+ We are currently developing an addition to the Cantillion interface to
+ allow us to visualize subsets of signs at different quantization
+ levels, and to compare these to the original continuous contour.  This
+ interface uses a checkbox list to allow the user to select different
+ types of signs, and then displays these contours in the main interface
+ pane.  The user can select multiple quantization levels and can
+ compare them for many signs at once, which allows the user to quickly
+ perform an analysis similar to the full pair-wise comparison described
+ above, but interactively, and therefore using the knowledge and skills
+ of ethnomusicologists.
+ 
+
+\subsection{Related Work}
+\subsection{}
+\subsection{}
+\subsection{Conclusions}
+

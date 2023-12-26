@@ -1,0 +1,1949 @@
+\startchapter{Related Work}
+\label{chapter:related_work}
+
+In this thesis, we are interested in exploring approaches to allow
+scientists to view, annotate and analyze large bioacoustic databases.
+The study of bioacoustics has a long and rich history, and in the
+first section of this chapter, we will present a brief summary of the
+history of bioacoustics in general, and will then focus our attention
+on previous work done in analyzing the vocalizations of the species
+\textit{Orcinus orca} and provide an extensive review of the
+literature on this topic.  We will then provide a brief introduction
+to the analysis of vocalizations of the taxonomic class Aves, also
+known as birds.  The mechanisms of sound production by birds is
+extremely diverse, and is an extremely large literature devoted to the
+study of the vocalizations of birds, so in this work we will only
+attempt to provide a general overview of the literature in this field.
+One of the primary motivations in studying large bioacoustic databases
+is for the monitoring of the biodiversity of ecosystems, and we will
+provide a detailed overview of the work done in the use of
+bioacoustics to study changes in biodiversity.  We will also provide a
+brief introduction to the field of Acoustic Ecology, and will show how
+the research into this field has informed this work and how it relates
+to studies of biodiversity.
+
+In the following section, we will provide an overview of the
+literature on the use of audio feature extraction to generate features
+suitable both for the visualization of bioacoustic data, and for the
+use of machine learning algorithms.  We will first provide a brief
+history of the use of waveform based methods for visualization of
+sounds, and will proceed to the use of spectral based methods,
+including sonograms, spectrograms and measures derived from
+spectrograms, including Mel-Frequency Cepstral Coefficents and other
+descriptions of spectra.  We will then provide a brief overview of the
+field of pitch detection, in which algorithms primarily use the
+autocorrelation of a time based representation of sound, and of the
+use of these methods in the study of bioacoustics.  We will then
+examine the use Machine Hearing algorithms based on models of the
+human peripheral auditory system, these algorithms typically first use
+a filterbank to model the function of the cochlea, followed by a
+strobed temporal detection system to model the medial superior olive
+brain center, which provides an autocorrelation-like output for each
+channel of the filterbank.  We will review literature on the use of
+the output of this system, the correllogram, and it's use for the
+recognition of sounds.
+
+In the following section, we will present a literature review of
+papers on the use of machine learning algorithms on the output of
+audio feature extraction algorithms to analyze sound.  Although this
+is a relatively new field of study, the literature on this subject is
+vast, and we will focus primarily on the use of machine learning
+algorithms in the study of bioacoustics, as distinct from the study of
+music and other forms of audio.  One approach to classifying sounds is
+the use of Dynamic Time Warping, an approach used in the analysis of
+human speech, and which has had success in the study of
+biacoustics. We will briefly examine the use of older methods such as
+tree building algorithms and Gaussian Mixture Models and other machine
+learning algorithms.  We will then focus our attention on the use of
+Support Vector Machines for audio classification.  We will then
+examine the use of Self-Organized Maps (SOM) for generating
+2-dimensional representations of collections of audio that are
+amenable for navigation by scientists.  SOMs are based an approach
+similar to artifical neural networks, and we will examine the use of
+artificial neural networks (ANN) to study audio.  In recent years, a
+rexamination of the properties of real networks of neurons in living
+systems has shown that these systems typically do not work with the
+continuous, real valued model of traditional ANNs, but instead have
+discrete signals that can be more accurately modelled as a sparse
+representation.  Vector Quantization is a recent approach to the study
+of sparse representations of audio, and we will examine the literature
+of the use of this method, along with other methods that use a sparse
+reprentation of audio.  We will finally provide a review of the
+literature on recent developments in the tranformation of audio
+features into a discrete form based on an alphabetic structure that
+are amenable to analysis by tools from bioinformatics.  The approach
+of Symbolic Aggregate Approximation (SAX) is one such approach, and we
+will examine the use of these types of algorithms to the study of
+large collections of data.
+
+In order to allow scientists to listen to, view and perform analysis
+on these large collections of audio, the use of computer based tools
+is a necessity.  In the past, researchers in bioacoustics would
+analyze their data with programs on a single computer such as Raven
+and MATLAB.  We will provide only a brief search of the vast
+literature on the use of computer based tools to view, annotate and
+analyze audio.  In ideal situations, these tools provide for
+Intelligence Augmentation (IA), in which computer based tools do not
+replace human intelligence, but instead augment, or improve it.  This
+stands in contrast to the concept of Artificial Intelligence, where
+tools that produce information independently of humans are used, with
+the ultimate end of replacing the need for human intelligence.  IA
+instead acknoledges that computers and humans have different cognitive
+strengths, and that for certain complex tasks, an optimal system would
+combine the best aspects of human and computer intelligence.  We will
+examine the literature for evidence of tasks that benefitted from the
+use of IA, and will draw parallels between these systems and the
+system described in this thesis that allows scientists to view,
+annotate and analyze large bioacoustic databases.
+
+One of the largest hurdles in the study of large bioacoustic databases
+is their vast size, the small number of researchers studying these
+databases, and the messy nature of these databases.  In order to
+assist scientists with large, the use of citizen science and
+crowdsourcing has been used for many years, with approaches as diverse
+as the collection of word use for the Oxford English Dictionary, the
+use of far-flung citizen scientists to aid Linnaeus with the study of
+taxonomy, to the work of Dr. Fred Urquhart in the study of monach
+butterfly migrations.  In recent years, the use of the internet has
+enabled many more ways for interested members of the public to help
+scientists study difficult problems, and we will provide a brief
+summary of the literature on this topic.  In this thesis, we present a
+simple matching game to allow citizen scientists to assist us in the
+classification of audio, in a paradigm we call Serious Casual Games.
+We will examine the literature on the use of gamification on the study
+of complex phenomena and what aspects of gamification have shown the
+most promise in previous studies.
+
+
+
+\section{Bioacoustics}
+
+Humans have used sound to identify animals from time immemorial, some
+of the earlist extant literature comes from Aristotle.  In On the Soul
+\cite{aristotleA} he describes how animals make sound, and notes that
+while some sounds are produced by the ``impact of the inbreathed air
+against the windpipe'', there are many other mechanisms by which
+animals produce sound.  In The History of Animals \cite{aristotleB},
+he describes a wide variety of sounds made by animals, from the ``low
+hiss'' of the tortise, the ``peculiar croak'' of the frog, to the
+``squeak and moans'' of a dolphin.
+
+Bioacoustics is a scientific field of study that combines the fields
+of biology and acoustics.  Although humans have used the sounds of
+animals to identify and track them for many years, one of the first
+researchers in this field was Ivan Regen who in 1925 systematically
+studied the sounds of insects \cite{zarnik29}.  In the later half of
+the 20th century, advances in electronic means of recording and
+producing sound dramatically increased the breadth and scope of the
+field of bioacoustics.  In recent years, the application of the
+computational tools used in Music Information Retrieval have further
+extended the possibilities of analyzing sound from biological sources.
+
+
+\subsection{Orcas}
+
+Another large and difficult problem domain that requires the skills of
+researchers from many different fields is the investigation of orca
+vocalizations.  The whale species \emph{Orcinus orca}, commonly known
+as Killer Whales \cite{ford00_book_killer_whales}, are large toothed
+whales found around the world, in places as far afield as Antarctica
+and Alaska\cite{estes09_orca_alaska_decline}.
+
+There is a considerable, but not immense, literature on the study of
+the bioacoustics of \textit{Orcinus orca}, also known as the Killer
+Whale.  One of the earliest studies was described by a paper in 1967
+by Singleton and Poulter \cite{singleton67} in which a detailed
+spectral analysis of the calls of captive Killer Whales in which a
+digital approach using a Fast Fourier Transform was used to produce an
+spectrogram of short regions of audio.  This study examined pulsed
+calls, and made reference to work by Watkins \cite{watkins67} in which
+an analysis of pulsed calls was made.  These pulsed calls were
+identified by Watkins to be short pulses of tones, and he provided a
+detailed analysis of the spectral qualities of these tones, noting
+that when studying pulsed calls, the nature of the pulses has a strong
+impact on the spectrogram, and gives rise to a banded structure, and
+that the distance between the bands gives the repeat rate of the
+pulses, this is also known as the Side Band Interval (SBI).  In later
+work, especially the catalog of orca vocalizations by Ford
+\cite{ford87}, the SBI is one of the primary quantities used in
+classifying orca calls.  
+
+The structure of the sound producing organs in odontocetes in general
+was described in detail by Cranford \cite{cranford96} who found that
+the tissues responsible included a structure that resembled lips and
+was made of connective tissue, a cartilaginous blade, a stout ligament
+and an array of air sacs made of soft tissues.  This sound producing
+organ is capable of producing two sounds at once in a process known as
+biphonation.  They noted that the sounds that could be produced
+included clicks, whistles, and a sound that was the combination of
+both, a pulsed call that could contain both a Lower Frequency
+Component (LFC) and Upper Frequency Component (UFC).  In later papers,
+\cite{cranford00} \cite{cranford06}, they described this sound
+producing organ in more detail.  Brown \cite{brown08} did a study of
+the mathematical implications of this pulsed biphonation, extending
+the earlier results of Watkins \cite{watkins67}
+
+A paper in 1982 by Dahlheim and Awbrey \cite{dahlheim82} provided a
+classification of the sounds of captive killer whales, these whales
+had been taken from British Columbia, and a number were identified to
+be Northern Resident Killer Whales (NRKW), which makes it very relevant to
+this thesis.  In this paper, they describe 11 different categories of
+sounds, these are upscreams, downscreams, creaks, whines, whistles,
+tones, buzzes, ricochets, click bursts, chatter and seesaw.  In this
+paper they note that from the different vocalizations, they are able
+to classify individuals by oceanarium with high accuracy.  
+
+An extremely detailed investigation of the vocalizations of the killer
+whales off the coast of British Columbia was carried out in a series
+of papers by John Ford \cite{ford82} \cite{ford83} that described
+the group-specific dialects this population.  In 1987 Dr. Ford
+published a large catalog of the pulsed calls of the Northern Resident
+Orcas \cite{ford87}.  In this hugely important resource, he used a
+systematic nomenclature to describe a catalog of approximately 78
+different calls with 24 different subtypes.  The calls were labelled
+starting with the letter ``N'' for the Northern Residents, in contrast
+to calls from the Southern Residents which were prefixed with the
+letter ``S''.  The calls were numbered according to the time that they
+were first encountered, starting with N1.  The recordings were made
+into Sonagrams using a Kay Electric company sonograph, and the Side
+Band Intervals were measured with an electronic digitizing tablet.
+This call catalog remains the primary resource for researchers who
+wish to study orca calls, and it was hugely relevant to the research
+in this thesis.
+
+The calls in this call catalog were examined in more detail in a paper
+in 1989 by Ford \cite{ford89}.  In this paper, the vocalizations of
+NRKW are divided into three categories, ``clicks'', ``whistles'' and
+``pulsed calls''.  The clicks were short pulses of sound that were
+typically made in series, with a variable duration of between 0.1ms
+and 25ms, and could range in repetition rate from a few pulses per
+second to over 300 per second.  These clicks were identified to be
+primarily of use in echolocation.  Orcas do considerable amounts of
+echolocation to navigate, locate other group members and locate prey
+\cite{barretlennard96}.  Whistles were the second type of sound, and
+are a single narrow band tone with little or no harmonic structure.
+He noted that these whistles were between 1.5kHz and 18kHz and ranged
+in duration from 50ms to 12 seconds.  These whistles were of widely
+varying character and did not fall into distinct structural
+categories.
+
+The third type of call is the pulsed calls, and these are the primary
+calls of interest both in the work of Ford and others, and also of
+this thesis.  They are of a pulsed nature as described above, that is,
+they have a central tone that is rapidly pulsed with abrupt and
+pattern shifts between pulse rates.  Pulses typically had repetition
+rates of between 250-2000Hz, and a primary energy of between 1 and
+6kHz.  He noted three categories of pulsed calls, discrete, variable
+and aberrent calls.  Discrete calls had distinctive structural
+characterictics and were repetitive, variable calls were modified
+versions of these discrete calls, and aberrent calls were clearly
+based on discrete calls, but were heavily modified.  In this paper, he
+studied the amount of these three classes of calls in different
+behavioural circumstances, that of foraging, travelling, resting,
+socializing and beach rubbing, and found that more variable and
+aberrant calls occurred during socializing and beach-rubbing.  He also
+did a transition state matrix of the different call types and found
+clear evidence that certain calls were more likely to be followed by
+other calls.  The most striking of these was the N7/N8 pair of calls,
+in which an N8 call was always preceeded by an N7 call.  This paper is
+very relevant to this thesis in that it presents a theoretical
+structure for classifying orca calls and for the study of their
+vocalizations.  Although it describes results from a large amount of
+data, the number of recordings in the orchive is even larger, and
+testing the hypotheses stated in this paper with a larger dataset
+could be enlightening in the study of orca calls.
+
+Orcas from different parts in the world also have discrete calls that
+are diverse, and a study by Parijs \cite{parijs04} on Norwegian Killer
+Whales found that none of the calls recorded matched those with those
+of a previous call catalog \cite{strager95}.
+
+
+- Discrete call repetoires are thought to be mainly to promote group
+cohesion and to coordinate intragroup activities \cite{ford89}
+\cite{ford91}.
+
+- Dolphin signature whistles function as cohesion calls when a social
+group is separated \cite{janik98} \cite{watwood05}
+
+- Resident orcas increase use of family specific calls after calves
+are born \cite{weiss06} particularily between mothers and their
+dependent offspring.
+
+- Call type matching in vocal exchanges \cite{miller04}
+
+- Discrete calls are at an amplitude that far exceeds the intra-group
+separation of members \cite{miller06}, and likely function in
+inter-group communication. 
+
+- Orcas change their call behaviour in the presence of other groups of
+whales \cite{weiss06} increasing the number of matriline-specific,
+variable and aberrent calls, and decreasing the number of low arousal
+calls.  The calls also changed more when a different subclan was in
+the area, and might play a role in coordination of inter-group
+activity.
+
+Janik \cite{janik99} did a study on the classification of dolphin
+whistles using humans versus an algorithmic approach and found a
+greater probability of humans to identify signature whistles than
+algorithmic based approaches.  This is highly relevant to this thesis
+in that it highlights the importance of using external validation in
+studying vocalizations, and the serious casual game interface allows
+researchers to easily create new experiments for humans to identify
+calls.  These results can then be compared with algorithmic based
+approaches to validate their performance.  Recent work by Janik and
+King et al. \cite{king2013} suggests that the use of vocal copying
+plays an an important role in the social behaviour of dolphins, and
+that dolphins can learn the vocalizations of other dolphins.
+
+In a recent paper by Yurk et al. \cite{yurk10} they note that due to
+vocal difference between clans, acoustic monitoring is a good way to
+monitor populations of orcas, and identified 7 different pods of
+whales.  There have been other studies of marine mammals with fixed
+hydrophones including humpback whales \cite{norris99}, bowhead whales
+\cite{cummings85}, blue whales \cite{stafford98} and killer whales
+\cite{morton02}.  In this study, the hydrophone was manned by a single
+observer (Michael Brittian) who did the recordings of the different
+pods.  In this thesis we describe a system that could be used for the
+automated detection and recording of orca calls, thus allowing more
+sites to be observed and the reduction of human effort.
+
+
+
+
+
+%%% Orcas - Bioacoustics
+
+\subsection{Orcas - Algorithms}
+
+For a number of years, computers have been applied to the study of
+orca vocalizations.  One early work \cite{deecke99} used neural
+networks to determine similarity between orca vocalizations.  In this
+paper, they found that neural networks were able to predict similarity
+between calls with an accuracy comparable to that of expert human
+listeners.  Another algorithm that has been applied to this problem
+domain is that of Dynamic Time Warping
+\cite{brown06_orca_dtw}\cite{brown07_orca_dtw}.  In these two papers,
+Brown et al. investigate the use of DTW for calculating similarity
+between two orca vocalizations and find that this algorithm performs
+very well.  DTW is used frequently in the field of MIR, and this
+thesis discusses its use as applied to chant traditions from cultures
+around the world in another chapter.
+
+The mathematical foundations of the pulsed vocalizations by orcas have
+also been studied \cite{brown08_orca_pulsed_math}.  In this paper,
+formulas for their spectra are rigorously derived from the basic
+formulas of Fourier analysis.  This paper describes in detail the
+complex spectra that are able to produced by orcas and the biological
+foundations that underlie them.
+
+
+  Another mathematical method that has
+been used to describe orca vocalizations is the Hilbert-Huang
+transform, which has been shown \cite{adam06_orca_hilber_huang} to
+have advantages over using traditional Fourier based methods of
+calculating spectra.
+
+One important pitfall in the automated classification of orca
+vocalizations \cite{deecke06} is that there exist non-linearities in
+sound perception in all animals, including orcas\cite{nummela99}.
+When designing tools and algorithms to study these vocalizations, it
+is important to recognize the differences between human and orca
+perception of sound.
+
+
+- Individual orcas tend to match call types produced by other group
+members \cite{miller04} and this can assist group cohesion
+\cite{miller02} and allow individual recognition \cite{miller07}.
+
+- Low Frequency Component (LFC) with fundamental frequency between 80 and
+2.4kHz
+
+- Some also contain HFC with fundamental frequency between 2 and 12kHz
+\cite{hoelzel86}
+
+- Necessary to track each component of the frequency
+
+- Also, two or more different orcas can be making calls at one time,
+need to separate them \cite{ford87}
+
+- Cultural transmission of language \cite{deeke99}
+
+Considerable individual variability of orca vocalizations \cite{miller00}
+\cite{nousek06} \cite{parijs04}.  
+
+In a paper by Miller and Bain \cite{miller00} they noted that discrete
+calls always have a LFC, and often end in a ``terminal note'', a
+relatively short feature at the end of a call separated by the rest of
+the call by a rapid change in the slope or frequency of the LFC.
+Within a call type, they found that the UFC was highly stereotyped.
+The similarity between call types correlated highly with the how often
+the matrilinear units (MU) associated with one another, which was from
+previous work by Bigg et al. \cite{bigg90}.
+
+
+
+- Recordings often have large amount of boat noise.  Many orcalab
+recordings are done over VHF which makes their quality similar to
+telephone calls, thus algorithms that are designed to handle noise are
+useful \cite{wang00}
+
+- However, these algorithms often depend on harmonic structure, and
+for many orcalab recordings, the orcas are distant from the
+hydrophones, and there is not much harmonic structure present
+
+- Two different ways to classify vocalizations \cite{deecke99}
+
+   - Statistical - Look at properties of the pitch track and do
+   statistics on them.  Only assess physical properties of the signal
+   and not how they are perceived.
+
+   - Perceptual - Have humans (or animals) listen to the pitch and
+   classify them.  Observer bias.  Dolphins have a more advanced
+   peripheral auditory system than humans \cite{au00}
+
+   - In this paper, they present results from the sidewinder
+   algorithm which uses autocovariance of FFT with a neural network.
+   They compare these results to those by humans who had no knowledge
+   of orca vocalizations. 
+
+   - Algorithm performed well even with poor SNR.  
+
+   - Advantages
+     - Uses more points that other analyses that just use a few points
+       on the pitch contour (min, max, etc. \cite{au00})
+
+   - Disadvantages
+   	 - Had problems when noise had a harmonic component
+   	 - Cannot be applied to broadband or pure tone signals
+     - Computationally expensive compared to other approaches
+     - Suggest that it can be used in combination with other algorithms.
+	 - Does not take amplitude into consideration
+	
+   - Neural net and human approach gave similar results.
+
+- Pulsed calls so the highest energy is not always contained in the
+first, second or third harmonics \cite{watkins67}
+
+A recent investigation into the calls of Orcas off the coast of
+Scotland by Deecke et al. \cite{deecke11} found that a herring eating
+group of whales produced pulsed calls like those produced by the NRKW,
+and that one of their calls appeared to have a herring herding
+function.
+
+In a paper by Au et al. \cite{au04} the echolocation clicks of orcas
+were measured and analyzed in detail.  They found that the clicks were
+of very short duration, between 80 and 120us in duration, and had a
+bimodal broadband distribution, with one peak at 45kHz to 80kHz and
+one from 35 to 50kHz, 97\% of the time.  They estimate that orcas
+would be able to detect salmon at a distance of 100m even in the
+presence of heavy rain noise.  They also mention that boat noise is of
+a different character than rain and wind noise, and the impact of boat
+noise on echolocation is unknown.  This paper is of relevance to this
+thesis in that in the data in the Orchive, there are many such
+recorded echolocation clicks, and a deeper understanding of these
+clicks and how orcas adapt their echolocation behaviour in the
+presence of noise could be a useful contribution to the literature.
+This theme of the impacts of noise on Orca communication can also be
+found in \cite{holt09}, where the impacts of noise on the Southern
+Resident Killer Whale (SRKW) population is examined.  In this paper
+they found that when boat noise increased by 1dB, orcas raised their
+volume of their calls by 1dB.
+
+Janik \cite{janik99} studies the use of three different algorithmic
+techniques to compare dolphin whistles.  The first is based on an
+algorithm by McCowan \cite{mccowan95} that first normalizes the length
+of each call, and then takes 20 points along its length as independent
+variables.  These then used as input to a Pearson product-moment
+correlation matrix which then gives a similarity measure between pairs
+of whistles, which was then subjected to Principal Component Analysis
+to reduce the number of colinear variables.  These values were then
+used as input to a k-means clustering algorithm.  This paper also used
+two cross-correlation based methods one that used the
+cross-correlation of two signals using a method described by Khanna et
+al. \cite{khanna97}, and the other that used the same
+cross-correlation, but instead took the absolute difference in
+frequency every 5ms.
+
+Considerable work has gone into the identification of dolphin
+signature whistles in the last two decades \cite{sayigh90}.  A recent
+paper by Janik et al. \cite{janik12} presents a new method for
+comparing dolphin whistles called SIGnature IDentification (SIGID)
+which uses the observations of human listeners followed by bout
+analysis, in which they found that they could reliabily detect
+individual dolphins in recordings of groups of dolphins.  This
+research is explained in greater depth of the Ph.D. thesis of King
+\cite{king12} where the use of signature whistles as vocal labels
+amongst other topics is examined.  This is of relevance to the current
+thesis in that we present an extensible computer system that would
+allow researchers to conduct the human study portion of the SIGID
+system using citizen scientists.
+
+Other interesting work on dolphin communication is presented in a
+recent paper by Janik \cite{janik2013cognitive} in which the
+capability of dolphins to refer to objects and other dolphins using
+referrents and their ability to understand syntatic structure is
+reviewed.  This paper is of relevance in that orcas are of the same
+taxonomic family as are dolphins, and could possibly share some of
+their cognitive abilities.
+
+
+
+
+%%% Orcas - Algorithms
+
+One approach to determining the fundamental frequency of a
+vocalization is to manually trace spectrogram by hand using
+appropriate software, for example, in Watwood et al. \cite{watwood04}
+the Matlab software suite is used to this end.  A recent paper by
+Shapiro et. al \cite{shapiro06} uses this same approach.  While this
+approach is appropriate for small datasets, it is most likely
+untenable for the multi-thousand hour datasets explored in this
+thesis.
+
+The crosscorrelation of spectrogram images was explored in early work
+by Clark \cite{clark87}.  In this work, songs of the swamp sparrow
+were transformed into spectrograms, and a straightforward
+cross-correlation of the spectrograms was used to get a quantitative
+measure of their similarity.  They obtained good classification
+results, from about 73\% for one song type to 92\% for another.
+
+Another approach that has been used is to select peak frequency from
+sliding power spectrum followed by manual correction to remove octave
+errors \cite{buck93} \cite{janik94}.  In previous work in our lab
+\cite{ness08} this approach was also used by hand with Matlab, and in
+our software suite, we have functionality that allows a user to select
+a wide variety of paramters for pitch determination algorithms that
+brings this same functionality to a web-based interface.
+
+One of the most useful algorithms for determining the pitch contours
+of orca calls is the sidewinder algorithm which uses autocovariance
+for each spectral slice where the peaks are at multiples of the
+spacing of frequency bands \cite{deeke99}.  This algorithm is
+particularily appropriate to sounds that are of a pulsed-tone nature.
+These sounds are composed of a pure tone that is pulsed at a specific,
+and perhaps varying, rate.  A spectrogram of such tones has many bands
+\cite{watkins67} around a central frequency, with the most energy
+occuring near the frequency of the tone, and not in the lower
+harmonics, as is in the sounds of many instruments.  The sidewinder
+algorithm is similar to the spectral autocorrelation method for human
+speech tracking \cite{lahat87}.
+
+A similar algorithm is the Discrete-Logarithmic Pitch Detection
+Algorithm DLFT-PDA \cite{wang00}.  The DLFT-Makes reliable estimations
+of pitch and temporal change of pitch from harmonic structure by
+correlating DLFT spectra from adjacent frames to give reliable
+esimates fundamental frequency change.  It uses Dynamic Programming to
+create smooth pitch track.  However, two drawbacks of this algorithm
+are that it performs poorly with low SNR and cannot track multiple
+calls by multiple animals.  It was shown to be a a versatile pitch
+tracking algorithm in recent work by Shapiro et al. \cite{shapiro09}
+
+Another approach that takes advantage of the banded structure of
+pulsed calls is an FFT based comb filter method with Dynamic Time
+Warping \cite{brown06}.  In this approach, an upsampled FFT of a sound
+is produced, and this FFT is then analyzed with a series of comb
+filters with equally spaced frequency bands to isolate the harmonic
+structures of different repetition rates. This was explored in
+\cite{brown06} and then in more detail in \cite{brown07}.  This
+approach takes as input a pitch contour as determined by a pitch
+determination algorithm, and can take multiple pitch tracks to model
+sounds in which an LFC is combined with an UFC.  The DTW algorithms
+they explored included the Ellis, Sakoe-Chiba, Itakura and
+Chai-Vercoe.  These vary in the way that the cells are computed, for
+example in the Chai-Vercoe method, there is explict handling of
+insertions and deletions in the cost matrix.  These algorithms can be
+compared to those used in global-sequence alignment algorithms.  They
+found that they could get 90\% agreement with perceptual data, and
+represented a severe test of DTW.  Used both the LFC and UFC
+components.
+
+Another approach used an Artificial Neural Network (ANN) image of
+spectrogram transformed into an image of data points then normalized
+and transposed into a vector of points points which was the input to
+the ANN \cite{gaetz93}.  Looked at distinguishing calls from each
+other in one experiment, and whales from each other in another, both
+experiments gave excellent classification accuracy on a small dataset.
+
+A paper by Adam \cite{adam06} discusses the use of the Hilbert-Huang
+Transform (HHT) for analyzing the sounds of marine mammals.  They
+mention that the FFT is limited to the Heisenberg Uncertainty
+principle, and that time and frequency resolutions must be chosen by
+the investigator, and relate that the HHT does not suffer from this
+drawback.  They say that FFTs are best suited for analysing harmonic
+signals, but not for click sounds, while the HHT is better suited for
+this.  They provide results that show the effectiveness of the HHT
+over the FFT, especially in the case of clicks where when the ratio
+between the maximum of the energy when a click is present to that when
+the click is absent is approximately 20:1 with the FFT and is
+approximately 100:1 with the HHT.
+
+Another approach using FFTs to classify whale calls can be found in
+Oswald et al. \cite{oswald03} where they used a multivariate
+discriminating function analysis for classifying whale vocalizations.
+In this paper they examine the use of different upper frequency limits
+(20, 24, 30 and 40kHz) and different variables for each call,
+including beginning and ending frequency, minimum and maximum
+frequency, duration, number of inflection points, number of steps and
+if harmonics were present from the fundamental frequency of each
+whistle.  They got fairly poor classification accuracy (37\% at 24kHz)
+using a multivariate approach with crossvalidation, but their detailed
+analysis of using these different parameters was quite useful.  With a
+more sophisticated statistical treatment and a dataset larger than the
+484 whistles from 29 recording sessions, it might be possible to obtain
+higher classification accuracy.
+
+
+Another more recent approach by Deecke included the use of the
+Adaptive Resonance Theory (ART) neural network, a network similar to
+the Self-Organizing Map approach in that it is an unsupervised
+approach using a neural-net like foundation, however, in the ART
+algorithm, if a new pattern is found that is sufficiently different
+from existing patterns, it becomes the reference pattern for a new
+category.
+
+
+- Multi-pitch estimation of mixtures of signals \cite{klapuri08}
+\cite{fujihara12}
+
+- Automatic music transcription \cite{benetos12}
+
+- Yin algorithm
+
+The use of a Self-Organized Map for analyzing animal vocalizations
+\cite{placer06} found that they could identify individual acoustic
+elements in sounds, and allowed alarm calls to be classified with 91\%
+accuracy.  They also mention that when the topological structure of
+the SOM was transformed into a string representation, that different
+digrams and trigrams were found to be associated with alarm calls for
+different predators.  This paper is relevant to the current work in
+that it shows one possible way that SOMs can be used to analyze audio,
+and the framework described in this paper allows researchers to use a
+SOM to analyze their own data.  It also provides another method for
+turning audio data into a sequence of symbols, similar to the symbolic
+approximation algorithms described in this thesis.
+
+Another way to classify audio features is to use the Pearson product
+moment correlation which was used in Watwood et al. \cite{watwood04}
+to classify the vocalizations of bottlenose dolphins.  The main
+advantage of this technique are that it takes into account the
+differences that are lost when whistle loops are normalized in time,
+it also ignores absolute frequency and bandwidth information.  By
+doing so, it makes loops that have monotonic changes in frequency
+appear more similar even if they are considerably different in
+absolute frequency.
+
+
+
+\subsection{Birds and Biodiversity}
+
+
+The paper first describes the importance of monitoring and measuring
+of the sounds of animals and insects.  In the natural habitat, the
+sounds of animals can be used to determine how many animals are in a
+location and what species these animals are, and can help scientists
+measure the biodiversity of a location, and how this biodiversity
+changes over time.  There is recent interest in this field of study
+\cite{wimmer2010} \cite{seuer2008} as a method for determining the
+biodiversity changes in regions over time.  The authors then say that
+an automated system for detecting insects would also be useful from a
+commercial point of view,
+
+The paper then goes on to say that in laboratory settings, it would
+also be advantageous to have an automated system that could segment
+and classify recordings.  Currently this task often requires
+researchers to annotate hundreds of recordings by hand, which is a
+very time intensive task.  As a scientist who has done many hours of
+hand annotating of large sound archives, I can attest to the
+difficulty and time-consuming nature of this task.
+
+The authors then say that there are many problems with current methods
+of detecting, segmenting and classifying the sounds and vocalizations
+of animals.  Current methods require researchers to manually annotate
+recordings and to generate a large corpus of data to be used by
+classification algorithms.  These algorithms often have a large number
+of tunable parameters, some of which can be automatically determined
+from the large amount of training data, and some which have to be
+manually explored by the researchers.  In addition, many of these
+algorithms are computationally expensive and cannot be deployed in the
+field.  I have found these facts to be true in my own research, and I
+appreciate the fact that the authors spend time discussing the
+problems faced by researchers studying bioacoustics.
+
+The use of bioacoustics for the study of species in the Amazon is
+presented in \cite{riede93}, in which a system for doing rapid surveys
+of species in forested areas are presented.  Challenges of doing
+surveys of species via visual surveys include the complexity of tree
+architecture, the inaccessibility of species, rarity, excellent
+camouflage, and cryptic and noctural lifestyles.  In addition, the
+visual identification of species is labour intensive, costly and is in
+increasingly short supply.  Many of these species can be heard, but
+cannot be seen, and this paper presents the challenges and advantages
+of using sound to identify these species.  The challenges include the
+lack of resources of audio recording exemplars of these species,
+however mentions that there are many new projects devoted to the
+collection of sound samples from species.  The advantages include the
+fact that many of these species have evolved so that their sounds are
+distinct from each other, and are thus amenable to study from
+acoustial fingerprinting.  This paper is of relevance to the current
+work as it shows that the use of bioacoustics for monitoring diversity
+of species can be a useful approach.
+
+An early paper in this field is ``Monitoring biodiversity: analysis of
+Amazonian rainforest sounds'' \cite{riede93} in which the author
+sketches out an approach to detecting organisms by looking at the
+amplitude spectra of their vocalizations.  He describes a case study
+carried out in the Amazon where the target organism is a species of
+cricket.  The author notes that by analyzing the amplitude spectra of
+this species, clusters of peaks were detected that had definite
+characteristics, specifically they had repetitive signals in the 4kHz
+and 9kHz bands that had a comb-like structure and had pulse rates of
+between 20 and 80 pulses per second.  He hypothesizes that by using
+neural network techniques, it would be possible to develop a system
+that automatically classifies these recordings.
+
+An approach for doing a rapid survey of biodiversity is presented in
+\cite{sueur08}.  In this work, the bioacoustic signatures of
+individual species are not identified, but rather an approximation of
+the biodiversity of a region is calcuated using an acoustic entropy
+index, in which the temporal entropy of a Hilbert-Huang transform of
+the sound is used to estimate the number of species in a region.  From
+actual recordings from Borneo they find that the acoustic entropy has
+a logarithmic relationship to the number of species in a region.  In
+addition, they find that in regions where environmental impacts have
+occurred, that spectral profiles show a higher dispersion of peaks of
+amplitude along the frequency axis.  This paper is of some relevance
+to our work, however in this thesis we are primarily interested in the
+actual identification of individuals and species from the sounds they
+make.
+
+An excellent review of the field of using automated sound recording
+and analysies for doing surveys of birds was done by Brandes in 2008
+\cite{brandes08}.  In this paper, two broad categories of automation
+are examined, the first being the automated recording of bird sounds,
+and the second being the automated analysis of these sounds.
+Different types of hardware recording devices are discussed, as well
+as different types of microphones suitable for this task.  Of more
+direct relevance to this thesis is the section which discusses the
+automated analysis of bird songs, and divides bird vocalizations into
+5 distinct categories, which are constant frequency, frequency
+modulated whistles, broadband pulses, broadband pluses with varying
+frequency components and segments with strong harmonics.  They make
+note that different audio feature extraction and machine learning
+algorithm pairs are necessary for obtaining features from these
+different kinds of vocalizations, for example, for pulse to pulse
+duration features are useful and neural networks have been shown to be
+useful and for sounds with frequency modulated whistles or segments
+with strong harmonics, cepstral coefficients combined with dynamic
+time warping and hidden markov models have shown their effectiveness.
+This paper relates to this thesis in that we have developed a system
+to allow for the many hours of recordings captured by recording
+devices to be viewed and allows for a variety of audio feature
+extraction and machine learning algorithms to be applied to audio.
+
+Three traditional methods of measuring bird biodiversity are stop
+counts, in which an observer travels a specific distance and stops to
+record all instances of birds, point counts, \cite{bardeli10} and
+mapping of breeding territories.  A recent paper \cite{frommolt08}
+describes how the use of bioacoustic approaches have assisted these
+traditional methods.  Important ways that automated recordings can
+help is that the recording can be done in the absence of an observer,
+which can be of benefit in ecologically sensitive areas.  In addition,
+noctural and low vocal activity can be studied with the use of long
+duration recordings.  This paper describes several actual bioacoustic
+recording studies and talks about the advantages of this method.  This
+paper is of direct relevance to the current work in that it shows how
+bioacoustic recordings can directly benefit studies in biodiversity.
+
+In this same conference, a paper by Bardeli et. al \cite{bardeli08}
+describes the use of automated algorithms to detect bird songs in the
+results described above.  In it, the song of the caffinch is detected
+using a three step procedure, in which first all end segments of a
+song are detected, then element repetition frequencies in a given time
+window before the song end are estimated, and finaly each combination
+of end sequence with repeated segments that are in a range consistent
+with caffinch sounds are reported.  Dynamic time warping is used to
+detect the end segments, and an autocorrelation based method is used
+for the estimation of repeat frequencies.  In our system, we allow for
+both the use of Dynamic Time Warping and Autocorrelation based
+methods, and would support the studies carried out in this paper.
+
+In \cite{bardeli10} the authors describe a system for performing
+censuses of bird populations using automated methods.  Their method
+uses DSP based techniques that take advantage of both frequency
+content and temporal characteristics of bird songs, and describe
+filter chains that were optimized to detect two bird species, the
+Eastern bittern and Sevi's warbler.  Both of these methods are finely
+tuned to the individual characteristics of these two songs, for
+example, the song of the Eastern Bittern has a dominant frequency of
+150Hz which is repeated in a specific temporal pattern.  They perform
+frequency analysis of the audio and use a peak picking algorithm at
+150Hz to detect candidate events, and then use an autocorrelation
+based method to lower the number of false positives.  Although they
+show good results for these two species in isolation, they admit that
+scaling this method up to cases with multiple bird species would be
+difficult, and that the presence of noise in recordings is also a
+challenging for their method and could introduce false positives.
+
+
+The field of Acoustic Ecology studies how living beings and the
+environment interact through sound \cite{wrightson2000introduction}.
+It was founded in the 1960's by Barry Truax \cite{truax2001handbook}
+and primarily involves the recording of soundscapes of environments
+sometimes combined with the creation of artistic pieces
+\cite{westerkamp2002linking} that include these soundscapes.  These
+environments often include the sounds of animals and are often
+recorded in natural environments from wildernesses
+\cite{smith2004listening} around the world
+\cite{feld1994ethnomusicology}.  In the literature, there is often an
+overlap of the term acoustic ecology when talking about animals
+\cite{nowacek2005acoustic} \cite{kroodsma1996ecology}, and although
+this is a distinct field from the acoustic ecology of Truax, there is
+considerable overlap in the methodology and the practice of deep
+listening of these two fields \cite{redstrom1998acoustic}.
+
+
+
+
+\section{Audio feature extraction}
+
+
+Audio feature extraction is the first step in classifying audio using
+machine learning algorithms.  
+
+- Waveform
+
+
+
+
+
+
+
+- Spectrum
+	- MFCC
+
+Mel-Frequency Cepstral Coefficients \cite{Logan00melfrequency} (MFCC)
+have been widely used for this purpose.  MFCCs have also been used in
+bioacoustics, and have been used to classify insect sounds
+\cite{leqing11}, birds \cite{changhsing07} and orca calls
+\cite{ness08}.  We have investigated the use of MFCC values for
+classifying calls from the orca call catalog, and results using these
+with a variety of machine learning techniques are described below.  In
+future work we would like to try to use MFCC or other forms of
+spectral data as input to our symbolic approximation algorithm.
+
+Mel-Frequency Cepstral Coefficients
+\cite{Logan00melfrequency} (MFCC) have been widely used for this
+purpose.  MFCCs have also been used in bioacoustics, and have been
+used to classify insect sounds \cite{leqing11}, birds
+\cite{changhsing07} and orca calls \cite{ness2008}.  In this work we
+also use MFCCs, but supplement them with other audio features
+including Centroid frequency, Rolloff frequency, Flux, and
+Zero Crossings.
+
+
+- Pitch detection
+
+
+A commonly use audio feature that is often used is an estimate of the
+fundamental frequency (F0) or pitch, one well known algorithm for this
+is the Yin algorithm \cite{cheveigne02}.  This algorithm is primarily
+an autocorrelation based approach, which means that it takes the audio
+signal and convolves it with itself.  The peaks in this convolution
+then correspond to harmonics in the signal, and with noise free data
+with harmonics that strictly decrease, the lowest peak is the
+fundamental frequency.  With audio that does not fit this strict
+definition, there are many cases where the lowest peak is not the
+fundamental frequency, one example is if odd harmonics are
+systematically lower than even harmonics, and another is if there is
+substantial noise in the data.  The Yin algorithm makes several
+modifications to simple autocorrelation to overcome these issues.
+
+Praat \cite{boersma93} is another modern pitch determination
+algorithm, it is an autocorrelation based approach that provides good
+robustness by making the assumption that pitch is stable in a small
+window.  It uses a Hanning or Gaussian window to smooth the edges of
+the window to be analyzed and finds peaks that occur after the zero
+lag peak.  It has been shown to work well for estimatating the pitch
+of human speech signals.
+
+Another algorithm that is useful for studying sounds with multiple
+pitches is the SACF algorithm of Tolonen and Karjalainen
+\cite{tolonen00}.  In this algorithm, the signal is decomposed into
+two frequency bands (below and above 1000 Hz) and amplitude envelopes
+are extracted for each frequency band. The envelope extraction is
+performed by applying half-wave rectification and low-pass filtering.
+The envelopes are summed and an enhanced autocorrelation function is
+computed so that the effect of integer multiples of the peak
+frequencies to multiple pitch detection is reduced.
+
+Another modern pitch detectors that we used in previous work is the
+SWIPEP \cite{camachophd} algorithm which determines clusters of
+pitched and unpitched sounds.  This algorithm was less appropriate to
+use on the mostly pitched discrete calls that orcas produce, but could
+be of benefit when studying bird calls that contain both pitched and
+unpitched regions.
+
+\section{Cochlear Models}
+
+The models of the human auditory system developed by researchers
+around the world have a fundamentally different approach in which
+audio is filtered by a filterbank cascade that models features of the
+human cochlea, the outputs of these filters are then processed by a
+mechanism that is modeled on higher levels in the auditory periphery
+that take this filterbank audio and generate two dimensional movie
+frames that contain both frequency and an autocorrelation axis.  These
+frames contain the fine timing information that is utilized by the
+human hearing system to separate, localize and identify sounds.
+
+Another type of audio feature extraction that is promising is features
+based on models of the auditory cortex \cite{lyon82}.  These
+algorithms model the properties of the cochlea and peripheral nervous
+system\cite{lyon10}, and have at their core an adaptive filterbank
+coupled to a triggered pulse model \cite{waltersphd}.  However, one
+issue with these systems is that instead of a 1-dimensional (waveform)
+or 2-dimensional (spectral), they lead to a 3-dimensional dataset in
+which 2-D audio images change over time, which leads to a very large
+amount of data.  Approaches using vector quantization could be used as
+an input to our symbolic approximation algorithm in future work.
+
+For my main project, I ported a new model of the human cochlea called
+the Cascade of Asymmetric Filters and Resonators (CARFAC) \cite{lyon2011cas}  This model
+is the latest in a series of ever more accurate and efficient models
+of the human auditory system \cite{lyon82}.  Last summer I was
+involved with investigating the performance of the Pole Zero Filter
+Cascade (PZFC) model \cite{lyon10} in a variety of audio tasks, where
+it performed very well.
+
+- Correllogram
+
+These algorithm 
+
+
+
+\section{Machine Learning}
+
+- Machine learning and MIR
+
+- Dynamic Time Warping
+
+Dynamic time warping (DTW) is a technique for measuring the similarity
+of two sequence that many vary in time. It is mostly known in the context
+of speech recognition \cite{sakoe78} but it has found applications in
+many areas including video, motion and DNA sequence analysis. The use
+of DTW to compute the similarity between two pulse rate contours in
+the context of Orca calls has been explored in
+\cite{brown07_orca_dtw}. In that work, a similarity matrix is
+calculated containing all the DTW alignment costs between pairs of
+pulse rate contours. This similarity matrix is then subsequently used
+to calculate clusters which are then compared the ground truth call
+labeling to assess the feasibility of call classification using this
+approach.  
+
+- Older methods
+	- Tree based
+	- Gaussian Mixture Model
+
+- Support Vector Machines
+
+Support Vector Machines have been used with song-level features for
+automatic tag classification trained at different granularities
+(track, album, artist) \cite{mandel-ismir2008}.
+
+- Self-Organizing Maps
+
+Self organizing maps have been used extensively in the visualization
+of data for audio based music information retrieval \cite{cooper06}.
+They have been used to analyze and organize music archives
+\cite{rauber01a} \cite{rauber98a} \cite{rauber98b} \cite{rauber02a},
+and to visualize the resulting music collections \cite{rauber03a}
+\cite{pampalk04} \cite{rauber02}.  A particularily relvant study was
+that of Palmalk in his paper Islands of Music \cite{pampalk03}.  SOMs
+have also been used for audio retrieval, browing and constructivist
+learning in several papers \cite{cano02} \cite{fruehwirth01}
+\cite{honkela00}.  While the previous mentioned studies concentrated
+on organizing whole classes of music, SOMs have also been applied to
+smaller audio segments, including timbre \cite{toirvainen97},
+energy-spectrum \cite{masugi04}, and musical time series analysis
+\cite{capinteiro98}.
+
+Self-organizing maps \cite{kohonen95a} are a multidimensional scaling
+technique where a high dimension dataset is mapped to a lower,
+typically 2-dimensional surface. SOMs and other such dimensionality
+reduction tools allow users to visualize data relationships within
+complex datasets.  There have been many applications of SOMs in Music
+Information Retrieval including work by automatically analyzing and
+organizing music archives \cite{rauber01a} \cite{rauber98b},
+visualizing music genres \cite{pampalk03}\cite{pampalk03} and music
+recommendation \cite{vembu05a}.  Self-organizing maps have been used
+in Islands of Music \cite{RPM02} as well as the Databionic
+visualization \cite{MUN05}.
+
+- Vector Quantization
+
+A paper highly relevant to our own, yet using very different
+underlying audio features and Machine Learning algorithms is ``Sound
+retrieval and ranking using sparse auditory representations''
+\cite{lyon10} by Dick Lyon and his colleagues at Google.  In this
+paper, the authors describe a system designed to help them to create
+systems to understand sounds, and they use both a novel audio feature
+representation based on models of human hearing combined with a novel
+Machine Learning algorithm previously used for image retrieval named
+PAMIR (Passive Aggressive Model for Image Retrieval).  In this system,
+the data was represented as sparse vectors, which is quite different
+from the dense feature vectors commonly used in DSP.  Sparse vectors
+have mostly zero values, with just a few non-zero values, and dense
+vectors have numbers in almost all their elements.  Sparse vectors are
+commonly found in Machine Learning systems that work with text.
+
+In their system, they compare the results of the typical features that
+are used in Machine Hearing, the Mel-Frequency Cepstral Coefficients
+\cite{Logan00melfrequency} (MFCC) with those of their novel algorithm,
+one based on models of the human peripheral auditory system which used
+a filterbank called the Pole-Zero Filterbank Cascade (PZFC) and used
+this data to make a series of Stabilized Auditory Images (SAIs).
+While on one hand the MFCC system outputs a one dimensional vector for
+each time slice, producing an image for the sound file when these time
+slices are stacked, the SAI system on the other hand generates a two
+dimensional vector at each time slice, which can be represented as an
+image which can be stacked to form a movie.  The authors describe a
+system whereby these images are divided into a number of regions, and
+the section of the images that are in these regions are then clustered
+based on their similarity using vector quantization to generate a
+dictionary using an training set of audio.  This dictionary is then
+used to do vector quantization of test audio, and these features are
+used as input to the PAMIR system.
+
+PAMIR is a new algorithm for doing mappings from a huge sparse feature
+set to a very large query-term set, and was traditionally used in
+image recognition \cite{chechik10} to generate tags for images on
+Google Image search.  In this context, PAMIR is used to tag SAI images
+in order to add tag annotations to sound files.  The authors show
+impressive results, with an average precision of 35\% and best
+precision at top-1 of 73\%.
+
+This paper is directly relevant to my current paper, and in fact there
+are a number of the algorithms in this paper that we want to implement
+in my own OpenMIR system.  However, it should be noted that while
+these algorithms, specifically the modeling of the auditory cortex and
+the SAI model, do show a substantial increase in performance over
+traditional techniques, they do come with a substantial performance
+hit, and are typically much slower than traditional algorithms since
+they often must do an $O(n^2)$ step to calculate the SAI image while
+traditional FFT techniques only must do an $O(n(log(n)))$ step.  In
+any case, the method of using vector quantization, SAI images and
+advanced Machine Learning techniques such as PAMIR shows great promise
+in the future in my work.
+
+- Auditory Sparse Coding
+
+The concept of sparsity has attracted considerable interest in the
+field of machine learning in the past few years.  Sparse feature
+vectors contain mostly values of zero and one or a few non-zero
+values.  Although these feature vectors can be classified by
+traditional machine learning algorithms, such as SVM, there are various
+recently-developed algorithms that explicitly take advantage of
+the sparse nature of the data, leading to massive speedups in time, as
+well as improved performance.  Some fields that have benefited from
+the use of sparse algorithms are finance, bioinformatics, text mining
+\cite{balakrishnan2008}, and image classification \cite{chechik2010}.
+Because of their speed, these algorithms perform well on very large
+collections of data \cite{bottou2007}; large collections are becoming 
+increasingly relevant given the huge amounts of data collected and warehoused 
+by Internet businesses.
+
+This fine-timing information from the cochlea can be made use of in
+later stages of processing to yield a three-dimensional representation
+of audio, the stabilized auditory image (SAI)\cite{patterson2000},
+which is a movie-like representation of sound which has a dimension of
+`time-interval' in addition to the standard dimensions of time and
+frequency in the spectrogram. The periodicity of the waveform gives
+rise to a vertical banding structure in this time interval dimension,
+which provides information about the sound which is complementary to
+that available in the frequency dimension.
+
+There is also growing evidence that in the human nervous
+system sensory inputs are coded in a sparse manner; that is, only
+small numbers of neurons are active at a given time
+\cite{olshausen2004}.  Therefore, when modeling the human auditory
+system, it may be advantageous to investigate this property of
+sparseness in relation to the mappings that are being developed. The
+nervous systems of animals have evolved over millions of years to be
+highly efficient in terms of energy consumption and computation. 
+Looking into the way sound signals are handled by the auditory
+system could give us insights into how to make our algorithms more
+efficient and better model the human auditory system.
+
+One advantage of using sparse vectors is that such coding allows very fast
+computation of similarity, with a trainable similarity measure 
+\cite{chechik2010}. The efficiency results from storing, accessing, and doing 
+arithmetic operations on only the non-zero elements of the vectors.   
+In one study that examined the performance of sparse
+representations in the field of natural language processing, a 20- to
+80-fold speedup over LIBSVM was found \cite{haffner2006}.  They
+comment that kernel-based methods, like SVM, scale quadratically with
+the number of training examples and discuss how sparsity can allow
+algorithms to scale linearly based on the number of training examples.
+
+\subsection{Campana-Keogh distance measure}
+
+In the paper ``Monitoring and Mining Insect Sounds in Visual
+Space''\cite{hao12}, Hao et al. describe a novel method for data
+mining large databases of insect sounds. 
+
+Campana-Keogh (CK) measure \cite{campana2010} which uses the
+concept that two images are similar if one image can be used to
+compress the other image. 
+
+- Bioinformatics
+
+The transcription of time series data into a character sequence that
+can be consumed by bioinformatics sequence alignment tools is a
+nontrivial task.  An attempt towards this goal is Symbolic Aggregate
+Approximation (SAX) which was proposed by Lin et al. in
+\cite{Lin2003}. The underlying idea of SAX is to parse a time series
+using a sliding window and to generate a character sequence that
+approximates the signal's normalized slope using a technique called
+Piecewise Aggregate Approximation (PAA).  SAX is most useful in cases
+where the data is not on an absolute scale.  
+
+
+\section{Intelligence Augmentation, CSCW and Crowdsourcing}
+
+- Expert interfaces in bioacoustics
+
+Our system uses two types of web based interfaces.  The first are
+tools aimed at expert users, and the second are simpler interfaces
+designed for crowdsourcing the annotation. There are a number of tools
+that experts use to segment and analyze audio and specifically
+bioacoustic data.  One of the most popular is Raven
+(http://www.birds.cornell.edu/raven), a toolkit developed at the
+Cornell Lab of Ornithology.  Our expert based tools have many
+similarities to Raven such as the ability to view waveforms and
+spectrograms at multiple levels of detail. In addition, our system
+tightly integrates the visualization and viewing of data from machine
+learning classifiers.  Another tool is the Sonic Visualizer
+\cite{cannam10}, which supports a wide variety of waveform and
+spectral audio representations. The popular audio program Audacity has
+been extended to allow for the annotation of audio data \cite{li06}.
+The biggest difference our system compared to these systems is that
+the software is all web-based, so users do not have to install a
+separate program and can more easily view long audio files and analyze
+data across multiple recordings.
+
+- Intelligence Augmentation
+
+
+- CSCW
+
+- Crowdsourcing
+
+Crowdsourcing is a new type of collaboration where non-specialists
+help expert scientists \cite{howe08_crowdsourcing} 
+and has been used to great advantage
+\cite{surowiecki05_crowdsourcing} in a number
+\cite{bradham08_crowdsourcing} of research programs
+\cite{travis08_crowdsourcing}.
+One of the most successful examples is Galaxy Zoo
+\cite{anze08_galaxyzoo}. Games-with-a-purpose (GWAP) \cite{vonahn08},
+which are computer games that harness the ability of people to solve
+tasks in a game setting.  The first GWAP was the ESP game
+\cite{vonahn04} in which two users on computers connected to the
+internet try to guess words that describe an image.  In ``Game-powered
+Machine Learning'' \cite{barrington12}, Barrington, Turnbull and
+Lanckiet describe a system that combines Games With A Purpose (GWAP)
+with Machine Learning in a framework that they call ``Active Machine
+Learning''.  We have developed a framework for allowing scientist to
+easily generate new games for different typos of audio, for example
+whales, birds and human vocalizations. The system has been used to
+acquire annotations for the Orchive.
+
+
+- Challenges of this domain area
+	- Researchers are very attached to their data (and for good reason)
+	- Difficulty of collecting the original data
+	- Ownership issues and intellectual property
+	- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Old}
+
+\section{Related work}
+
+A different methodology of doing audio feature extraction was explored
+in the paper ``Distributed audio feature extraction for music''
+\cite{bray05}.  In this paper the authors use a dataflow architecture
+for distributed audio feature extraction on a set of networked
+computers.  A dataflow architecture allows users to connect small
+processing algorithms in a graph like network and to then use this
+constructed network to transform input data into a desired type of
+output data.  A simple example of a Marsyas network would take audio
+samples from a file on disk, multiply them by a number and output them
+to another file on disk, which would have the effect of increasing the
+volume (loudness) of the file.  However, most of the commonly used
+algorithms in Marsyas are complex feature extraction and machine
+learning algorithms.  Marsyas was an existing software platform that
+used this dataflow architecture, and this paper explored the use of
+dataflow architectures on networked computers.  One of the important
+contributions of this paper was that the optimal vector size of data
+to send from one computer to the other was influenced by the network
+settings of their ethernet routers, but in their case a 256 size
+vector provided the best speed.  Results are also presented to show
+that by using a Collection Partitioning Adaptive algorithm the authors
+were able to get the best utilization of their cluster.  This
+algorithm splits up the files to be processed and adaptively sends
+more jobs to the computers that have completed their past jobs
+quickest.  The authors also note that it is very simple to port an
+existing Marsyas network to this distributed framework, and there is
+indeed current efforts ongoing to do this in an automated fashion.
+
+One serious drawback of this framework is the large amount of disk and
+network traffic that is generated by the producer nodes on these
+system, the authors point out that the maximum number of worker
+computers that could be served by one dispatcher computer was only
+four.  This makes sense because of the large amount of data generated
+in many of the intermediate steps in the audio feature extraction
+pipeline.  The authors propose a system of hierarchical dispatchers
+and workers to solve this problem.
+
+For many interesting tasks in realtime computer generated music and
+analysis of music in performance situations this type of system would
+be very useful, for example, one dispatcher could communicate with a
+number of workers each of run a different type of Machine Learning
+algorithm and where the results are then collated.  However, for the
+present task of analyzing huge collections of audio that is already on
+disk in a batch fashion, the architecture in distributed Marsyas
+likely would need further work to be of much use.
+
+A paper highly relevant to our own, yet using very different
+underlying audio features and Machine Learning algorithms is ``Sound
+retrieval and ranking using sparse auditory representations''
+\cite{lyon10} by Dick Lyon and his colleagues at Google.  In this
+paper, the authors describe a system designed to help them to create
+systems to understand sounds, and they use both a novel audio feature
+representation based on models of human hearing combined with a novel
+Machine Learning algorithm previously used for image retrieval named
+PAMIR (Passive Aggressive Model for Image Retrieval).  In this system,
+the data was represented as sparse vectors, which is quite different
+from the dense feature vectors commonly used in DSP.  Sparse vectors
+have mostly zero values, with just a few non-zero values, and dense
+vectors have numbers in almost all their elements.  Sparse vectors are
+commonly found in Machine Learning systems that work with text.
+
+In their system, they compare the results of the typical features that
+are used in Machine Hearing, the Mel-Frequency Cepstral Coefficients
+\cite{Logan00melfrequency} (MFCC) with those of their novel algorithm,
+one based on models of the human peripheral auditory system which used
+a filterbank called the Pole-Zero Filterbank Cascade (PZFC) and used
+this data to make a series of Stabilized Auditory Images (SAIs).
+While on one hand the MFCC system outputs a one dimensional vector for
+each time slice, producing an image for the sound file when these time
+slices are stacked, the SAI system on the other hand generates a two
+dimensional vector at each time slice, which can be represented as an
+image which can be stacked to form a movie.  The authors describe a
+system whereby these images are divided into a number of regions, and
+the section of the images that are in these regions are then clustered
+based on their similarity using vector quantization to generate a
+dictionary using an training set of audio.  This dictionary is then
+used to do vector quantization of test audio, and these features are
+used as input to the PAMIR system.
+
+PAMIR is a new algorithm for doing mappings from a huge sparse feature
+set to a very large query-term set, and was traditionally used in
+image recognition \cite{chechik10} to generate tags for images on
+Google Image search.  In this context, PAMIR is used to tag SAI images
+in order to add tag annotations to sound files.  The authors show
+impressive results, with an average precision of 35\% and best
+precision at top-1 of 73\%.
+
+This paper is directly relevant to my current paper, and in fact there
+are a number of the algorithms in this paper that we want to implement
+in my own OpenMIR system.  However, it should be noted that while
+these algorithms, specifically the modeling of the auditory cortex and
+the SAI model, do show a substantial increase in performance over
+traditional techniques, they do come with a substantial performance
+hit, and are typically much slower than traditional algorithms since
+they often must do an $O(n^2)$ step to calculate the SAI image while
+traditional FFT techniques only must do an $O(n(log(n)))$ step.  In
+any case, the method of using vector quantization, SAI images and
+advanced Machine Learning techniques such as PAMIR shows great promise
+in the future in my work.
+
+In ``Game-powered Machine Learning'' \cite{barrington12}, Barrington,
+Turnbull and Lanckiet describe a system that combines Games With A
+Purpose (GWAP) with Machine Learning in a framework that they call
+``Active Machine Learning''.  In this framework, the user is presented
+with a set of plausible answers by a Machine Learning system, these
+plausible answers are chosen to be as close to the actual answer as
+possible, which helps the system train itself on difficult data most
+effectively, and also makes the game more fun and challenging to play,
+since the answers are so close to each other.  This kind of system
+directly inspired the work we describe earlier with GWAP, and how we
+are developing a system to let users help us to classify orca calls,
+and by using active learning we can help to make this game fun and
+challenging.
+
+In ``Overview of OMEN''\cite{McEnnis2006}, McEnnis, McKay and Fujinaga
+describe their system called OMEN (On-demand Metadata Extraction
+Network), a system that shares many commonalities with the OpenMIR
+system we describe in this paper.  The main issue their system aims to
+overcome is copyright problems that researchers encounter when they
+want to legally extract audio features from songs.  In the strictest
+legal sense, each researcher must purchase their own version of a song
+in order to do any kind of audio science on it.  This becomes
+prohibitive in the age of the Million Song Dataset.  In the OMEN
+system, a coalition of libraries creates a network of systems that
+host the raw audio data of the song, but only send back to the
+researchers the specific audio features that they are interested in.
+Another interesting aspect of this system is that they propose to use
+the unused computing cycles of library browsing computers to be a grid
+computing resource for doing their audio feature extraction.
+
+One big difference is that their system is primarily based on Java,
+where my system uses Java, but is primarily based on Python, C++ and
+Javascript.  In many ways, the Java ecosystem is enticing for building
+server applications, and several times in this project we considered
+doing feature extraction in jMIR, the Java Music Information Retrieval
+library that the OMEN system happens to use.  However, there are
+considerable barriers to getting a productive Java development and
+production system installed and maintained.
+
+Their system has a Master Node computer that coordinates all tasks,
+Library Nodes that coordinate tasks for a single library and Worker
+Nodes that perform feature extraction.  In their system, Library Nodes
+store the raw data and distribute it to the Worker Nodes.  One
+possible sub-optimal case would be if a single Library Node got
+overwhelmed with requests, in this case, it would be challenging to
+get other Library Nodes to serve requests to new Worker Nodes.  The
+MapReduce framework allows us to sidestep this issue, and by helping
+with data locality, allows us to reduce the amount of data sent over
+the network.
+
+\section{Distributed Cognition}
+
+
+There has been a long and fruitful history of the application of
+distributed cognition in the sciences.  If one adopts a loose
+definition of distributed cognition as thought processes that happen
+not just in one individual brain, but are instead distributed through
+a community and are mediated by artifacts, the whole history of
+science itself, even back as far as Aristotle, has been an example of
+distributed cognition.  In the words of Isaac Newton:
+
+ ``If I have seen further, it is by standing on the shoulder of
+giants''.
+
+However, recent advances in the understanding of the concept of
+distributed cognition from researchers in the social sciences,
+combined with advances in computer and communication technology could
+dramatically increase the speed, facility and ease of communication
+between scientists.  These increases could potentially be
+revolutionary changes in certain very difficult problem domains.  In
+such domains, the problem itself is too big to be solved by one single
+researcher and must instead be solved by teams of researchers with the
+aid of artifacts that aid cognition.
+
+There are many different such problem domains that require
+collaborations between large numbers of users, three such examples are
+high energy physics, genomics research and the study of the
+vocalizations of whales.
+
+\subsection{High-Energy Physics}
+
+In the field of particle physics, collaborative software has been used
+for a number of years, and indeed, the World Wide Web (WWW) was
+developed at CERN by Tim Berners-Lee \cite{bernerslee92}.  The WWW was
+developed in order to help physicists collaborate with one another by
+creating a ``global information universe''.  One of the primary goals
+of the WWW was to enable the sharing of data between researchers.  The
+Large Hadron Collider is a new multi-billion experiment at CERN, one
+of the goals of which is to find evidence for the Higgs-Boson
+\cite{wells09}.  The LHC will generate truly vast quantities of data
+and will require enormous processing power \cite{wiebalck03}, because
+of this, a huge network of computer systems called ``The Grid'' has
+been developed.  This system allows researchers to distribute and
+access data and to share computational resources at sites around the
+world.  However, perhaps due to the culture in the high-energy physics
+community, there has been only a small amount of development of tools
+\cite{birnholtz03} to allow people to collaborate with other people
+\cite{horn04}.  The Grid was designed to allow researchers to
+efficiently access machines, but not for people to collaborate
+efficiently with other people.  In an ideal system, these two
+communication channels would both be facilitated.
+
+\subsection{Human Genome}
+
+Another area of research that involves large numbers of scientists
+working together to solve a large problem was the sequencing of the
+human genome \cite{venter01}.  The public effort to sequence the human
+genome involved researchers from many different universities in
+different countries, and required communication and collaboration
+between all of these laboratories in order to coordinate sequencing
+efforts.
+
+The basic organizational structure was that the human genome was split
+into large 100,000 base pair chunks called Bacterial Artificial
+Chromosomes or BACs, which were then distributed to labs around the
+world.  Each of these labs operated independently and sequenced the
+BACs they had been allocated.  Concurrently a team at the University
+of Washington at St. Louis built a global map of the genome which was
+generated using physical sequencing techniques.  These techniques
+operate at a much larger granularity than base pair sequencing, and
+operate at the level of entire BACs.  Near the end of the project
+scientists assembled the sequences from the labs around the world
+using the global map from Washington University to generate the final
+sequence of the human genome.
+
+Some parts of this process required tightly coupled interactions, for
+example, the task of assembling the final version was very tightly
+coupled, for this task, most of the work was done by a small team of
+scientists who were collocated at one university.  Communication
+between members of this team was primarily through face-to-face and
+email interactions.
+
+Other aspects of this project were loosely coupled, the sequencing
+efforts are an example of this.  To coordinate this task, the
+researchers gathered together in one location for a meeting and
+,through face-to-face interactions, decided on the global process of
+how to distribute BACs to the various labs.  Subsequent interactions
+were primarily mediated through email and telephone conversations.
+
+In contrast to the particle physics work previously described,
+communication between people was of primary importance in the public
+human genome project.  Collaboration was a key part in this process,
+and without it, no one university or even country would have had the
+resources or political will to sequence the entire human genome.
+However, perhaps due to the culture in molecular biology, computers
+were primarily used to simply provide algorithmic support to the
+assembly of sequences, and the ability of computers to mediate
+communication and collaboration between researchers was limited to the
+sending of data and emails back and forth.
+
+One interesting aside is that there were in fact two efforts to
+sequence the human genome, the public one that I have described here,
+and a private one led by Craig Venter.  The private effort used a very
+different sequencing strategy that was relied solely on sequence
+alignment algorithms.  It was carried out in a single location by a
+single team and required many fewer people and thus less
+collaboration.  It also required less time than the strategy used by
+the public effort.  It would be interesting to imagine what impact
+collaborative software would have had on the public human genome
+sequencing effort, and perhaps if more advanced collaboration software
+had been available, the public human genome effort might have been
+able to proceed faster than the less collaborative private effort.
+
+A paper that describes the nature of communication and
+collaboration in the biological sciences is ``Capturing and supporting
+contexts for scientific data sharing via the biological sciences
+collaboratory'' \cite{chin04}.  In this paper the authors talk about
+the challenges in sharing data between scientists in the field of
+biology.  Another paper \cite{tabard08} describes Prism, a hybrid
+laboratory notebook that allows scientists to collaborate together in
+the solution of biological problems by using a hybrid electronic
+laboratory notebook.  This labbook brings together cross-linked
+streams of data, both physical and electronic and integrates activity
+streams from different users.  In a very recent paper \cite{segal09},
+Segal discusses the challenges faced by software developers in
+creating systems to allow scientists to collaborate.  She makes the
+observation that it is important for the developers to internalize the
+contextual structure with which the scientists communicate in order to
+make an effective system.
+
+An interesting paper by Kuchinsky et al. \cite{kuchinsky02} describes
+a software tool for creating a synthesis of the complex concepts in
+molecular biology, and uses the framework of storytelling to help
+scientists make sense of data.  They find that the addition of a
+narrative structure to data helps scientists organize, retrieve, share
+and reuse biological data.  Most data is transmitted in a dense code
+between biological scientists, and by many scientists in general, and
+this paper highlights the fascinating idea of using the innate ability
+of people to understand stories in order to transmit data between
+scientists more efficiently.  We can transmit data from computer to
+computer very quickly using codes that are natural to computers, and
+it is important to remember that to transmit data to a person, one
+should use methods of communication that are natural to people.
+
+\subsection{Orca Vocalizations}
+
+
+
+\section{Related Work}
+
+\subsection{Distributed Cognition}
+
+The field of Distributed Cognition studies the social and
+environmental aspects of cognition and realizes that thinking is not
+just something that happens in isolated minds, but can also take place
+in the interactions between minds and their environment.  It was first
+formulated into a discrete discipline by Edwin Hutchins, which is
+described extensively in his book ``Cognition in the Wild''
+\cite{hutchins96} after his research into the native people of Papua
+New Guinea and their system of public litigation \cite{hutchins80}.
+In a classic paper by Hollan, Hutchins and Kirsh \cite{hollan00}
+distributed cognition in different environments is described.  One of
+these is on the bridge of a ship, a location where multiple persons
+have to work together to accomplish many simultaneous and shared
+goals.  In this situation, people work together, sharing information
+via intentional and consequential communication and also offload
+cognitive tasks to their environment by the use of maps, displays and
+other physical objects.
+
+The practice of Cognitive Ethnography \cite{hollan00} is often used to
+study distributed cognition.  It studies the cognitive processes that
+underlie the work that occurs in an environment, and takes into account
+the effect of the social context of the participants as well as the
+way the physical world affects the process.  Ethnography is a
+methodology in which researchers study a system by making direct
+observations in as natural a setting as possible \cite{mcgrath95}.
+
+In the book ``Distributed cognitions: Psychological and educational
+considerations'', \cite{salomon97} a number of authors investigate
+distributed cognition, and give examples of this in a number of
+fields, including daily life and education.  One central theme of this
+book is that people think in conjunction or partnership with others
+and use tools to help them think.  They also note that it has been
+observed that the performance of people in teams supported by
+computational tools is often superior to people working alone.  They
+then investigate how distributed cognition can be harnessed in the
+field of education, with the goal of helping students to learn more
+effectively.
+
+
+\subsection{Intelligence Augmentation}
+
+The goal of early research in Artificial Intelligence (AI) was to
+build independently intelligent agents that could perform cognitive
+tasks.  There were a number of approaches to build such systems, some
+researchers, such as John McCarthy, chose to build symbolic
+manipulation systems where knowledge was represented by formal logic.
+Others, such as efforts by Marvin Minsky, instead attempted to combine
+several ad-hoc solutions to create an independent agent.  Most of
+these systems failed to take into account that in the real world,
+intelligent agents, such as people, are embodied, that is they have a
+physical form, and this physical body interacts both with other agents
+in social interactions as well as with its environment. 
+
+In the 1980's instead of Artificial Intelligence, researchers instead
+began to investigate Intelligence Augmentation \cite{fischer92}, where
+instead of trying to build intelligent systems that were designed to
+replace humans, researchers started building systems that would help
+people to solve problems, combining the best of human and artificial
+problem solving strategies.  These agents were designed to assist
+humans and inherently carried within them the idea that intelligence
+was embodied and interacts with people and other artificial agents
+through social interactions.
+
+A interesting study was carried out by Sumner \cite{sumner97} and
+investigated embedding agents that functioned as critics into a design
+environment.  In a critiquing approach, an artificial system
+communicates in a dialog with a human, suggesting changes to places
+where there are problems with the design.  The system described in
+this paper is that of voice menus for a phone-based interface.  The
+system is designed by a person or team, and the system critiques the
+design in places where the designer has violated previously determined
+rule-based constraints.  This work was extended in a subsequent
+article \cite{fischer98a} where a system to help designers create
+kitchens was described.  One interesting result from these studies was
+that designers reacted negatively to being critiqued, and began to
+anticipate the response of the system and took steps to avoid being
+critiqued.  This highlights the importance of making sure the system
+that is built makes the users feel that they are empowered and are
+being supported by the system.
+
+In a debate entitle ``Direct manipulation vs. interface agents''
+\cite{schneiderman97}, Ben Schneiderman and Pattie Maes debate the
+relative advantages of direct manipulation and software agents.
+Direct manipulation is described to be user interface techniques where
+large amounts of data are presented to the user on the screen at one
+time.  Through a user interface with fast feedback (<100ms), the user
+navigates through the data.  Software agents, on the other hand, are
+described to be long-lived software systems that learn user
+preferences and adapt to users, presenting them with data that the
+system estimates will be useful to the user.  In this paper, these two
+approaches are discussed and contrasted.  It is interesting to note
+that by the end of the debate, both sides acknowledge benefits to the
+others position, and indeed, as we have seen in the decade since this
+debate, systems are being designed that support both direct
+manipulation and software agents.  In The Orchive, we are attempting
+to design a system that supports both of these paradigms, allowing the
+user to directly manipulate large quantities of data, and also provide
+software agents that can mediate interactions between users, other
+users, annotations from other software agents, and the data.
+
+In the paper ``Distributed intelligence: extending the power of the
+unaided, individual human mind'', \cite{fischer06} Fischer provides an
+excellent overview of the field of distributed intelligence, relating
+it back to work in distributed cognition by Hollan et. al
+\cite{hollan00} as well as tying in other concepts, such as those of
+Intelligence Augmentation, advanced visualization interfaces that
+exploit the power of the human visual system, making user specific
+systems, and exploring computing off the desktop, which includes both
+large scale and small scale displays.  This paper also explores the
+difference between ``Tools for Learning'', which have the goal of
+educating the user so that they will be independent of the system and
+``Tools for Living'' that help people do things they could not do
+themselves.  In The Orchive, we are developing tools to support both
+these paradigms, first, to help users learn the calls used by the
+orcas, and second, to help more advanced users interact with the data,
+allowing them to ask and answer research questions. 
+
+In the paper ``Collaborative, programmable intelligent agents''
+\cite{nardi98}, a system that extracts semantic data from documents
+using intelligent agents is described.  This paper talks about the
+difficulty of creating systems that approximate real intelligence and
+instead proposes that that we should investigate what tasks computers
+are good for, what tasks people are good for, and how they can best
+complement each other.  Their goal is to create a system that works
+like a reference librarian, taking imprecise requests from clients and
+returning relevant results.  They then present a system called ``Apple
+Data Detectors'', which uses a collaborative system to work with the
+user to fulfill their requests. 
+ 
+\subsection{Crowdsourcing}
+
+Crowdsourcing is a new type of collaboration where non-specialists
+help expert scientists \cite{howe08_crowdsourcing} and has been used
+to great advantage \cite{surowiecki05_crowdsourcing} in a number
+\cite{bradham08_crowdsourcing} of research programs
+\cite{travis08_crowdsourcing}.  One of the most successful such
+programs is Galaxy Zoo \cite{anze08_galaxyzoo}.  In this project,
+astronomers had collected images of many thousands of galaxies and
+wanted to characterize them by the chiral handedness of their spiral
+structure, that is, were they spinning clockwise or counterclockwise?
+It was assumed that there would be an even distribution of these the
+two chiral hands, left and right, and any deviations from this would
+be an important and surprising result.  Even the most advanced current
+computer algorithms are not able to categorize galaxies based on their
+handedness, but humans can do this classification easily.  In this
+paper, the authors describe their system and results, and present
+results that indicate that there is a hint of positive correlation for
+galaxies nearer than 0.5 Megaparsecs.
+
+Another research program that benefited from crowdsourcing was the
+Stardust@home project \cite{mendez06_stardust}.  Stardust
+\cite{atkins97_stardust} was a NASA space mission that flew a
+spacecraft through the tail of comet Wild 2, collected dust from the
+comet and from interstellar matter using an aerogel, and then returned
+the satellite to earth.  Comet dust was collected on one side of the
+aerogel, and the other side of the aerogel was exposed to interstellar
+matter during the entire mission.  The analysis of the particles from
+the comet were straightforward due to the high number of particles,
+but the analysis of interstellar grains was much more difficult due to
+the small size and number of particles.  The Stardust@home project
+allowed users from around the world to signup on a website and
+interactively view and annotate microscopic images of the aerogel.
+There was overwhelming participation by the public, and they were able
+to generate results that were useful to the scientists on the project
+\cite{atkins97_stardust}.
+
+There have been a number of articles that investigate the benefits of
+crowdsourcing.  Hong \cite{hong04_crowdsourcing} presents results that
+show that a group of problem solvers with a diverse background can
+outperform smaller groups of experts.  This is of interest in the
+current work because there are only a very small number of orca
+vocalization experts in the world, but there is a large number of
+people who are interested in listening to orca calls, as is evidenced
+by the traffic on the Orca Live \url{http://orcalive.net} forums.
+
+A recent article \cite{kittur08_crowdsourcing} describes crowdsourcing
+with the Amazon Mechanical Turk system, a web based system where
+people can sign up to work on small tasks in return for micropayments.
+The advantage with using the Mechanical Turk system is that because
+people are paid for their work and have to pass a scientist defined
+test, the results obtained might be of higher quality.  The drawback
+to this system is that the workers must be paid.  Most scientific
+projects have limited budgets, and thus this type of solution is often
+not practical.
+
+One exciting new development in crowdsourcing is games-with-a-purpose
+(GWAP) \cite{vonahn08}, which are computer games that harness the
+ability of people to solve tasks in a game setting.  The first GWAP
+was the ESP game \cite{vonahn04} in which two users on computers
+connected to the internet try to guess words that describe an image.
+If both users guess the same word, this word is then added to the tags
+to that image, and is also added to a list of forbidden words which
+forces people to choose new words to describe an image.  This game has
+proven immensely popular, with many millions of tags added to images.
+Another such game is Tag-A-Tune \cite{law09}, an input agreement game
+that has people add tags to music clips.  These games, and others like
+them, exploit the powerful reward system of the human limbic system
+and are an excellent way to hold the attention of large numbers of
+users and generate high quality data.  The challenge with
+games-with-a-purpose is to develop a captivating game experience, but
+with time and skill, they perhaps hold the largest potential in terms
+of sheer size of population for performing crowdsourcing.
+
+\section{Application - The Orchive}
+
+
+
+\subsection{Citizen Science}
+
+\subsection{Science Interfaces}
+
+
+\section{Orcas}
+
+
+
+\section{Birds}
+
+\subsection{Biodiversity}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Machine Learning}
+
+%%% REWRITE
+Although it is a positive thing that this archive of data is now
+available in electronic form, what would make it even more useful to
+scientists would be the ability to collaborate together on the process
+of annotating audio, running experiments and analyzing results.  This
+type of work falls under the rubric of Computer Supported
+Collaborative Work \cite{bannon91} (CSCW), a field which studies
+multiple individuals working together with computer systems.
+%%% REWRITE
+
+%%% REWRITE
+In this particular case, we have a number of different communities who
+have shown interest in this archive, these include Orcalab and its
+collaborators, whale biologists, developers of bioacoustic and Music
+Information Retrieval algorithms, and the part of the general public
+who enjoy listening to whales and might like to help the scientists
+who are working on this project.  
+%%% REWRITE
+
+
+%%% REWRITE
+As the scientists in this project are located all over the world,
+having a system that enables them to work together collaboratively
+even though they are separated by large distances will be a worthwhile
+challenge \cite{bradner02} \cite{olson00}.  There are a number of
+pitfalls that have been identified \cite{grudin88} including the
+disparity between who performs the work and who gets the benefits, the
+breakdown of intuitive decision-making and the difficulty in
+evaluating the application.  To overcome these problems, we are
+eliciting feedback at every stage of the design process from
+stakeholders, including the members of Orcalab, and we incorporate
+this feedback using an iterative development methodology.
+%%% REWRITE
+
+%%% REWRITE
+In the first phase of the project, which we have just begun, our user
+community consists solely of the expert scientists who are part of the
+Orcalab and their close collaborators.  Important design goals for
+this section of the project include the ability to view and annotate
+any recording in the database and to perform searches using different
+criteria, such as year, time, type of call and the type of observation
+(acoustic/visual) along with other quantities from the daily incidence
+report.  In addition, in this phase, we will begin to run Machine
+Learning algorithms on the data manually and will use the interface to
+present these results to the scientists involved.
+%%% REWRITE
+
+%%% REWRITE
+In the second phase of the project we will open up access to the
+Orchive to the broader whale biologist and developers of bioacoustic
+and algorithms communities.  The whale biologist community will have
+many of the same needs as the original Orcalab scientists, but will
+have less experience with this dataset, and will thus require more
+structured information on how to find and analyze the information they
+are looking for.  The developers of bioacoustic algorithm community
+will be more interested in running different audio feature extraction
+and machine learning algorithms on this data, and a framework for
+examining and downloading these results and the original audio
+recordings, in order to analyze them on their local computers.
+%%% REWRITE
+
+\section{Crowdsourcing}
+
+%%% REWRITE
+In the third phase of the project we would like to invite general
+members of the public to participate by first providing an interface
+to allow them to find and listen to interesting recordings of orcas.
+In addition, because of the truly enormous number of recordings, it
+would be interesting to see if we could get the general public to help
+with efforts to both locate orca vocalizations on the tape and
+eventually even label call types.  
+%%% REWRITE
+
+%%% REWRITE
+This type of work, where non-specialists help expert scientists is
+called Crowdsourcing \cite{travis08_crowdsourcing}
+\cite{bradham08_crowdsourcing} \cite{howe08_crowdsourcing}
+\cite{surowiecki05_crowdsourcing} and has been used to great advantage
+in a number of research programs.  One of the most successful such
+programs is Galaxy Zoo \cite{anze08_galaxyzoo}.  In this project,
+astronomers had collected images of many thousands of galaxies and
+wanted to characterize them by the chiral handedness of their spiral
+structure, that is, were they spinning clockwise or counterclockwise?
+It was assumed that there would be an even distribution of these the
+two chiral hands, left and right, and any deviations from this would
+be an important and surprising result.  Even the most advanced current
+computer algorithms are not able to categorize galaxies based on their
+handedness, but humans can do this classification easily.  In this
+paper, the authors describe their system and results, and present
+results that indicate that there is a hint of positive correlation for
+galaxies nearer than 0.5 Megaparsecs.
+%%% REWRITE
+
+%%% REWRITE
+Another research program that benefited from crowdsourcing was the
+Stardust@home project \cite{mendez06_stardust}.  Stardust
+\cite{atkins97_stardust} was a NASA space mission that flew a
+spacecraft through the tail of comet Wild 2, collected dust from the
+comet and from interstellar matter using an aerogel, which is a very
+lightweight clear foam-like material, and then returned the satellite
+to earth.  Comet dust was collected on one side of the aerogel, and
+the other side of the aerogel was exposed to interstellar matter
+during the entire mission.  The analysis of the particles from the
+comet were straightforward due to the high number of particles, but
+the analysis of interstellar grains was much more difficult due to the
+small size and number of particles.  The Stardust@home project allowed
+users from around the world to signup on a website and interactively
+view and annotate microscopic images of the aerogel.  There was
+overwhelming participation by the public, and they were able to
+generate results that were useful to the scientists on the project
+\cite{atkins97_stardust}.
+%%% REWRITE
+
+%%% REWRITE
+There have been a number of articles that investigate the benefits of
+crowdsourcing.  Hong \cite{hong04_crowdsourcing} presents results that
+show that a group of problem solvers with a diverse background can
+outperform smaller groups of experts.  This is of interest because
+there are only a very small number of orca vocalization experts in the
+world, but there is a large number of people who are interested in
+listening to orca calls, as is evidenced by the traffic on the Orca
+Live \url{http://orcalive.net} forums.  
+%%% REWRITE
+
+%%% REWRITE
+A recent article \cite{kittur08_crowdsourcing} describes crowdsourcing
+with the Amazon Mechanical Turk system, a web based system where
+people can sign up to work on small tasks in return for micropayments.
+The advantage with using the Mechanical Turk system is that because
+people are paid for their work and have to pass a scientist defined
+test, the results obtained might be of higher quality.  The drawback
+to this system is that the workers must be paid.  It would be not
+extremely difficult to integrate the Mechanical Turk with the Orchive,
+and a future pilot project to test this is planned.
+%%% REWRITE
+
+%%% REWRITE
+Because the researchers from Orcalab have devoted so much time and
+care to the recording and documenting the audio in the Orchive, an
+important design criteria is to ensure that data entered from
+non-specialist users will not interfere with the data from expert
+users and scientists.  To this end, we have implemented a reputation
+management and filtering system, along with roles for various users.
+%%% REWRITE
+
+%%% REWRITE
+In the current implementation of the Orchive, only expert scientists
+are allowed to make annotations, and only members of Orcalab and their
+collaborators are allowed to edit the start date of each recording.
+As well, users can choose exactly which user's annotations they want
+to view.  In light of the fact that everyone in the current user
+community knows each other personally, reputation management is
+handled by offline personal interactions.  When the general public is
+allowed to contribute using a crowdsourcing model, this system will be
+expanded and enhanced.
+%%% REWRITE
+
+\section{Machine Learning}
+
+%%% REWRITE
+In addition to the presentation and collaborative annotation that the
+Orchive supports, we have also developed a set of Music Information
+Retrieval and Machine Learning tools that are available for
+researchers to run on the data in the Orchive. All of these tools are
+part of the Marsyas \cite{marsyas} MIR framework
+%%% REWRITE
+
+%%% REWRITE
+The first set of tools are audio feature extraction tools that have
+been adapted from the field of Music Information Retrieval
+(MIR) \cite{futrelledownie2002} to the study of orca vocalizations.
+In particular we have added support for the generation of spectral
+statistics including FFT spectrum, MFCC coefficients, Zero Crossing
+Rate, Spectral Centroid, Flux and Rolloff.  In section 5.4 we detail
+some results that were obtained using some of these features and show
+that they perform well on this class of problems.
+%%% REWRITE
+
+%%% REWRITE
+We also support classification of audio using Support Vector
+Machines \cite{mandel-ismir2005}, an advanced type of Machine Learning
+technique that finds optimal hyperplanes in high dimensional datasets,
+which we then use to classify audio.  This classification can be as
+simple as either ``orca'', ``voiceover'' or ``background'', or can be
+as complex as classifying different call types or even different pods
+through their call repertoires.  
+%%% REWRITE
+
+%%% REWRITE
+One important design goal in this project is to make our system as
+flexible and extensible as possible, to this end, we have come up with
+a tag-based system that allows researchers to construct their own
+ontologies.  Some of these ontologies would overlap, like ``orca'' or
+``voiceover'', and some would be distinct to different areas of study.
+By allowing a user defined structure to emerge, we empower individual
+research communities to ask and answer the questions most pertinent to
+them.  The obvious drawback to this is that within communities
+researchers must agree on the same language and syntax to annotate
+calls.  We hope to provide tools within and external to the site to
+help encourage the collaboration necessary to converge on the same
+vocabulary.
+%%% REWRITE
+
+\section{Bioacoustics}
+
+%%% REWRITE
+%%% REWRITE
+
+%%% REWRITE
+%%% REWRITE
+
+%%% REWRITE
+%%% REWRITE
+
+%%% REWRITE
+%%% REWRITE
+
+%%% REWRITE
+However, most of the work in analyzing orca vocalizations has been
+painstakingly done by hand, sometimes using audio cassettes and expert
+knowledge of orca vocalizations, and sometimes by digitizing
+vocalizations into a computer and then analyzing spectrograms.  It
+would be of advantage to the field to be able to apply these
+algorithms to a large dataset and provide collaborative visualization
+tools to explore it.
+%%% REWRITE
+
+
+
+
+
+
+
+
+
+
+

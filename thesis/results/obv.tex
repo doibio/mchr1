@@ -1,0 +1,854 @@
+% Created 2013-09-23 Mon 14:07
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+
+\title{obv}
+\author{Steven Ness}
+\date{23 September 2013}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+
+\begin{tabular}{lllrrrr}
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 100 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 2 -c 1.0  &  2645.28  &   61.88  &  3.28  &  88.59  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 11 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10    &  -s 2 -c 1.0  &  1250.22  &  115.58  &  6.29  &  88.86  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 11 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10   &  -s 2 -c 1.0  &  1562.07  &   55.71  &  4.14  &  89.61  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 11 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10   &  -s 2 -c 1.0  &  2651.55  &   29.03  &  1.52  &  88.24  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 17 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10    &  -s 2 -c 1.0  &  1250.22  &  116.85  &  6.89  &  89.03  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 17 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10   &  -s 2 -c 1.0  &  1561.28  &   61.04  &  3.23  &  89.54  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 17 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10   &  -s 2 -c 1.0  &  2651.38  &   28.38  &  1.63  &  88.36  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 23 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10    &  -s 2 -c 1.0  &  1269.32  &    0.04  &  0.00  &  -1.00  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 23 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10   &  -s 2 -c 1.0  &  1561.34  &   64.35  &  3.58  &  89.67  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 23 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10   &  -s 2 -c 1.0  &  2650.78  &   30.78  &  1.75  &  88.44  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 30 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10    &  -s 2 -c 1.0  &  1269.33  &    0.12  &  0.02  &  -1.00  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 30 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10   &  -s 2 -c 1.0  &  1561.26  &   65.06  &  3.66  &  89.66  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 30 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10   &  -s 2 -c 1.0  &  2649.99  &   34.64  &  1.87  &  88.53  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 5 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10     &  -s 2 -c 1.0  &  1250.22  &  111.62  &  5.71  &  88.64  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 5 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10    &  -s 2 -c 1.0  &  1562.29  &   52.83  &  3.32  &  89.43  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 5 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10    &  -s 2 -c 1.0  &  2652.20  &   28.83  &  1.41  &  87.87  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 50 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10    &  -s 2 -c 1.0  &  1269.44  &    0.04  &  0.00  &  -1.00  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 50 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10   &  -s 2 -c 1.0  &  1628.03  &   83.98  &  5.20  &  89.83  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 50 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10   &  -s 2 -c 1.0  &  2649.82  &   38.03  &  2.24  &  88.56  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 70 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10   &  -s 2 -c 1.0  &  1628.01  &   93.35  &  5.12  &  89.89  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 70 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10   &  -s 2 -c 1.0  &  2649.49  &   43.44  &  2.58  &  88.50  \\
+ obv-allFeatures-mfccParams  &  --mfcc --numMfccs 90 --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10   &  -s 2 -c 1.0  &  2649.05  &   52.19  &  3.00  &  88.58  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 0.001   &  1225.41  &    97.56  &   8.03  &  89.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 0.01    &  1225.44  &   119.77  &   6.99  &  88.99  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 0.02    &  1225.41  &   111.05  &   6.02  &  88.99  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 0.05    &  1225.41  &   152.95  &   6.61  &  88.97  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 0.2     &  1225.38  &   353.87  &   6.78  &  88.99  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 0.5     &  1225.72  &   763.71  &   6.51  &  88.97  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 10.0    &  1224.49  &  2723.01  &   6.59  &  87.94  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 20.0    &  1223.88  &  2901.52  &   6.86  &  88.08  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 200.0   &  1222.40  &  2738.73  &   6.25  &  85.04  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 50.0    &  1223.48  &  2972.59  &   8.53  &  79.50  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 1 -c 500.0   &  1221.29  &  3143.24  &   6.68  &  83.16  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 2 -c 0.001   &  1219.79  &   122.88  &   6.67  &  88.97  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 2 -c 0.01    &  1219.23  &   124.23  &   6.53  &  88.94  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 2 -c 0.1     &  1218.76  &   115.24  &   7.50  &  88.92  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 2 -c 1.0.0   &  1222.92  &   120.58  &   6.75  &  88.92  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 2 -c 1.00.0  &  1220.72  &   121.70  &   6.05  &  88.92  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 2 -c 1.0     &  1221.76  &   117.75  &   6.27  &  88.92  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 2 -c 10.0    &  1218.45  &   107.13  &   6.24  &  88.92  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 3 -c 0.001   &  1218.15  &    80.67  &   6.36  &  88.77  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 3 -c 0.01    &  1216.96  &    92.61  &   6.51  &  89.11  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 3 -c 0.1     &  1216.60  &   148.83  &   6.03  &  89.08  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 3 -c 1.0     &  1215.23  &   456.79  &   6.44  &  89.04  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 3 -c 10.0    &  1214.98  &  1980.73  &   6.15  &  87.72  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 4 -c 0.001   &  1254.97  &    84.37  &   6.62  &  89.08  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 4 -c 0.01    &  1176.87  &    98.76  &  10.42  &  89.13  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 4 -c 0.1     &  1214.70  &   163.94  &   6.28  &  89.15  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 4 -c 1.0     &  1214.70  &   731.77  &   6.37  &  89.20  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 4 -c 10.0    &  1214.70  &  6825.25  &   6.81  &  89.15  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 5 -c 0.001   &  1214.35  &    66.76  &   0.03  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 5 -c 0.01    &  1172.91  &    78.36  &   0.07  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 5 -c 0.1     &  1212.74  &    76.85  &   0.01  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 5 -c 1.0     &  1212.74  &    81.31  &   0.15  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 5 -c 10.0    &  1212.76  &    69.83  &   0.06  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 6 -c 0.001   &  1171.31  &    80.49  &   0.27  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 6 -c 0.01    &  1211.91  &    72.92  &   0.03  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 6 -c 0.1     &  1211.56  &   123.35  &   0.01  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 6 -c 1.0     &  1211.57  &   124.72  &   0.02  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 6 -c 10.0    &  1211.11  &    97.23  &   0.08  &  -1.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 7 -c 0.001   &  1210.58  &   120.66  &   6.23  &  88.54  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 7 -c 0.01    &  1210.17  &   114.63  &   6.45  &  89.03  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 7 -c 0.1     &  1210.05  &   160.19  &   6.15  &  89.00  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 7 -c 1.0     &  1209.39  &   529.97  &   6.05  &  88.98  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 7 -c 10.0    &  1208.73  &  3202.63  &   6.77  &  88.97  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 0.001   &  1639.05  &    42.80  &   3.34  &  89.57  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 0.01    &  1652.25  &    50.23  &   3.33  &  89.62  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 0.02    &  1637.67  &    55.43  &   3.07  &  89.61  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 0.05    &  1638.93  &    73.83  &   3.02  &  89.61  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 0.2     &  1703.83  &   181.11  &   3.32  &  89.64  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 0.5     &  1652.74  &   387.81  &   3.36  &  89.65  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 10.0    &  1611.11  &  1649.52  &   3.07  &  89.12  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 20.0    &  1611.25  &  1698.19  &   3.02  &  89.37  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 200.0   &  1609.68  &  1471.38  &   3.17  &  81.41  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 50.0    &  1610.59  &  1485.77  &   3.15  &  84.32  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 1 -c 500.0   &  1597.13  &  1483.88  &   3.10  &  89.64  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 2 -c 0.001   &  1608.10  &    52.36  &   3.04  &  89.63  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 2 -c 0.01    &  1620.07  &    58.95  &   3.31  &  89.48  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 2 -c 0.1     &  1661.88  &    60.40  &   3.32  &  89.48  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 2 -c 1.0.0   &  1610.43  &    60.07  &   3.04  &  89.57  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 2 -c 1.00.0  &  1608.29  &    60.59  &   3.02  &  89.57  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 2 -c 1.0     &  1682.57  &    63.42  &   3.31  &  89.57  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 2 -c 10.0    &  1623.82  &    57.23  &   3.03  &  89.63  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 3 -c 0.001   &  1623.82  &    42.73  &   3.09  &  89.86  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 3 -c 0.01    &  1626.16  &    49.47  &   3.07  &  89.94  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 3 -c 0.1     &  1623.67  &    73.02  &   3.01  &  89.92  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 3 -c 1.0     &  1567.09  &   240.61  &   3.47  &  89.97  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 3 -c 10.0    &  1620.41  &  1050.04  &   3.72  &  89.78  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 4 -c 0.001   &  1562.95  &    38.41  &   3.03  &  90.05  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 4 -c 0.01    &  1679.30  &    44.96  &   3.03  &  90.09  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 4 -c 0.1     &  1676.14  &    75.71  &   3.06  &  90.07  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 4 -c 1.0     &  1698.82  &   414.03  &   3.06  &  90.05  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 4 -c 10.0    &  1679.16  &  3815.76  &   3.62  &  90.05  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 5 -c 0.001   &  1646.09  &   254.93  &   3.09  &  89.36  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 5 -c 0.01    &  1668.25  &   389.73  &   3.01  &  89.54  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 5 -c 0.1     &  1632.26  &   941.17  &   3.04  &  89.54  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 5 -c 1.0     &  1632.26  &   830.82  &   3.02  &  89.55  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 5 -c 10.0    &  1632.26  &   962.29  &   3.05  &  89.55  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 6 -c 0.001   &  1632.09  &    50.53  &   3.08  &  88.35  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 6 -c 0.01    &  1630.30  &    95.12  &   3.03  &  89.55  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 6 -c 0.1     &  1631.17  &   133.53  &   3.06  &  89.74  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 6 -c 1.0     &  1590.72  &   134.94  &   3.02  &  89.70  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 6 -c 10.0    &  1590.54  &   133.03  &   3.07  &  89.68  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 7 -c 0.001   &  1590.21  &    56.65  &   3.83  &  89.60  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 7 -c 0.01    &  1589.60  &    54.83  &   3.85  &  89.72  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 7 -c 0.1     &  1666.89  &    85.14  &   3.07  &  89.83  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 7 -c 1.0     &  1666.89  &   260.28  &   3.04  &  89.86  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 7 -c 10.0    &  1666.74  &  1716.13  &   3.05  &  89.87  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.001   &  2712.94  &    22.23  &   1.54  &  88.31  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.01    &  2711.37  &    24.17  &   1.53  &  88.24  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.02    &  2711.84  &    27.40  &   1.53  &  88.20  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.05    &  2711.58  &    42.10  &   1.58  &  88.21  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.2     &  2691.17  &    88.70  &   1.53  &  88.20  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.5     &  2689.76  &   230.65  &   1.55  &  88.20  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 10.0    &  2674.16  &   616.28  &   1.54  &  87.50  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 20.0    &  2775.85  &   628.36  &   1.70  &  85.77  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 200.0   &  2695.38  &   650.99  &   1.53  &  84.26  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 50.0    &  2695.48  &   649.20  &   1.53  &  81.61  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 1 -c 500.0   &  2694.83  &   764.04  &   1.55  &  76.79  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 2 -c 0.001   &  2693.94  &    26.84  &   1.55  &  88.25  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 2 -c 0.01    &  2694.02  &    31.58  &   1.53  &  88.19  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 2 -c 0.1     &  2692.86  &    28.12  &   1.53  &  88.16  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 2 -c 1.0.0   &  2695.61  &    30.47  &   1.56  &  88.17  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 2 -c 1.00.0  &  2694.45  &    28.42  &   1.52  &  88.17  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 2 -c 1.0     &  2661.07  &    29.07  &   1.52  &  88.17  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 2 -c 10.0    &  2695.80  &    28.47  &   1.53  &  88.16  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 3 -c 0.001   &  2655.21  &    20.85  &   1.54  &  88.60  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 3 -c 0.01    &  2654.68  &    22.83  &   1.53  &  88.83  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 3 -c 0.1     &  2654.02  &    40.79  &   1.53  &  88.75  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 3 -c 1.0     &  2694.78  &   150.80  &   1.55  &  88.59  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 3 -c 10.0    &  2694.52  &   603.48  &   3.30  &  88.43  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 4 -c 0.001   &  2653.05  &    19.30  &   1.55  &  88.64  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 4 -c 0.01    &  2693.60  &    21.89  &   1.57  &  88.80  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 4 -c 0.1     &  2693.09  &    44.36  &   1.56  &  88.82  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 4 -c 1.0     &  2692.24  &   250.56  &   1.55  &  88.74  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 4 -c 10.0    &  2691.79  &  2496.07  &   1.92  &  88.73  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 5 -c 0.001   &  2601.60  &    59.02  &   1.55  &  88.04  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 5 -c 0.01    &  2601.67  &   150.13  &   1.52  &  88.25  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 5 -c 0.1     &  2601.66  &   370.19  &   1.57  &  88.21  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 5 -c 1.0     &  2599.98  &   424.23  &   1.61  &  88.22  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 5 -c 10.0    &  2599.41  &   440.07  &   1.55  &  88.23  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 6 -c 0.001   &  2599.13  &    24.68  &   1.53  &  87.49  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 6 -c 0.01    &  2599.05  &    30.36  &   1.52  &  88.63  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 6 -c 0.1     &  2597.96  &    37.85  &   1.55  &  88.48  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 6 -c 1.0     &  2597.81  &    28.69  &   1.58  &  88.68  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 6 -c 10.0    &  2597.76  &    28.61  &   1.56  &  88.68  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 7 -c 0.001   &  2597.51  &    24.98  &   1.61  &  88.59  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 7 -c 0.01    &  2596.99  &    27.26  &   1.54  &  88.60  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 7 -c 0.1     &  2596.90  &    37.92  &   1.52  &  88.47  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 7 -c 1.0     &  2596.44  &   133.81  &   1.56  &  88.48  \\
+ obv-allFeatures-winSvmParams  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 7 -c 10.0    &  2596.27  &   742.56  &   1.52  &  88.47  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-differentFeatures  &  --centroid -ws 1024 -hp 512 -m 10                                                                                  &  -s 2 -c 1.0  &   269.42  &    1.79  &   0.14  &  74.16  \\
+ obv-differentFeatures  &  --centroid -ws 2048 -hp 1024 -m 10                                                                                 &  -s 2 -c 1.0  &   221.64  &    0.95  &   0.07  &  74.20  \\
+ obv-differentFeatures  &  --centroid -ws 256 -hp 128 -m 10                                                                                   &  -s 2 -c 1.0  &   417.19  &    8.15  &   0.62  &  74.21  \\
+ obv-differentFeatures  &  --centroid -ws 4096 -hp 2048 -m 10                                                                                 &  -s 2 -c 1.0  &   209.47  &    0.46  &   0.04  &  74.24  \\
+ obv-differentFeatures  &  --centroid -ws 512 -hp 256 -m 10                                                                                   &  -s 2 -c 1.0  &   277.15  &    3.71  &   0.27  &  74.18  \\
+ obv-differentFeatures  &  --chroma -ws 1024 -hp 512 -m 10                                                                                    &  -s 2 -c 1.0  &   270.59  &   21.38  &   1.18  &  79.47  \\
+ obv-differentFeatures  &  --chroma -ws 2048 -hp 1024 -m 10                                                                                   &  -s 2 -c 1.0  &   258.78  &   11.64  &   0.56  &  78.91  \\
+ obv-differentFeatures  &  --chroma -ws 256 -hp 128 -m 10                                                                                     &  -s 2 -c 1.0  &   573.98  &   73.88  &   4.25  &  75.11  \\
+ obv-differentFeatures  &  --chroma -ws 4096 -hp 2048 -m 10                                                                                   &  -s 2 -c 1.0  &   230.19  &    5.01  &   0.27  &  77.14  \\
+ obv-differentFeatures  &  --chroma -ws 512 -hp 256 -m 10                                                                                     &  -s 2 -c 1.0  &   364.39  &   35.76  &   2.12  &  77.65  \\
+ obv-differentFeatures  &  --flux -ws 1024 -hp 512 -m 10                                                                                      &  -s 2 -c 1.0  &   268.81  &    1.78  &   0.14  &  74.11  \\
+ obv-differentFeatures  &  --flux -ws 2048 -hp 1024 -m 10                                                                                     &  -s 2 -c 1.0  &   220.77  &    0.83  &   0.08  &  74.24  \\
+ obv-differentFeatures  &  --flux -ws 256 -hp 128 -m 10                                                                                       &  -s 2 -c 1.0  &   489.00  &    7.04  &   0.64  &  74.22  \\
+ obv-differentFeatures  &  --flux -ws 4096 -hp 2048 -m 10                                                                                     &  -s 2 -c 1.0  &   208.09  &    0.43  &   0.04  &  74.28  \\
+ obv-differentFeatures  &  --flux -ws 512 -hp 256 -m 10                                                                                       &  -s 2 -c 1.0  &   276.48  &    3.00  &   0.27  &  74.05  \\
+ obv-differentFeatures  &  --kurtosis -ws 1024 -hp 512 -m 10                                                                                  &  -s 2 -c 1.0  &   268.23  &    1.90  &   0.14  &  70.32  \\
+ obv-differentFeatures  &  --kurtosis -ws 2048 -hp 1024 -m 10                                                                                 &  -s 2 -c 1.0  &   219.85  &    0.83  &   0.10  &  69.30  \\
+ obv-differentFeatures  &  --kurtosis -ws 256 -hp 128 -m 10                                                                                   &  -s 2 -c 1.0  &   411.39  &    6.79  &   0.56  &  73.01  \\
+ obv-differentFeatures  &  --kurtosis -ws 4096 -hp 2048 -m 10                                                                                 &  -s 2 -c 1.0  &   207.49  &    0.46  &   0.06  &  68.96  \\
+ obv-differentFeatures  &  --kurtosis -ws 512 -hp 256 -m 10                                                                                   &  -s 2 -c 1.0  &   275.30  &    3.30  &   0.28  &  71.58  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 1024 -hp 512 -m 10   &  -s 2 -c 1.0  &  1148.03  &  114.72  &   6.11  &  88.92  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -s 2 -c 1.0  &  1555.78  &   59.51  &   3.01  &  89.57  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 256 -hp 128 -m 10    &  -s 2 -c 1.0  &  1824.54  &    0.03  &   0.00  &  -1.00  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 4096 -hp 2048 -m 10  &  -s 2 -c 1.0  &  2648.28  &   32.07  &   1.53  &  88.17  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 512 -hp 256 -m 10    &  -s 2 -c 1.0  &  1173.07  &    0.02  &   0.02  &  -1.00  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin -ws 1024 -hp 512 -m 10         &  -s 2 -c 1.0  &  1149.11  &  117.97  &   5.97  &  89.02  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin -ws 2048 -hp 1024 -m 10        &  -s 2 -c 1.0  &  1555.98  &   54.77  &   3.01  &  89.46  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin -ws 256 -hp 128 -m 10          &  -s 2 -c 1.0  &  1824.78  &    0.03  &   0.00  &  -1.00  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin -ws 4096 -hp 2048 -m 10        &  -s 2 -c 1.0  &  2648.89  &   29.90  &   1.54  &  88.12  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin -ws 512 -hp 256 -m 10          &  -s 2 -c 1.0  &  1173.49  &    0.02  &   0.02  &  -1.00  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma -ws 1024 -hp 512 -m 10               &  -s 2 -c 1.0  &   884.71  &  109.31  &   5.89  &  88.96  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma -ws 2048 -hp 1024 -m 10              &  -s 2 -c 1.0  &  1040.40  &   55.77  &   3.01  &  89.53  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma -ws 256 -hp 128 -m 10                &  -s 2 -c 1.0  &  1615.31  &    0.05  &   0.00  &  -1.00  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma -ws 4096 -hp 2048 -m 10              &  -s 2 -c 1.0  &  1557.60  &   31.19  &   1.59  &  88.17  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma -ws 512 -hp 256 -m 10                &  -s 2 -c 1.0  &  1003.44  &    0.01  &   0.00  &  -1.00  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf -ws 1024 -hp 512 -m 10                        &  -s 2 -c 1.0  &   777.38  &   91.02  &   4.89  &  88.23  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf -ws 2048 -hp 1024 -m 10                       &  -s 2 -c 1.0  &   963.55  &   43.61  &   2.44  &  88.96  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf -ws 256 -hp 128 -m 10                         &  -s 2 -c 1.0  &  1364.61  &    0.02  &   0.00  &  -1.00  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf -ws 4096 -hp 2048 -m 10                       &  -s 2 -c 1.0  &  1510.14  &   22.28  &   1.24  &  88.22  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf -ws 512 -hp 256 -m 10                         &  -s 2 -c 1.0  &   931.93  &    0.02  &   0.01  &  -1.00  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux -ws 1024 -hp 512 -m 10                                                          &  -s 2 -c 1.0  &   306.38  &   24.25  &   1.25  &  76.75  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux -ws 2048 -hp 1024 -m 10                                                         &  -s 2 -c 1.0  &   216.53  &    9.79  &   0.65  &  78.84  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux -ws 256 -hp 128 -m 10                                                           &  -s 2 -c 1.0  &   659.20  &   91.27  &   5.10  &  76.15  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux -ws 4096 -hp 2048 -m 10                                                         &  -s 2 -c 1.0  &   210.16  &    5.06  &   0.32  &  80.51  \\
+ obv-differentFeatures  &  --mfcc --centroid --rolloff --flux -ws 512 -hp 256 -m 10                                                           &  -s 2 -c 1.0  &   442.53  &   45.34  &   2.51  &  75.92  \\
+ obv-differentFeatures  &  --mfcc -ws 1024 -hp 512 -m 10                                                                                      &  -s 2 -c 1.0  &   269.96  &   15.89  &   1.02  &  75.76  \\
+ obv-differentFeatures  &  --mfcc -ws 2048 -hp 1024 -m 10                                                                                     &  -s 2 -c 1.0  &   222.55  &    8.64  &   0.55  &  75.92  \\
+ obv-differentFeatures  &  --mfcc -ws 256 -hp 128 -m 10                                                                                       &  -s 2 -c 1.0  &   594.27  &   74.61  &   4.32  &  76.46  \\
+ obv-differentFeatures  &  --mfcc -ws 4096 -hp 2048 -m 10                                                                                     &  -s 2 -c 1.0  &   209.66  &    4.06  &   0.28  &  75.93  \\
+ obv-differentFeatures  &  --mfcc -ws 512 -hp 256 -m 10                                                                                       &  -s 2 -c 1.0  &   358.32  &   33.11  &   2.04  &  75.90  \\
+ obv-differentFeatures  &  --rms -ws 1024 -hp 512 -m 10                                                                                       &  -s 2 -c 1.0  &   264.65  &    1.79  &   0.16  &  74.13  \\
+ obv-differentFeatures  &  --rms -ws 2048 -hp 1024 -m 10                                                                                      &  -s 2 -c 1.0  &   194.95  &    0.83  &   0.07  &  74.20  \\
+ obv-differentFeatures  &  --rms -ws 256 -hp 128 -m 10                                                                                        &  -s 2 -c 1.0  &   352.13  &    6.55  &   0.54  &  74.21  \\
+ obv-differentFeatures  &  --rms -ws 4096 -hp 2048 -m 10                                                                                      &  -s 2 -c 1.0  &   193.86  &    0.45  &   0.06  &  74.24  \\
+ obv-differentFeatures  &  --rms -ws 512 -hp 256 -m 10                                                                                        &  -s 2 -c 1.0  &   273.31  &    3.08  &   0.27  &  74.17  \\
+ obv-differentFeatures  &  --rolloff -ws 1024 -hp 512 -m 10                                                                                   &  -s 2 -c 1.0  &   268.86  &    1.78  &   0.14  &  74.53  \\
+ obv-differentFeatures  &  --rolloff -ws 2048 -hp 1024 -m 10                                                                                  &  -s 2 -c 1.0  &   221.24  &    0.83  &   0.07  &  74.60  \\
+ obv-differentFeatures  &  --rolloff -ws 256 -hp 128 -m 10                                                                                    &  -s 2 -c 1.0  &   414.58  &    6.90  &   0.58  &  75.05  \\
+ obv-differentFeatures  &  --rolloff -ws 4096 -hp 2048 -m 10                                                                                  &  -s 2 -c 1.0  &   209.40  &    0.42  &   0.04  &  74.44  \\
+ obv-differentFeatures  &  --rolloff -ws 512 -hp 256 -m 10                                                                                    &  -s 2 -c 1.0  &   275.80  &    3.31  &   0.27  &  74.47  \\
+ obv-differentFeatures  &  --scf -ws 1024 -hp 512 -m 10                                                                                       &  -s 2 -c 1.0  &   267.59  &   34.72  &   2.00  &  83.69  \\
+ obv-differentFeatures  &  --scf -ws 2048 -hp 1024 -m 10                                                                                      &  -s 2 -c 1.0  &   218.75  &   16.25  &   0.92  &  84.25  \\
+ obv-differentFeatures  &  --scf -ws 256 -hp 128 -m 10                                                                                        &  -s 2 -c 1.0  &   661.55  &    0.02  &   0.02  &  -1.00  \\
+ obv-differentFeatures  &  --scf -ws 4096 -hp 2048 -m 10                                                                                      &  -s 2 -c 1.0  &   230.07  &   10.27  &   1.31  &  83.56  \\
+ obv-differentFeatures  &  --scf -ws 512 -hp 256 -m 10                                                                                        &  -s 2 -c 1.0  &   378.20  &   61.65  &   3.74  &  81.58  \\
+ obv-differentFeatures  &  --sfm --scf --chroma -ws 1024 -hp 512 -m 10                                                                        &  -s 2 -c 1.0  &   558.47  &   99.95  &   5.27  &  88.02  \\
+ obv-differentFeatures  &  --sfm --scf --chroma -ws 2048 -hp 1024 -m 10                                                                       &  -s 2 -c 1.0  &   377.57  &   48.91  &   2.28  &  88.96  \\
+ obv-differentFeatures  &  --sfm --scf --chroma -ws 256 -hp 128 -m 10                                                                         &  -s 2 -c 1.0  &  1182.81  &    0.04  &   0.00  &  -1.00  \\
+ obv-differentFeatures  &  --sfm --scf --chroma -ws 4096 -hp 2048 -m 10                                                                       &  -s 2 -c 1.0  &   319.81  &   22.95  &   1.18  &  87.79  \\
+ obv-differentFeatures  &  --sfm --scf --chroma -ws 512 -hp 256 -m 10                                                                         &  -s 2 -c 1.0  &   752.27  &    0.01  &   0.00  &  -1.00  \\
+ obv-differentFeatures  &  --sfm -ws 1024 -hp 512 -m 10                                                                                       &  -s 2 -c 1.0  &   300.40  &   31.29  &   1.92  &  84.94  \\
+ obv-differentFeatures  &  --sfm -ws 2048 -hp 1024 -m 10                                                                                      &  -s 2 -c 1.0  &   298.46  &   13.87  &   0.92  &  86.23  \\
+ obv-differentFeatures  &  --sfm -ws 256 -hp 128 -m 10                                                                                        &  -s 2 -c 1.0  &   759.73  &  134.96  &  10.27  &  79.06  \\
+ obv-differentFeatures  &  --sfm -ws 4096 -hp 2048 -m 10                                                                                      &  -s 2 -c 1.0  &   207.19  &    8.27  &   0.48  &  85.30  \\
+ obv-differentFeatures  &  --sfm -ws 512 -hp 256 -m 10                                                                                        &  -s 2 -c 1.0  &   430.28  &   57.40  &   3.64  &  82.03  \\
+ obv-differentFeatures  &  --skewness -ws 1024 -hp 512 -m 10                                                                                  &  -s 2 -c 1.0  &   464.53  &    1.74  &   0.14  &  73.57  \\
+ obv-differentFeatures  &  --skewness -ws 2048 -hp 1024 -m 10                                                                                 &  -s 2 -c 1.0  &   771.85  &    0.93  &   0.07  &  71.10  \\
+ obv-differentFeatures  &  --skewness -ws 256 -hp 128 -m 10                                                                                   &  -s 2 -c 1.0  &   418.48  &    6.55  &   0.54  &  74.22  \\
+ obv-differentFeatures  &  --skewness -ws 4096 -hp 2048 -m 10                                                                                 &  -s 2 -c 1.0  &  1294.41  &    0.44  &   0.04  &  64.83  \\
+ obv-differentFeatures  &  --skewness -ws 512 -hp 256 -m 10                                                                                   &  -s 2 -c 1.0  &   368.13  &    3.43  &   0.61  &  74.11  \\
+ obv-differentFeatures  &  --yin -ws 1024 -hp 512 -m 10                                                                                       &  -s 2 -c 1.0  &   461.60  &    1.50  &   0.13  &  74.66  \\
+ obv-differentFeatures  &  --yin -ws 2048 -hp 1024 -m 10                                                                                      &  -s 2 -c 1.0  &   719.33  &    0.71  &   0.09  &  74.63  \\
+ obv-differentFeatures  &  --yin -ws 256 -hp 128 -m 10                                                                                        &  -s 2 -c 1.0  &   434.67  &    5.76  &   0.47  &  74.71  \\
+ obv-differentFeatures  &  --yin -ws 4096 -hp 2048 -m 10                                                                                      &  -s 2 -c 1.0  &  1218.52  &    0.37  &   0.03  &  74.57  \\
+ obv-differentFeatures  &  --yin -ws 512 -hp 256 -m 10                                                                                        &  -s 2 -c 1.0  &   363.36  &    3.18  &   0.24  &  74.69  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 1      &  -s 2 -c 1.0  &  230.74  &  17.80  &  1.05  &  75.76  \\
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 10     &  -s 2 -c 1.0  &  229.70  &   1.64  &  0.12  &  75.76  \\
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 100    &  -s 2 -c 1.0  &  210.99  &   0.15  &  0.02  &  76.52  \\
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 1000   &  -s 2 -c 1.0  &  210.32  &   0.02  &  0.00  &  77.67  \\
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 2      &  -s 2 -c 1.0  &  230.32  &   8.70  &  0.52  &  75.73  \\
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 20     &  -s 2 -c 1.0  &  211.37  &   0.81  &  0.06  &  75.79  \\
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 200    &  -s 2 -c 1.0  &  210.53  &   0.08  &  0.01  &  78.08  \\
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 5      &  -s 2 -c 1.0  &  230.05  &   3.28  &  0.22  &  75.94  \\
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 50     &  -s 2 -c 1.0  &  210.53  &   0.35  &  0.03  &  75.78  \\
+ obv-downsampling  &  --mfcc -ws 1024 -hp 512 -m 10 -ds 500    &  -s 2 -c 1.0  &  210.49  &   0.03  &  0.01  &  75.12  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 1     &  -s 2 -c 1.0  &  209.71  &   8.60  &  0.52  &  75.92  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 10    &  -s 2 -c 1.0  &  206.23  &   0.86  &  0.06  &  75.96  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 100   &  -s 2 -c 1.0  &  205.47  &   0.08  &  0.01  &  74.90  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 1000  &  -s 2 -c 1.0  &  218.12  &   0.01  &  0.00  &  73.08  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 2     &  -s 2 -c 1.0  &  209.32  &   4.07  &  0.28  &  75.92  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 20    &  -s 2 -c 1.0  &  206.27  &   0.41  &  0.03  &  76.22  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 200   &  -s 2 -c 1.0  &  205.34  &   0.04  &  0.03  &  73.93  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 5     &  -s 2 -c 1.0  &  208.61  &   1.67  &  0.11  &  76.03  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 50    &  -s 2 -c 1.0  &  206.13  &   0.15  &  0.01  &  75.88  \\
+ obv-downsampling  &  --mfcc -ws 2048 -hp 1024 -m 10 -ds 500   &  -s 2 -c 1.0  &  218.42  &   0.02  &  0.01  &  75.73  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 1     &  -s 2 -c 1.0  &  205.63  &   3.96  &  0.30  &  75.93  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 10    &  -s 2 -c 1.0  &  205.11  &   0.36  &  0.04  &  75.89  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 100   &  -s 2 -c 1.0  &  206.45  &   0.09  &  0.01  &  76.54  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 1000  &  -s 2 -c 1.0  &  236.26  &   0.03  &  0.02  &  57.69  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 2     &  -s 2 -c 1.0  &  205.48  &   2.16  &  0.16  &  75.89  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 20    &  -s 2 -c 1.0  &  204.73  &   0.24  &  0.02  &  74.81  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 200   &  -s 2 -c 1.0  &  206.49  &   0.02  &  0.04  &  78.46  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 5     &  -s 2 -c 1.0  &  205.25  &   0.86  &  0.06  &  75.55  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 50    &  -s 2 -c 1.0  &  211.56  &   0.09  &  0.04  &  76.92  \\
+ obv-downsampling  &  --mfcc -ws 4096 -hp 2048 -m 10 -ds 500   &  -s 2 -c 1.0  &  206.49  &   0.03  &  0.00  &  65.38  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 1       &  -s 2 -c 1.0  &  332.34  &  31.27  &  2.06  &  75.90  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 10      &  -s 2 -c 1.0  &  281.30  &   3.26  &  0.21  &  76.01  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 100     &  -s 2 -c 1.0  &  267.73  &   0.31  &  0.03  &  75.82  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 1000    &  -s 2 -c 1.0  &  230.87  &   0.07  &  0.02  &  75.00  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 2       &  -s 2 -c 1.0  &  282.48  &  15.83  &  1.02  &  75.90  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 20      &  -s 2 -c 1.0  &  281.24  &   1.89  &  0.18  &  75.93  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 200     &  -s 2 -c 1.0  &  267.73  &   0.16  &  0.02  &  75.98  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 5       &  -s 2 -c 1.0  &  282.27  &   6.33  &  0.41  &  75.97  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 50      &  -s 2 -c 1.0  &  267.73  &   0.64  &  0.05  &  76.21  \\
+ obv-downsampling  &  --mfcc -ws 512 -hp 256 -m 10 -ds 500     &  -s 2 -c 1.0  &  267.50  &   0.06  &  0.01  &  75.25  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.001   &  276.79  &      4.15  &  0.29  &  75.22  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.01    &  264.00  &      4.54  &  0.29  &  75.90  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.02    &  276.03  &      4.94  &  0.29  &  75.92  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.05    &  276.38  &      5.32  &  0.29  &  75.94  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.2     &  264.81  &      7.40  &  0.26  &  75.95  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 0.5     &  263.95  &     13.58  &  0.27  &  75.97  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 1.0     &  264.81  &     19.95  &  0.29  &  75.94  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 10.0    &  264.82  &    211.33  &  0.33  &  75.96  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 100.0   &  263.99  &    252.48  &  0.30  &  75.58  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 20.0    &  264.68  &    189.74  &  0.29  &  75.79  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 200.0   &  263.81  &    257.50  &  0.27  &  66.85  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 50.0    &  264.39  &    210.48  &  0.28  &  77.12  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 1 -c 500.0   &  263.42  &    260.39  &  0.26  &  74.96  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 2 -c 0.001   &  262.85  &      4.01  &  0.27  &  75.23  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 2 -c 0.01    &  262.45  &      4.08  &  0.26  &  75.85  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 2 -c 0.1     &  260.88  &      4.00  &  0.27  &  75.94  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 2 -c 1.00.0  &  263.04  &      3.96  &  0.27  &  75.93  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 2 -c 1.0     &  260.70  &      4.45  &  0.27  &  75.93  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 2 -c 10.0    &  260.42  &      3.92  &  0.27  &  75.92  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 2 -c 100.0   &  259.27  &      4.25  &  0.27  &  75.92  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 2 -c 1000.0  &  258.99  &      3.90  &  0.28  &  75.92  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 3 -c 0.001   &  292.80  &      4.12  &  0.34  &  75.27  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 3 -c 0.01    &  261.65  &      3.95  &  0.26  &  75.34  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 3 -c 0.1     &  261.55  &      5.23  &  0.27  &  75.36  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 3 -c 1.0     &  261.91  &     16.12  &  0.28  &  75.37  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 3 -c 10.0    &  261.91  &     69.71  &  0.26  &  75.35  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 3 -c 100.0   &  266.33  &    237.25  &  0.29  &  76.44  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 3 -c 1000.0  &  266.30  &    239.60  &  0.29  &  75.21  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 4 -c 0.001   &  262.94  &      3.70  &  0.29  &  75.80  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 4 -c 0.01    &  262.71  &      4.08  &  0.29  &  75.53  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 4 -c 0.1     &  250.51  &      5.83  &  0.28  &  75.40  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 4 -c 1.0     &  250.51  &     13.44  &  0.27  &  75.45  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 4 -c 10.0    &  250.51  &    102.21  &  0.27  &  75.46  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 4 -c 100.0   &  249.18  &    886.96  &  0.29  &  75.41  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 4 -c 1000.0  &  249.14  &   5301.65  &  0.31  &  75.40  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 5 -c 0.001   &  248.48  &      9.92  &  0.27  &  74.94  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 5 -c 0.01    &  247.95  &     11.25  &  0.28  &  75.95  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 5 -c 0.1     &  247.39  &     11.22  &  0.27  &  76.00  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 5 -c 1.0     &  246.59  &     13.01  &  0.30  &  76.02  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 5 -c 10.0    &  249.28  &     12.60  &  0.28  &  76.01  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 5 -c 100.0   &  249.28  &     11.36  &  0.26  &  76.01  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 5 -c 1000.0  &  248.73  &     11.49  &  0.27  &  76.01  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 6 -c 0.001   &  247.37  &      5.58  &  0.31  &  74.10  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 6 -c 0.01    &  254.37  &      8.07  &  0.29  &  76.09  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 6 -c 0.1     &  238.23  &      8.21  &  0.28  &  76.61  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 6 -c 1.0     &  238.42  &      8.88  &  0.27  &  76.60  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 6 -c 10.0    &  232.44  &      8.21  &  0.27  &  76.59  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 6 -c 100.0   &  232.44  &      7.95  &  0.28  &  76.59  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 6 -c 1000.0  &  231.79  &      8.43  &  0.27  &  76.59  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 7 -c 0.001   &  249.55  &      5.95  &  0.31  &  73.63  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 7 -c 0.01    &  233.22  &      6.66  &  0.29  &  75.56  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 7 -c 0.1     &  233.21  &      7.05  &  0.26  &  76.27  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 7 -c 1.0     &  233.21  &     13.91  &  0.27  &  76.42  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 7 -c 10.0    &  232.95  &     50.11  &  0.29  &  76.45  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 7 -c 100.0   &  232.42  &    317.82  &  0.29  &  76.44  \\
+ obv-liblinearParams  &  --mfcc -ws 4096 -hp 2048 -m 10  &  -s 7 -c 1000.0  &  229.96  &    371.34  &  0.30  &  75.71  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 0.001   &  389.60  &     38.87  &  2.07  &  75.75  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 0.01    &  388.93  &     38.68  &  2.05  &  75.88  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 0.02    &  389.24  &     40.93  &  2.06  &  75.89  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 0.05    &  389.59  &     47.44  &  2.05  &  75.88  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 0.2     &  388.18  &     67.04  &  2.23  &  75.89  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 0.5     &  388.67  &    128.14  &  2.07  &  75.89  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 1.0     &  387.99  &    219.49  &  2.07  &  75.89  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 10.0    &  387.83  &   1740.25  &  2.08  &  75.89  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 100.0   &  386.40  &   2444.94  &  2.10  &  75.82  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 20.0    &  387.38  &   2404.46  &  2.07  &  75.95  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 200.0   &  386.26  &   3558.04  &  2.28  &  75.51  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 50.0    &  386.66  &   2500.64  &  2.25  &  76.00  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 1 -c 500.0   &  386.00  &   3560.87  &  2.30  &  75.12  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 2 -c 0.001   &  385.36  &     31.83  &  2.06  &  75.77  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 2 -c 0.01    &  384.86  &     33.50  &  2.08  &  75.89  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 2 -c 0.1     &  406.06  &     34.77  &  2.06  &  75.89  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 2 -c 1.00.0  &  385.55  &     32.72  &  2.05  &  75.90  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 2 -c 1.0     &  405.99  &     33.61  &  2.05  &  75.90  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 2 -c 10.0    &  405.93  &     31.20  &  2.05  &  75.90  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 2 -c 100.0   &  405.55  &     31.85  &  2.04  &  75.90  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 2 -c 1000.0  &  405.82  &     31.86  &  2.12  &  75.90  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 3 -c 0.001   &  404.96  &     33.51  &  2.04  &  75.44  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 3 -c 0.01    &  404.92  &     34.40  &  2.04  &  75.76  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 3 -c 0.1     &  404.53  &     62.88  &  2.14  &  75.77  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 3 -c 1.0     &  406.80  &    262.06  &  2.08  &  75.77  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 3 -c 10.0    &  406.64  &   1433.09  &  2.11  &  75.77  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 3 -c 100.0   &  409.53  &   2340.50  &  2.51  &  75.80  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 3 -c 1000.0  &  409.53  &   2459.79  &  2.07  &  75.70  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 4 -c 0.001   &  409.54  &     29.51  &  2.05  &  75.76  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 4 -c 0.01    &  408.56  &     35.11  &  2.30  &  75.79  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 4 -c 0.1     &  408.45  &     63.17  &  2.15  &  75.79  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 4 -c 1.0     &  415.15  &    280.75  &  2.09  &  75.79  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 4 -c 10.0    &  415.10  &   2431.70  &  2.23  &  75.80  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 4 -c 100.0   &  415.10  &  23635.19  &  2.17  &  75.79  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 4 -c 1000.0  &  415.87  &  70845.55  &  4.92  &  75.77  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 5 -c 0.001   &  414.78  &    132.72  &  2.05  &  75.77  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 5 -c 0.01    &  415.04  &    154.90  &  2.08  &  75.90  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 5 -c 0.1     &  416.48  &    154.87  &  2.07  &  75.91  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 5 -c 1.0     &  416.51  &    174.16  &  2.05  &  75.91  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 5 -c 10.0    &  416.51  &    172.83  &  2.09  &  75.91  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 5 -c 100.0   &  416.52  &    147.60  &  2.05  &  75.91  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 5 -c 1000.0  &  417.28  &    141.37  &  2.25  &  75.91  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 6 -c 0.001   &  417.28  &     67.80  &  3.02  &  75.86  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 6 -c 0.01    &  416.45  &     67.87  &  3.56  &  76.16  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 6 -c 0.1     &  416.09  &     54.47  &  2.08  &  76.16  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 6 -c 1.0     &  420.52  &     73.38  &  2.09  &  76.15  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 6 -c 10.0    &  420.52  &     70.41  &  2.07  &  76.15  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 6 -c 100.0   &  409.01  &     72.24  &  2.08  &  76.15  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 6 -c 1000.0  &  429.14  &     72.80  &  2.07  &  76.15  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 7 -c 0.001   &  429.14  &     61.21  &  2.05  &  75.12  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 7 -c 0.01    &  450.65  &     65.85  &  2.09  &  76.10  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 7 -c 0.1     &  435.29  &     73.29  &  2.05  &  76.17  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 7 -c 1.0     &  435.12  &    135.04  &  2.09  &  76.17  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 7 -c 10.0    &  435.22  &    524.92  &  2.06  &  76.17  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 7 -c 100.0   &  299.90  &   3025.99  &  2.34  &  76.18  \\
+ obv-liblinearParams  &  --mfcc -ws 512 -hp 256 -m 10    &  -s 7 -c 1000.0  &  299.58  &   4537.57  &  2.38  &  75.32  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-libsvm-linear  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 0 -c 0.001  &  224.53  &  0.04  &  0.03  &  71.15  \\
+ obv-libsvm-linear  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 0 -c 0.01   &  224.53  &  0.04  &  0.03  &  71.15  \\
+ obv-libsvm-linear  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 0 -c 0.1    &  218.14  &  0.05  &  0.03  &  69.23  \\
+ obv-libsvm-linear  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 0 -c 1.0    &  218.14  &  0.05  &  0.03  &  75.00  \\
+ obv-libsvm-linear  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 0 -c 10.0   &  217.73  &  0.08  &  0.01  &  78.85  \\
+ obv-libsvm-linear  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 0 -c 100.0  &  215.20  &  0.24  &  0.01  &  76.92  \\
+ obv-libsvm-linear  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 0 -c 1000.  &  215.20  &  2.56  &  0.01  &  76.92  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 1  -c 1.0    -g 1.0     &  215.08  &  0.06  &  0.03  &  75.00  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 10 -c 1.0    -g 1.0     &  210.70  &  0.05  &  0.03  &  69.23  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 15 -c 1.0    -g 1.0     &  209.55  &  0.05  &  0.03  &  65.38  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 2  -c 1.0    -g 1.0     &  214.78  &  0.06  &  0.02  &  76.92  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 20 -c 1.0    -g 1.0     &  209.11  &  0.05  &  0.03  &  59.62  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.001  -g 0.001   &  216.25  &  0.05  &  0.02  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.001  -g 0.01    &  213.25  &  0.02  &  0.01  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.001  -g 0.1     &  232.07  &  0.02  &  0.03  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.001  -g 1.0     &  232.81  &  0.06  &  0.03  &  69.23  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.001  -g 10.0    &  305.31  &  0.11  &  0.01  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.001  -g 100.0   &  303.89  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.001  -g 1000.0  &  300.90  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.01   -g 0.001   &  216.25  &  0.05  &  0.02  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.01   -g 0.01    &  230.93  &  0.05  &  0.03  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.01   -g 0.1     &  231.77  &  0.08  &  0.01  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.01   -g 1.0     &  263.05  &  0.03  &  0.01  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.01   -g 10.0    &  305.31  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.01   -g 100.0   &  303.76  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.01   -g 1000.0  &  300.17  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.1    -g 0.001   &  241.88  &  0.05  &  0.03  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.1    -g 0.01    &  230.93  &  0.05  &  0.03  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.1    -g 0.1     &  234.48  &  0.04  &  0.02  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.1    -g 1.0     &  262.97  &  0.07  &  0.03  &  76.92  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.1    -g 10.0    &  305.31  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.1    -g 100.0   &  299.84  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 0.1    -g 1000.0  &  299.82  &  0.10  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1.0    -g 0.001   &  214.71  &  0.02  &  0.01  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1.0    -g 0.01    &  230.91  &  0.05  &  0.03  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1.0    -g 0.1     &  234.48  &  0.04  &  0.03  &  69.23  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1.0    -g 1.0     &  244.49  &  0.10  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1.0    -g 10.0    &  305.30  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1.0    -g 100.0   &  302.88  &  0.11  &  0.03  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1.0    -g 1000.0  &  299.32  &  0.13  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 10.0   -g 0.001   &  214.66  &  0.02  &  0.01  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 10.0   -g 0.01    &  230.56  &  0.05  &  0.03  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 10.0   -g 0.1     &  234.48  &  0.06  &  0.03  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 10.0   -g 1.0     &  275.85  &  0.09  &  0.05  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 10.0   -g 10.0    &  305.30  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 10.0   -g 100.0   &  302.74  &  0.11  &  0.03  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 10.0   -g 1000.0  &  299.32  &  0.13  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 100.0  -g 0.001   &  214.44  &  0.02  &  0.01  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 100.0  -g 0.01    &  232.66  &  0.05  &  0.02  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 100.0  -g 0.1     &  233.85  &  0.05  &  0.02  &  76.92  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 100.0  -g 1.0     &  275.86  &  0.10  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 100.0  -g 10.0    &  305.31  &  0.13  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 100.0  -g 100.0   &  301.96  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 100.0  -g 1000.0  &  298.99  &  0.10  &  0.03  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1000.0 -g 0.001   &  213.28  &  0.02  &  0.01  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1000.0 -g 0.01    &  232.64  &  0.03  &  0.02  &  69.23  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1000.0 -g 0.1     &  233.81  &  0.11  &  0.01  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1000.0 -g 1.0     &  275.86  &  0.09  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1000.0 -g 10.0    &  304.23  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1000.0 -g 100.0   &  300.95  &  0.11  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 3  -c 1000.0 -g 1000.0  &  298.02  &  0.10  &  0.02  &  73.08  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 5  -c 1.0    -g 1.0     &  212.58  &  0.08  &  0.03  &  71.15  \\
+ obv-libsvm-poly  &  --mfcc -ds 1000 -ws 2048 -hp 1024 -m 10  &  -t 1 -d 7  -c 1.0    -g 1.0     &  210.70  &  0.06  &  0.02  &  73.08  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.001  -g 0.001   &  1570.68  &   92987.46  &   6851.21  &  74.26  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.001  -g 0.01    &  1539.88  &   89383.63  &   6368.59  &  79.41  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.001  -g 0.1     &  1534.61  &   81350.14  &   4826.87  &  88.10  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.001  -g 1.0     &  1531.31  &  120881.52  &   5763.93  &  81.75  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.001  -g 10.0    &  1690.83  &   89390.93  &   6611.99  &  74.26  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.001  -g 100.0   &  1513.52  &  204281.47  &  11600.27  &  74.26  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.001  -g 1000.0  &  1479.71  &  188102.78  &  11722.92  &  74.26  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.01   -g 0.001   &  1570.30  &   75823.00  &   6390.49  &  80.62  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.01   -g 0.01    &  1537.22  &   63238.56  &   4773.81  &  89.78  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.01   -g 0.1     &  1533.50  &   45842.06  &   3610.45  &  90.34  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.01   -g 1.0     &  1529.80  &  181633.04  &   6192.49  &  86.53  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.1    -g 0.001   &  1570.05  &   68418.94  &   4929.80  &  89.78  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.1    -g 0.01    &  1536.96  &   43234.86  &   4019.78  &  90.33  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.1    -g 0.1     &  1533.05  &   33179.18  &   2949.36  &  91.16  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 0.1    -g 1.0     &  1524.09  &  230029.20  &   5858.43  &  89.06  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 1.0    -g 0.001   &  1569.20  &   46408.17  &   3981.22  &  90.26  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 1.0    -g 0.01    &  1532.23  &   33842.52  &   3384.35  &  90.62  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 1.0    -g 0.1     &  1533.68  &   33682.69  &   2422.72  &  92.15  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 10.0   -g 0.001   &  1665.43  &   35565.66  &   3728.54  &  90.29  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 10.0   -g 0.01    &  1535.51  &   33243.74  &   2892.56  &  91.13  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 10.0   -g 0.1     &  1533.39  &   68114.55  &   1729.90  &  92.12  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 100.0  -g 0.001   &  1535.78  &   38057.99  &   3241.33  &  90.53  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 100.0  -g 0.01    &  1557.49  &  103403.86  &   2498.79  &  91.70  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 100.0  -g 0.1     &  1531.38  &  189020.24  &   1144.29  &  91.69  \\
+ obv-libsvm-rbf  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 2 -d 5  -c 1000.0 -g 0.001   &  1538.36  &  124636.37  &   3510.49  &  90.95  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.001  -g 0.001   &  1519.75  &   57920.86  &  3847.60  &  90.18  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.001  -g 0.01    &  1513.16  &   52449.62  &  3527.84  &  87.87  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.001  -g 0.1     &  1661.71  &  107468.41  &  5366.11  &  65.64  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.001  -g 1.0     &  1682.20  &   49758.06  &  4544.62  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.001  -g 10.0    &  1642.30  &   45531.26  &  4503.72  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.001  -g 100.0   &  1659.78  &   48772.73  &  4514.34  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.001  -g 1000.0  &  1780.93  &   52692.25  &  4953.43  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.01   -g 0.001   &  1519.38  &   61062.92  &  3700.08  &  90.18  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.01   -g 0.01    &  1471.15  &   48760.25  &  3030.00  &  87.86  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.01   -g 0.1     &  1653.14  &  121922.23  &  5600.61  &  65.77  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.01   -g 1.0     &  1682.11  &   46321.97  &  4514.10  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.01   -g 10.0    &  1642.27  &   46649.87  &  4470.75  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.01   -g 100.0   &  1659.50  &   44779.54  &  4402.46  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.01   -g 1000.0  &  1703.92  &   45367.64  &  4491.99  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.1    -g 0.001   &  1518.33  &   59801.38  &  4115.40  &  90.17  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.1    -g 0.01    &  1515.11  &   47371.82  &  3061.26  &  87.83  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.1    -g 0.1     &  1653.13  &  115394.21  &  5515.20  &  66.93  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.1    -g 1.0     &  1681.37  &   45547.22  &  4508.25  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.1    -g 10.0    &  1641.52  &   45182.60  &  4481.73  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.1    -g 100.0   &  1679.80  &   51929.31  &  4888.04  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 0.1    -g 1000.0  &  1815.03  &   51828.98  &  4977.01  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1.0    -g 0.001   &  1463.15  &   49519.48  &  3756.94  &  89.98  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1.0    -g 0.01    &  1470.50  &   83456.62  &  3762.53  &  88.51  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1.0    -g 0.1     &  1652.86  &  131640.10  &  5562.47  &  73.76  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1.0    -g 1.0     &  1680.44  &   47255.89  &  4706.03  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1.0    -g 10.0    &  1685.90  &   47672.66  &  4775.08  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1.0    -g 100.0   &  1694.77  &   46007.04  &  4898.02  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1.0    -g 1000.0  &  1801.99  &   52269.41  &  4890.40  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 10.0   -g 0.001   &  1511.37  &   54497.78  &  5839.89  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 10.0   -g 0.01    &  1470.04  &   62555.23  &  5753.59  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 10.0   -g 0.1     &  1652.14  &   51572.29  &  5151.84  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 10.0   -g 1.0     &  1679.86  &   47548.44  &  4724.58  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 10.0   -g 10.0    &  1604.50  &   51965.49  &  5233.38  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 10.0   -g 100.0   &  1791.39  &   52571.28  &  5196.97  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 10.0   -g 1000.0  &  1733.04  &   50049.71  &  4862.96  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 100.0  -g 0.001   &  1514.19  &   46585.45  &  4629.38  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 100.0  -g 0.01    &  1469.14  &   56661.60  &  5924.77  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 100.0  -g 0.1     &  1651.74  &   51058.94  &  4886.67  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 100.0  -g 1.0     &  1642.95  &   45031.36  &  4369.87  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 100.0  -g 10.0    &  1661.36  &   50266.50  &  5086.78  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 100.0  -g 100.0   &  1711.41  &   45708.23  &  4572.71  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 100.0  -g 1000.0  &  1780.61  &   50915.99  &  5137.29  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1000.0 -g 0.001   &  1520.33  &   45629.27  &  4891.16  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1000.0 -g 0.01    &  1662.69  &   54871.13  &  5357.56  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1000.0 -g 0.1     &  1682.11  &   45042.08  &  4609.64  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1000.0 -g 1.0     &  1642.95  &   51583.38  &  5242.77  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1000.0 -g 10.0    &  1661.37  &   49355.69  &  4433.72  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1000.0 -g 100.0   &  1736.71  &   51705.07  &  5424.95  &  74.26  \\
+ obv-libsvm-sigmoid  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10  &  -t 3 -d 5  -r 1000.0 -g 1000.0  &  1709.31  &   45636.10  &  4463.55  &  74.26  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-mfcc  &  --mfcc -ws 1024 -hp 512  -m 1    &  -c 1.0 -s 1  &   338.41  &   21.12  &  0.59  &  74.10  \\
+ obv-mfcc  &  --mfcc -ws 1024 -hp 512  -m 10   &  -c 1.0 -s 1  &   316.43  &   88.40  &  1.06  &  75.74  \\
+ obv-mfcc  &  --mfcc -ws 1024 -hp 512  -m 160  &  -c 1.0 -s 1  &   271.35  &  112.03  &  1.09  &  76.38  \\
+ obv-mfcc  &  --mfcc -ws 1024 -hp 512  -m 2    &  -c 1.0 -s 1  &   308.87  &  124.84  &  1.05  &  75.33  \\
+ obv-mfcc  &  --mfcc -ws 1024 -hp 512  -m 20   &  -c 1.0 -s 1  &   290.46  &   99.90  &  1.03  &  76.16  \\
+ obv-mfcc  &  --mfcc -ws 1024 -hp 512  -m 40   &  -c 1.0 -s 1  &   342.48  &   78.47  &  1.06  &  76.71  \\
+ obv-mfcc  &  --mfcc -ws 1024 -hp 512  -m 5    &  -c 1.0 -s 1  &   351.13  &   89.28  &  1.07  &  75.50  \\
+ obv-mfcc  &  --mfcc -ws 1024 -hp 512  -m 80   &  -c 1.0 -s 1  &   254.50  &   79.73  &  1.06  &  76.36  \\
+ obv-mfcc  &  --mfcc -ws 128  -hp 64   -m 10   &  -c 1.0 -s 1  &  1061.88  &    0.00  &  0.00  &  -1.00  \\
+ obv-mfcc  &  --mfcc -ws 2048 -hp 1024 -m 1    &  -c 1.0 -s 1  &   283.75  &   10.24  &  0.30  &  73.74  \\
+ obv-mfcc  &  --mfcc -ws 2048 -hp 1024 -m 10   &  -c 1.0 -s 1  &   245.09  &   43.77  &  0.55  &  75.90  \\
+ obv-mfcc  &  --mfcc -ws 2048 -hp 1024 -m 160  &  -c 1.0 -s 1  &   271.33  &   42.40  &  0.61  &  74.82  \\
+ obv-mfcc  &  --mfcc -ws 2048 -hp 1024 -m 2    &  -c 1.0 -s 1  &   236.16  &   49.18  &  0.55  &  75.47  \\
+ obv-mfcc  &  --mfcc -ws 2048 -hp 1024 -m 20   &  -c 1.0 -s 1  &   254.97  &   44.08  &  0.57  &  76.46  \\
+ obv-mfcc  &  --mfcc -ws 2048 -hp 1024 -m 40   &  -c 1.0 -s 1  &   282.02  &   51.35  &  0.54  &  76.54  \\
+ obv-mfcc  &  --mfcc -ws 2048 -hp 1024 -m 5    &  -c 1.0 -s 1  &   262.77  &   51.33  &  0.55  &  75.93  \\
+ obv-mfcc  &  --mfcc -ws 2048 -hp 1024 -m 80   &  -c 1.0 -s 1  &   254.46  &   40.00  &  0.52  &  76.38  \\
+ obv-mfcc  &  --mfcc -ws 256  -hp 128  -m 1    &  -c 1.0 -s 1  &   626.41  &  126.80  &  2.27  &  75.72  \\
+ obv-mfcc  &  --mfcc -ws 256  -hp 128  -m 10   &  -c 1.0 -s 1  &   595.19  &  394.69  &  4.13  &  76.48  \\
+ obv-mfcc  &  --mfcc -ws 256  -hp 128  -m 160  &  -c 1.0 -s 1  &   748.08  &  414.06  &  4.19  &  77.36  \\
+ obv-mfcc  &  --mfcc -ws 256  -hp 128  -m 2    &  -c 1.0 -s 1  &   588.40  &  578.46  &  4.11  &  75.77  \\
+ obv-mfcc  &  --mfcc -ws 256  -hp 128  -m 20   &  -c 1.0 -s 1  &   609.34  &  417.53  &  4.20  &  76.51  \\
+ obv-mfcc  &  --mfcc -ws 256  -hp 128  -m 40   &  -c 1.0 -s 1  &   620.70  &  431.00  &  4.15  &  76.60  \\
+ obv-mfcc  &  --mfcc -ws 256  -hp 128  -m 5    &  -c 1.0 -s 1  &   617.30  &  405.59  &  4.13  &  76.32  \\
+ obv-mfcc  &  --mfcc -ws 256  -hp 128  -m 80   &  -c 1.0 -s 1  &   675.11  &  437.47  &  4.09  &  76.93  \\
+ obv-mfcc  &  --mfcc -ws 32   -hp 16   -m 10   &  -c 1.0 -s 1  &  3743.90  &    0.03  &  0.02  &  -1.00  \\
+ obv-mfcc  &  --mfcc -ws 4096 -hp 2048 -m 1    &  -c 1.0 -s 1  &   251.30  &    4.89  &  0.23  &  73.53  \\
+ obv-mfcc  &  --mfcc -ws 4096 -hp 2048 -m 10   &  -c 1.0 -s 1  &   245.09  &   19.91  &  0.29  &  75.94  \\
+ obv-mfcc  &  --mfcc -ws 4096 -hp 2048 -m 160  &  -c 1.0 -s 1  &   271.34  &   23.71  &  0.29  &  74.25  \\
+ obv-mfcc  &  --mfcc -ws 4096 -hp 2048 -m 2    &  -c 1.0 -s 1  &   236.16  &   25.66  &  0.27  &  75.69  \\
+ obv-mfcc  &  --mfcc -ws 4096 -hp 2048 -m 20   &  -c 1.0 -s 1  &   262.91  &   20.60  &  0.27  &  75.93  \\
+ obv-mfcc  &  --mfcc -ws 4096 -hp 2048 -m 40   &  -c 1.0 -s 1  &   261.24  &   19.96  &  0.26  &  76.31  \\
+ obv-mfcc  &  --mfcc -ws 4096 -hp 2048 -m 5    &  -c 1.0 -s 1  &   262.77  &   21.16  &  0.28  &  75.93  \\
+ obv-mfcc  &  --mfcc -ws 4096 -hp 2048 -m 80   &  -c 1.0 -s 1  &   254.44  &   20.94  &  0.28  &  74.79  \\
+ obv-mfcc  &  --mfcc -ws 512  -hp 256  -m 1    &  -c 1.0 -s 1  &   373.28  &   55.62  &  1.14  &  74.25  \\
+ obv-mfcc  &  --mfcc -ws 512  -hp 256  -m 10   &  -c 1.0 -s 1  &   356.74  &  212.28  &  2.07  &  75.89  \\
+ obv-mfcc  &  --mfcc -ws 512  -hp 256  -m 160  &  -c 1.0 -s 1  &   489.03  &  162.82  &  2.06  &  76.73  \\
+ obv-mfcc  &  --mfcc -ws 512  -hp 256  -m 2    &  -c 1.0 -s 1  &   401.60  &  300.45  &  2.14  &  75.57  \\
+ obv-mfcc  &  --mfcc -ws 512  -hp 256  -m 20   &  -c 1.0 -s 1  &   408.21  &  236.77  &  2.33  &  76.15  \\
+ obv-mfcc  &  --mfcc -ws 512  -hp 256  -m 40   &  -c 1.0 -s 1  &   342.78  &  185.42  &  2.10  &  76.56  \\
+ obv-mfcc  &  --mfcc -ws 512  -hp 256  -m 5    &  -c 1.0 -s 1  &   351.78  &  219.87  &  2.05  &  75.70  \\
+ obv-mfcc  &  --mfcc -ws 512  -hp 256  -m 80   &  -c 1.0 -s 1  &   432.55  &  168.96  &  2.06  &  76.97  \\
+ obv-mfcc  &  --mfcc -ws 64   -hp 32   -m 10   &  -c 1.0 -s 1  &  1956.83  &    0.03  &  0.05  &  -1.00  \\
+ obv-mfcc  &  --mfcc -ws 8192 -hp 4096 -m 1    &  -c 1.0 -s 1  &   259.69  &    2.65  &  0.13  &  74.37  \\
+ obv-mfcc  &  --mfcc -ws 8192 -hp 4096 -m 10   &  -c 1.0 -s 1  &   251.61  &   12.88  &  0.16  &  75.43  \\
+ obv-mfcc  &  --mfcc -ws 8192 -hp 4096 -m 160  &  -c 1.0 -s 1  &   271.34  &   11.99  &  0.16  &  73.72  \\
+ obv-mfcc  &  --mfcc -ws 8192 -hp 4096 -m 2    &  -c 1.0 -s 1  &   236.16  &   14.28  &  0.16  &  75.66  \\
+ obv-mfcc  &  --mfcc -ws 8192 -hp 4096 -m 20   &  -c 1.0 -s 1  &   269.12  &   12.32  &  0.14  &  76.02  \\
+ obv-mfcc  &  --mfcc -ws 8192 -hp 4096 -m 40   &  -c 1.0 -s 1  &   246.28  &   11.53  &  0.14  &  74.83  \\
+ obv-mfcc  &  --mfcc -ws 8192 -hp 4096 -m 5    &  -c 1.0 -s 1  &   253.46  &   10.82  &  0.14  &  75.32  \\
+ obv-mfcc  &  --mfcc -ws 8192 -hp 4096 -m 80   &  -c 1.0 -s 1  &   251.06  &   12.96  &  0.16  &  74.40  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 10    &  -c 1.0 -s 1  &  369.72  &    82.38  &   0.87  &  75.72  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 11    &  -c 1.0 -s 1  &  372.64  &    86.45  &   2.73  &  75.73  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 13    &  -c 1.0 -s 1  &  332.07  &    99.67  &   1.05  &  75.74  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 1     &  -c 1.0 -s 1  &  319.74  &    10.21  &   0.19  &  74.21  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 2     &  -c 1.0 -s 1  &  344.87  &    21.12  &   0.23  &  74.21  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 3     &  -c 1.0 -s 1  &  355.44  &    23.99  &   0.30  &  75.21  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 4     &  -c 1.0 -s 1  &  377.86  &    37.59  &   0.37  &  75.52  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 5     &  -c 1.0 -s 1  &  380.35  &    37.84  &   0.44  &  75.61  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 6     &  -c 1.0 -s 1  &  349.21  &    40.04  &   0.54  &  75.46  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 7     &  -c 1.0 -s 1  &  316.09  &    53.88  &   0.60  &  75.55  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 8     &  -c 1.0 -s 1  &  355.61  &    51.30  &   0.68  &  75.53  \\
+ obv-numMfccs  &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 9     &  -c 1.0 -s 1  &  356.15  &    59.31  &   0.75  &  75.71  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 10   &  -c 1.0 -s 1  &  291.82  &    31.22  &   0.45  &  75.71  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 11   &  -c 1.0 -s 1  &  303.86  &    39.22  &   0.48  &  75.75  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 13   &  -c 1.0 -s 1  &  281.91  &    45.73  &   0.57  &  75.90  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 1    &  -c 1.0 -s 1  &  276.15  &     5.93  &   0.09  &  74.24  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 2    &  -c 1.0 -s 1  &  262.90  &     7.66  &   0.15  &  74.11  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 3    &  -c 1.0 -s 1  &  241.48  &    12.18  &   0.16  &  75.20  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 4    &  -c 1.0 -s 1  &  269.00  &    19.44  &   0.20  &  75.38  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 5    &  -c 1.0 -s 1  &  280.41  &    18.35  &   0.26  &  75.28  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 6    &  -c 1.0 -s 1  &  292.73  &    21.25  &   0.35  &  75.27  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 7    &  -c 1.0 -s 1  &  299.90  &    23.83  &   0.32  &  75.49  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 8    &  -c 1.0 -s 1  &  299.90  &    29.42  &   0.37  &  75.62  \\
+ obv-numMfccs  &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 9    &  -c 1.0 -s 1  &  297.49  &    30.90  &   0.41  &  75.78  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 10   &  -c 1.0 -s 1  &  271.01  &    18.92  &   0.23  &  75.57  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 11   &  -c 1.0 -s 1  &  235.72  &    20.14  &   0.23  &  75.59  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 13   &  -c 1.0 -s 1  &  235.68  &    19.90  &   0.27  &  75.94  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 1    &  -c 1.0 -s 1  &  283.65  &     2.00  &   0.06  &  74.28  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 2    &  -c 1.0 -s 1  &  283.11  &     3.37  &   0.06  &  74.08  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 3    &  -c 1.0 -s 1  &  291.88  &     7.21  &   0.09  &  74.79  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 4    &  -c 1.0 -s 1  &  283.67  &     7.38  &   0.24  &  75.05  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 5    &  -c 1.0 -s 1  &  282.06  &     9.25  &   0.18  &  74.93  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 6    &  -c 1.0 -s 1  &  272.92  &    10.24  &   0.17  &  75.13  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 7    &  -c 1.0 -s 1  &  281.62  &    10.72  &   0.15  &  75.09  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 8    &  -c 1.0 -s 1  &  282.73  &    13.14  &   0.20  &  75.09  \\
+ obv-numMfccs  &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 9    &  -c 1.0 -s 1  &  268.79  &    16.10  &   0.21  &  75.64  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 10     &  -c 1.0 -s 1  &  482.89  &   216.13  &   1.67  &  75.82  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 11     &  -c 1.0 -s 1  &  480.70  &   152.95  &   1.78  &  75.85  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 13     &  -c 1.0 -s 1  &  482.48  &   177.78  &   2.07  &  75.89  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 15     &  -c 1.0 -s 1  &  544.28  &   307.55  &   2.61  &  76.03  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 17     &  -c 1.0 -s 1  &  488.09  &   266.55  &   2.64  &  76.12  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 19     &  -c 1.0 -s 1  &  517.40  &   375.87  &  17.97  &  76.13  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 1      &  -c 1.0 -s 1  &  268.03  &    34.37  &   0.28  &  74.21  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 21     &  -c 1.0 -s 1  &  482.39  &   370.91  &   3.93  &  76.13  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 25     &  -c 1.0 -s 1  &  604.75  &   516.71  &   5.65  &  76.48  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 2      &  -c 1.0 -s 1  &  418.62  &    39.24  &   0.51  &  74.22  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 30     &  -c 1.0 -s 1  &  637.92  &   627.21  &   4.66  &  76.52  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 35     &  -c 1.0 -s 1  &  584.31  &   815.73  &   5.43  &  76.56  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 3      &  -c 1.0 -s 1  &  447.67  &    59.82  &   0.59  &  75.15  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 40     &  -c 1.0 -s 1  &  589.18  &   828.87  &   9.29  &  76.59  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 4      &  -c 1.0 -s 1  &  412.79  &    61.75  &   0.72  &  75.41  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 5      &  -c 1.0 -s 1  &  458.40  &   112.20  &   0.90  &  75.55  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 6      &  -c 1.0 -s 1  &  439.71  &   114.97  &   1.07  &  75.35  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 7      &  -c 1.0 -s 1  &  461.70  &   123.07  &   1.23  &  75.23  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 8      &  -c 1.0 -s 1  &  447.58  &   105.56  &   1.32  &  75.29  \\
+ obv-numMfccs  &  --mfcc -ws 512 -hp 256 -m 10 --numMfccs 9      &  -c 1.0 -s 1  &  464.15  &   147.31  &   1.48  &  75.79  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 100   &  -c 1.0 -s 1  &  546.18  &     0.03  &   0.00  &  -1.00  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 15    &  -c 1.0 -s 1  &  400.81  &   136.09  &   1.28  &  75.82  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 17    &  -c 1.0 -s 1  &  380.75  &   138.72  &   1.36  &  75.83  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 19    &  -c 1.0 -s 1  &  344.69  &   182.81  &   2.59  &  75.86  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 21    &  -c 1.0 -s 1  &  370.90  &   203.53  &   1.65  &  75.82  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 25    &  -c 1.0 -s 1  &  397.25  &   279.25  &   1.94  &  76.08  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 30    &  -c 1.0 -s 1  &  397.25  &   322.54  &   2.36  &  76.35  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 35    &  -c 1.0 -s 1  &  397.25  &   359.09  &   2.64  &  76.41  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 40    &  -c 1.0 -s 1  &  453.50  &   406.24  &   3.09  &  77.34  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 50    &  -c 1.0 -s 1  &  474.41  &   678.87  &   3.85  &  79.81  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 60    &  -c 1.0 -s 1  &  477.28  &   755.53  &   5.21  &  79.77  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 70    &  -c 1.0 -s 1  &  532.27  &  1098.05  &   5.94  &  79.78  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 80    &  -c 1.0 -s 1  &  531.63  &  1317.27  &   7.39  &  79.82  \\
+ obv-numMfcc   &  --mfcc -ws 1024 -hp 512 -m 10 --numMfccs 90    &  -c 1.0 -s 1  &  569.76  &     0.02  &   0.02  &  -1.00  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 100  &  -c 1.0 -s 1  &  421.29  &   789.52  &   5.84  &  84.83  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 15   &  -c 1.0 -s 1  &  281.90  &    53.47  &   0.60  &  76.41  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 17   &  -c 1.0 -s 1  &  293.41  &    58.37  &   0.70  &  77.01  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 19   &  -c 1.0 -s 1  &  293.69  &    78.98  &   0.77  &  77.38  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 21   &  -c 1.0 -s 1  &  301.07  &    80.57  &   0.89  &  77.89  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 25   &  -c 1.0 -s 1  &  320.04  &   106.98  &   1.00  &  78.07  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 30   &  -c 1.0 -s 1  &  347.35  &   192.40  &   1.23  &  78.45  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 35   &  -c 1.0 -s 1  &  310.74  &   182.25  &   1.33  &  78.79  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 40   &  -c 1.0 -s 1  &  355.71  &   255.83  &   1.59  &  79.44  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 50   &  -c 1.0 -s 1  &  355.68  &   292.04  &   1.93  &  84.81  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 60   &  -c 1.0 -s 1  &  394.41  &   392.25  &   2.63  &  84.81  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 70   &  -c 1.0 -s 1  &  394.40  &   482.52  &   2.75  &  84.82  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 80   &  -c 1.0 -s 1  &  414.39  &   646.53  &   4.65  &  84.83  \\
+ obv-numMfcc   &  --mfcc -ws 2048 -hp 1024 -m 10 --numMfccs 90   &  -c 1.0 -s 1  &  421.30  &   762.10  &   3.43  &  84.84  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 100  &  -c 1.0 -s 1  &  388.68  &   469.48  &   1.98  &  86.17  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 15   &  -c 1.0 -s 1  &  235.32  &    26.94  &   0.32  &  76.99  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 17   &  -c 1.0 -s 1  &  234.94  &    32.15  &   0.37  &  77.71  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 19   &  -c 1.0 -s 1  &  274.20  &    37.06  &   0.39  &  78.01  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 21   &  -c 1.0 -s 1  &  290.05  &    43.42  &   0.48  &  78.97  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 25   &  -c 1.0 -s 1  &  282.06  &    71.18  &   0.50  &  79.44  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 30   &  -c 1.0 -s 1  &  269.92  &    74.77  &   0.60  &  79.93  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 35   &  -c 1.0 -s 1  &  269.38  &    89.19  &   0.98  &  80.99  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 40   &  -c 1.0 -s 1  &  275.50  &   103.52  &   0.79  &  81.58  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 50   &  -c 1.0 -s 1  &  275.42  &   130.27  &   1.02  &  86.19  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 60   &  -c 1.0 -s 1  &  292.83  &   172.26  &   1.16  &  86.18  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 70   &  -c 1.0 -s 1  &  328.59  &   218.28  &   1.35  &  86.09  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 80   &  -c 1.0 -s 1  &  325.09  &   233.88  &   1.51  &  86.16  \\
+ obv-numMfcc   &  --mfcc -ws 4096 -hp 2048 -m 10 --numMfccs 90   &  -c 1.0 -s 1  &  339.80  &   308.25  &   1.72  &  86.14  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 1024  -hp 1024  -m 10  &  -c 1.0 -s 1  &   325.08  &   43.99  &  0.54  &  76.08  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 1024  -hp 128   -m 10  &  -c 1.0 -s 1  &   870.63  &  579.90  &  4.20  &  75.35  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 1024  -hp 2048  -m 10  &  -c 1.0 -s 1  &   306.59  &   19.23  &  0.32  &  76.48  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 1024  -hp 256   -m 10  &  -c 1.0 -s 1  &   589.71  &  278.61  &  2.14  &  75.47  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 1024  -hp 4096  -m 10  &  -c 1.0 -s 1  &   280.99  &    9.20  &  0.20  &  75.11  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 2048  -hp 1024  -m 10  &  -c 1.0 -s 1  &   348.30  &   50.38  &  0.54  &  75.90  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 2048  -hp 128   -m 10  &  -c 1.0 -s 1  &   990.32  &  651.40  &  4.24  &  75.42  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 2048  -hp 2048  -m 10  &  -c 1.0 -s 1  &   280.68  &   21.09  &  0.28  &  76.54  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 2048  -hp 256   -m 10  &  -c 1.0 -s 1  &   617.54  &  277.13  &  2.14  &  75.55  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 2048  -hp 4096  -m 10  &  -c 1.0 -s 1  &   248.65  &    8.54  &  0.15  &  75.57  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 4096  -hp 1024  -m 10  &  -c 1.0 -s 1  &   382.52  &   43.02  &  0.54  &  75.94  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 4096  -hp 128   -m 10  &  -c 1.0 -s 1  &  1419.05  &  666.51  &  4.20  &  75.88  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 4096  -hp 2048  -m 10  &  -c 1.0 -s 1  &   314.89  &   19.51  &  0.30  &  75.94  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 4096  -hp 256   -m 10  &  -c 1.0 -s 1  &   839.52  &  294.01  &  2.17  &  76.00  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 4096  -hp 4096  -m 10  &  -c 1.0 -s 1  &   268.00  &    9.12  &  0.15  &  76.20  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 512  -hp 1024   -m 10  &  -c 1.0 -s 1  &   314.96  &   36.36  &  0.54  &  76.46  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 512  -hp 128    -m 10  &  -c 1.0 -s 1  &   819.11  &  461.58  &  5.53  &  75.81  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 512  -hp 2048   -m 10  &  -c 1.0 -s 1  &   313.76  &   25.94  &  0.29  &  76.15  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 512  -hp 256    -m 10  &  -c 1.0 -s 1  &   536.74  &  213.60  &  2.07  &  75.89  \\
+ obv-runsvm.mfcc-hopsizes.json  &  --mfcc -ws 512  -hp 512    -m 10  &  -c 1.0 -s 1  &   388.56  &  115.23  &  1.09  &  76.08  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -A        &  1666.06  &  0.00  &  2076.96  &  87.44  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -C 0.01   &  1654.58  &  0.00  &  2101.03  &  88.67  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -C 0.1    &  1670.24  &  0.00  &  2328.97  &  87.79  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -C 0.3    &  1660.20  &  0.00  &  2144.50  &  87.30  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -C 0.5    &  1749.93  &  0.00  &  2624.74  &  87.27  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -C 0.9    &  1675.83  &  0.00  &  2419.89  &  87.27  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -L        &  1639.50  &  0.00  &  2277.64  &  87.44  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -M 10     &  1763.67  &  0.00  &  2423.18  &  87.98  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -M 3      &  1893.62  &  0.00  &  2649.56  &  87.64  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -M 5      &  1680.84  &  0.00  &  2194.81  &  87.73  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -N 10 -R  &  1678.69  &  0.00  &  1954.46  &  87.95  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -N 3 -R   &  1687.79  &  0.00  &  1339.01  &  87.59  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -N 5 -R   &  1755.38  &  0.00  &  1983.13  &  88.07  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -R        &  1676.77  &  0.00  &  1451.64  &  87.59  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -S        &  1677.52  &  0.00  &  2452.46  &  87.47  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48 -U        &  1644.99  &  0.00  &  2131.07  &  87.29  \\
+ obv-weka-j48  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.J48           &  1645.00  &  0.00  &  2240.09  &  87.44  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 1.0      &  1727.70  &  0.00  &  3626.55  &  90.03  \\
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 1.0E-1   &  1673.44  &  0.00  &  3569.68  &  90.02  \\
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 1.0E-3   &  1674.35  &  0.00  &  3574.83  &  90.02  \\
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 1.0E-5   &  1670.99  &  0.00  &  3486.96  &  90.02  \\
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 1.0E-7   &  1663.04  &  0.00  &  3605.77  &  90.02  \\
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 1.0E-9   &  1647.84  &  0.00  &  3627.77  &  90.02  \\
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 10.0     &  1697.68  &  0.00  &  2207.96  &  90.04  \\
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 100.0    &  1678.68  &  0.00  &  1637.44  &  90.02  \\
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 1000.0   &  1685.24  &  0.00  &   967.19  &  90.03  \\
+ obv-weka-logistic  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.Logistic -R 10000.0  &  1688.79  &  0.00  &   633.62  &  89.97  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -H 0 -N 5    &  1693.06  &  0.00  &     187.28  &  87.93  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -H 1 -N 5    &  1676.01  &  0.00  &     173.37  &  85.50  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -H 10 -N 5   &  1666.87  &  0.00  &     227.41  &  88.85  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -H 100 -N 5  &  1749.07  &  0.00  &    1072.38  &  88.59  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -H 2 -N 5    &  1682.23  &  0.00  &     181.21  &  87.82  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -H 20 -N 5   &  1668.37  &  0.00  &     305.75  &  89.97  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -H 5 -N 5    &  1666.24  &  0.00  &     190.82  &  89.37  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -H 50 -N 5   &  1733.19  &  0.00  &     585.73  &  88.34  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -L 0.01      &  1638.87  &  0.00  &   65838.11  &  90.66  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -L 0.1       &  1655.32  &  0.00  &   65136.71  &  91.04  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -L 0.2       &  1652.85  &  0.00  &   64794.65  &  90.26  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -L 0.5       &  1655.64  &  0.00  &   66352.95  &  89.89  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -L 0.7       &  1662.33  &  0.00  &   67643.16  &  90.51  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -L 0.9       &  1647.23  &  0.00  &   67100.37  &  89.91  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -M 0.01      &  1723.80  &  0.00  &   65911.87  &  90.17  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -M 0.1       &  1639.76  &  0.00  &   65624.59  &  90.66  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -M 0.2       &  1655.10  &  0.00  &   65363.26  &  88.25  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -M 0.5       &  1655.11  &  0.00  &   57785.01  &  89.57  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -M 0.7       &  1635.97  &  0.00  &  137770.83  &  76.00  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -M 0.9       &  1665.08  &  0.00  &   73378.21  &  86.98  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -N 10        &  1647.39  &  0.00  &    1533.55  &  88.79  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -N 1         &  1643.36  &  0.00  &     381.99  &  90.41  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron -N 5         &  1682.43  &  0.00  &     876.23  &  89.86  \\
+ obv-weka-multilayerperceptron  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.functions.MultilayerPerceptron              &  1687.34  &  0.00  &   65735.35  &  88.25  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-weka-naivebayes  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.bayes.NaiveBayes -D  &  1758.78  &  0.00  &   380.22  &  81.25  \\
+ obv-weka-naivebayes  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.bayes.NaiveBayes -K  &  1724.56  &  0.00  &  1509.35  &  -1.00  \\
+ obv-weka-naivebayes  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.bayes.NaiveBayes     &  1656.21  &  0.00  &   121.27  &  75.51  \\
+\end{tabular}
+
+
+\begin{tabular}{lllrrrr}
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -I 10  &  1619.33  &  0.00  &   326.33  &  91.30  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -I 1   &  1732.44  &  0.00  &    86.57  &  85.37  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -I 20  &  1594.33  &  0.00  &   547.85  &  91.62  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -I 2   &  1659.33  &  0.00  &   112.11  &  83.97  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -I 3   &  1628.72  &  0.00  &   142.09  &  89.02  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -I 4   &  1621.68  &  0.00  &   163.20  &  88.93  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -I 50  &  1577.71  &  0.00  &  1360.71  &  91.97  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -I 5   &  1608.67  &  0.00  &   188.73  &  90.20  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -I 7   &  1606.52  &  0.00  &   246.34  &  90.76  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -K 10  &  1666.43  &  0.00  &   370.04  &  91.22  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -K 1   &  1656.54  &  0.00  &   106.36  &  88.90  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -K 20  &  1686.20  &  0.00  &   685.11  &  91.18  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -K 2   &  1667.73  &  0.00  &   133.08  &  90.03  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -K 3   &  1748.82  &  0.00  &   205.72  &  90.32  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -K 4   &  1641.89  &  0.00  &   193.03  &  90.59  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -K 50  &  1646.31  &  0.00  &  1400.37  &  91.44  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -K 5   &  1666.93  &  0.00  &   222.82  &  90.96  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest -K 7   &  1666.43  &  0.00  &   296.44  &  90.97  \\
+ obv-weka-randomforest  &  --mfcc --centroid --rolloff --flux --kurtosis --skewness --sfm --scf --chroma --yin --rms -ws 2048 -hp 1024 -m 10 -ds 1  &  weka.classifiers.trees.RandomForest        &  1665.07  &  0.00  &   325.55  &  91.30  \\
+\end{tabular}
+
+
+\end{document}

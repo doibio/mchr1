@@ -1,0 +1,911 @@
+\startchapter{Music Analysis}
+\label{chapter:music}
+
+  There is a growing interest in touch-based and gestural
+  interfaces as alternatives to the dominant mouse, keyboard and 
+  monitor interaction. Content and context-aware visualizations 
+  of audio collections have been proposed as a more effective way 
+  to interact with the increasing amounts of audio data available
+  digitally. {\it Audioscapes} is a framework for prototyping and
+  exploring how touch-based and gestural controllers can be used with
+  state-of-the-art content and context-aware visualizations. By
+  providing well-defined interfaces and conventions a variety of
+  different audio collections, controllers and visualization methods 
+  can be combined to create innovative ways of interacting with large
+  audio collections. We describe the overall system architecture, the
+  currently available components and specific case studies. 
+
+\section{Introduction}\label{sec:introduction}
+
+The size of digital audio collections has been steadily increasing due
+to a combination of factors including digital music distribution,
+increases in storage capacity, advances in audio compression and the
+wide popularity of portable digital music players. Effective
+interaction with these large audio collections poses significant
+challenges to traditional user interfaces. Portable players and music
+playlist management software typically allow users to select artists,
+genres or individual tracks by essentially browsing long lists of
+text. This mode of interaction, although adequate for small music
+collections, becomes increasingly problematic as the collections
+become larger. The emerging area of Music Information Retrieval (MIR)
+deals with all aspects of managing, analyzing and organizing music in
+digital formats. In the past ten years many MIR algorithms and user
+interfaces have been proposed that can assist with the browsing and
+navigation of large music collections.
+
+%  In several cases these are content
+% and context aware interfaces that rely on automatic analysis of the
+% audio signal to extract high-level content information. Many of these
+% interfaces are proof-of-concept prototypes that, although capable of
+% demonstrating the potential of this approach, are not directly
+% practical and usable. 
+
+Recently there has been an increasing interest in alternatives to the
+traditional mouse/keyboard human-computer interaction. Touch-based and
+gestural interfaces have changed status from research curiosities to
+being part of many mainstream consumer computing devices. 
+% A closely
+% related trend is the diversification of form factors beyond the
+% traditional desktop/laptop design. Representative examples range from
+% mobile phones to immersive displays and tabletop-surfaces.
+
+% We believe that browsing and navigation of large audio and especially
+% music collections is a domain that would significantly benefit from
+% the use of interfaces that go beyond the traditional keyboard,mouse
+% and monitor paradigm. Unfortunately, the large variety of different
+% protocols, programming environments and operating systems make
+% development of such interfaces more challenging. In addition the
+% content and context-aware visualizations required demand state-of-art
+% signal processing and machine learning techniques which are not
+% familiar to most researchers in human-computer interaction.
+
+{\it AudioScapes} is a framework developed to explore the design space
+of non-traditional interfaces for audio and music collection browsing
+based on the metaphor of a surface. In this metaphor the individual
+audio recordings or music tracks are mapped onto a 2-dimensional
+surface which can be navigated using different controller
+interfaces. The overall abstract architecture captures the structure
+of the majority of existing systems and provides significant design
+flexibility in the choice of individual specific components. By
+providing well-defined interfaces and conventions, a variety of
+different audio collections, controllers and visualization methods can
+be combined to create innovative ways of interacting with large audio
+collections.
+
+% It is important to note that 
+Our design goal is to provide effective interaction without relying on
+textual metadata. There are many usage scenarios where having to know
+artist names and album titles or having to read text is
+impractical. Currently the most common approach in these cases is just
+playing random songs (the so-called ``shuffle''). Althout satisfactory
+for small and homogeneous collections this approach is not
+particularly effective for larger audio collections. These issues
+become even more pronounced when the users have vision and/or motion
+disabilities. For example, finding a particular artist out of a long
+list of text using a scroll-wheel can be very difficult or even
+impossible for a user with motor disabilities. Similarly, reading text
+on a screen is not directly possible for a blind user. We have used
+{\it AudioScapes} to design and prototype interfaces for 
+%with feedback from
+such users. Although we do not focus on textual metadata, the
+proposed interfaces can be 
+%augmented or % 
+used in conjuction with standard text-based interfaces.
+
+
+
+\section{Related Work}\label{sec:relatedwork}
+
+There has been considerable recent interest in the development of
+touch-based and gesture based interfaces\cite{ishii97}.  This
+represents a movement from traditional Graphic User Interfaces (GUI)
+to Touch-Based User Interfaces (TUI) \cite{golshani07}.  These new
+forms of interfaces help to bring together the virtual world with the
+real world, providing a more inclusive and immersive interaction
+environment for users. The iPhone is a device that supports multitouch
+interaction, a system where multiple fingers are tracked to provide
+different types of functionality. For example, a touch on the surface
+with one finger would produce a different effect than when three
+fingers are used. In addition gestures such as joining two fingers can
+be used for actions such as zooming.
+
+
+% This is a type of Reality-based interaction \cite{jacob08}, a new
+% field which attempts to bridge the world of the virtual with users in
+% the real world.  Many such reality-based interaction models use small
+% mobile devices.  Another pertinent example is that of ThinSight
+% \cite{hodges07}, a technology that allows for multi-touch sensing on
+% small, ubiqutious computing devices.
+
+% Another very popular new gesture based interface is the Wii remote
+% controller (wiimote) \cite{schou07}, a wireless game controller that
+% contains the traditional buttons and gamepads of other game
+% controllers, but also contains a three dimensional accelerometer and
+% an infrared sensor, which is capable of tracking up to four independent
+% infrared light sources in real time. Previous research has included
+% work to detect and track fingers \cite{lee08} and also to track two handed
+% interaction in open space \cite{vlaming08}.  The wiimote has been used
+% to control \cite{wong08} music generation in an interactive music
+% performance system, and as a way to track the movement of the hands of
+% orchestra conductors \cite{bradshaw08}.  The wiimote has been also
+% been used in collaborative computing scenarios as an interactive
+% whiteboard \cite{wang08}.
+
+% Another relevant research area is surface based interaction. Surface
+% based interaction uses an interface that resembles a tabletop, but
+% contains some sort of projection device to render an image on the
+% surface, and also a way of tracking one or multiple input sources on
+% that surface. The reacTable \cite{jorda05} is one such collaborative 
+% interface that has been used by musicians such as Bj\"{o}rk in live 
+% musical concert settings.  
+%Other such surface based interfaces include
+% DiamondSpin \cite{shen04} and SmartSkin \cite{rekimoto02}. These
+% systems have paved the way for commercial surface computing platforms
+% such as the Microsoft Surface
+% \footnote{\url{http://www.microsoft.com/surface}} and the SMART Table
+% \footnote{\url{http://www2.smarttech.com/st/en-US/Products/SMART+Table/default.htm}}.
+% This type of interaction has been studied in depth in a collaborative
+% setting with multiple users with various constraints
+% \cite{marshall08}, with elderly users \cite{haiki07}, and as an image
+% classification interface \cite{lopezgulliver04}.  Another related
+% project was the AudioBrowser \cite{chen06} which developed a touch
+% based interface coupled with audio feedback to help blind users access
+% information.  Another interesting study is the PHASE installation
+% \cite{cahen05}, an interface that used haptic feedback to produce
+% music using a game-based metaphor for interaction.  There has also
+% been research into the use of collaborative interfaces for the
+% generation of music from large crowds of participants
+% \cite{feldmeier07} in a dance club like setting.  
+% A relevant study to the present work is the MUSICTable \cite{gluck05},
+% an interface that used multidimensional scaling to map music onto a
+% two dimensional surface.
+
+
+In the field of Music Information Retrieval, data of high
+dimensionality and of considerable complexity is generated. Various
+visualization interfaces have been proposed to make this data
+accessible and useful to users. Frequently these interfaces rely on
+automatically extracted audio features. Islands of Music
+\cite{pampalk03} is an example of such a visualization of audio
+information which uses the technique of Self-Organizing Maps to
+generate a two-dimensional representation of a collection of music.
+MusiCream \cite{goto05musicream} is an interface that allows users to
+interact with a music collection using a dynamic visualization
+interface. 
+% MusicRainbow \cite{goto06musicRainbow} is a similar system
+% that uses web-based labelling and audio similarity to visualize music
+% collections. Another relevant system is MusicSun \cite{PampalkGoto07}
+%which combines three different similarity measures to generate music
+% recommendations for users.  
+The Databionic/MusicMiner system
+\cite{morchen05} allows users to organize large collections of music
+and employs Emergent Self-Organizing Maps to generate visualizations
+of the data involved.
+% A very large web
+% based system for helping users find new music is part of the LastFM
+% website \url{http://playground.last.fm/iom} which provides advanced
+% functionality for music recommendation and visualization based on tag
+% data. 
+A 2006 review of some of the recent trends in visualization in
+audio based music information retrieval can be found in Cooper
+\cite{cooper06}. 
+
+{\it Audioscapes} is the evolution of several research efforts
+by our group \cite{murdoch06, hitchner07} to create novel content and
+context-aware music browsing interfaces. We have tried to combine our
+previous experience with knowledge from state-of-the-art systems in
+this domain to design a flexible framework to explore this new 
+and fascinating interface design problem. 
+
+
+\section{System Architecture}\label{sec:systemarchitecture}
+
+The goal of {\it Audioscapes} is to design a framework for exploring
+content and context-aware user interfaces for browsing large audio
+collections using controllers beyond the mouse and keyboard. The
+abstract system architecture distills the common functional blocks
+required to build such interfaces. A large number of existing audio
+and music browsing systems fit this architecture which is shown in Figure
+~\ref{fig:systemOverview}. The underlying metaphor is that each track in
+an audio collection is mapped to a discrete location on a rectangular
+grid. More than one track can be mapped to the same
+location. Different algorithms for clustering and dimensionality
+reduction can be used to map automatically extracted audio features to
+the grid coordinates. Controllers take input from the user and either 
+interact with the audio collection (for example by initiating playback
+or by applying digital audio effects such as pitch-shifting and
+time-stretching) or move around on the mapped grid representing the
+audio collection. Views are different ways/devices used to display the
+grid map. The communication between processing blocks is mainly
+accomplished through Open Sound Control (OSC) \cite{osc}
+messages or alternatively custom XML or text files. 
+% The modular nature
+% of the system provides flexibility and extensibility which are crucial
+% in this exploratory domain. In the following subsections the currently
+% available components of the framework are described. 
+
+
+
+\begin{figure}[t]
+  \includegraphics[width=\columnwidth]{chapter_music/systemOverview}
+  \caption{\it System Architecture}
+  \label{fig:systemOverview}
+\end{figure}
+
+
+
+% \subsection{Data Collections}
+
+
+
+\subsection{Audio Processing} 
+
+There are two main aspects of audio processing: digital audio effects
+and audio feature extraction. For digital audio effects we currently
+support pitch-shifting and time-stretching using a 
+% state-of-the-art
+phasevocoder
+% algorithm \cite{Laroche} 
+as well as tunable filters.  The goal of audio feature extraction is
+to represent each song in a music collection as a single vector of
+features that characterize musical content. Using suitable features,
+songs that ``sound'' similar should have vectors that are ``close'' in
+the high dimensional feature space.  The features used are the
+Spectral Centroid, Rolloff, Flux and the Mel-Frequency Cepstral
+Coefficients (MFCC) as well as time-domain zero crossings.
+
+% To capture the feature dynamics we compute a running mean and standard
+% deviation over the past M frames:
+
+% \begin{eqnarray}
+%   m\Phi(t) = mean[\Phi(t-M+1),..,\Phi(t)] \\
+%   s\Phi(t) \; = \;\;\; std[\Phi(t-M+1),..,\Phi(t)]
+% \end{eqnarray}
+
+% \noindent 
+% where $\Phi(t)$ is the original feature vector. Notice that the
+% dynamics features are computed at the same rate as the original
+% feature vector but depend on the past M frames (40 in our case
+% corresponding to approximately a so called ``texture window'' of 1
+% second).  This results in a feature vector of 32 dimensions at the
+% same rate as the original 16-dimensional feature vector. The sequence
+% of feature vectors is collapsed into a single feature vector
+% representing the entire audio clip by taking again the mean and
+% standard deviation across the 30 seconds (of the sequence of dynamics
+% features) resulting in the final 64-dimensional feature vector per
+% audio clip. 
+
+A more detailed description of the features and their
+motivation can be found in Tzanetakis and Cook \cite{TC02b}. 
+% For the
+% calculation of the self-organizing map described in the next section
+% all features are normalized so that the minimum of each feature across
+% the music collection is 0 and the maximum value is 1. 
+This feature set has shown state-of-the-art performance in audio
+retrieval and classification tasks in the Music
+Information Retrieval Evaluation Exchange (MIREX) 2008
+\footnote{\url{http://www.music-ir.org/mirex/}}. 
+%The exact details of
+%the feature extraction music) for the Freesound collection and the
+%samba percussive instruments are slightly different from the process
+%described above (which is designed for music).
+
+
+\begin{figure*}[t]
+\centering
+%% \subfigure[Classical]
+%% {
+%%     \label{fig:sub:classical}
+%%     \includegraphics[width=3cm]{chapter_music/classical.pdf}
+%% }
+%% \hspace{1cm}
+%% \subfigure[Metal] 
+%% {
+%%     \label{fig:sub:metal}
+%%     \includegraphics[width=3cm]{chapter_music/metal.pdf}
+%% }
+%% \hspace{1cm}
+%% \subfigure[Hiphop]
+%% {
+%%     \label{fig:sub:hiphop}
+%%     \includegraphics[width=3cm]{chapter_music/hiphop.pdf}
+%% }
+%% \hspace{1cm}
+%% \subfigure[Rock]
+%% {
+%%     \label{fig:sub:rock}
+%%     \includegraphics[width=3cm]{chapter_music/rock.pdf}
+%% }
+
+\caption{Topological mapping of musical content by the Self-Organizing
+   Map}
+\label{fig:sub1}
+
+
+\end{figure*}
+
+
+% \begin{figure*}[t]
+% \centering
+% \subfigure[Bob Marley]
+% {
+%     \label{fig:sub1:marley}
+%     \includegraphics[width=3cm]{chapter_music/marley.pdf}
+% }
+% \hspace{1cm}
+% \subfigure[Radiohead] 
+% {
+%     \label{fig:sub1:radiohead}
+%     \includegraphics[width=3cm]{chapter_music/radiohead.pdf}
+% }
+% \hspace{1cm}
+% \subfigure[Led Zeppelin]
+% {
+%     \label{fig:sub1:zeppelin}
+%     \includegraphics[width=3cm]{chapter_music/zeppelin.pdf}
+% }
+% \hspace{1cm}
+% \subfigure[Dexter Gordon]
+% {
+%     \label{fig:sub1:dexter}
+%     \includegraphics[width=3cm]{chapter_music/dexter.pdf}
+% }
+%\caption{Topological mapping of musical content by the Self-Organizing
+%   Map}
+%\label{fig:sub1}
+% \end{figure*}
+
+
+\subsection{Visualization} 
+
+The primary method used for visualization is the self organizing map
+(SOM) which is a type of neural network used to map a high dimensional
+input feature space to a lower dimensional representation while
+preserving the topology of the high dimensional feature space. This
+facilitates both similarity quantization and visualization
+simultaneously. The SOM was first documented in 1982 by T. Kohonen,
+and since then, it has been applied to a wide variety of diverse
+clustering tasks \cite{kohonen95a}. In our system the SOM is used to
+map the audio features (64-dimensions) to two discrete coordinates on
+a rectangular grid. The traditional SOM consists of a 2D grid of
+neural nodes each containing an $n$-dimensional vector, $ {\bf x(t)} $
+of data. The goal of learning in the SOM is to cause different
+neighbouring parts of the network to respond similarly to certain
+input patterns. 
+%This is partly motivated by how visual, auditory and
+%other sensory information is handled in separate parts of the cerebral
+%cortex in the human brain.
+The network must be fed a large number of example vectors that
+represent, as closely as possible, the kinds of vectors expected
+during mapping. 
+% The examples are usually applied several times. 
+The data associated with each node is initialized to small random
+values before training. During training, a series of $n$-dimensional
+vectors of sample data are added to the map.  The ``winning'' node of
+the map, known as the {\it best matching unit} (BMU), is found by
+computing the distance between the added training vector and each of
+the nodes in the SOM. This distance is calculated according to some
+pre-defined distance metric which in our case is the standard
+Euclidean distance on the normalized feature vectors.
+
+Once the winning node has been defined, it and its surrounding
+nodes reorganize their vector data to more closely resemble the added
+training sample.  The training utilizes competitive learning. The
+weights of the BMU and neurons close to it in the SOM lattice are
+adjusted towards the input vector. The magnitude of the change
+decreases with time and with distance from the BMU. 
+% The update formula for a neuron with representative vector N(t) can be
+% written as follows:
+% \begin{equation}
+%     {\bf N}(t + 1) = {\bf N}(t) + \Theta(v,t) \alpha(t) ({\bf x}(t) -
+%     {\bf N}(t))
+% \end{equation}
+% where $\alpha(t)$ is a monotonically decreasing learning coefficient
+% and $x(t)$ is the input vector. The neighborhood function
+% $\Theta(v,t)$ depends on the lattice distance between the BMU and
+% neuron v. We utilize a Gaussian neighborhood function that shrinks
+% over time. The time-varying learning rate and neighborhood function
+% allow the SOM to gradually converge and form clusters at different
+% granularities. In our implementation, $\alpha(t)$ is a linearly-decaying
+% function with $t$. Once a SOM has been trained, data may be added to
+% the map simply by locating the node whose data is most similar to that
+% of the presented sample, ie. the winner.  The reorganization phase is
+% omitted when the SOM is not in the training mode. 
+% Another interesting
+% property of SOMs for our application is that they can be personalized
+% by user initialization rather than random initialization.
+
+% We also have explored other possibilities for mapping the
+% high-dimensional space to a 2D dimensional grid. Principal Component
+% Analysis (PCA) can be used to map the input feature space to the two
+% ``highest'' (corresponding to the largest eigen-values) principal
+% components followed by quantization to the grid. The main advantage
+% of the SOM is that there is no need for quantization and there is
+% better coverage of the surface area as it mainly preserves the
+% topology of the input space rather than the distance characteristics. 
+% We plan to use {\it AudioScapes} as a test-bed for other
+% dimensionality reduction and manifold learning methods such as 
+% Multidimensional Scaling (MDS), ISOMAP and Local Linear Embedding. 
+
+Figure ~\ref{fig:sub1} illustrates the ability of the extracted
+musical content-features and the SOM to represent musical content. The
+top subfigures (a), (b), (c) and (d) show how different musical genres
+are mapped to different regions of the SOM grid (the black squares are
+the ones containing one or more songs from each specific genre). As
+can be seen Classical, Heavy Metal and HipHop are well-localized and
+distinct whereas Rock is more spread out reflecting its wide
+diversity. The SOM is trained on a collection of 1000 songs spanning
+10 genres. 
+% The bottom subfigures (e), (f), (g), (h) show how different
+% artists are mapped to different regions of the SOM grid. The SOM in
+%this case is trained on a diverse personal collection of 3000 songs
+%spanning many artists and genres. 
+It is important to note that in all these cases the only information
+used is the automatically analyzed actual audio signal and the
+locations of the genres are emergent properties of the SOM.
+% genres/artists 
+
+\subsection{View and Control Interfaces}
+
+The common functionality among view interfaces is to display the
+automatically calculated grid, respond to navigation events and handle
+audio playback and effects. Typically the grid squares are colored
+darker or lighter based on the number of tracks that they contain.
+The most powerful view is a desktop graphical user interface written
+in Qt \footnote{\url{http://www.qtsoftware.com/products}}. In addition
+to standard view functionality it provides the ability to write iTunes
+music library XML files, advanced coloring modes based on metadata,
+and continuous playback mode in which tracks change automatically when
+the cursor moves to a different grid square without requiring explicit
+clicking by the user. In addition we also provide a web-interface that
+although more limited has the advantage that anyone on the internet
+can access and interact with the particular {\it AudioScape}
+deployed. As the audio is streamed, the audio collection remains on
+the server, this can be an important factor in commercial
+applications.  
+%It also provides an accessible platform to conduct
+%demonstrations and user studies that can be updated frequently without
+%requiring any user action.
+
+
+% \begin{figure}[htb]
+% \includegraphics[width=60mm]{chapter_music/iphone}
+% \label{fig:iPhone} 
+% \caption{iPhone control interface}
+% \end{figure}
+
+
+In order to explore non-standard form factors we have developed a
+implementation specific to the iPhone
+\footnote{\url{http://www.apple.com/iphone}}. Having a
+touch-based display surface facilitates spatial awareness especially
+for blind or limited vision users. As the user moves her finger across
+the various squares, songs from each corresponding node cross-fade
+with each other to help her navigate the music collection by hearing
+how the songs in each grid location are changing. By laying out a
+music collection in this spatial fashion, navigation with only the
+knowledge of a few reference points is needed. 
+% For example, if it is
+% known that Rock music is in the upper left corner, and jazz music is
+% in the lower left corner, by dragging from top to bottom along the
+% left edge of the grid, rock music will slowly transition into jazz
+% music. The use of multi-touch (two or more fingers) may also be used
+% to control playback. Swiping the surface with two fingers in the right
+% direction skips to another song in the same node while swiping left
+% plays the previous song in that node. Figure ~\ref{fig:iPhone} shows
+% the iPhone view. Finally we have also explored tabletop views based on
+% the desktop and web implementations on a Smart Table system and well
+% as a Mitsubishi Diamond Touch. However we did not take advantage of
+% their multi-touch capabilities as it would require writing specialized
+% versions of the software.
+% \subsection{Control interfaces}
+In addition to the traditional mouse/keyboard based control, we have
+explored various alternative control interfaces. The Radiodrum
+\cite{schloss01} is a 
+% novel
+three dimensional controller that uses
+capacitive sensing to detect the positions of two radio frequency
+oscillators, usually attached to drum sticks or other similar objects.
+% Developed by Max Matthews and Bob Boie, it was originally designed as
+% the first three dimensional computer mouse, but found a more pertinent
+% application in the area of the production of computer music
+% \cite{nevile03}.  It has also been used as a controller to facilitate
+% the browsing of music collections \cite{murdoch06}.
+In our prototype, we have mapped the x, y and z axes of the sticks of
+the Radiodrum to the surface user interface.  Movement of the sticks
+in the x and y axes moves the audio track selector cursor on the GUI,
+and movement in z controls the volume of that track. Each stick
+controls a different music track. 
+% We use both of
+% the sticks of the Radiodrum, each of which can independently select a
+% different musical track.
+% With the addition of
+% volume control, the interface transforms from a simple music browsing
+% interface to a more DJ-like experience. 
+%, with the performer able to
+% control the sound mix between two different audio tracks by moving the
+% sticks up and down on the z axis. 
+
+%  Some preliminary tests of this
+% interface show that it is a potent and exciting way to create mashups
+% and mixes of a variety of different music styles, with styles like
+% reggae, rock and hiphop.
+
+% The Wii remote, or wiimote, is a multimodal interface device developed
+% by Nintendo for use with the Wii game system.  The wiimote has
+% traditional buttons and rumble functionality, but also contains a
+% speaker, an 3-dimensional accelerometer, and an Infrared (IR) sensor.
+% This IR sensor has the ability to track up to 4 independent sources of
+% infrared light, and reports back the positions and intensities of the
+% detected points.  All data from the wiimote is sent back to the
+% computer via Bluetooth.
+
+% In order to enhance the configurability and expandability of this
+% project, we use the OSC protocol to transmit messages recieved from
+% the Wiimote controller. Using OSC, we have added functionality that
+% allows for the use of multiple Wiimotes at once, each one returning
+% the positions of four different people in a space. As an example we
+% have developed SOMba a system for collaborative creation of Samba
+% rhythms by dancers in a space. The rhythms and instrument sounds are
+% arranged in a grid using a Self-Organizing Map. In the canonical SOMba
+% system, we use two wii-motes, allowing up to 8 dancers to be tracked,
+% but this number could easily be expanded.  It is important to align
+% the sensors of the wiimotes accurately with the performance space and
+% with each other, so that an individual dancer is only tracked by one
+% wiimote at once. In our current system we use the Wiimote for position
+% tracking of the dancers, but the use of OSC allows us to use a variety
+% of other position trackers quite easily.
+
+
+\subsection{Data Collections and Implementation} 
+
+In order to explore different configurations we have created {\it
+  AudioScapes} for several large audio data collections which are
+known to the MIR and Computer Music community. The Freesound Project
+\footnote{\url{http://freesound.org}} is a huge collection of sound
+effects, music and environmental songs all licenced under the Creative
+Commons licence. 
+% The website makes extensive use of folksonomy based
+% methods of audio classification primarily through a process of
+% collaborative tagging of audio files as well as through geotagging,
+% sample packs, and a remix tree view.  
+% The audio in this database is an
+% wide variety of formats, including .wav, .mp3, .aiff and .au, amongst
+% others, and is recorded at many different sample rates and bit depths.
+% For our current research, we selected a well-behaved subset of the
+% audio in the Freesound database, and converted all the audio to a
+% common format, sample rate, and bit depth.
+The RWC (Real World Computing) Music Database \cite{goto03} is a
+database of music that has been copyright cleared and made available
+to the Music Information Retrieval community. 
+% It contains large
+% amounts of high quality audio samples and musical pieces.  There are
+% large numbers of short samples of audio from different musical
+% instruments around the world, including both tonal and percussive
+% instruments.  
+The music in the RWC database is from a wide variety of
+genres, with many classical and jazz pieces, as well as a sampling of
+the genres of popular, rock, dance, jazz, latin, classical, marches,
+world music, vocals, and traditional Japanese music.
+A collection of 1000 music tracks from 10 genres was gathered and described
+in \cite{TC02b}.  
+% The music in this collection includes such diverse
+% genres as blues, classical, country, disco, hiphop, jazz, metal, pop,
+% reggae and rock.  It has been used extensively by the Music
+% Information Retrieval community.
+We have also used a large database of
+3000 30-second snippets from the personal collection of one of the
+authors. 
+% Another collection consists of samples of percussion
+% instruments of Samba music. 
+The Marsyas \footnote{\url{http://marsyas.sourceforge.net}} audio
+processing software framework has been used for the audio feature
+extraction, digital audio effects, calculation of the SOM, the desktop
+graphical user interface and handling of controller data.
+% \cite{Marsyas}.  
+% The calculation of the SOM in Marsyas is carried out
+% after the feature extraction in a data-flow architecture. This
+% architecture allows for easy integration and rapid execution of all
+% the required processing steps, and is readily extensible to support a
+% diverse set of different experimental parameters. The Qt interface to
+% Marsyas is used for display of the generated data and user
+% interaction.
+For the web based interface we employ an \emph{XHTML/CSS} and
+\emph{Flash} based interface. 
+% The user is presented with a simple and
+% \emph{XHTML/CSS} web page that has been designed to be standards
+% compliant which will facilitate accessibility by the research
+% community on a wide variety of different web browsers and computer
+% platforms.  
+% The \emph{Flash} based interface is written in the haXe
+% \cite{mccoll08} programming language, which compiles the ECMAScript
+% language \emph{haXe} down to \emph{Flash} bytecodes. The \emph{Flash}
+% interface presents a simple interface to the user with an interface
+% similar to the Qt based MarGrid interface.
+The Open Sound Control (OSC) protocol \cite{osc} is used in this
+project to facilitate communication between the various components of
+the system. 
+% The main MarGrid Qt interface presents an OSC listener
+% which all other controllers send messages to. The Wii-mote Bluetooth
+% messages are translated to OSC to update the grid position. In a
+% similar manner, the MIDI messages from the RadioDrum are translated
+% into OSC messages. This system architecture lets us easily add new
+% controllers to our system.  Because OSC is able to send it's messages
+% over a network, we are able to run the controller programs on
+% different machines than the machine producing the audio, thus
+% facilitating experimentation and collaboration between multiple users.
+
+
+\section{Discussion}\label{sec:conclusions}
+
+{\it AudioScapes} is an extensible framework and architecture for
+surface-based interfaces for browsing large audio and music
+collections. Given the exploratory nature of the work we have not yet
+been able to conduct detailed quantitative user studies which are
+planned for the future. It is our hope that the developed interfaces
+have the potential to make browsing of audio collections much more
+effective, especially for users with special needs. We have been
+particularly fortunate to receive initial feedback from two blind
+users, one user with limited vision and one user with limited
+mobility. In all cases they were very positive about the system and
+provided valuable advice. As it is difficult to convey how the system
+works in paper we have collected videos and web demonstrations on a
+web-page \url{http://audioscapes.sness.net}. 
+%Most of the software is
+%freely available as part of the {\it Marsyas} audio processing
+%framework and we welcome feedback and contributions.
+
+
+\subsection{Overview}
+\subsection{Related Work}
+\subsection{Self-Organizing Maps}
+
+A Self-organizing map is a special type of Artificial Neural
+Network that maps a high-dimensionality space onto a space of
+lower dimensionality.  Typically, the lower dimensional space is
+of two dimensions to facilitate visualization of data.  SOMs were
+first described by Teuvo Kohonen and are explained in great
+detail in his book Self-Organizing Maps \cite{kohonen95a}.
+
+Three dimensions are occasionally used, but suffer from the
+problem that some data points can be obscured by data points in
+front of them.  This can be alleviated by letting the user scale
+and rotate the 3D projection.
+
+A related field to Self-organizing maps is multidimensional
+scaling, which are techniques to reduce the dimensionality of
+data sets using statistical techniques.
+
+\section{Introduction}\label{sec:introduction}
+
+Since the dawn of music in pre-historic tribal societies, music has
+often been accompanied by dance.  In some traditions, for example in
+native american tribes, the dancers themselves would participate in
+the music making experience by wearing noise making artifacts.
+However, in most situations, music making and dancing have been
+relatively separate activities.  When Samba bands perform in Brazil,
+musicians are joined by large numbers of dancers, who only indirectly
+participate in the music making experience.
+
+Self-organizing maps \cite{kohonen95a} are a dimensionality reduction
+technique where a high dimension dataset is mapped to a lower,
+typically 2-dimensional surface.  SOMs and other such dimensionality
+reduction tools have been used to allow users to visualize data
+relationships within complex datasets.  There have been many
+applications of SOMs in Music Information Retrieval including work by
+automatically analyzing and organizing music archives \cite{rauber01a}
+\cite{rauber98b}, visualizing music genres \cite{pampalk03} and music
+recommendation \cite{vembu05a}.
+
+A less explored frontier of SOMs and music is the production of new
+music.  Until recent times, the production of music has been solely by
+highly trained musicians.  Recently, commericial systems like Rock
+Band and Guitar Hero along with many academic research projects have
+attempted to put the control of the musical experience in the hands of
+less experienced users.  In addition ystems like Dance Dance Revolution and other
+academic projects have begun to bridge the gap between dancing and
+music creation.
+
+Our current research project proposes to let dancers create their own
+music, by generating music collaboratively with other dancers.  We
+achieve this by tracking the positions of each of the dancers in two
+dimensions on a theatre stage.  We can then translate these stage
+positions into positions in a 2D SOM.  We have used the SOM
+methodology because it provides a straightforward way to map the
+high dimensional audio features to a two dimensional surface.
+
+In the field of embodied music cognition it has been noted
+\cite{leman08} that people seek involvement with music in order to
+experience a behavioural resonance with physical energy.  Our system
+attempts to project both the spatial motion of the dancer, and her
+interactions with other dancers, into music.  This allows dancers to
+become instrumentalists and intermedial composers, simultaneously
+interpreting the generative music composition.  In traditional
+full-body tracked music generation systems, the gestures and movements
+of dancers are transformed into music, but in our system, we are more
+interested in relationships between the dancers within not only a
+physical space, but also within their socially constructed
+environment.
+
+The SOM that we build contains aligned rhythmic phrases of different
+drum patterns from Samba music.  Samba music is built from many
+overlayed drum patterns, with each sounding on different beats of a
+typically 2/4 metrical pattern.  It is a highly syncopated music style
+with each instrument, from the large surdo drum, to the small hand
+held clave, playing on different beats of the bar.  Although each
+pattern in a typical Samba song is simple, the patterns that result
+from all the instruments playing together can be quite complex and
+interesting.
+
+\subsection{Related Work}
+
+Self organizing maps have been used extensively in the visualization
+of data for audio based music information retrieval \cite{cooper06}.
+They have been used to analyze and organize music archives
+\cite{rauber01a} \cite{rauber98a} \cite{rauber98b} \cite{rauber02a},
+and to visualize the resulting music collections \cite{rauber03a}
+\cite{pampalk04} \cite{rauber02}.  A particularily relevant study was
+that of Palmalk in his paper Islands of Music \cite{pampalk03}.  SOMs
+have also been used for audio retrieval, browsing and constructivist
+learning in several papers \cite{cano02} \cite{fruehwirth01}
+\cite{honkela00}.  While the previous mentioned studies concentrated
+on organizing whole classes of music, SOMs have also been applied to
+smaller audio segments, including timbre \cite{toirvainen97},
+energy-spectrum \cite{masugi04}, and musical time series analysis
+\cite{capinteiro98}.
+
+There has been considerable research on the automatic generation of
+music, including the generation of background music 
+\cite{rui07} \cite{yoo04}, the creation of rhythmic
+patterns \cite{labordus83b} \cite{kasahara07} and more general automated music generation systems
+\cite{erb84} \cite{unemi01}.  An excellent study was conducted back in
+1970 by Howe \cite{howe70} about compositional considerations when
+creating electronic music.
+
+A particularily relevant study was recently conducted
+\cite{kasahara07}, in this paper the authors describe a
+self-organizing map system that allows users to create rhythms
+co-creatively and interactively.  Also closely related was the
+\cite{tzimeas07} SENEgal project, which used genetic algorithms to
+create rhythms from western Africa.
+
+Often the previous described systems have their user interaction
+paradigm centered on the computer system.  In this study we are
+interested in bringing the creation of music into the physical
+environment.  The creation of new methods of interacting with the
+computer has seen much activity, including projects using the
+Radiodrum \cite{benning07} \cite{murdoch06} , SmartSkin
+\cite{rekimoto02} and Cyber composer \cite{ip04}.  A particularily
+relevant paper involved the use of large numbers of giveaway sensors
+in a large rave dance setting \cite{feldmeier07}.
+
+Our project extends and simplifies this by using the infrared sensor
+capabilities of the Wii remote control, or wiimote.  The wiimote
+connects to a computer via Bluetooth, and using the cwiid
+\cite{cwiid07} library on Linux, we are able to easily access the data
+it provides.  The wiimote has buttons and accelerometers, and also has
+the capability to track up to 4 infrared sources.  The positions of
+these sources are tracked by the wiimote.
+
+\section{The SOMba System}
+
+The SOMba system consists of three distinct parts, the generated music
+tracks for each of the different instruments, a process to map this
+audio onto a two dimensional representation, and a way to interact
+with the grid that is created.  For each of these parts, we used the
+Marsyas \footnote{\url{http://marsyas.sourceforge.net}} programming framework, a toolkit
+written in C++ that allows for the creation, analysis and output of
+audio.
+
+\subsection{Creation of Musical Tracks}
+
+We obtained transcriptions of authentic Samba music from Brazil and
+converted them into a simple string based machine readable
+representation.  We also obtained from the RWC \cite{goto03} library
+audio samples of some of the musical instruments used by Brazilian
+samba bands, including surdo, agogo bells, tambourim, shaker and
+quijada.  A program was written to generate audio files of equal
+lengths using the transcription along with an audio sample for each
+instrument.  The resulting audio was found to be too mechanical in
+feel, so we added the ability to add a small amount of random time
+jitter to each sample, and created several versions of each
+transcription with slightly different timings of each beat.  We also
+created versions of each audio track with different audio effects,
+including high pass and low pass filters, as well as phaser and
+flanger effects.
+
+\subsection{Music Feature Extraction}
+
+Each audio track is represented as a single feature vector. Even
+though much more elaborate audio track representations have been
+proposed in the literature we have found that a single feature vector
+per audio clip is well suited to use in machine learning in general
+and the SOM algorithm in particular.  It has been shown that such
+song-level features perform quite well \cite{mandel-ismir2005}.
+
+The features used in our approach are Spectral Centroid, Roll-Off,
+Flux and Mel-Frequency Cepstral Coefficients (MFCC). To capture the
+feature we compute a running mean and standard deviation over the past
+$M$ frame.  This results in a feature vector of 32 dimensions at the
+same rate as the original 16-dimensional one.  A more detailed
+description of the features can be found in Tzanetakis and Cook
+\cite{TC02b}.
+
+This process extracts audio features from the tracks, and to more
+accurately capture the rhythmic differences between tracks, we use the
+original string representation of the track and calculate the Hamming
+distance between it and a string that is composed solely of rests.  We
+then add this measure to the feature vector.  We also take the average
+jitter value for all the notes in the track and add this as another
+component of the feature vector.
+
+\subsection{Self-Organizing Map Generation}
+
+The resulting audio tracks were then mapped to a two dimensional space
+using Self-Organizing Maps (SOMs).  SOMs are a technique for
+transforming data of multiple dimensions into a lower number of
+dimensions, typically two.  They were first introduced in 1982 by
+Teuvo Kohonen \cite{kohonen95a} and were based on Artificial Neural
+Networks.  SOMs are a form of dimensionality reduction, which is a
+broad term for any technique that transforms a higher dimensional
+space into a lower dimensional space.
+
+We used the existing SOM implementation within Marsyas to transform
+the high dimensional feature vectors into a two-dimensional
+represention.  For the neighbourhood function, we started with a value
+of 0.17, and decreased this by a factor of 0.98 for each round of
+training.  We found that a 12x12 grid worked well for this collection
+of feature vectors and training parameters and resulted in a final
+grid with all cells containing at least one track of audio.
+
+\subsection{Interaction}
+
+The Wii remote, or wiimote, is a multimodal interface device developed
+by Nintendo for use with the Wii game system.  The wiimote has
+traditional buttons and rumble functionality, but also contains a
+speaker, an 3-dimensional accelerometer, and an Infrared (IR) sensor.
+This IR sensor has the ability to track up to 4 independent sources of
+infrared light, and reports back the positions and intensities of the
+detected points.  All data from the wiimote is sent back to the
+computer via Bluetooth.  We then use the OSC protocol to transmit
+messages recieved from the Wiimote controller to the SOMba program.
+In our current system we use the Wiimote for position tracking of the
+dancers, but the use of OSC allows us to use a variety of other
+position trackers quite easily.
+
+Using OSC, we have added functionality that allows for the use of
+multiple Wiimotes at once, each one returning the positions of four
+dancers at once.  In the canonical SOMba system, we use two wii-motes,
+allowing up to 8 dancers to be tracked, but this number could easily
+be expanded.  It is important to align the sensors of the wiimotes
+accurately with the performance space and with each other, so that an
+individual dancer is only tracked by one wiimote at once.  In real
+performance settings static and dynamic reflections and poor camera
+resolution deteriorate the tracking results.  State of the art
+tracking technologies provide built-in multi-camera calibration and
+elaborate 3D point tracking algorithms to solve these problems.  To
+help alleviate this problem in our simple system, we have found that
+it was important to use very bright infrared emitters, and to limit
+the intensity of stage lights on the dancers.
+
+
+\section{Conclusions}
+
+Dancing and music have long been close companions, and recent advances
+in technology can allow us to further blend these together into a new
+form of musical and physical articulation.  By allowing dancers to
+interact with and create their own music, we hope to create new
+exciting opportunities for creative expression.  We are also
+interested in the spatial representation of music, and by transferring
+Self-Organizing maps from the computer screen into physical space, we
+anticipate to discover new ways of interacting with and visualizing
+data.  Another part of this research is to use self-organizing maps
+not just to organize different songs, but different rhythmic patterns.
+Such a project might prove interesting for creation of music using
+different interfaces.
+
+
+
+\subsection{}
+\subsection{Conclusions}
+
