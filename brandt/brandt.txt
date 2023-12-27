@@ -1,5 +1,6 @@
 IN-VITRO AND IN-SILICO COMPUTATIONAL MODELLING OF THE CANNABINOID
 TYPE 1 AND SEROTONIN 2A CLASS A G PROTEIN – COUPLED RECEPTORS
+
 A Thesis Submitted to the
 College of Graduate and Postdoctoral Studies
 In Partial Fulfilment of the Requirements
@@ -9,231 +10,227 @@ University of Saskatchewan
 Saskatoon Canada
 By
 Asher Leib Brandt
-© Copyright Asher Leib Brandt, August 2022. All rights reserved. Unless otherwise noted,
-copyright of the material in this thesis belongs to the author. 
+
+© Copyright Asher Leib Brandt, August 2022. All rights reserved. Unless otherwise noted, copyright of the material in this thesis belongs to the author.
 
 iii
 Permission to use
-In presenting this thesis in partial fulfillment of the requirements for a Postgraduate degree from
-the University of Saskatchewan, I agree that the Libraries of this University may make it freely
-available for inspection. I further agree that permission for copying of this thesis in any manner,
-in whole or in part, for scholarly purposes may be granted by the professor or professors who
-supervised my thesis work or, in their absence, by the Head of the Department or the Dean of the
-College in which my thesis work was done. It is understood that any copying or publication or use
-of this thesis/dissertation or parts thereof for financial gain shall not be allowed without my written
-permission. It is also understood that due recognition shall be given to me and to the University of
-Saskatchewan in any scholarly use which may be made of any material in my thesis/dissertation.
+
+In presenting this thesis in partial fulfillment of the requirements for a Postgraduate degree from the University of Saskatchewan, I agree that the Libraries of this University may make it freely available for inspection. I further agree that permission for copying of this thesis in any manner, in whole or in part, for scholarly purposes may be granted by the professor or professors who supervised my thesis work or, in their absence, by the Head of the Department or the Dean of the College in which my thesis work was done. It is understood that any copying or publication or use of this thesis/dissertation or parts thereof for financial gain shall not be allowed without my written permission. It is also understood that due recognition shall be given to me and to the University of Saskatchewan in any scholarly use which may be made of any material in my thesis/dissertation.
+
 DISCLAIMER
-Reference in this thesis to any specific commercial products, process, or service by trade name,
-trademark, manufacturer, or otherwise, does not constitute or imply its endorsement,
-recommendation, or favoring by the University of Saskatchewan. The views and opinions of the
-author expressed herein do not state or reflect those of the University of Saskatchewan and shall
-not be used for advertising or product endorsement purposes.
-Requests for permission to copy or to make other uses of materials in this thesis in whole or part
-should be addressed to:
+
+Reference in this thesis to any specific commercial products, process, or service by trade name, trademark, manufacturer, or otherwise, does not constitute or imply its endorsement, recommendation, or favoring by the University of Saskatchewan. The views and opinions of the author expressed herein do not state or reflect those of the University of Saskatchewan and shall not be used for advertising or product endorsement purposes.  Requests for permission to copy or to make other uses of materials in this thesis in whole or part should be addressed to:
+
 Head of the College of Pharmacy and Nutrition
 107 Wiggins Road, Saskatoon SK
 University of Saskatchewan
 Saskatoon, Saskatchewan, S7N 5E5, Canada
+
 OR
+
 Dean
 College of Graduate and Postdoctoral Studies
 University of Saskatchewan
 116 Thorvaldson Building, 110 Science Place
 Saskatoon, Saskatchewan, S7N 5C9, Canada
-iv
+
 TABLE OF CONTENTS
-List of Figures............................................................................................................................... vii
-List of Tables ................................................................................................................................. ix
-List of Equations............................................................................................................................. x
-List of Abbreviations ..................................................................................................................... xi
-Abstract........................................................................................................................................ xiii
-Acknowledgements...................................................................................................................... xiv
-CHAPTER 1 INTRODUCTION .................................................................................................... 1
-1.1 G Protein-Coupled Receptors................................................................................................ 2
-1.2 GPCR Intra-Cellular Signaling Cascades ............................................................................. 4
-1.3 Allosteric Site on GPCRs as FDA approved Drugs.............................................................. 8
-1.4 Cannabinoid Receptor Type 1............................................................................................... 8
-1.5 Cannabinoid Receptor Type 2............................................................................................. 10
-1.6 Psychedelics and the Serotonin 2a Receptor (5-HT2AR) .................................................... 10
-1.7 Computational Modelling of G protein-coupled receptors................................................. 13
-1.7.1 In silico Modelling of CB1R allosteric ligands............................................................ 16
-1.8 Objectives of This Research................................................................................................ 20
+List of Figures. vii
+List of Tables . ix
+List of Equations. x
+List of Abbreviations . xi
+Abstract. xiii
+Acknowledgements. xiv
+CHAPTER 1 INTRODUCTION . 1
+1.1 G Protein-Coupled Receptors. 2
+1.2 GPCR Intra-Cellular Signaling Cascades . 4
+1.3 Allosteric Site on GPCRs as FDA approved Drugs. 8
+1.4 Cannabinoid Receptor Type 1. 8
+1.5 Cannabinoid Receptor Type 2. 10
+1.6 Psychedelics and the Serotonin 2a Receptor (5-HT2AR) . 10
+1.7 Computational Modelling of G protein-coupled receptors. 13
+1.7.1 In silico Modelling of CB1R allosteric ligands. 16
+1.8 Objectives of This Research. 20
 CHAPTER 2 PHARMACOLOGICAL EVALUAITON OF ENANTIOMERICALLY
 SEPARATED POSITIVE ALLOSTERIC MODULATORS OF CANNABINOID TYPE 1
-RECEPTOR, GAT591 AND GAT593......................................................................................... 22
-2.1 Introduction ......................................................................................................................... 23
-2.2 Experimental Section .......................................................................................................... 26
-2.2.1 In vitro evaluation......................................................................................................... 26
-2.2.2 In vivo evaluation.......................................................................................................... 28
-2.2.3 In silico evaluation........................................................................................................ 29
-2.2.4 Statistical Analysis ....................................................................................................... 32
-2.3 Results and Discussion........................................................................................................ 33
-2.3.1 Synthesis, chiral separation and absolute stereochemistry determination.................... 33
-2.3.2 In vitro evaluation......................................................................................................... 33
-2.3.3 In vivo evaluation.......................................................................................................... 44
-2.3.4 In silico studies............................................................................................................. 46
+RECEPTOR, GAT591 AND GAT593. 22
+2.1 Introduction . 23
+2.2 Experimental Section . 26
+2.2.1 In vitro evaluation. 26
+2.2.2 In vivo evaluation. 28
+2.2.3 In silico evaluation. 29
+2.2.4 Statistical Analysis . 32
+2.3 Results and Discussion. 33
+2.3.1 Synthesis, chiral separation and absolute stereochemistry determination. 33
+2.3.2 In vitro evaluation. 33
+2.3.3 In vivo evaluation. 44
+2.3.4 In silico studies. 46
 v
-2.4 Conclusion........................................................................................................................... 51
-2.5 Supplementary Info............................................................................................................. 53
-2.5.1 NMR Data..................................................................................................................... 53
+2.4 Conclusion. 51
+2.5 Supplementary Info. 53
+2.5.1 NMR Data. 53
 CHAPTER 3 IN SILICO EVALUATION OF HALOGENATED BIOISOSTERES AT THE
-TYPE 1 CANNABINOID RECEPTOR ALLOSTERIC AGONIST SITE ................................. 58
-3.1 Introduction ......................................................................................................................... 59
-3.2 Materials and Methods........................................................................................................ 61
-3.2.1 In Silico receptor preparation ....................................................................................... 61
-3.2.2 Ligand Preparation ....................................................................................................... 61
-3.2.3 Receptor grid generation and molecular docking......................................................... 62
-3.2.4 Physicochemical and Pharmacokinetic Properties Prediction...................................... 63
-Table 3-1. Physicochemical and Pharmacokinetic Properties modeled in this study ........... 63
-3.3 Results and Discussion........................................................................................................ 65
-3.3.1 GAT228 Isomers Effect on MMGBSA (∆G)............................................................... 65
-3.3.2 GAT228 Isomers Differ in their Physicochemical and Pharmacokinetic Properties... 72
-3.3.3 Selecting Lead Compounds.......................................................................................... 73
-3.4 Conclusion........................................................................................................................... 75
-3.5 Supplementary Info............................................................................................................. 76
+TYPE 1 CANNABINOID RECEPTOR ALLOSTERIC AGONIST SITE . 58
+3.1 Introduction . 59
+3.2 Materials and Methods. 61
+3.2.1 In Silico receptor preparation . 61
+3.2.2 Ligand Preparation . 61
+3.2.3 Receptor grid generation and molecular docking. 62
+3.2.4 Physicochemical and Pharmacokinetic Properties Prediction. 63
+Table 3-1. Physicochemical and Pharmacokinetic Properties modeled in this study . 63
+3.3 Results and Discussion. 65
+3.3.1 GAT228 Isomers Effect on MMGBSA (∆G). 65
+3.3.2 GAT228 Isomers Differ in their Physicochemical and Pharmacokinetic Properties. 72
+3.3.3 Selecting Lead Compounds. 73
+3.4 Conclusion. 75
+3.5 Supplementary Info. 76
 CHAPTER 4 ASSESSMENT OF SELECT SYNTHETIC CANNABINOID RECEPTOR
 AGONIST BIAS SELECTIVITY BETWEEN THE TYPE 1 AND TYPE 2 CANNABINOID
-RECEPTOR.................................................................................................................................. 88
-4.1 Introduction ......................................................................................................................... 89
-4.2 Experimental Section .......................................................................................................... 92
-4.2.1 In vitro evaluation......................................................................................................... 92
-4.2.2 In silico evaluation........................................................................................................ 94
-4.2.3 Statistical Analysis ....................................................................................................... 94
-4.3 Results and Discussion........................................................................................................ 95
-4.3.1 In Vitro Evaluation of CB1R........................................................................................ 95
-4.3.2 In Vitro Evaluation of CB2R...................................................................................... 101
-4.3.3 In Silico Evaluation of CB1R and CB2R................................................................... 110
-4.4 Conclusion......................................................................................................................... 119
-CHAPTER 5 IN VITRO AND IN SILICO EVALUATION OF METHOXY SUBSTITUTED 25HNBOME ISOMERS AT 5HT2AR............................................................................................... 121
+RECEPTOR. 88
+4.1 Introduction . 89
+4.2 Experimental Section . 92
+4.2.1 In vitro evaluation. 92
+4.2.2 In silico evaluation. 94
+4.2.3 Statistical Analysis . 94
+4.3 Results and Discussion. 95
+4.3.1 In Vitro Evaluation of CB1R. 95
+4.3.2 In Vitro Evaluation of CB2R. 101
+4.3.3 In Silico Evaluation of CB1R and CB2R. 110
+4.4 Conclusion. 119
+CHAPTER 5 IN VITRO AND IN SILICO EVALUATION OF METHOXY SUBSTITUTED 25HNBOME ISOMERS AT 5HT2AR. 121
 vi
-5.1 Introduction ....................................................................................................................... 122
-5.2 Materials and Methods...................................................................................................... 125
-5.2.1 Chemicals and Reagents............................................................................................. 125
-5.2.2 Data Processing and Analysis..................................................................................... 125
-5.2.3 Statistical Analysis ..................................................................................................... 126
-5.2.4 Molecular Docking ..................................................................................................... 126
-5.3 Results and Discussion...................................................................................................... 127
-5.3.1 Pharmacological Characterization.............................................................................. 127
-5.3.2 2-Methoxy NBOMe is are more Potent than 3-Methoxy NBOMe Compounds........ 128
-5.3.3 NBOMe displays biased agonism towards βarrestin2 over Gq Pathway.................... 133
-5.3.4 Molecular Docking ..................................................................................................... 135
-5.4 Conclusion......................................................................................................................... 140
-CHAPTER 6 DISCUSSION....................................................................................................... 142
-6.1 Objectives Of This Research............................................................................................. 143
-6.2 Summary of Research ....................................................................................................... 143
-6.2.1 Enantiomers of GAT and Isomers Show a Difference in Activity at CB1R.............. 143
-6.2.2 In silico Methods Can Be Used to Optimize Existing Compounds ........................... 144
+5.1 Introduction . 122
+5.2 Materials and Methods. 125
+5.2.1 Chemicals and Reagents. 125
+5.2.2 Data Processing and Analysis. 125
+5.2.3 Statistical Analysis . 126
+5.2.4 Molecular Docking . 126
+5.3 Results and Discussion. 127
+5.3.1 Pharmacological Characterization. 127
+5.3.2 2-Methoxy NBOMe is are more Potent than 3-Methoxy NBOMe Compounds. 128
+5.3.3 NBOMe displays biased agonism towards βarrestin2 over Gq Pathway. 133
+5.3.4 Molecular Docking . 135
+5.4 Conclusion. 140
+CHAPTER 6 DISCUSSION. 142
+6.1 Objectives Of This Research. 143
+6.2 Summary of Research . 143
+6.2.1 Enantiomers of GAT and Isomers Show a Difference in Activity at CB1R. 143
+6.2.2 In silico Methods Can Be Used to Optimize Existing Compounds . 144
 6.2.3 In silico methods can be used to discriminate G protein from βarrestin2 biased
-compounds........................................................................................................................... 146
-6.2.4 2-Methoxy NBOMe is more Potent than 3-Methoxy NBOMe Compounds.............. 147
-6.3 Philosophical Considerations Surrounding this Research................................................. 148
-6.3.1 Ambiguity of full vs partial agonist/antagonist .......................................................... 148
-6.3.2 Pharmacology in a Multidimensional System............................................................ 149
-6.3.3 SAR relationship is not straight forward in measuring agonism................................ 150
-6.3.4 5-HT2AR Receptor agonists Psychedelics issue ......................................................... 151
-6.3.5 Will computational methods replace experimental pharmacology?........................... 152
-References................................................................................................................................... 153
+compounds. 146
+6.2.4 2-Methoxy NBOMe is more Potent than 3-Methoxy NBOMe Compounds. 147
+6.3 Philosophical Considerations Surrounding this Research. 148
+6.3.1 Ambiguity of full vs partial agonist/antagonist . 148
+6.3.2 Pharmacology in a Multidimensional System. 149
+6.3.3 SAR relationship is not straight forward in measuring agonism. 150
+6.3.4 5-HT2AR Receptor agonists Psychedelics issue . 151
+6.3.5 Will computational methods replace experimental pharmacology?. 152
+References. 153
 vii
 List of Figures
-FIGURE 1-1. GPCR STRUCTURE....................................................................................................... 3
-FIGURE 1-2. LIGAND BIAS. .............................................................................................................. 7
-FIGURE 1-3. 5-HT2AR CRYSTAL STRUCTURE WITH LSD BOUND PDB ID: GWGT........................ 12
-FIGURE 1-4. BALLESTEROS-WEINSTEIN NUMBERING SYSTEM. ..................................................... 15
-FIGURE 1-5. CB1R WITH THREE DIFFERENT BINDING SITES SHOWN. .............................................. 19
+FIGURE 1-1. GPCR STRUCTURE. 3
+FIGURE 1-2. LIGAND BIAS. . 7
+FIGURE 1-3. 5-HT2AR CRYSTAL STRUCTURE WITH LSD BOUND PDB ID: GWGT. 12
+FIGURE 1-4. BALLESTEROS-WEINSTEIN NUMBERING SYSTEM. . 15
+FIGURE 1-5. CB1R WITH THREE DIFFERENT BINDING SITES SHOWN. . 19
 FIGURE 2-1. GAT591 PREVIOUSLY STUDIED WAS SEPARATED OUT INTO ITS RESPECTIVE
 ENANTIOMERS (GAT1664 AND GAT1665) AND GAT593 WAS SEPARATED OUT INTO ITS
-RESPECTIVE ENANTIOMERS (GAT1666 AND GAT1667)......................................................... 25
-FIGURE 2-2. ORTEP DIAGRAM OF (+)-GAT1664 AND (+)-GAT1666 ......................................... 25
-FIGURE 2-3. ASSESSMENT OF GAT1664, GAT1665. GAT1666, AND GAT1667 SIGNALING. ....... 38
+RESPECTIVE ENANTIOMERS (GAT1666 AND GAT1667). 25
+FIGURE 2-2. ORTEP DIAGRAM OF (+)-GAT1664 AND (+)-GAT1666 . 25
+FIGURE 2-3. ASSESSMENT OF GAT1664, GAT1665. GAT1666, AND GAT1667 SIGNALING. . 38
 FIGURE 2-4. CB1R CHO-K1 CELLS WERE TREATED WITH 0.10 NM – 10 µM SR141716A + 1 µM
-CP55,940, GAT1665, OR GAT1667. ..................................................................................... 41
+CP55,940, GAT1665, OR GAT1667. . 41
 FIGURE 2-5. (A) RADIOLIGAND BINDING OF 1 NM [
 3H]CP55,940 AND (B,C) G PROTEIN BINDING OF
 [
-35S]GTPGS TO MEMBRANES FROM CB1R CHO-K1 CELLS ................................................... 43
+35S]GTPGS TO MEMBRANES FROM CB1R CHO-K1 CELLS . 43
 FIGURE 2-6. IN VIVO EFFECTS OF GAT1664, GAT1665, GAT1666 AND GAT1667 IN MALE C57BL/6
-MICE ....................................................................................................................................... 45
-FIGURE 2-7. CB1R WITH THREE DIFFERENT BINDING SITES SHOWN ............................................... 47
-FIGURE 2-8. GAT1664 BINDS TO AN ALLOSTERIC AGONIST SITE.................................................... 47
-FIGURE 2-9. GAT1665 BINDS TO THE PAM................................................................................... 50
-FIGURE 2-10. PREPARATIVE HPLC CHROMATOGRAM FOR (+)-GAT1664 ..................................... 54
-FIGURE 2-11. PREPARATIVE HPLC CHROMATOGRAM FOR (-)-GAT1665 ...................................... 55
-FIGURE 2-12. PREPARATIVE HPLC CHROMATOGRAM FOR (+)-GAT1666 ..................................... 56
-FIGURE 2-13. PREPARATIVE HPLC CHROMATOGRAM FOR (-)-GAT1667 ...................................... 57
-FIGURE 3-1. (A) GAT228 SCAFFOLD HAS SITE X SITE Y AND SITE Z ............................................. 64
+MICE . 45
+FIGURE 2-7. CB1R WITH THREE DIFFERENT BINDING SITES SHOWN . 47
+FIGURE 2-8. GAT1664 BINDS TO AN ALLOSTERIC AGONIST SITE. 47
+FIGURE 2-9. GAT1665 BINDS TO THE PAM. 50
+FIGURE 2-10. PREPARATIVE HPLC CHROMATOGRAM FOR (+)-GAT1664 . 54
+FIGURE 2-11. PREPARATIVE HPLC CHROMATOGRAM FOR (-)-GAT1665 . 55
+FIGURE 2-12. PREPARATIVE HPLC CHROMATOGRAM FOR (+)-GAT1666 . 56
+FIGURE 2-13. PREPARATIVE HPLC CHROMATOGRAM FOR (-)-GAT1667 . 57
+FIGURE 3-1. (A) GAT228 SCAFFOLD HAS SITE X SITE Y AND SITE Z . 64
 FIGURE 3-2. THE MMGBSA VALUES WERE PLOTTED IN GRAPHPAD PRISM (V.9.1.1) AND DISPLAYED
-AS A HEATMAP ........................................................................................................................ 67
+AS A HEATMAP . 67
 FIGURE 3-3. MMGBSA VALUES WERE PLOTTED USING GRAPHPAD PRISM (V.9.1.1) AND DISPLAYED
-AS A HEATMAP ........................................................................................................................ 69
+AS A HEATMAP . 69
 FIGURE 3-4. MMGBSA VALUES WERE PLOTTED IN GRAPHPAD PRISM (V.9.1.1) AND DISPLAYED AS
-A HEATMAP............................................................................................................................. 71
-FIGURE 3-5. FOUR LEAD COMPOUNDS............................................................................................ 74
-FIGURE 4-1. STRUCTURE OF SCRAS STUDIED................................................................................ 91
+A HEATMAP. 71
+FIGURE 3-5. FOUR LEAD COMPOUNDS. 74
+FIGURE 4-1. STRUCTURE OF SCRAS STUDIED. 91
 FIGURE 4-2. RADIOLIGAND BINDING OF 1 NM [
 3H]CP55,940 TO MEMBRANES FROM CB1R CHO-K1
-CELLS...................................................................................................................................... 97
-FIGURE 4-3. CB1R-DEPENDENT INHIBITION OF FSK-STIMULATED CAMP .................................... 98
-FIGURE 4-4. ΒARRESTIN2 RECRUITMENT TO CB1R FOLLOWING SCRA TREATMENT. .................... 99
-FIGURE 4-5. CB1R SCRA BIAS ................................................................................................... 100
+CELLS. 97
+FIGURE 4-3. CB1R-DEPENDENT INHIBITION OF FSK-STIMULATED CAMP . 98
+FIGURE 4-4. ΒARRESTIN2 RECRUITMENT TO CB1R FOLLOWING SCRA TREATMENT. . 99
+FIGURE 4-5. CB1R SCRA BIAS . 100
 FIGURE 4-6. RADIOLIGAND BINDING OF 1 NM [
 3H]CP55,940 TO MEMBRANES FROM CB2R CHO-K1
-CELLS.................................................................................................................................... 103
+CELLS. 103
 FIGURE 4-7. CB2R CHO-K1 WERE TREATED WITH 0.10 NM – 10 µM GAT COMPOUNDS AND
-INHIBITION OF CAMP WAS MEASURED. .................................................................................. 104
+INHIBITION OF CAMP WAS MEASURED. . 104
 viii
 FIGURE 4-8. CB2R CHO-K1 WERE TREATED WITH 0.10 NM – 10 µM GAT COMPOUNDS AND
-ΒARRESTIN2 RECRUITMENT WAS MEASURED. ....................................................................... 105
-FIGURE 4-9. CB2R SCRA BIAS ................................................................................................... 106
+ΒARRESTIN2 RECRUITMENT WAS MEASURED. . 105
+FIGURE 4-9. CB2R SCRA BIAS . 106
 FIGURE 4-10. JWH 018 2’-NAPHTHYL-N-(3-METHYLBUTYL) ISOMER BOUND TO CB1R AND CB2R
-............................................................................................................................................. 113
-FIGURE 4-11. 4F-MDMB-BINACA BOUND TO CB1R AND CB2R ............................................. 114
+. 113
+FIGURE 4-11. 4F-MDMB-BINACA BOUND TO CB1R AND CB2R . 114
 FIGURE 4-12. EXPERIMENTALLY DETERMINED KI COMPARED TO COMPUTATIONALLY DETERMINED
-MM-GBSA.......................................................................................................................... 118
+MM-GBSA. 118
 FIGURE 5-1. 25CN-NBOH IS THE CO-CRYSTALLIZED LIGAND IN PDB ID: 6WHA BOUND TO 5-
-HT2AR.................................................................................................................................. 124
+HT2AR. 124
 FIGURE 5-2. THE CONCENTRATION-RESPONSE CURVES OBTAINED BY STIMULATION OF THE 5-HT2AR
 FOLLOWED BY RECRUITMENT OF (PANELS A AND C) ΒARRESTIN2 OR (PANELS B AND D) MINIGQ
 CONSTRUCTS IN THE NANOBIT
-® SYSTEM.............................................................................. 130
+® SYSTEM. 130
 FIGURE 5-3. CONCENTRATION-RESPONSE DATA WERE FIT TO THE OPERATIONAL MODEL OF BLACK
-AND LEFF (1983) (GRAPHPAD V. 9.0)................................................................................... 134
+AND LEFF (1983) (GRAPHPAD V. 9.0). 134
 FIGURE 5-4. VISUAL REPRESENTATIONS OF THE NBOME ISOMERS AND 25CN-NBOH DOCKED INTO
-THE BINDING POCKET OF THE 5-HT2AR (BASED ON PDB: 6WHA). ...................................... 136
+THE BINDING POCKET OF THE 5-HT2AR (BASED ON PDB: 6WHA). . 136
 FIGURE 5-5. VISUAL REPRESENTATIONS OF THE NBOME ISOMERS DOCKED INTO THE BINDING
-POCKET OF THE 5-HT2AR WITH HELICES SHOWN (BASED ON PDB: 6WHA) ......................... 137
+POCKET OF THE 5-HT2AR WITH HELICES SHOWN (BASED ON PDB: 6WHA) . 137
 ix
+
 List of Tables
-TABLE 2-1. THE CONFORMATIONAL COST OF GAT COMPOUNDS ................................................... 48
-TABLE 3-1. PHYSICOCHEMICAL AND PHARMACOKINETIC PROPERTIES MODELED IN THIS STUDY .. 63
-TABLE 3-2. ADME ANALYSIS OF FLUORINATED SUBSTITUTED GAT228 COMPOUNDS................. 76
-TABLE 3-3. ADME ANALYSIS OF CHLORINATED SUBSTITUTED GAT228 COMPOUNDS ................ 78
-TABLE 3-4. ADME ANALYSIS OF BROMINATED SUBSTITUTED GAT228 COMPOUNDS.................. 80
-TABLE 3-5. ADME ANALYSIS OF IODINATED SUBSTITUTED GAT228 COMPOUNDS...................... 82
-TABLE 3-6. ADME ANALYSIS OF NITRO SUBSTITUTED GAT228 COMPOUNDS ............................. 84
+
+TABLE 2-1. THE CONFORMATIONAL COST OF GAT COMPOUNDS . 48
+TABLE 3-1. PHYSICOCHEMICAL AND PHARMACOKINETIC PROPERTIES MODELED IN THIS STUDY . 63
+TABLE 3-2. ADME ANALYSIS OF FLUORINATED SUBSTITUTED GAT228 COMPOUNDS. 76
+TABLE 3-3. ADME ANALYSIS OF CHLORINATED SUBSTITUTED GAT228 COMPOUNDS . 78
+TABLE 3-4. ADME ANALYSIS OF BROMINATED SUBSTITUTED GAT228 COMPOUNDS. 80
+TABLE 3-5. ADME ANALYSIS OF IODINATED SUBSTITUTED GAT228 COMPOUNDS. 82
+TABLE 3-6. ADME ANALYSIS OF NITRO SUBSTITUTED GAT228 COMPOUNDS . 84
 TABLE 3-7. ADME ANALYSIS OF PYRIDINE AND CYCLOPENTADIENE SUBSTITUTED GAT228
-COMPOUNDS........................................................................................................................... 86
-TABLE 4-1. ACTIVITY OF SCRAS AT CB1R AND CB2R .............................................................. 107
-TABLE 4-2. SUMMARY OF THE INTERACTIONS BETWEEN THE RESIDUES OF THE CB1R................ 115
-TABLE 4-3. SUMMARY OF THE INTERACTIONS BETWEEN THE RESIDUES OF THE CB2R................ 116
+COMPOUNDS. 86
+TABLE 4-1. ACTIVITY OF SCRAS AT CB1R AND CB2R . 107
+TABLE 4-2. SUMMARY OF THE INTERACTIONS BETWEEN THE RESIDUES OF THE CB1R. 115
+TABLE 4-3. SUMMARY OF THE INTERACTIONS BETWEEN THE RESIDUES OF THE CB2R. 116
 TABLE 4-4. THE MOST G PROTEIN BIASED COMPOUND JWH 018 2'-NAPHTHYL-N-(3-METHYLBUTYL)
 ISOMER AND THE MOST BIASED ΒARRESTIN COMPOUND 4F-MDMB-BINACA BOUND TO 6N4B
-WITH AND WITHOUT THE G PROTEIN..................................................................................... 117
-TABLE 5-1. SUMMARY OF THE POTENCY AND EFFICACY IN THE ΒARRESTIN2 ASSAY ................... 131
-TABLE 5-2. SUMMARY OF THE POTENCY AND EFFICACY IN THE MINIGQ RECRUITMENT ASSAY .... 132
+WITH AND WITHOUT THE G PROTEIN. 117
+TABLE 5-1. SUMMARY OF THE POTENCY AND EFFICACY IN THE ΒARRESTIN2 ASSAY . 131
+TABLE 5-2. SUMMARY OF THE POTENCY AND EFFICACY IN THE MINIGQ RECRUITMENT ASSAY . 132
 TABLE 5-3. SUMMARY OF THE INTERACTION ENERGIES (KCAL/MOL) BETWEEN COMPOUNDS AND THE
-5-HT2AR AS SEEN FROM THE PERSPECTIVE OF THE N-BENZYL MOIETY................................. 139
+5-HT2AR AS SEEN FROM THE PERSPECTIVE OF THE N-BENZYL MOIETY. 139
 TABLE 5-4. SUMMARY OF THE INTERACTION ENERGIES (KCAL/MOL) INVOLVED IN THE INTERACTION
 BETWEEN THE METHOXY GROUPS ON THE PHENYL RING AND NEARBY AMINO ACID RESIDUES ON
-THE 5-HT2AR........................................................................................................................ 139
-x
+THE 5-HT2AR. 139
+
 List of Equations
-EQ. 2-1........................................................................................................................................... 33
-EQ. 2-2........................................................................................................................................... 33
-EQ. 2-3........................................................................................................................................... 33
-EQ. 3-1........................................................................................................................................... 62
-xi
+
+EQ. 2-1. 33
+EQ. 2-2. 33
+EQ. 2-3. 33
+EQ. 3-1. 62
+
 List of Abbreviations
+
 2-AG 2-Arachidonylglycerol
 5-HT2AR Serotonin 2A Receptor
 AI Artificial Intelligence
@@ -293,12 +290,8 @@ CHAPTER 1
 Introduction
 
 Contribution Statement
-The contents of this chapter are an expanded version of the previously published review article
-and book chapter “Computer modeling of allosteric modulators at G protein-coupled receptors”.
-1
-The entirety of the publication was written by Asher L. Brandt with guidance from Dr. Robert B.
-Laprairie. The present chapter was adapter and expanded to encompass the scope of the thesis. 
-2
+
+The contents of this chapter are an expanded version of the previously published review article and book chapter “Computer modeling of allosteric modulators at G protein-coupled receptors”.  1 The entirety of the publication was written by Asher L. Brandt with guidance from Dr. Robert B.  Laprairie. The present chapter was adapter and expanded to encompass the scope of the thesis.  2
 
 1.1 G Protein-Coupled Receptors
 
@@ -308,7 +301,7 @@ For this reason, approximately 35% of FDA-approved drugs target GPCRs. The human
 
 Figure 1-1. GPCR Structure. (a) Visualization of a GPCR. The perspective here is looking at the side of the GPCR from within the plasma membrane with a slight angle looking down from the extracellular surface. A defining feature of all GPCRs is having 7-Transmembrane helices.  Transmembrane helices are: I red, II orange, III green, IV pink, V blue, VI purple, and VII grey.  (b) Visualization of (a) rotated 180º.
 
-1.2 GPCR Intra-Cellular Signaling Cascades G proteins are a group of membrane resident proteins that recognize activated GPCRs and relay their messages allowing the bound ligand to produce a cellular effect. There are four main families of G proteins; Gs, Gi, Gq and G12/13.  While a GS G protein stimulates the activation of adenylate cyclase (AC) and thus the production of cAMP, a Gi G protein inhibits the production of AC and thus the production of cAMP.  AC is a membrane bound enzyme activated by Gs and inhibited by Gi.  When activated, AC catalyzes the conversion of adenosine triphosphate (ATP) to cyclic adenosine monophosphate (cAMP). cAMP activates cAMP-dependent protein kinases, and these kinases cause phosphorylation of certain enzymes specific to the agonist that bound to the receptor. In the phospholipase C pathway, when the agonist binds to the receptor it activates a Gq protein. Activated Gq protein then activates phospholipase. This enzyme catalyzes the cleavage of phosphatidylinositol bi-phosphate into Diacylglycerol (DAG) and Inositol triphosphate (IP3).  IP3 receptor which is a ligand calcium channel is located on the membrane of the ER.  Binding of IP3 with its receptor causes release of Ca2+ ions into the cytoplasm. Thus, the main goal of IP3 is to increase the cytosolic calcium ion concentration. Phosphorylation is an important factor in GPCR activation because, after phosphorylation occurs, scaffold proteins known as βarrestins bind to the phosphorylated GPCR to deactivate the receptor and allow for internalization and recycling.  CB1R is predominantly Gi-coupled, whereas 5-HT2aR is predominantly Gq-coupled.  Although both GPCRs are capable of engaging alternate signaling pathways such as G12/13, Gi- and Gq-dependent signaling remain the best-characterized and therefore most-amenable to high through-put screening. Consequently, G protein-dependent CB1R signaling can be measured by a decrease in the accumulation of cAMP, while 5-HT2AR can be measured by an increase in Ca2+ release from the endoplasmic reticulum.  Because both 5 receptors interact with βarrestins we can also measure a given ligand’s activity via an increase in βarrestin recruitment to the intracellular face of the receptor. Routinely used high-throughput in vitro assays have been developed to readily measure secondary messenger pathways including cAMP and Ca2+ or protein-protein interactions such as βarrestin recruitment that we can use to quantify ligand potency, efficacy, and cooperativity.  Although these intracellular signaling cascades are initiated upon a ligand binding to a GPCR, the activation is not equal and depends on which particular ligand binds, often referred to as ligand bias. The 2 major pathways of focus within the field of GPCR pharmacology are the G protein and the βarrestin pathway (Figure 1-2).  In some cases, these pathways are activated equally in which case the compound is called an unbiased agonist. As an example, the 5-HT2AR agonists lysergic acid diethylamide (LSD) and ergotamine activate βarrestin2 recruitment with greater potency and efficacy than Gq and are therefore considered to be βarrestin biased agonists.  An important consideration in GPCR pharmacology also pertains to the site at which a ligand binds to the GPCR. The conserved endogenous ligand of any GPCR always binds to a site called the orthosteric binding site. For CB1R this is 2-arachidonlyglycerol (2-AG) and non-orthosteric binding sites on GPCRs are referred to as allosteric binding sites. The most notable allosteric ligand amongst all GPCRs is cholesterol.   Allosteric ligands have received much investigation in the past 15 years because they offer several potential advantages over orthosteric ligands, including greater receptor subtype selectivity because allosteric sites are less evolutionaryconserved than orthosteric sites; and limited dependence, tolerance, or abuse liability because the ligands may only be active in the presence of the endogenous orthosteric compound.  These ligands have the ability to promote endogenous receptor activation, but not direct activation compared to an orthosteric ligand.  Allosteric modulators may be positive allosteric modulators 6 (PAMs) or negative allosteric modulators (NAMs).  A PAM may enhance the affinity, potency, and/or efficacy of the primary ligand whereas a NAM may reduce the affinity, potency, and/or efficacy of the primary ligand.
+1.2 GPCR Intra-Cellular Signaling Cascades G proteins are a group of membrane resident proteins that recognize activated GPCRs and relay their messages allowing the bound ligand to produce a cellular effect. There are four main families of G proteins; Gs, Gi, Gq and G12/13.  While a GS G protein stimulates the activation of adenylate cyclase (AC) and thus the production of cAMP, a Gi G protein inhibits the production of AC and thus the production of cAMP.  AC is a membrane bound enzyme activated by Gs and inhibited by Gi.  When activated, AC catalyzes the conversion of adenosine triphosphate (ATP) to cyclic adenosine monophosphate (cAMP). cAMP activates cAMP-dependent protein kinases, and these kinases cause phosphorylation of certain enzymes specific to the agonist that bound to the receptor. In the phospholipase C pathway, when the agonist binds to the receptor it activates a Gq protein. Activated Gq protein then activates phospholipase. This enzyme catalyzes the cleavage of phosphatidylinositol bi-phosphate into Diacylglycerol (DAG) and Inositol triphosphate (IP3).  IP3 receptor which is a ligand calcium channel is located on the membrane of the ER.  Binding of IP3 with its receptor causes release of Ca2+ ions into the cytoplasm. Thus, the main goal of IP3 is to increase the cytosolic calcium ion concentration. Phosphorylation is an important factor in GPCR activation because, after phosphorylation occurs, scaffold proteins known as βarrestins bind to the phosphorylated GPCR to deactivate the receptor and allow for internalization and recycling.  CB1R is predominantly Gi-coupled, whereas 5-HT2aR is predominantly Gq-coupled.  Although both GPCRs are capable of engaging alternate signaling pathways such as G12/13, Gi- and Gq-dependent signaling remain the best-characterized and therefore most-amenable to high through-put screening. Consequently, G protein-dependent CB1R signaling can be measured by a decrease in the accumulation of cAMP, while 5-HT2AR can be measured by an increase in Ca2+ release from the endoplasmic reticulum.  Because both receptors interact with βarrestins we can also measure a given ligand’s activity via an increase in βarrestin recruitment to the intracellular face of the receptor. Routinely used high-throughput in vitro assays have been developed to readily measure secondary messenger pathways including cAMP and Ca2+ or protein-protein interactions such as βarrestin recruitment that we can use to quantify ligand potency, efficacy, and cooperativity.  Although these intracellular signaling cascades are initiated upon a ligand binding to a GPCR, the activation is not equal and depends on which particular ligand binds, often referred to as ligand bias. The 2 major pathways of focus within the field of GPCR pharmacology are the G protein and the βarrestin pathway (Figure 1-2).  In some cases, these pathways are activated equally in which case the compound is called an unbiased agonist. As an example, the 5-HT2AR agonists lysergic acid diethylamide (LSD) and ergotamine activate βarrestin2 recruitment with greater potency and efficacy than Gq and are therefore considered to be βarrestin biased agonists.  An important consideration in GPCR pharmacology also pertains to the site at which a ligand binds to the GPCR. The conserved endogenous ligand of any GPCR always binds to a site called the orthosteric binding site. For CB1R this is 2-arachidonlyglycerol (2-AG) and non-orthosteric binding sites on GPCRs are referred to as allosteric binding sites. The most notable allosteric ligand amongst all GPCRs is cholesterol.   Allosteric ligands have received much investigation in the past 15 years because they offer several potential advantages over orthosteric ligands, including greater receptor subtype selectivity because allosteric sites are less evolutionaryconserved than orthosteric sites; and limited dependence, tolerance, or abuse liability because the ligands may only be active in the presence of the endogenous orthosteric compound.  These ligands have the ability to promote endogenous receptor activation, but not direct activation compared to an orthosteric ligand.  Allosteric modulators may be positive allosteric modulators 6 (PAMs) or negative allosteric modulators (NAMs).  A PAM may enhance the affinity, potency, and/or efficacy of the primary ligand whereas a NAM may reduce the affinity, potency, and/or efficacy of the primary ligand.
 
 Figure 1-2. Ligand Bias. Upon ligand binding intracellular cascades are activated of which the G protein and βarrestin pathways are the best-characterized. Because these pathways are typically activated unequally one pathway will predominate similar to 2 people of different weights on a seesaw. The predominance of one pathway relative to another is often described as ligand bias.
 
@@ -318,28 +311,7 @@ Although there are 6 classes of GPCRs, we will only focus on class A GPCRs becau
 
 1.4 Cannabinoid Receptor Type 1
 
-The type 1 cannabinoid receptor (CB1R) is a class A GPCR encoded by the CNR1 gene in
-humans.
-41 Specifically, CB1R is expressed in the peripheral nervous system (PNS) and central
-nervous system (CNS) of mammals and is involved in neuromodulatory processes.
-41 Although
-CB1R is expressed in both the CNS and PNS it has higher concentrations in the CNS specifically
-within the hippocampus, basal ganglia, cerebellum, neocortex and spine.
-41 Within these systems
-CB1R is found on pre-synaptic axon terminals of both glutamatergic and GABAergic neurons
-where activation of the receptor by endogenous cannabinoids limits further synaptic transmission
-from the pre-synaptic neuron.
-42 Under the current model, the endogenous cannabinoids 2-
-arachodinylgylcerol (2-AG) and anandamide (AEA) are synthesized from membrane associated 
-9
-lipid precursors on demand in response to physiological stimuli such as membrane depolarization
-in the post-synaptic neuron and travel in a retrograde manner to the pre-synaptic neuron to facilitate
-this CB1R-mediated and stimulus-dependent suppression of neurotransmitter release.
-43 In
-mammals CB1R orthosteric activation by exogenous cannabinoids such as Δ
-9
--
-tetrahydrocannabinol (THC) and CP55,940 lead to decreased movement, anti-nociception and a decrease in body temperature accompanied by intoxication.  44 On the other hand, the endocannabinoid AEA does not produce intoxication but rather reduces pain, anxiety and stress.  45 CB1R is comprised of 472 amino acids and there are 8 published crystal structures for the receptor available on the protein data bank.  46,47,48,49,50,51,48,52 In their inactive states, both CB1R and CB2R contain a salt bridge between D6.30 and R3.50.  53 Upon agonist binding, receptor activation occurs via a conformational rearrangement of W6.48 and F3.36 which consequently breaks the salt bridge.  53 This salt bridge is thought to keep both CB1R and CB2R in their inactive states and the breaking of this lock is hypothesized to activate the receptor putting it in an agonist conformation.  In terms of critical residues in the orthosteric binding pocket, mutagenesis studies have shown that S3837.39A mutation drastically reduces (50 – 100 fold) the affinity of both AM4056 and HU210.  54 This is due to the loss of a H-bond when the serine is mutated to an alanine. This residue is conserved in CB2R; thus this H-bond appear to be critical for activity in both receptors.  CB1R has gained much interest within the past few years because it is the receptor that mediates the intoxicating effects of THC from the Cannabis sativa plant. Beyond THC, Cannabis sativa may produce upwards of 500 other phytocannabinoids of which approximately 120 have been identified.  55 The discovery of naturally-occurring plant cannabinoids and the development of novel synthetic cannabinoids that target CB1R both represent important pursuits for novel therapeutics 10 in the contexts of pain, psychiatric conditions, neurodegenerative diseases, and metabolic disorders.
+The type 1 cannabinoid receptor (CB1R) is a class A GPCR encoded by the CNR1 gene in humans.  41 Specifically, CB1R is expressed in the peripheral nervous system (PNS) and central nervous system (CNS) of mammals and is involved in neuromodulatory processes.  41 Although CB1R is expressed in both the CNS and PNS it has higher concentrations in the CNS specifically within the hippocampus, basal ganglia, cerebellum, neocortex and spine.  41 Within these systems CB1R is found on pre-synaptic axon terminals of both glutamatergic and GABAergic neurons where activation of the receptor by endogenous cannabinoids limits further synaptic transmission from the pre-synaptic neuron.  42 Under the current model, the endogenous cannabinoids 2- arachodinylgylcerol (2-AG) and anandamide (AEA) are synthesized from membrane associated 9 lipid precursors on demand in response to physiological stimuli such as membrane depolarization in the post-synaptic neuron and travel in a retrograde manner to the pre-synaptic neuron to facilitate this CB1R-mediated and stimulus-dependent suppression of neurotransmitter release.  43 In mammals CB1R orthosteric activation by exogenous cannabinoids such as Δ 9-tetrahydrocannabinol (THC) and CP55,940 lead to decreased movement, anti-nociception and a decrease in body temperature accompanied by intoxication.  44 On the other hand, the endocannabinoid AEA does not produce intoxication but rather reduces pain, anxiety and stress.  45 CB1R is comprised of 472 amino acids and there are 8 published crystal structures for the receptor available on the protein data bank.  46,47,48,49,50,51,48,52 In their inactive states, both CB1R and CB2R contain a salt bridge between D6.30 and R3.50.  53 Upon agonist binding, receptor activation occurs via a conformational rearrangement of W6.48 and F3.36 which consequently breaks the salt bridge.  53 This salt bridge is thought to keep both CB1R and CB2R in their inactive states and the breaking of this lock is hypothesized to activate the receptor putting it in an agonist conformation.  In terms of critical residues in the orthosteric binding pocket, mutagenesis studies have shown that S3837.39A mutation drastically reduces (50 – 100 fold) the affinity of both AM4056 and HU210.  54 This is due to the loss of a H-bond when the serine is mutated to an alanine. This residue is conserved in CB2R; thus this H-bond appear to be critical for activity in both receptors.  CB1R has gained much interest within the past few years because it is the receptor that mediates the intoxicating effects of THC from the Cannabis sativa plant. Beyond THC, Cannabis sativa may produce upwards of 500 other phytocannabinoids of which approximately 120 have been identified.  55 The discovery of naturally-occurring plant cannabinoids and the development of novel synthetic cannabinoids that target CB1R both represent important pursuits for novel therapeutics 10 in the contexts of pain, psychiatric conditions, neurodegenerative diseases, and metabolic disorders.
 
 1.5 Cannabinoid Receptor Type 2
 
@@ -357,7 +329,15 @@ Computational modelling in pharmacology refers to the use of computers coupled w
 
 1.8 Objectives of This Research
 
-GPCRs continue to be among the leading class of protein targets for drug development. At the leading edge of this area is a need to understand previously poorly-characterized GPCRs that are the primary targets for controlled and prohibited substances, namely cannabinoids, and psychedelics. As the control status, legality, and medical access to cannabis and psychedelics continue to shift research is desperately needed to understand the potential harms and therapeutic utility of cannabinoids and psychedelics. In addition, the opportunity to develop allosteric ligands that target the cannabinoid receptor in particular may represent a means to bypass the undesirable effects of orthosteric ligands.  The long-term hypothesis of this research is that the cannabinoid and serotonin receptors are tractable therapeutic targets for the development of drugs for unmet clinical needs including pain, epilepsy, and anxiety. To this end, the overall objective of this research is to advance knowledge of these receptors’ fundamental structure-activity relationships through the use of in vitro and in silico computer modelling assays performed on CB1R, CB2R, and 5-HT2AR. The aims of this research were to understand (1) The SAR between compounds that separately bind CB1R, CB2R and 5-HT2AR; (2) How this SAR can be used to elucidate biased agonism at CB1R, CB2R and 5- HT2AR; and (3) How computational methodologies can be employed to explain pharmacological properties of these compounds.  Each chapter in this thesis represents work already published or under peer review. Although methodologies and approaches overlap between each individual study all methods have been included in order to illustrate key differences in technique and approach. Chapter 2 shows that enantiomerically separated compounds display a difference in pharmacology and binding sites on CB1R. Chapter 3 builds upon chapter 2 and shows that computational modelling can be used to 21 optimize ligands that bind to the CB1R ago-PAM site. Chapter 4 characterizes select synthetic cannabinoid receptor agonists at CB1R and CB2R. Chapter 5 characterizes NBOMe compounds at 5-HT2AR looking at the relationship in vitro and in silico of changing methoxy groups on the phenethylamine ring. Lastly chapter 6 summarizes the research provided and looks at philosophical considerations regarding this research.  22 CHAPTER 2 Pharmacological Evaluation of Enantiomerically Separated Positive Allosteric Modulators of Cannabinoid 1 Receptor, GAT591 and GAT593 Copyright statement This chapter is in review for publication. The manuscript has been modified to meet formatting requirements.  Contribution statement The manuscript used as the basis for this chapter was written by me – Asher Brandt – with guidance from Dr. Robert B. Laprairie. In silico and in vitro data were collected and analyzed by myself with technical assistance from Dr. Robert B. Laprairie and Dow P. Hurst (University of North Carolina, Greensboro). GTPS experiments were performed in the laboratory of Dr. Roger Pertwee (University of Aberdeen) and analyzed by Asher Brandt and Dr. Robert B. Laprairie. In vivo experiments were performed with the assistance of Ayat Zagzoog (University of Saskatchewan).
+GPCRs continue to be among the leading class of protein targets for drug development. At the leading edge of this area is a need to understand previously poorly-characterized GPCRs that are the primary targets for controlled and prohibited substances, namely cannabinoids, and psychedelics. As the control status, legality, and medical access to cannabis and psychedelics continue to shift research is desperately needed to understand the potential harms and therapeutic utility of cannabinoids and psychedelics. In addition, the opportunity to develop allosteric ligands that target the cannabinoid receptor in particular may represent a means to bypass the undesirable effects of orthosteric ligands.  The long-term hypothesis of this research is that the cannabinoid and serotonin receptors are tractable therapeutic targets for the development of drugs for unmet clinical needs including pain, epilepsy, and anxiety. To this end, the overall objective of this research is to advance knowledge of these receptors’ fundamental structure-activity relationships through the use of in vitro and in silico computer modelling assays performed on CB1R, CB2R, and 5-HT2AR. The aims of this research were to understand (1) The SAR between compounds that separately bind CB1R, CB2R and 5-HT2AR; (2) How this SAR can be used to elucidate biased agonism at CB1R, CB2R and 5- HT2AR; and (3) How computational methodologies can be employed to explain pharmacological properties of these compounds.  Each chapter in this thesis represents work already published or under peer review. Although methodologies and approaches overlap between each individual study all methods have been included in order to illustrate key differences in technique and approach. Chapter 2 shows that enantiomerically separated compounds display a difference in pharmacology and binding sites on CB1R. Chapter 3 builds upon chapter 2 and shows that computational modelling can be used to 21 optimize ligands that bind to the CB1R ago-PAM site. Chapter 4 characterizes select synthetic cannabinoid receptor agonists at CB1R and CB2R. Chapter 5 characterizes NBOMe compounds at 5-HT2AR looking at the relationship in vitro and in silico of changing methoxy groups on the phenethylamine ring. Lastly chapter 6 summarizes the research provided and looks at philosophical considerations regarding this research.  22 CHAPTER 2 Pharmacological Evaluation of Enantiomerically Separated Positive Allosteric Modulators of Cannabinoid 1 Receptor, GAT591 and GAT593
+
+Copyright statement
+
+This chapter is in review for publication. The manuscript has been modified to meet formatting requirements.
+
+Contribution statement
+
+The manuscript used as the basis for this chapter was written by me – Asher Brandt – with guidance from Dr. Robert B. Laprairie. In silico and in vitro data were collected and analyzed by myself with technical assistance from Dr. Robert B. Laprairie and Dow P. Hurst (University of North Carolina, Greensboro). GTPS experiments were performed in the laboratory of Dr. Roger Pertwee (University of Aberdeen) and analyzed by Asher Brandt and Dr. Robert B. Laprairie. In vivo experiments were performed with the assistance of Ayat Zagzoog (University of Saskatchewan).
  
 2.1 Introduction
 
@@ -3093,245 +3073,325 @@ The prevailing theory on psychedelics for quite some time now is that they elici
 Moore’s Law states that the number of transistors on a microchip doubles approximately every 2 years, though the cost of computers is halved. In the past 20 years the discipline of pharmacology has seen a widespread and growing adoption of in silico techniques to support in vitro and in vivo data 181 . With in this dissertation in silico computational modelling was able to accurately predict relative binding affinity and bias for CB1R, CB2R, and 5-HT2AR. The utilization of in silico analysis is a product of high-resolution x-ray/cryo-EM crystal structures of GPCRs coupled with the increasing power of central processing units (CPU)/graphics processing units (GPU’s). In 2020 the artificial intelligence (AI) algorithm AlphaFold v2.0 was launched. AlphaFold v2.0 uses AI to predict protein structures. While many researchers, including myself, can spot obvious issues with the predicted structures of which can be contrasted to experimentally determined structures on the protein data bank, it does bring about a future where in silico computational modelling is showing higher accuracy over time. Will we eventually get to a point in time where experimental pharmacology is replaced by in silico computational methods? Currently this is not a reality as we still need experimental pharmacology to prove the vast complex nature of in vitro and in vivo systems.
 
 References
+
 1. Brandt AL. Computer modeling of allosteric modulators at G protein-coupled receptors.
-Allosteric Modul G Protein-Coupled Recept. Published online 2022:31-46.
-doi:10.1016/b978-0-12-819771-4.00007-5
+Allosteric Modul G Protein-Coupled Recept. Published online 2022:31-46.  doi:10.1016/b978-0-12-819771-4.00007-5
+
 2. Goddard AD, Watts A. Regulation of G protein-coupled receptors by palmitoylation and
 cholesterol. BMC Biol. 2012;10:2-4. doi:10.1186/1741-7007-10-27
+
 3. Alhosaini K, Azhar A, Alonazi A, Al-Zoghaibi F. GPCRs: The most promiscuous druggable
 receptor of the mankind. Saudi Pharm J. 2021;29(6):539-551.
 doi:10.1016/j.jsps.2021.04.015
+
 4. Yang D, Zhou Q, Labroska V, et al. G protein-coupled receptors: structure- and functionbased drug discovery. Signal Transduct Target Ther. 2021;6(1). doi:10.1038/s41392-020-
 00435-w
+
 5. Hauser AS, Attwood MM, Rask-andersen M, Schiöth HB, Gloriam DE. Trends in GPCR
 drug discovery : new agents , targets and indications. Nat Publ Gr. 2017;16(12):829-842.
 doi:10.1038/nrd.2017.178
+
 6. Sriram K, Insel PA. G Protein-Coupled Receptors as Targets for Approved Drugs : How
 Many Targets and How Many Drugs? 2018;(April):251-258. doi:10.1124/mol.117.111062
+
 7. Dziedzic A, Miller E, Saluk-Bijak J, Bijak M. The gpr17 receptor—a promising goal for
 therapy and a potential marker of the neurodegenerative process in multiple sclerosis. Int J
 Mol Sci. 2020;21(5). doi:10.3390/ijms21051852
+
 8. Wheatley M, Wootten D, Conner MT, et al. Lifting the lid on GPCRs: The role of 
 154
 extracellular loops. Br J Pharmacol. 2012;165(6):1688-1703. doi:10.1111/j.1476-
 5381.2011.01629.x
+
 9. Hilger D, Masureel M, Kobilka BK, Struct N, Biol M. Structure and dynamics of GPCR
 signaling complexes HHS Public Access Author manuscript. Nat Struct Mol Biol.
 2018;25(1):4-12. doi:10.1038/s41594-017-0011-7.Structure
+
 10. Blakeney JS, Reid RC, Le GT, Fairlie DP. Nonpeptidic ligands for peptide-activated G
 protein-coupled receptors. Chem Rev. 2007;107(7):2960-3041. doi:10.1021/cr050984g
+
 11. Caron A, Reynolds RP, Castorena CM, et al. Adipocyte Gs but not Gi signaling regulates
 whole-body glucose homeostasis. Mol Metab. 2019;27(June):11-21.
 doi:10.1016/j.molmet.2019.06.019
+
 12. Lazar AM, Irannejad R, Baldwin TA, et al. G protein-regulated endocytic trafficking of
 adenylyl cyclase type 9. Elife. 2020;9:1-24. doi:10.7554/eLife.58039
+
 13. Taussig R, Tang WJ, Hepler JR, Gilman AG. Distinct patterns of bidirectional regulation
 of mammalian adenylyl cyclases. J Biol Chem. 1994;269(8):6093-6100.
 doi:10.1016/s0021-9258(17)37574-9
+
 14. Khrenova MG, Kulakova AM, Nemukhin A V. Light-Induced Change of Arginine
 Conformation Modulates the Rate of Adenosine Triphosphate to Cyclic Adenosine
 Monophosphate Conversion in the Optogenetic System Containing Photoactivated
 Adenylyl Cyclase. J Chem Inf Model. 2021;61(3):1215-1225.
 doi:10.1021/acs.jcim.0c01308
+
 15. Cheng X, Ma Y, Moore M, Hemmings BA, Taylor SS. Phosphorylation and activation of 
 155
 cAMP-dependent protein kinase by phosphoinositide-dependent protein kinase. Proc Natl
 Acad Sci U S A. 1998;95(17):9849-9854. doi:10.1073/pnas.95.17.9849
+
 16. Litosch I. Novel mechanisms for feedback regulation of phospholipase C-β activity. IUBMB
 Life. 2002;54(5):253-260. doi:10.1080/15216540215673
+
 17. Sternweis PC, Smrcka A V. Regulation of phospholipase C by G proteins. Trends Biochem
 Sci. 1992;17(12):502-506. doi:10.1016/0968-0004(92)90340-F
+
 18. Kadamur G, Ross EM. Mammalian phospholipase C. Annu Rev Physiol. 2013;75:127-154.
 doi:10.1146/annurev-physiol-030212-183750
+
 19. Hanson CJ, Bootman MD, Roderick HL. Cell signalling: IP3 receptors channel calcium into
 cell death. Curr Biol. 2004;14(21):933-935. doi:10.1016/j.cub.2004.10.019
+
 20. Prole DL, Taylor CW. Structure and function of ip3 receptors. Cold Spring Harb Perspect
 Biol. 2019;11(4). doi:10.1101/cshperspect.a035063
+
 21. Zayzafoon M. Calcium/calmodulin signaling controls osteoblast growth and differentiation.
 J Cell Biochem. 2006;97(1):56-70. doi:10.1002/jcb.20675
+
 22. Receptor O, Proteins I. Opioid receptor interacting proteins and the control of opioid
 signaling. 2019;19(42):734-763. doi:10.2174/138161281942140105160625.Opioid
+
 23. Fong TM. Measurement of Inverse Agonism of the Cannabinoid Receptors. Vol 485.
 Elsevier Inc.; 2010. doi:10.1016/B978-0-12-381296-4.00008-7
+
 24. Dunn HA, Stephen Ferguson SS. Regulation of CRFR1 and 5-HT2AR by PDZ DomainContaining Proteins SAP97 and PSD-95 Recommended Citation. Published online 2014.
 https://ir.lib.uwo.ca/etd
 156
+
 25. Viñals X, Moreno E, Lanfumey L, et al. Cognitive impairment induced by delta9-
-tetrahydrocannabinol occurs through heteromers between cannabinoid CB1 and serotonin
-5-HT2A receptors. PLoS Biol. 2015;13(7):1-40. doi:10.1371/journal.pbio.1002194
+tetrahydrocannabinol occurs through heteromers between cannabinoid CB1 and serotonin 5-HT2A receptors. PLoS Biol. 2015;13(7):1-40. doi:10.1371/journal.pbio.1002194
+
 26. Hauser MA, Legler DF. Common and biased signaling pathways of the chemokine receptor
-CCR7 elicited by its ligands CCL19 and CCL21 in leukocytes. J Leukoc Biol.
-2016;99(6):869-882. doi:10.1189/jlb.2mr0815-380r
+CCR7 elicited by its ligands CCL19 and CCL21 in leukocytes. J Leukoc Biol.  2016;99(6):869-882. doi:10.1189/jlb.2mr0815-380r
+
 27. Piekielna-Ciesielska J, Artali R, Azzam AAH, et al. Pharmacological characterization of µopioid receptor agonists with biased g protein or β-arrestin signaling, and computational
-study of conformational changes during receptor activation. Molecules. 2021;26(1).
-doi:10.3390/MOLECULES26010013
+study of conformational changes during receptor activation. Molecules. 2021;26(1).  doi:10.3390/MOLECULES26010013
+
 28. Kolb P, Kenakin T, Alexander SPH, et al. Community Guidelines for GPCR Ligand Bias:
 IUPHAR Review XX. Br J Pharmacol. 2022;(August 2021):1-24. doi:10.1111/bph.15811
+
 29. Kim K, Che T, Panova O, et al. Structure of a Hallucinogen-Activated Gq-Coupled 5-HT2A
 Serotonin Receptor. Cell. 2020;182(6):1574-1588.e19. doi:10.1016/j.cell.2020.08.024
+
 30. Burford NT, Traynor JR, Alt A. Positive allosteric modulators of the μ-opioid receptor: A
-novel approach for future pain medications. Br J Pharmacol. 2015;172(2):277-286.
-doi:10.1111/bph.12599
+novel approach for future pain medications. Br J Pharmacol. 2015;172(2):277-286.  doi:10.1111/bph.12599
+
 31. Christopoulos A. Allosteric binding sites on cell-surface receptors: Novel targets for drug
 discovery. Nat Rev Drug Discov. 2002;1(3):198-210. doi:10.1038/nrd746
+
 32. van Aalst E, Wylie BJ. Cholesterol Is a Dose-Dependent Positive Allosteric Modulator of
 CCR3 Ligand Affinity and G Protein Coupling. Front Mol Biosci. 2021;8(August):1-14. 
 157
 doi:10.3389/fmolb.2021.724603
+
 33. Chen Y, Nong Y, Goudet C, et al. Interaction of novel positive allosteric modulators of
 metabotropic glutamate receptor 5 with the negative allosteric antagonist site is required for
 potentiation of receptor responses. Mol Pharmacol. 2007;71(5):1389-1398.
 doi:10.1124/mol.106.032425
+
 34. Koole C, Wootten D, Simms J, et al. Allosteric ligands of the glucagon-like peptide 1
 receptor (GLP-1R) differentially modulate endogenous and exogenous peptide responses in
 a pathway-selective manner: Implications for drug screening. Mol Pharmacol.
 2010;78(3):456-465. doi:10.1124/mol.110.065664
+
 35. Abdel-Magid AF. Allosteric Modulators: An Emerging Concept in Drug Discovery. ACS
 Med Chem Lett. 2015;6(2):104-107. doi:10.1021/ml5005365
+
 36. Wood MR, Hopkins CR, Brogan JT, Je P, Lindsley CW. “ Molecular Switches ” on mGluR
 Allosteric Ligands That Modulate Modes of Pharmacology. Published online 2011:2403-
 2410. doi:10.1021/bi200129s
+
 37. López-Rodríguez ML, Benhamú B, Vázquez-Villa H. Allosteric Modulators Targeting
 GPCRs.; 2019. doi:10.1016/B978-0-12-816228-6.00011-8
+
 38. Han Y, Shang Y, Herbst JJ, Connell JO. Positive Allosteric Modulators of the δ -Opioid
 Receptor. J Med Chem. 2016;58(10):4220-4229.
 doi:10.1021/acs.jmedchem.5b00007.Notes
+
 39. Kenakin T, Strachan RT. PAM-Antagonists: A Better Way to Block Pathological Receptor
 Signaling? Trends Pharmacol Sci. 2018;39(8):748-765. doi:10.1016/j.tips.2018.05.001
 158
+
 40. Wu Y, Tong J, Ding K, Zhou Q, Zhao S. GPCR Allosteric Modulator Discovery. Vol 1163.;
 2019. doi:10.1007/978-981-13-8719-7_10
+
 41. Zou S, Kumar U. Cannabinoid receptors and the endocannabinoid system: Signaling and
 function in the central nervous system. Int J Mol Sci. 2018;19(3).
 doi:10.3390/ijms19030833
+
 42. Kim J, Alger BE. Reduction in endocannabinoid tone is a homeostatic mechanism for
 specific inhibitory synapses. Nat Neurosci. 2010;13(5):592-600. doi:10.1038/nn.2517
+
 43. Navarrete F, García-Gutiérrez MS, Jurado-Barba R, et al. Endocannabinoid System
 Components as Potential Biomarkers in Psychiatry. Front Psychiatry. 2020;11(April):1-30.
 doi:10.3389/fpsyt.2020.00315
+
 44. Trexler KR, Trexler KR, Virginia W. Acute and Repeated Effects of Synthetic Cannabinoid
 Agonism and Cannabinoid Receptor 1 Positive Allosteric Modulation and Cannabinoid
 Receptor 1 Positive Allosteric Modulation Department of Psychology. Published online
 2019.
+
 45. Volkow ND, Hampson AJ, Baler RD. Don’t Worry, Be Happy: Endocannabinoids and
 Cannabis at the Intersection of Stress and Reward. Annu Rev Pharmacol Toxicol.
 2017;57(June 2016):285-308. doi:10.1146/annurev-pharmtox-010716-104615
+
 46. Wang X, Liu D, Shen L, et al. A Genetically Encoded F-19 NMR Probe Reveals the
 Allosteric Modulation Mechanism of Cannabinoid Receptor 1. J Am Chem Soc.
 2021;143(40):16320-16325. doi:10.1021/jacs.1c06847
+
 47. Shao Z, Yan W, Chapman K, et al. Structure of an allosteric modulator bound to the CB1 
 159
 cannabinoid receptor. Nat Chem Biol. 2019;15(12):1199-1205. doi:10.1038/s41589-019-
 0387-2
+
 48. Hua T, Vemuri K, Nikas SP, et al. Crystal structures of agonist-bound human cannabinoid
 receptor CB 1. Nature. 2017;547(7664):468-471. doi:10.1038/nature23272
+
 49. Shao Z, Yin J, Chapman K, et al. High-resolution crystal structure of the human CB1
 cannabinoid receptor. Nature. 2016;540(7634):602-606. doi:10.1038/nature20613
+
 50. Hua T, Li X, Wu L, et al. Activation and Signaling Mechanism Revealed by Cannabinoid
 Receptor-Gi Complex Structures. Cell. 2020;180(4):655-665.e18.
 doi:10.1016/j.cell.2020.01.008
+
 51. Krishna Kumar K, Shalev-Benami M, Robertson MJ, et al. Structure of a Signaling
 Cannabinoid Receptor 1-G Protein Complex. Cell. 2019;176(3):448-458.e12.
 doi:10.1016/j.cell.2018.11.040
+
 52. Andrzejewska A, Staszak K, Kaczmarek-Ryś M, Słomski R, Hryhorowicz S.
 Understanding cannabinoid receptors: structure and function. Folia Biol Oecologica.
 2018;14:1-13. doi:10.1515/fobio-2017-0004
+
 53. Nebane NM, Kellie B, Song ZH. The effects of charge-neutralizing mutation D6.30N on
 the functions of CB1 and CB2 cannabinoid receptors. FEBS Lett. 2006;580(22):5392-5398.
 doi:10.1016/j.febslet.2006.09.001
+
 54. Kapur A, Hurst DP, Fleischer D, et al. Mutation studies of Ser7.39 and Ser2.60 in the human
 CB1 cannabinoid receptor: Evidence for a serine-induced bend in CB1 transmembrane helix
 7. Mol Pharmacol. 2007;71(6):1512-1524. doi:10.1124/mol.107.034645
 160
+
 55. Lafaye G, Karila L, Blecha L, Benyamina A. Cannabis, cannabinoids, and health. Dialogues
 Clin Neurosci. 2017;19(3):309-316. doi:10.31887/dcns.2017.19.3/glafaye
+
 56. Marcu J, Console-Bram L, Abood ME. Current cannabinoid receptor nomenclature and
 pharmacological principles. Endocannabinoid Regul Monoamines Psychiatr Neurol
 Disord. Published online 2013:25-54. doi:10.1007/978-1-4614-7940-6_3
+
 57. Brutlag A, Hommerding H. Toxicology of Marijuana, Synthetic Cannabinoids, and
 Cannabidiol in Dogs and Cats. Vet Clin North Am - Small Anim Pract. 2018;48(6):1087-
 1102. doi:10.1016/j.cvsm.2018.07.008
+
 58. Yu H, Liu X, Chen B, et al. The neuroprotective effects of the cb2 agonist gw842166x in
 the 6-ohda mouse model of parkinson’s disease. Cells. 2021;10(12):1-17.
 doi:10.3390/cells10123548
+
 59. Xing C, Zhuang Y, Xu TH, et al. Cryo-EM Structure of the Human Cannabinoid Receptor
 CB2-Gi Signaling Complex. Cell. 2020;180(4):645-654.e13.
 doi:10.1016/j.cell.2020.01.007
+
 60. Cabral GA, Griffin-Thomas LT. Emerging role of the cannabinoid receptor CB 2 in immune
 regulation: Therapeutic prospects for neuroinflammation. Expert Rev Mol Med.
 2009;11(804):1-31. doi:10.1017/S1462399409000957
+
 61. Li X, Hua T, Vemuri K, et al. Crystal Structure of the Human Cannabinoid Receptor CB2.
 Cell. 2019;176(3):459-467.e13. doi:10.1016/j.cell.2018.12.011
+
 62. Millan MJ, Marin P, Bockaert J, Mannoury la Cour C. Signaling at G-protein-coupled
 serotonin receptors: recent advances and future research directions. Trends Pharmacol Sci. 
 161
 2008;29(9):454-464. doi:10.1016/j.tips.2008.06.007
+
 63. Chi T, Gold JA. A review of emerging therapeutic potential of psychedelic drugs in the
 treatment of psychiatric illnesses. J Neurol Sci. 2020;411(November 2019):116715.
 doi:10.1016/j.jns.2020.116715
+
 64. Kelmendi B, Kaye AP, Pittenger C, Kwan AC. Psychedelics. Curr Biol. 2022;32(2):R63-
 R67. doi:10.1016/j.cub.2021.12.009
+
 65. Pompeiano M, Palacios JM, Mengod G. Distribution of the serotonin 5-HT2 receptor family
 mRNAs: comparison between 5-HT2A and 5-HT2C receptors. Mol Brain Res. 1994;23(1-
 2):163-178. doi:10.1016/0169-328X(94)90223-2
+
 66. Vollenweider FX, Vollenweider-Scherpenhuyzen MFI, Bäbler A, Vogel H, Hell D.
 Psilocybin induces schizophrenia-like psychosis in humans via a serotonin-2 agonist action.
 Neuroreport. 1998;9(17):3897-3902. doi:10.1097/00001756-199812010-00024
+
 67. Halberstadt AL, Nichols DE, Vollenweider FX. Behavioral Neurobiology of Psychedelic
 Drugs. Vol 2.; 2017. http://www.springer.com/series/7854
+
 68. Braden MR, Nichols DE. Assessment of the roles of serines 5.43(239) and 5.46(242) for
 binding and potency of agonist ligands at the human serotonin 5-HT2A receptor. Mol
 Pharmacol. 2007;72(5):1200-1209. doi:10.1124/mol.107.039255
+
 69. Dong C, Ly C, Dunlap LE, et al. Psychedelic-inspired drug discovery using an engineered
 biosensor. Cell. 2021;184(10):2779-2792.e18. doi:10.1016/j.cell.2021.03.043
+
 70. Cao D, Yu J, Wang H, et al. Structure-based discovery of nonhallucinogenic psychedelic
 analogs. Science (80- ). 2022;375(6579):403-411. doi:10.1126/science.abl8615
 162
+
 71. Wacker D, Wang S, McCorvy JD, et al. Crystal Structure of an LSD-Bound Human
 Serotonin Receptor. Cell. 2017;168(3):377-389.e12. doi:10.1016/j.cell.2016.12.033
+
 72. Sliwoski G, Kothiwale S, Meiler J, Lowe EW. Computational methods in drug discovery.
 Pharmacol Rev. 2014;66(1):334-395. doi:10.1124/pr.112.007336
+
 73. Rasmussen SGF, Choi HJ, Rosenbaum DM, et al. Crystal structure of the human β2
 adrenergic G-protein-coupled receptor. Nature. 2007;450(7168):383-387.
 doi:10.1038/nature06325
+
 74. Palczewski K, Kumasaka T, Hori T, et al. Crystal structure of rhodopsin: A G proteincoupled receptor. Science (80- ). 2000;289(5480):739-745.
 doi:10.1126/science.289.5480.739
+
 75. Singh KD, Karnik SS. Current Trends in GPCR Allostery. J Membr Biol. 2021;254(3):293-
 300. doi:10.1007/s00232-020-00167-6
+
 76. Lu D, Immadi SS, Wu Z, Kendall DA. Translational potential of allosteric modulators
 targeting the cannabinoid CB 1 receptor. Acta Pharmacol Sin. 2019;40(3):324-335.
 doi:10.1038/s41401-018-0164-x
+
 77. Alaverdashvili M, Laprairie RB, Alaverdashvili M, Laprairie RB. The future of type 1
 cannabinoid receptor allosteric ligands. Drug Metab Rev. 2018;0(0):14-25.
 doi:10.1080/03602532.2018.1428341
+
 78. Ahn KH, Mahmoud MM, Kendall DA. Allosteric modulator ORG27569 induces CB1
 cannabinoid receptor high affinity agonist binding state, receptor internalization, and Gi
 protein-independent ERK1/2 kinase activation. J Biol Chem. 2012;287(15):12070-12082. 
 163
 doi:10.1074/jbc.M111.316463
+
 79. Robert B. Laprairie, Abhijit R. Kulkarni, Pushkar M. Kulkarni, Dow P. Hurst, Diane Lynch,
 Patricia H. Reggio, David R. Janero, Roger G. Pertwee LA, Stevenson, Melanie E. M.
 Kelly, Eileen M. Denovan-Wrigh and GAT. Mapping Cannabinoid 1 Receptor Allosteric
 Site(s): Critical Molecular Determinant and Signaling Profile of GAT100, a Novel, Potent,
 and Irreversibly Binding Probe. Vol 176.; 2016.
 doi:10.1021/acschemneuro.6b00041.Mapping
+
 80. Weichert D, Gmeiner P. Covalent Molecular Probes for Class A G Protein-Coupled
 Receptors: Advances and Applications. ACS Chem Biol. 2015;10(6):1376-1386.
 doi:10.1021/acschembio.5b00070
+
 81. Laprairie RB, Bagher AM, Rourke JL, et al. Positive allosteric modulation of the type 1
 cannabinoid receptor reduces the signs and symptoms of Huntington’s disease in the R6/2
 mouse model. Neuropharmacology. 2019;151(May 2018):1-12.
 doi:10.1016/j.neuropharm.2019.03.033
+
 82. Laprairie RB, Kulkarni PM, Deschamps JR, et al. Enantiospecific Allosteric Modulation of
 Cannabinoid 1 Receptor. ACS Chem Neurosci. 2017;8(6):1188-1203.
 doi:10.1021/acschemneuro.6b00310
+
 83. Hurst DP, Garai S, Kulkarni PM, Schaffer PC, Reggio PH, Thakur GA. Identification of
 cb1 receptor allosteric sites using force-biased mmc simulated annealing and validation by
 structure-activity relationship studies. ACS Med Chem Lett. 2019;10(8):1216-1221.
 doi:10.1021/acsmedchemlett.9b00256
+
 84. Mouslech Z, Valla V. Endocannabinoid system: An overview of its potential in current 
 164
 medical practice. Neuroendocrinol Lett. 2009;30(2):153-179.
+
 85. Of S, Neurobiological THE, Involved M, The IN, Eating DOF, Disorders A. Study of the
 neurobiological mechanisms involved in the development of eating and addictive disorders.
 Published online 2017.
@@ -3493,7 +3553,7 @@ CB1 Receptor GI Signaling by. Published online 2020.
 membrane receptors : Internalized activation. Pharmacol Ther. 2022;233(49):108018.
 doi:10.1016/j.pharmthera.2021.108018
 138. Bouvier M, Bouvier M, Bouvier M, et al. Quantification of Ligand Bias for Clinically
-Relevant 2-Adrenergic Receptor Ligands : Implications for Drug Taxo ... Related papers
+Relevant 2-Adrenergic Receptor Ligands : Implications for Drug Taxo . Related papers
 Quantification of Ligand Bias for Clinically Relevant Drug Taxonomy s.
 139. Zagzoog A, Mohamed KA, Kim HJJ, et al. In vitro and in vivo pharmacological activity of
 minor cannabinoids isolated from Cannabis sativa. Sci Rep. 2020;10(1):1-13.
